@@ -25,6 +25,8 @@ import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.ScreenUtils;
 import com.badlogic.gdx.utils.TimeUtils;
 import com.gruppo3.game.MyGame;
+import com.gruppo3.game.controller.PlayerMovementController;
+import com.gruppo3.game.model.Player;
 
 public class TestScreen implements Screen {
 
@@ -35,9 +37,9 @@ public class TestScreen implements Screen {
 
     Texture playerImage;
     OrthographicCamera camera;
-    Rectangle player;
+    PlayerMovementController playerMovementController = new PlayerMovementController();
 
-    float playerSpeed = 300f;
+
 
     public TestScreen(final MyGame game) {
         this.game = game;
@@ -45,19 +47,10 @@ public class TestScreen implements Screen {
         world = new World(new Vector2(0, -10), true);
         debugRenderer = new Box2DDebugRenderer();
         // load the images for the droplet and the player, 64x64 pixels each
-        playerImage = new Texture("player.png");
 
         // create the camera and the SpriteBatch
         camera = new OrthographicCamera();
         camera.setToOrtho(false, 1920, 1080);
-
-        // create a Rectangle to logically represent the player
-        player = new Rectangle();
-        player.x = 1920 / 2 - 64 / 2; // center the player horizontally
-        player.y = 1080 / 2 - 64 / 2; // bottom left corner of the player is 20 pixels above
-        // the bottom screen edge
-        player.width = 64;
-        player.height = 64;
 
         // First we create a body definition
         BodyDef bodyDef = new BodyDef();
@@ -107,29 +100,19 @@ public class TestScreen implements Screen {
         // begin a new batch and draw the player and
         // all drops
         game.batch.begin();
-        game.batch.draw(playerImage, player.x, player.y, player.width, player.height);
+
+        playerMovementController.updateInput();
+
+        game.batch.draw(playerMovementController.player.getPlayerImage(),
+                playerMovementController.player.getPlayerBox().x,
+                playerMovementController.player.getPlayerBox().y,
+                playerMovementController.player.getPlayerBox().width,
+                playerMovementController.player.getPlayerBox().height
+        );
 
         game.batch.end();
 
-        if (Gdx.input.isKeyPressed(Keys.LEFT))
-            player.x -= playerSpeed * Gdx.graphics.getDeltaTime();
-        if (Gdx.input.isKeyPressed(Keys.RIGHT))
-            player.x += playerSpeed * Gdx.graphics.getDeltaTime();
-        if (Gdx.input.isKeyPressed((Keys.UP))) {
-            player.y += playerSpeed * Gdx.graphics.getDeltaTime();
-        }
-        if (Gdx.input.isKeyPressed((Keys.DOWN))) {
-            player.y -= playerSpeed * Gdx.graphics.getDeltaTime();
-        }
-
-        // make sure the player stays within the screen bounds
-        if (player.x < 0)
-            player.x = 0;
-        if (player.x > 1920 - 64)
-            player.x = 1920 - 64;
-
         world.step(1 / 60f, 6, 2);
-
     }
 
     @Override
