@@ -3,12 +3,17 @@ package com.gruppo3.game.screens;
 import java.util.Iterator;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Input;
+import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.maps.tiled.TiledMap;
+import com.badlogic.gdx.maps.tiled.TmxMapLoader;
+import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
@@ -36,9 +41,10 @@ public class TestScreen implements Screen {
     Box2DDebugRenderer debugRenderer;
 
     Texture playerImage;
-    OrthographicCamera camera;
+    public static OrthographicCamera camera;
     PlayerMovementController playerMovementController = new PlayerMovementController();
-
+    public static TiledMap map;
+    OrthogonalTiledMapRenderer renderer;
 
 
     public TestScreen(final MyGame game) {
@@ -46,6 +52,9 @@ public class TestScreen implements Screen {
 
         world = new World(new Vector2(0, -10), true);
         debugRenderer = new Box2DDebugRenderer();
+
+        map = new TmxMapLoader().load("test.tmx");
+        renderer = new OrthogonalTiledMapRenderer(map);
         // load the images for the droplet and the player, 64x64 pixels each
 
         // create the camera and the SpriteBatch
@@ -89,7 +98,8 @@ public class TestScreen implements Screen {
         // blue and alpha component in the range [0,1]
         // of the color to be used to clear the screen.
         ScreenUtils.clear(1, 1, 1, 1);
-
+        renderer.setView(camera);
+        renderer.render();
         // tell the camera to update its matrices.
         camera.update();
 
@@ -140,5 +150,4 @@ public class TestScreen implements Screen {
     public void dispose() {
         playerImage.dispose();
     }
-
 }

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="32" height="32" tilewidth="32" tileheight="32" infinite="1" nextlayerid="2" nextobjectid="1">
+ <tileset firstgid="1" source="pippo.tsx"/>
+ <layer id="1" name="Livello tile 1" width="32" height="32">
+  <data encoding="base64" compression="zlib">
+   <chunk x="-16" y="-16" width="16" height="16">
+   eJwLY2BgCAfiCCAOI4OdDsQZQJxJJpscO0ftH7V/1H7K7IeZAwCcil9O
+  </chunk>
+   <chunk x="0" y="-16" width="16" height="16">
+   eJwLZ2BgiADiMCAOJ4OdAcSZQJxOJpscO0ftH7V/1H4EmxL7AbtiX3E=
+  </chunk>
+   <chunk x="-16" y="0" width="16" height="16">
+   eJwLY2BgCAfiCCAOI4GdDsQZSHQmmWxS7MTGHrV/1P5R+8m3HwAZ8V+S
+  </chunk>
+   <chunk x="0" y="0" width="16" height="16">
+   eJzLZGBgiADiMCAOJ4OdAcSZQJxOJpscO0ftH7V/1H7q2A8AB3Ffkw==
+  </chunk>
+  </data>
+ </layer>
+</map>
