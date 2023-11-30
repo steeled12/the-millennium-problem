@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="62" height="52" tilewidth="32" tileheight="32" infinite="0" nextlayerid="4" nextobjectid="22">
+<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="62" height="52" tilewidth="32" tileheight="32" infinite="0" nextlayerid="5" nextobjectid="22">
  <tileset firstgid="1" source="Interiors_free_32x32.tsx"/>
  <tileset firstgid="1425" source="Room_Builder_free_32x32.tsx"/>
  <layer id="1" name="Livello tile 1" width="62" height="52">
@@ -7,21 +7,23 @@
    eJzt1TEKAyEQBdBp3Nz/EDlBrrbpQ7o0ortFBsf34aNgMw9EzxbxXrh3046IY+Fyc3Nzc3Nnz87Nzc3Nzc3Nzc3NzZ09eyX3Y7LPmOs3K7lH56+Y60ru37V3VtU92ld29+49d033jvd8x3dt139sptXc/yo3Nzc3N3f27Nzc3Nzc3NzXkj13lltE6uYDgFLY3g==
   </data>
  </layer>
- <objectgroup id="2" name="Collisione">
+ <objectgroup color="#ff0000" id="2" name="Collisione">
   <object id="10" x="779.667" y="542.833" width="86" height="17">
    <text wrap="1">Ciao Mondo</text>
   </object>
-  <object id="16" x="1026" y="682" width="62" height="42"/>
-  <object id="17" x="1183.33" y="696" width="65.3333" height="56.6667"/>
-  <object id="18" x="1310.67" y="656" width="32" height="66"/>
-  <object id="19" x="1260.67" y="821.333" width="52" height="70.6667"/>
-  <object id="20" x="704" y="621.333" width="256.667" height="65.3333"/>
-  <object id="21" x="622" y="911.333" width="36" height="62.6667"/>
+  <object id="16" x="1026" y="705" width="62" height="19"/>
+  <object id="17" x="1183.33" y="713" width="65.3333" height="39.6667"/>
+  <object id="18" x="1310.67" y="702" width="32" height="20"/>
+  <object id="19" x="1260.67" y="836.333" width="52" height="55.6667"/>
+  <object id="20" x="704" y="655.333" width="256.667" height="31.3333"/>
+  <object id="21" x="622" y="950.333" width="36" height="23.6667"/>
  </objectgroup>
+ <layer id="4" name="Player" width="62" height="52">
+  <data encoding="base64" compression="zlib">
+   eJztwQEBAAAAgiD/r25IQAEAAAAAAAAAAAAAAPBsMmAAAQ==
+  </data>
+ </layer>
  <layer id="3" name="Livello tile 2" width="62" height="52">
-  <properties>
-   <property name="collisione" type="bool" value="true"/>
-  </properties>
   <data encoding="base64" compression="zlib">
    eJzt0zsuRFEAh/FjnMJjAx4rsQBCaAkhOhoyJQVRUrADGgkLECzAq2IH7IAFeDQ+QUbmDu4kZsac+/2SL5Nz7xTnX9wQJEmSJEmSpP9rPIYwQWu0HrPnVM2ybY62aSdmz/WY72zMHRthiW3LtEt7MXv+tMKm1apdw7wf+fKfchvtzmOfNtm0RYeh0iSbp2LlvMH7g1Ze9I8d0XGN5wtsXqz6Fk6acaEm+W53LSnvfqQneqaXj2dDpffflHd3dYTQTT3US6NsHivA7j629tMADdI0m2faYPc1d7wp5f9/Kt/3LZvvCrj7ns0PBdxdr7fdpzlLafcZndPVL13QZYvuKEmSJEmSJP3kFY6xQr4=
   </data>

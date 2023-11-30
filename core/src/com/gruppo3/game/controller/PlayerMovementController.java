@@ -23,7 +23,7 @@ public class PlayerMovementController {
             moveRight();
             moveDown();
             moveUp();
-            checkBorder();
+            //checkBorder();
             if (isColliding()) {
                 player.getPlayerBox().x = previousX;
                 player.getPlayerBox().y = previousY;

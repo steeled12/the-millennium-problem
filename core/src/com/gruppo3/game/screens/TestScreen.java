@@ -32,6 +32,7 @@ import com.badlogic.gdx.utils.TimeUtils;
 import com.gruppo3.game.MyGame;
 import com.gruppo3.game.controller.PlayerMovementController;
 import com.gruppo3.game.model.Player;
+import com.badlogic.gdx.maps.MapObject;
 
 public class TestScreen implements Screen {
 
@@ -55,6 +56,16 @@ public class TestScreen implements Screen {
 
         map = new TmxMapLoader().load("test.tmx");
         renderer = new OrthogonalTiledMapRenderer(map);
+
+        // Adding player to a TiledMapObjectLayer
+        // Create new MapObject to store player object in.
+        MapObject object = new MapObject();
+        // Put the player object in the properties of the map object.
+        object.getProperties().put("player", playerMovementController.player);
+        // Then add the object to whatever layer you wish.
+        map.getLayers().get("Player").getObjects().add(object);
+
+        
         // load the images for the droplet and the player, 64x64 pixels each
 
         // create the camera and the SpriteBatch
@@ -99,7 +110,8 @@ public class TestScreen implements Screen {
         // of the color to be used to clear the screen.
         ScreenUtils.clear(1, 1, 1, 1);
         renderer.setView(camera);
-        renderer.render();
+        renderer.render(new int[]{0});
+        renderer.render(new int[]{1});
         // tell the camera to update its matrices.
         camera.update();
 
@@ -110,18 +122,13 @@ public class TestScreen implements Screen {
         // begin a new batch and draw the player and
         // all drops
         game.batch.begin();
-
+        
         playerMovementController.updateInput();
-
-        game.batch.draw(playerMovementController.player.getPlayerImage(),
-                playerMovementController.player.getPlayerBox().x,
-                playerMovementController.player.getPlayerBox().y,
-                playerMovementController.player.getPlayerBox().width,
-                playerMovementController.player.getPlayerBox().height
-        );
-
+        Player player = (Player) map.getLayers().get("Player").getObjects().get(0).getProperties().get("player");
+        game.batch.draw(player.getPlayerImage(), player.getPlayerBox().x, player.getPlayerBox().y);
+    
         game.batch.end();
-
+        renderer.render(new int[]{3});
         world.step(1 / 60f, 6, 2);
     }
 
