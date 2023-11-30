@@ -27,8 +27,8 @@ public class PlayerMovementController {
         if (player.getPlayerBox().y < 0)
             player.getPlayerBox().y = 0;
 
-        if (player.getPlayerBox().y > 1080)
-            player.getPlayerBox().y = 1080;
+        if (player.getPlayerBox().y > 1080 - 64)
+            player.getPlayerBox().y = 1080 - 64;
     }
 
     private void moveLeft(){
