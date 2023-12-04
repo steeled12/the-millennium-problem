@@ -32,6 +32,7 @@ import com.badlogic.gdx.utils.TimeUtils;
 import com.gruppo3.game.MyGame;
 import com.gruppo3.game.controller.NPCController;
 import com.gruppo3.game.controller.PlayerMovementController;
+import com.gruppo3.game.model.NPC;
 import com.gruppo3.game.model.Player;
 import com.badlogic.gdx.maps.MapObject;
 
@@ -58,6 +59,8 @@ public class TestScreen implements Screen {
 
         map = new TmxMapLoader().load("test.tmx");
         renderer = new OrthogonalTiledMapRenderer(map);
+
+        npcController.add(new NPC(new Texture("player.png")));
 
         // Adding player to a TiledMapObjectLayer
         // Create new MapObject to store player object in.

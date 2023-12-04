@@ -8,7 +8,7 @@ public class NPC {
     Rectangle npcBox;
     
 
-    private NPC(Texture npcTexture) {
+    public NPC(Texture npcTexture) {
         this.npcImage = npcTexture;
         this.npcBox = new Rectangle();
 
