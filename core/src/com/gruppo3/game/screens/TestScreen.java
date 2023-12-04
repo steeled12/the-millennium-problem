@@ -30,6 +30,7 @@ import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.ScreenUtils;
 import com.badlogic.gdx.utils.TimeUtils;
 import com.gruppo3.game.MyGame;
+import com.gruppo3.game.controller.NPCController;
 import com.gruppo3.game.controller.PlayerMovementController;
 import com.gruppo3.game.model.Player;
 import com.badlogic.gdx.maps.MapObject;
@@ -44,6 +45,7 @@ public class TestScreen implements Screen {
     Texture playerImage;
     public static OrthographicCamera camera;
     PlayerMovementController playerMovementController = new PlayerMovementController();
+    NPCController npcController = new NPCController();
     public static TiledMap map;
     OrthogonalTiledMapRenderer renderer;
 
@@ -114,6 +116,8 @@ public class TestScreen implements Screen {
         renderer.render(new int[]{1});
         // tell the camera to update its matrices.
         camera.update();
+
+        npcController.render(game.batch);
 
         // tell the SpriteBatch to render in the
         // coordinate system specified by the camera.
