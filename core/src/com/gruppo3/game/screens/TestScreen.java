@@ -6,7 +6,6 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TmxMapLoader;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
-import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
 import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.utils.ScreenUtils;
@@ -14,7 +13,6 @@ import com.gruppo3.game.MyGame;
 import com.gruppo3.game.controller.NPCController;
 import com.gruppo3.game.controller.PlayerController;
 import com.gruppo3.game.model.NPC;
-import com.gruppo3.game.model.Player;
 
 public class TestScreen implements Screen {
 
@@ -32,7 +30,7 @@ public class TestScreen implements Screen {
 
     public TestScreen(final MyGame game) {
         this.game = game;
-        camera= new OrthographicCamera();
+        camera = new OrthographicCamera();
         camera.setToOrtho(false, 800, 480);
         map = new TmxMapLoader().load("test.tmx");
         renderer = new OrthogonalTiledMapRenderer(map);
@@ -54,7 +52,8 @@ public class TestScreen implements Screen {
         game.batch.begin();
 
         playerController.updateInput();
-        game.batch.draw(playerController.player.getPlayerImage(), playerController.player.getPlayerBox().x, playerController.player.getPlayerBox().y);
+        game.batch.draw(playerController.player.getPlayerImage(), playerController.player.getPlayerBox().x,
+                playerController.player.getPlayerBox().y);
         game.batch.end();
         renderer.render(new int[] { 3 });
     }
