@@ -25,17 +25,15 @@ public class TestScreen implements Screen {
 
     Texture playerImage;
     public static OrthographicCamera camera;
-    PlayerController playerMovementController = new PlayerController();
+    PlayerController playerController = new PlayerController();
     NPCController npcController = new NPCController();
     public static TiledMap map;
     OrthogonalTiledMapRenderer renderer;
 
     public TestScreen(final MyGame game) {
         this.game = game;
-
-        world = new World(new Vector2(0, -10), true);
-        debugRenderer = new Box2DDebugRenderer();
-
+        camera= new OrthographicCamera();
+        camera.setToOrtho(false, 800, 480);
         map = new TmxMapLoader().load("test.tmx");
         renderer = new OrthogonalTiledMapRenderer(map);
 
@@ -55,13 +53,10 @@ public class TestScreen implements Screen {
 
         game.batch.begin();
 
-        playerMovementController.updateInput();
-        Player player = (Player) map.getLayers().get("Player").getObjects().get(0).getProperties().get("player");
-        game.batch.draw(player.getPlayerImage(), player.getPlayerBox().x, player.getPlayerBox().y);
-
+        playerController.updateInput();
+        game.batch.draw(playerController.player.getPlayerImage(), playerController.player.getPlayerBox().x, playerController.player.getPlayerBox().y);
         game.batch.end();
         renderer.render(new int[] { 3 });
-        world.step(1 / 60f, 6, 2);
     }
 
     @Override
