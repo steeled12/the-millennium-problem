@@ -1,12 +1,12 @@
-package com.gruppo3.game.model;
+package com.gruppo3.game.model.interactables;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.math.Rectangle;
 
-public class NPC {
+public class NPC implements Interactable {
     Texture npcImage;
     Rectangle npcBox;
-    
 
     public NPC(Texture npcTexture) {
         this.npcImage = npcTexture;
@@ -20,13 +20,13 @@ public class NPC {
     }
 
     // public void create () {
-    //     for (int i = 0; i < 5; i++) {
-    //         Sprite npcSprite = new Sprite(npcImage);
-    //         npcSprite.setPosition();
-    //     }
+    // for (int i = 0; i < 5; i++) {
+    // Sprite npcSprite = new Sprite(npcImage);
+    // npcSprite.setPosition();
+    // }
     // }
 
-    public void dispose () {
+    public void dispose() {
         npcImage.dispose();
     }
 
@@ -37,7 +37,9 @@ public class NPC {
     public Rectangle getNpcBox() {
         return npcBox;
     }
+
+    @Override
+    public void action() {
+        Gdx.app.debug("[Test Interaction]", "Azione!");
+    }
 }
-
-
-
