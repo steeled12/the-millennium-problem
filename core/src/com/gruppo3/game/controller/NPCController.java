@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Rectangle;
 import com.gruppo3.game.MyGame;
@@ -13,11 +12,11 @@ import com.gruppo3.game.model.NPC;
 public class NPCController {
     List<NPC> npcList = new ArrayList<>();
 
-    public void add(NPC npc){
+    public void add(NPC npc) {
         npcList.add(npc);
     }
 
-    public void render (SpriteBatch batch) {
+    public void render(SpriteBatch batch) {
         batch.begin();
 
         for (NPC npc : npcList) {
@@ -29,7 +28,7 @@ public class NPCController {
         touchInputCheck();
     }
 
-    public void touchInputCheck(){
+    public void touchInputCheck() {
         if (Gdx.input.justTouched()) {
             for (NPC npc : npcList) {
                 Rectangle npcBounds = npc.getNpcBox();
@@ -40,5 +39,3 @@ public class NPCController {
         }
     }
 }
-
-

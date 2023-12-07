@@ -3,7 +3,6 @@ package com.gruppo3.game;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.utils.ScreenUtils;
 import com.gruppo3.game.screens.TestScreen;
 
 public class MyGame extends Game {

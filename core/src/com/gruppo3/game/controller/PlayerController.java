@@ -5,33 +5,30 @@ import com.badlogic.gdx.Input;
 import com.badlogic.gdx.maps.MapLayer;
 import com.badlogic.gdx.maps.MapObjects;
 import com.badlogic.gdx.maps.objects.RectangleMapObject;
-import com.badlogic.gdx.maps.tiled.TiledMapTile;
-import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
 import com.gruppo3.game.model.Player;
 import com.gruppo3.game.screens.TestScreen;
 
-public class PlayerMovementController {
+public class PlayerController {
     public Player player = Player.getPlayer();
     float playerSpeed = 300f;
 
-    public void updateInput(){
+    public void updateInput() {
         float previousX = player.getPlayerBox().x;
         float previousY = player.getPlayerBox().y;
 
-        
-            moveLeft();
-            moveRight();
-            moveDown();
-            moveUp();
-            //checkBorder();
-            if (isColliding()) {
-                player.getPlayerBox().x = previousX;
-                player.getPlayerBox().y = previousY;
-            }
+        moveLeft();
+        moveRight();
+        moveDown();
+        moveUp();
+        // checkBorder();
+        if (isColliding()) {
+            player.getPlayerBox().x = previousX;
+            player.getPlayerBox().y = previousY;
+        }
         TestScreen.camera.position.set(player.getPlayerBox().x, player.getPlayerBox().y, TestScreen.camera.position.z);
     }
 
-    private void checkBorder(){
+    private void checkBorder() {
         // make sure the player stays within the screen bounds
         if (player.getPlayerBox().x < 0)
             player.getPlayerBox().x = 0;
@@ -58,22 +55,23 @@ public class PlayerMovementController {
 
         return false;
     }
-    private void moveLeft(){
+
+    private void moveLeft() {
         if (Gdx.input.isKeyPressed(Input.Keys.LEFT))
             player.getPlayerBox().x -= playerSpeed * Gdx.graphics.getDeltaTime();
     }
 
-    private void moveRight(){
+    private void moveRight() {
         if (Gdx.input.isKeyPressed(Input.Keys.RIGHT))
             player.getPlayerBox().x += playerSpeed * Gdx.graphics.getDeltaTime();
     }
 
-    private void moveUp(){
+    private void moveUp() {
         if (Gdx.input.isKeyPressed((Input.Keys.UP)))
             player.getPlayerBox().y += playerSpeed * Gdx.graphics.getDeltaTime();
     }
 
-    private void moveDown(){
+    private void moveDown() {
         if (Gdx.input.isKeyPressed((Input.Keys.DOWN))) {
             player.getPlayerBox().y -= playerSpeed * Gdx.graphics.getDeltaTime();
         }
