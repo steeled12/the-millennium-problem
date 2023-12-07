@@ -1,4 +1,4 @@
-package com.gruppo3.game.model;
+package com.gruppo3.game.model.interactables;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;

@@ -12,7 +12,7 @@ import com.badlogic.gdx.utils.ScreenUtils;
 import com.gruppo3.game.MyGame;
 import com.gruppo3.game.controller.NPCController;
 import com.gruppo3.game.controller.PlayerController;
-import com.gruppo3.game.model.NPC;
+import com.gruppo3.game.model.interactables.NPC;
 
 public class TestScreen implements Screen {
 

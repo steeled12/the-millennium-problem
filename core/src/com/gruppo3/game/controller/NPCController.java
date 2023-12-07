@@ -7,7 +7,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Rectangle;
 import com.gruppo3.game.MyGame;
-import com.gruppo3.game.model.NPC;
+import com.gruppo3.game.model.interactables.NPC;
 
 public class NPCController {
     List<NPC> npcList = new ArrayList<>();
