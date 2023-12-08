@@ -28,7 +28,7 @@ public class TestScreen implements Screen {
     public static TiledMap map;
     private OrthogonalTiledMapRenderer renderer;
     private Stage stage;
-    private NpcDialog dialog;
+    private NpcDialog npcDialog;
 
     private ExtendViewport gameViewport;
     private ExtendViewport uiViewport;
@@ -64,17 +64,13 @@ public class TestScreen implements Screen {
         stage = new Stage(uiViewport);
         Gdx.input.setInputProcessor(stage);
 
-        dialog = new NpcDialog("", new Skin(Gdx.files.internal("uiskin.json")));
-
-        // Set NPC information and text
-        dialog.setNpcInfo("Pippo IL BRO", playerImage);
-        dialog.setDialogText("Ao fra benvenuto a casa mia");
-
-        // Set dialog position to the bottom of the screen
-        dialog.setPosition(uiViewport.getWorldWidth() / 2f - dialog.getWidth() / 2f, 10);
-
-        // Show the dialog in the stage
-        dialog.show(stage);
+        npcDialog = new NpcDialog("Npc Interaction", new Skin(Gdx.files.internal("uiskin.json")), "Custom Action", () -> {
+            System.out.println("Custom action executed!");
+        });
+        npcDialog.setNpcInfo("NPC Name", playerImage);
+        npcDialog.setDialogText("Hello, this is a custom dialog!");
+        npcDialog.setPosition(uiViewport.getWorldWidth() / 2f - npcDialog.getWidth() / 2f, 10);
+        npcDialog.show(stage);
     }
 
     @Override
@@ -94,14 +90,15 @@ public class TestScreen implements Screen {
 
         // Set the projection matrix for rendering game elements
         renderer.setView(camera);
-        renderer.render(new int[] { 0, 1, 3 });
+        renderer.render(new int[] { 0, 1 });
 
         game.batch.setProjectionMatrix(camera.combined);
         game.batch.begin();
         playerController.updateInput();
         game.batch.draw(playerController.getTextureToRender(),
-                playerController.player.getPlayerBox().x, playerController.player.getPlayerBox().y);
+        playerController.player.getPlayerBox().x, playerController.player.getPlayerBox().y);
         game.batch.end();
+        renderer.render(new int[] {3});
     }
 
     private void renderUI() {
@@ -118,7 +115,7 @@ public class TestScreen implements Screen {
         // Update the UI viewport
         uiViewport.update(width, height, true);
         // Set dialog position to the bottom of the screen
-        dialog.setPosition(uiViewport.getWorldWidth() / 2f - dialog.getWidth() / 2f, 10);
+        npcDialog.setPosition(uiViewport.getWorldWidth() / 2f - npcDialog.getWidth() / 2f, 10);
     }
 
     @Override
