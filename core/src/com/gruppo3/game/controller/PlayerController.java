@@ -8,8 +8,9 @@ import com.badlogic.gdx.maps.MapObjects;
 import com.badlogic.gdx.maps.objects.RectangleMapObject;
 import com.gruppo3.game.model.Player;
 import com.gruppo3.game.screens.TestScreen;
+import com.badlogic.gdx.InputAdapter;
 
-public class PlayerController {
+public class PlayerController extends InputAdapter{
     public Player player = Player.getPlayer();
     float playerSpeed = 300f;
     float stateTime = 0f;
@@ -119,6 +120,25 @@ public class PlayerController {
             return 1;
         }
         return 0;
+    }
+
+    @Override
+    public boolean keyDown(int keycode) {
+        if (keycode == Input.Keys.LEFT) {
+            moveLeft();
+        } else if (keycode == Input.Keys.RIGHT) {
+            moveRight();
+        } else if (keycode == Input.Keys.UP) {
+            moveUp();
+        } else if (keycode == Input.Keys.DOWN) {
+            moveDown();
+        }
+        return true;
+    }
+
+    @Override
+    public boolean keyUp(int keycode) {
+        return true;
     }
 
     // public void Interaction() {
