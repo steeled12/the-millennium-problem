@@ -3,6 +3,7 @@ package com.gruppo3.game;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.gruppo3.game.screens.MainMenuScreen;
 import com.gruppo3.game.screens.TestScreen;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.Gdx;
@@ -29,7 +30,7 @@ public class MyGame extends Game {
 		assetManager.load("font/small_letters_font.fnt", BitmapFont.class);
 		assetManager.finishLoading();
 		skin = SkinGenerator.generateSkin(assetManager);
-		setScreen(new TestScreen(game));
+		setScreen(new MainMenuScreen());
 	}
 
 	@Override
