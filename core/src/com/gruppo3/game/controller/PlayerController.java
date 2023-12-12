@@ -10,7 +10,7 @@ import com.gruppo3.game.model.Player;
 import com.gruppo3.game.screens.TestScreen;
 import com.badlogic.gdx.InputAdapter;
 
-public class PlayerController extends InputAdapter{
+public class PlayerController extends InputAdapter {
     public Player player = Player.getPlayer();
     float playerSpeed = 300f;
     float stateTime = 0f;
@@ -22,11 +22,12 @@ public class PlayerController extends InputAdapter{
 
     public void updateInput() {
         stateTime += Gdx.graphics.getDeltaTime();
+        TestScreen.camera.position.set(player.getPlayerBox().x, player.getPlayerBox().y,
+                TestScreen.camera.position.z);
 
         if (moveUp() + moveDown() + moveLeft() + moveRight() > 0) {
             this.animationFrame = player.getWalkAnimation(player.getPlayerDirection()).getKeyFrame(stateTime, true);
-            TestScreen.camera.position.set(player.getPlayerBox().x, player.getPlayerBox().y,
-                    TestScreen.camera.position.z);
+
         } else {
             stateTime = 0;
             this.animationFrame = player.getIdleAnimation(player.getPlayerDirection()).getKeyFrame(stateTime, true);
@@ -132,6 +133,19 @@ public class PlayerController extends InputAdapter{
             moveUp();
         } else if (keycode == Input.Keys.DOWN) {
             moveDown();
+        }
+
+        if (keycode == Input.Keys.NUM_1)
+            SaveController.loadSave(0);
+        if (keycode == Input.Keys.NUM_2)
+            SaveController.loadSave(1);
+        if (keycode == Input.Keys.NUM_3)
+            SaveController.loadSave(2);
+        if (keycode == Input.Keys.NUM_4)
+            SaveController.deleteSave();
+
+        if (keycode == Input.Keys.ESCAPE){
+            SaveController.save();
         }
         return true;
     }
