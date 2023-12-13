@@ -1,2 +1,4 @@
 .gradle/
 .vscode/
+core/build/
+core/bin/
