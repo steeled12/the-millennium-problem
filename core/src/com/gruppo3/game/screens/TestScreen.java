@@ -7,30 +7,24 @@ import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TmxMapLoader;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
 import com.badlogic.gdx.utils.ScreenUtils;
-import com.badlogic.gdx.utils.viewport.ExtendViewport;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.gruppo3.game.MyGame;
-import com.gruppo3.game.controller.NPCController;
-import com.gruppo3.game.controller.PlayerController;
-import com.gruppo3.game.controller.OptionBoxController;
+import com.gruppo3.game.controller.*;
 import com.gruppo3.game.model.interactables.NPC;
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.gruppo3.game.ui.DialogBox;
 import com.gruppo3.game.ui.OptionBox;
 import com.badlogic.gdx.utils.Align;
 import com.badlogic.gdx.InputMultiplexer;
 import com.gruppo3.game.dialog.Dialog;
-import com.gruppo3.game.controller.DialogController;
 import com.gruppo3.game.dialog.LinearDialogNode;
 import com.gruppo3.game.dialog.ChoiceDialogNode;
 
 
 
 public class TestScreen implements Screen {
-
     private final MyGame game;
 
     private Texture playerImage;
@@ -63,7 +57,9 @@ public class TestScreen implements Screen {
         playerImage = new Texture("player.png");
         npcController.add(new NPC(playerImage));
         playerController = new PlayerController();
-        
+
+        SaveController.loadSave(0);
+
         initUI();
         dialogcontroller = new DialogController(dialogBox, optionBox);
         multiplexer = new InputMultiplexer();
