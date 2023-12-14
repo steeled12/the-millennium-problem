@@ -58,8 +58,6 @@ public class TestScreen implements Screen {
         npcController.add(new NPC(playerImage));
         playerController = new PlayerController();
 
-        SaveController.loadSave(0);
-
         initUI();
         dialogcontroller = new DialogController(dialogBox, optionBox);
         multiplexer = new InputMultiplexer();
