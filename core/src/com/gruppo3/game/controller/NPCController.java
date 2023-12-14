@@ -4,38 +4,38 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Rectangle;
 import com.gruppo3.game.MyGame;
 import com.gruppo3.game.model.interactables.NPC;
+import com.badlogic.gdx.InputAdapter;
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.gruppo3.game.model.Player;
+import com.gruppo3.game.screens.TestScreen;
 
-public class NPCController {
-    List<NPC> npcList = new ArrayList<>();
+public class NPCController extends InputAdapter {
+    public List<NPC> npcList = new ArrayList<>();
+    TextureRegion animationFrame;
 
     public void add(NPC npc) {
         npcList.add(npc);
     }
 
-    public void render(SpriteBatch batch) {
-        batch.begin();
-
-        for (NPC npc : npcList) {
-            new MyGame().batch.draw(npc.getNpcImage(), npc.getNpcBox().x, npc.getNpcBox().y);
-        }
-
-        batch.end();
-
-        touchInputCheck();
+    public TextureRegion getTextureToRender() {
+        return animationFrame;
     }
 
-    public void touchInputCheck() {
-        if (Gdx.input.justTouched()) {
+/*     @Override
+    public boolean keyDown(int keycode) {
+        if (keycode == Keys.X) {
             for (NPC npc : npcList) {
-                Rectangle npcBounds = npc.getNpcBox();
-                if (npcBounds.contains(Gdx.input.getX(), Gdx.graphics.getHeight() - Gdx.input.getY())) {
-                    System.out.println("Hai cliccato su un NPC!");
+                if (npc.getNpcBox().overlaps(Player.getPlayer().getPlayerBox())) {
+                    npc.action(TestScreen.dialogController);
+                    return true;
                 }
             }
         }
-    }
+        return false;
+    } */
 }

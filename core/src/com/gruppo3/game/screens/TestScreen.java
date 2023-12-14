@@ -1,5 +1,7 @@
 package com.gruppo3.game.screens;
 
+import java.util.List;
+
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
@@ -21,8 +23,7 @@ import com.badlogic.gdx.InputMultiplexer;
 import com.gruppo3.game.dialog.Dialog;
 import com.gruppo3.game.dialog.LinearDialogNode;
 import com.gruppo3.game.dialog.ChoiceDialogNode;
-
-
+import com.gruppo3.game.model.interactables.Item;
 
 public class TestScreen implements Screen {
     private final MyGame game;
@@ -30,7 +31,7 @@ public class TestScreen implements Screen {
     private Texture playerImage;
     public static OrthographicCamera camera;
     private PlayerController playerController;
-    private NPCController npcController = new NPCController();
+    private NPCController npcController;
     public static TiledMap map;
     private OrthogonalTiledMapRenderer renderer;
     private Stage stage;
@@ -39,7 +40,9 @@ public class TestScreen implements Screen {
     private OptionBox optionBox;
     private InputMultiplexer multiplexer;
     private Dialog dialog;
-    private DialogController dialogcontroller;
+    public static DialogController dialogController;
+    private InteractionController interactionController;
+    private List<Item> itemList;
 
     private ScreenViewport gameViewport;
     private ScreenViewport uiViewport;
@@ -53,19 +56,26 @@ public class TestScreen implements Screen {
         map = new TmxMapLoader().load("test.tmx");
         renderer = new OrthogonalTiledMapRenderer(map);
 
-        // Initialize game elements
-        playerImage = new Texture("player.png");
-        npcController.add(new NPC(playerImage));
-        playerController = new PlayerController();
-
         SaveController.loadSave(0);
 
         initUI();
-        dialogcontroller = new DialogController(dialogBox, optionBox);
+        
+        playerController = new PlayerController();
+        dialogController = new DialogController(dialogBox, optionBox);
+        npcController = new NPCController();
+    
+        interactionController = new InteractionController(npcController.npcList, this.itemList);
+        
         multiplexer = new InputMultiplexer();
-        multiplexer.addProcessor(0, dialogcontroller);
-        multiplexer.addProcessor(1, playerController);
+        multiplexer.addProcessor(0, dialogController);
+        multiplexer.addProcessor(1, interactionController);
+        multiplexer.addProcessor(2, playerController);
         Gdx.input.setInputProcessor(multiplexer);
+
+        //Creo un NPC
+
+        NPC npc = new NPC(new Texture("Modern_Interiors_Free_v2.2/Modern tiles_Free/Characters_free/Alex_sit3_16x16.png"));
+        npcController.add(npc);
         dialog = new Dialog();
         LinearDialogNode node1 = new LinearDialogNode("Ciao avventuriero!", 0);
         ChoiceDialogNode node2 = new ChoiceDialogNode("Come stai?", 1);
@@ -79,7 +89,9 @@ public class TestScreen implements Screen {
         dialog.addNode(node2); 
         dialog.addNode(node3);
 
-        dialogcontroller.startDialog(dialog);
+        npc.setDialog(dialog);
+
+        // dialogcontroller.startDialog(dialog); 
     }
 
     private void initUI() {
@@ -128,6 +140,9 @@ public class TestScreen implements Screen {
         game.batch.setProjectionMatrix(camera.combined);
         gameViewport.apply();
         game.batch.begin();
+        for (NPC npc : npcController.npcList) {
+            game.batch.draw(npc.getNpcImage(), npc.getNpcBox().x, npc.getNpcBox().y);
+        }
 		if (!dialogBox.isVisible()) {
 			playerController.updateInput();
             game.batch.draw(playerController.getTextureToRender(), playerController.player.getPlayerBox().x, playerController.player.getPlayerBox().y);
@@ -139,7 +154,7 @@ public class TestScreen implements Screen {
     }
 
     private void renderUI() {
-        dialogcontroller.update(Math.min(Gdx.graphics.getDeltaTime(), 1 / 30f));
+        dialogController.update(Math.min(Gdx.graphics.getDeltaTime(), 1 / 30f));
         stage.act(Math.min(Gdx.graphics.getDeltaTime(), 1 / 30f));
         stage.draw();
     }
