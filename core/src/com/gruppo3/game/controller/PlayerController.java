@@ -32,7 +32,6 @@ public class PlayerController extends InputAdapter {
             stateTime = 0;
             this.animationFrame = player.getIdleAnimation(player.getPlayerDirection()).getKeyFrame(stateTime, true);
         }
-
     }
 
     private void checkBorder() {

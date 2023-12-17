@@ -83,15 +83,13 @@ public class TestScreen implements Screen {
 
         node1.setPointer(1);
         node2.addChoice("Bene, grazie!", 2);
-        node2.addChoice("Suca", 2);
+        node2.addChoice("No", 2);
 
         dialog.addNode(node1);
         dialog.addNode(node2); 
         dialog.addNode(node3);
 
         npc.setDialog(dialog);
-
-        // dialogcontroller.startDialog(dialog); 
     }
 
     private void initUI() {
@@ -145,8 +143,8 @@ public class TestScreen implements Screen {
         }
 		if (!dialogBox.isVisible()) {
 			playerController.updateInput();
-            game.batch.draw(playerController.getTextureToRender(), playerController.player.getPlayerBox().x, playerController.player.getPlayerBox().y);
 		}
+        game.batch.draw(playerController.getTextureToRender(), playerController.player.getPlayerBox().x, playerController.player.getPlayerBox().y);
         game.batch.end();
 
         renderer.render(new int[] { 3 });

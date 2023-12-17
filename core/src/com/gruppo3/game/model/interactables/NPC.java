@@ -7,6 +7,8 @@ import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.gruppo3.game.dialog.Dialog;
 import com.gruppo3.game.controller.DialogController;
+import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
+import com.gruppo3.game.screens.TestScreen;
 
 
 public class NPC{
@@ -53,7 +55,6 @@ public class NPC{
             }
             idleAnimation[i] = new Animation<>(0.1f, framesIdle);
         }
-
     }
 
     public Animation<TextureRegion> getIdleAnimation(Direction direction) {
