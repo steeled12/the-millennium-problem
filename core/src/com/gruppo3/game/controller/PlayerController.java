@@ -143,7 +143,7 @@ public class PlayerController extends InputAdapter {
         if (keycode == Input.Keys.NUM_4)
             SaveController.deleteSave();
 
-        if (keycode == Input.Keys.ESCAPE){
+        if (keycode == Input.Keys.NUM_5) {
             SaveController.save();
         }
         return true;

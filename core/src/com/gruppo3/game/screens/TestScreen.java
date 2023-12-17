@@ -5,17 +5,23 @@ import java.util.List;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TmxMapLoader;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
 import com.badlogic.gdx.utils.ScreenUtils;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
+import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.gruppo3.game.MyGame;
+import com.gruppo3.game.MyGame.GameState;
 import com.gruppo3.game.controller.*;
 import com.gruppo3.game.model.interactables.NPC;
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
+import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
+import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.gruppo3.game.ui.DialogBox;
 import com.gruppo3.game.ui.OptionBox;
 import com.badlogic.gdx.utils.Align;
@@ -28,13 +34,14 @@ import com.gruppo3.game.model.interactables.Item;
 public class TestScreen implements Screen {
     private final MyGame game;
 
-    private Texture playerImage;
     public static OrthographicCamera camera;
     private PlayerController playerController;
+    private PauseController pauseController;
     private NPCController npcController;
     public static TiledMap map;
     private OrthogonalTiledMapRenderer renderer;
     private Stage stage;
+    private Stage pauseStage;
     private Table dialogRoot;
     private DialogBox dialogBox;
     private OptionBox optionBox;
@@ -56,25 +63,27 @@ public class TestScreen implements Screen {
         map = new TmxMapLoader().load("test.tmx");
         renderer = new OrthogonalTiledMapRenderer(map);
 
-        SaveController.loadSave(0);
-
         initUI();
-        
+
         playerController = new PlayerController();
         dialogController = new DialogController(dialogBox, optionBox);
         npcController = new NPCController();
-    
+        pauseController = new PauseController(game);
+
         interactionController = new InteractionController(npcController.npcList, this.itemList);
-        
+
         multiplexer = new InputMultiplexer();
-        multiplexer.addProcessor(0, dialogController);
-        multiplexer.addProcessor(1, interactionController);
-        multiplexer.addProcessor(2, playerController);
+        multiplexer.addProcessor(0, pauseStage);
+        multiplexer.addProcessor(1, pauseController);
+        multiplexer.addProcessor(2, dialogController);
+        multiplexer.addProcessor(3, interactionController);
+        multiplexer.addProcessor(4, playerController);
         Gdx.input.setInputProcessor(multiplexer);
 
-        //Creo un NPC
+        // Creo un NPC
 
-        NPC npc = new NPC(new Texture("Modern_Interiors_Free_v2.2/Modern tiles_Free/Characters_free/Alex_sit3_16x16.png"));
+        NPC npc = new NPC(
+                new Texture("Modern_Interiors_Free_v2.2/Modern tiles_Free/Characters_free/Alex_sit3_16x16.png"));
         npcController.add(npc);
         dialog = new Dialog();
         LinearDialogNode node1 = new LinearDialogNode("Ciao avventuriero!", 0);
@@ -86,7 +95,7 @@ public class TestScreen implements Screen {
         node2.addChoice("No", 2);
 
         dialog.addNode(node1);
-        dialog.addNode(node2); 
+        dialog.addNode(node2);
         dialog.addNode(node3);
 
         npc.setDialog(dialog);
@@ -96,44 +105,107 @@ public class TestScreen implements Screen {
         uiViewport = new ScreenViewport();
         stage = new Stage(uiViewport);
 
-        stage.getViewport().update(Gdx.graphics.getWidth()/2, Gdx.graphics.getHeight()/2, true);
+        stage.getViewport().update(Gdx.graphics.getWidth() / 2, Gdx.graphics.getHeight() / 2, true);
 
         dialogRoot = new Table();
-		dialogRoot.setFillParent(true);
-		stage.addActor(dialogRoot);
-		
-		dialogBox = new DialogBox(game.skin);
-		dialogBox.setVisible(false);
-		
-		optionBox = new OptionBox(game.skin);
-		optionBox.setVisible(false);
-		
-		Table dialogTable = new Table();
-		dialogTable.add(optionBox)
-					.expand()
-					.align(Align.right)
-					.space(8f)
-					.row();
-		dialogTable.add(dialogBox)
-					.expand()
-					.align(Align.bottom)
-					.space(8f)
-					.row();
-		
-		
-		dialogRoot.add(dialogTable).expand().align(Align.bottom);
+        dialogRoot.setFillParent(true);
+        stage.addActor(dialogRoot);
+
+        dialogBox = new DialogBox(game.skin);
+        dialogBox.setVisible(false);
+
+        optionBox = new OptionBox(game.skin);
+        optionBox.setVisible(false);
+
+        Table dialogTable = new Table();
+        dialogTable.add(optionBox)
+                .expand()
+                .align(Align.right)
+                .space(8f)
+                .row();
+        dialogTable.add(dialogBox)
+                .expand()
+                .align(Align.bottom)
+                .space(8f)
+                .row();
+
+        dialogRoot.add(dialogTable).expand().align(Align.bottom);
+
+        /*** PAUSE UI ***/
+        pauseStage = new Stage(uiViewport);
+
+        TextureAtlas atlas = new TextureAtlas("flat-earth/skin/flat-earth-ui.atlas");
+        Skin skin = new Skin(Gdx.files.internal("flat-earth/skin/flat-earth-ui.json"), atlas);
+
+        // Create Table
+        Table mainTable = new Table();
+        // Set table to fill stage
+        mainTable.setFillParent(true);
+
+        // Create buttons
+        TextButton resumeButton = new TextButton("Resume", skin);
+        TextButton saveButton = new TextButton("Save", skin);
+        TextButton optionsButton = new TextButton("Options", skin);
+        TextButton exitButton = new TextButton("Exit", skin);
+
+        // Add listeners to buttons
+        resumeButton.addListener(new ClickListener() {
+            @Override
+            public void clicked(InputEvent event, float x, float y) {
+                game.gameState = GameState.RUNNING;
+            }
+        });
+        saveButton.addListener(new ClickListener() {
+            @Override
+            public void clicked(InputEvent event, float x, float y) {
+                SaveController.save();
+            }
+        });
+        optionsButton.addListener(new ClickListener() {
+            @Override
+            public void clicked(InputEvent event, float x, float y) {
+                game.setScreen(new OptionScreen(game));
+            }
+        });
+        exitButton.addListener(new ClickListener() {
+            @Override
+            public void clicked(InputEvent event, float x, float y) {
+                Gdx.app.exit();
+            }
+        });
+
+        // Add buttons to table
+        mainTable.add(resumeButton);
+        mainTable.row();
+        mainTable.add(saveButton);
+        mainTable.row();
+        mainTable.add(optionsButton);
+        mainTable.row();
+        mainTable.add(exitButton);
+
+        // Add table to stage
+        pauseStage.addActor(mainTable);
     }
 
     @Override
     public void render(float delta) {
-        ScreenUtils.clear(1, 1, 1, 1);
-        renderGame();
-        renderUI(); 
+
+        if (game.gameState.equals(GameState.RUNNING)) {
+            ScreenUtils.clear(1, 1, 1, 1);
+            renderGame();
+            renderUI();
+        }
+
+        if (game.gameState.equals(GameState.PAUSED)) {
+
+            pauseStage.act();
+            pauseStage.draw();
+        }
     }
 
     private void renderGame() {
         renderer.setView(camera);
-        renderer.render(new int[] { 0, 1 });
+        renderer.render(new int[] { 0 });
         camera.update();
         game.batch.setProjectionMatrix(camera.combined);
         gameViewport.apply();
@@ -141,14 +213,14 @@ public class TestScreen implements Screen {
         for (NPC npc : npcController.npcList) {
             game.batch.draw(npc.getNpcImage(), npc.getNpcBox().x, npc.getNpcBox().y);
         }
-		if (!dialogBox.isVisible()) {
-			playerController.updateInput();
-		}
-        game.batch.draw(playerController.getTextureToRender(), playerController.player.getPlayerBox().x, playerController.player.getPlayerBox().y);
+        if (!dialogBox.isVisible()) {
+            playerController.updateInput();
+        }
+        game.batch.draw(playerController.getTextureToRender(), playerController.player.getPlayerBox().x,
+                playerController.player.getPlayerBox().y);
         game.batch.end();
 
-        renderer.render(new int[] { 3 });
-        
+        renderer.render(new int[] { 1, 2, 3, 4, });
     }
 
     private void renderUI() {
@@ -162,7 +234,8 @@ public class TestScreen implements Screen {
         game.batch.getProjectionMatrix().setToOrtho2D(0, 0, width, height);
         gameViewport.update(width, height, true);
 
-        uiViewport.update(width/2, height/2, true);
+        uiViewport.update(width / 2, height / 2, true);
+        pauseStage.getViewport().update(width, height, true);
     }
 
     @Override
@@ -171,10 +244,12 @@ public class TestScreen implements Screen {
 
     @Override
     public void hide() {
+
     }
 
     @Override
     public void pause() {
+        game.gameState = GameState.PAUSED;
     }
 
     @Override
@@ -183,7 +258,6 @@ public class TestScreen implements Screen {
 
     @Override
     public void dispose() {
-        playerImage.dispose();
         stage.dispose();
         map.dispose();
         renderer.dispose();

@@ -14,16 +14,22 @@ import com.gruppo3.game.util.SkinGenerator;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 
 public class MyGame extends Game {
+
+	public enum GameState {
+		RUNNING,
+		PAUSED,
+	}
+
+	public GameState gameState = GameState.RUNNING;
 	public SpriteBatch batch;
 	Texture img;
 	public static Skin skin;
 	private AssetManager assetManager;
 
-
 	@Override
 	public void create() {
 		assetManager = new AssetManager();
-		
+
 		batch = new SpriteBatch();
 		assetManager.load("ui/uipack.atlas", TextureAtlas.class);
 		assetManager.load("font/small_letters_font.fnt", BitmapFont.class);

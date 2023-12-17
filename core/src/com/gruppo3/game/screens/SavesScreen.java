@@ -7,8 +7,6 @@ import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
-import com.badlogic.gdx.scenes.scene2d.Event;
-import com.badlogic.gdx.scenes.scene2d.EventListener;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.*;
@@ -17,7 +15,6 @@ import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import com.gruppo3.game.MyGame;
 import com.gruppo3.game.controller.SaveController;
-import com.gruppo3.game.controller.SettingController;
 
 public class SavesScreen implements Screen {
     MyGame game;
@@ -28,7 +25,7 @@ public class SavesScreen implements Screen {
     private TextureAtlas atlas;
     protected Skin skin;
 
-    public SavesScreen(final MyGame game){
+    public SavesScreen(final MyGame game) {
         this.game = game;
         atlas = new TextureAtlas("flat-earth/skin/flat-earth-ui.atlas");
         skin = new Skin(Gdx.files.internal("flat-earth/skin/flat-earth-ui.json"), atlas);
@@ -45,53 +42,53 @@ public class SavesScreen implements Screen {
 
     @Override
     public void show() {
-        //Stage should controll input:
+        // Stage should controll input:
         Gdx.input.setInputProcessor(stage);
 
-        //Create Table
+        // Create Table
         Table mainTable = new Table();
-        //Set table to fill stage
+        // Set table to fill stage
         mainTable.setFillParent(true);
-        //Set alignment of contents in the table.
+        // Set alignment of contents in the table.
         mainTable.top();
 
-        //Create buttons
+        // Create buttons
         Label load1Label = new Label("Save1", skin);
         TextButton load1Button = new TextButton("Avvia", skin);
         TextButton load2Button = new TextButton("Avvia", skin);
         TextButton load3Button = new TextButton("Avvia", skin);
         TextButton backButton = new TextButton("Back", skin);
 
-        //Add listeners to buttons
-        load1Button.addListener(new ClickListener(){
+        // Add listeners to buttons
+        load1Button.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
                 SaveController.loadSave(0);
                 game.setScreen(new TestScreen(game));
             }
         });
-        load2Button.addListener(new ClickListener(){
+        load2Button.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
                 SaveController.loadSave(1);
                 game.setScreen(new TestScreen(game));
             }
         });
-        load3Button.addListener(new ClickListener(){
+        load3Button.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
                 SaveController.loadSave(2);
                 game.setScreen(new TestScreen(game));
             }
         });
-        backButton.addListener(new ClickListener(){
+        backButton.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
-                ((Game)Gdx.app.getApplicationListener()).setScreen(new MainMenuScreen(game));
+                ((Game) Gdx.app.getApplicationListener()).setScreen(new MainMenuScreen(game));
             }
         });
 
-        //Add buttons to table
+        // Add buttons to table
         mainTable.add(new Label("Save1: ", skin));
         mainTable.add(load1Button);
         mainTable.row();
@@ -103,9 +100,10 @@ public class SavesScreen implements Screen {
         mainTable.row();
         mainTable.add(backButton);
 
-        //Add table to stage
+        // Add table to stage
         stage.addActor(mainTable);
     }
+
     @Override
     public void render(float delta) {
         Gdx.gl.glClearColor(0f, 0f, 0f, 1);
