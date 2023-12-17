@@ -1,4 +1,4 @@
-package com.gruppo3.game.dialog;
+package com.gruppo3.game.model.dialog;
 
 public class DialogTraverser {
 	

@@ -1,4 +1,4 @@
-package com.gruppo3.game.dialog;
+package com.gruppo3.game.model.dialog;
 
 import java.util.HashMap;
 import java.util.Map;

@@ -1,14 +1,11 @@
 package com.gruppo3.game.model.interactables;
 
-import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
-import com.gruppo3.game.dialog.Dialog;
+import com.gruppo3.game.model.dialog.Dialog;
 import com.gruppo3.game.controller.DialogController;
-import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
-import com.gruppo3.game.screens.TestScreen;
 
 
 public class NPC{

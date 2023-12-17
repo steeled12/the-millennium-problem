@@ -20,9 +20,9 @@ import com.gruppo3.game.ui.DialogBox;
 import com.gruppo3.game.ui.OptionBox;
 import com.badlogic.gdx.utils.Align;
 import com.badlogic.gdx.InputMultiplexer;
-import com.gruppo3.game.dialog.Dialog;
-import com.gruppo3.game.dialog.LinearDialogNode;
-import com.gruppo3.game.dialog.ChoiceDialogNode;
+import com.gruppo3.game.model.dialog.Dialog;
+import com.gruppo3.game.model.dialog.LinearDialogNode;
+import com.gruppo3.game.model.dialog.ChoiceDialogNode;
 import com.gruppo3.game.model.interactables.Item;
 
 public class TestScreen implements Screen {

@@ -2,11 +2,11 @@ package com.gruppo3.game.controller;
 
 import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.InputAdapter;
-import com.gruppo3.game.dialog.ChoiceDialogNode;
-import com.gruppo3.game.dialog.Dialog;
-import com.gruppo3.game.dialog.DialogNode;
-import com.gruppo3.game.dialog.DialogTraverser;
-import com.gruppo3.game.dialog.LinearDialogNode;
+import com.gruppo3.game.model.dialog.ChoiceDialogNode;
+import com.gruppo3.game.model.dialog.Dialog;
+import com.gruppo3.game.model.dialog.DialogNode;
+import com.gruppo3.game.model.dialog.DialogTraverser;
+import com.gruppo3.game.model.dialog.LinearDialogNode;
 import com.gruppo3.game.ui.DialogBox;
 import com.gruppo3.game.ui.OptionBox;
 
