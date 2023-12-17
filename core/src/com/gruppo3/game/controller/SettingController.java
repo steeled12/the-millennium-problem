@@ -2,7 +2,6 @@ package com.gruppo3.game.controller;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Preferences;
-import com.gruppo3.game.model.Player;
 
 public class SettingController {
     private static final String SAVE_NAME = "settings";
@@ -14,7 +13,7 @@ public class SettingController {
     public static boolean fullscreen = true;
     public static boolean vsync = false;
 
-    public static void load(){
+    public static void load() {
         option = Gdx.app.getPreferences(SAVE_NAME);
         musicVolume = option.getFloat("musicVolume", musicVolume);
         gameVolume = option.getFloat("gameVolume", gameVolume);
@@ -23,11 +22,11 @@ public class SettingController {
         vsync = option.getBoolean("vsync", vsync);
     }
 
-    public static void save(){
+    public static void save() {
         option.flush();
     }
 
-    public static void apply(){
+    public static void apply() {
         /* APPLY ALL CHANGES */
         option.putFloat("musicVolume", musicVolume);
         option.putFloat("gameVolume", gameVolume);
@@ -36,15 +35,14 @@ public class SettingController {
         option.putBoolean("vsync", vsync);
 
         Gdx.graphics.setForegroundFPS(maxFps);
-        if (fullscreen){
+        if (fullscreen) {
             Gdx.graphics.setFullscreenMode(Gdx.graphics.getDisplayMode());
-        }else{
+        } else {
             Gdx.graphics.setWindowedMode(800, 400);
         }
         Gdx.graphics.setVSync(vsync);
 
         save();
     }
-
 
 }

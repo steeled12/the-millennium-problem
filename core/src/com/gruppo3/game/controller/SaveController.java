@@ -3,8 +3,6 @@ package com.gruppo3.game.controller;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Preferences;
 import com.gruppo3.game.model.Player;
-
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
@@ -13,12 +11,13 @@ public class SaveController {
     private static final int MAX_SAVES = 3;
     private static final String SAVE_NAME = "save_";
     public static Preferences currentSave;
-    public static void save(){
-        //salvo nel primo file save libero
-        if (currentSave == null){
+
+    public static void save() {
+        // salvo nel primo file save libero
+        if (currentSave == null) {
             int i = 0;
             loadSave(i);
-            while (!isEmpty() && i < MAX_SAVES){
+            while (!isEmpty() && i < MAX_SAVES) {
                 loadSave(++i);
             }
         }
@@ -29,7 +28,6 @@ public class SaveController {
 
         /* --- */
 
-
         currentSave.flush();
         Gdx.app.log("SaveController", "Salvato!");
     }
@@ -39,13 +37,13 @@ public class SaveController {
         save();
     }
 
-    public static void deleteSave(){
+    public static void deleteSave() {
         currentSave.clear();
         currentSave.flush();
         Gdx.app.log("SaveController", "Delete effettuato!");
     }
 
-    public static void loadSave(int numSave){
+    public static void loadSave(int numSave) {
         currentSave = Gdx.app.getPreferences(SAVE_NAME + String.valueOf(numSave));
 
         /* Effetturare il load di tutti i valori necessari */
@@ -53,17 +51,17 @@ public class SaveController {
         Gdx.app.log("SaveController", "Load effettuato!");
     }
 
-    private static void savePlayerPosition(float x, float y){
+    private static void savePlayerPosition(float x, float y) {
         currentSave.putFloat("playerX", x);
         currentSave.putFloat("playerY", y);
         Gdx.app.log("SaveController", "PlayerPosition salvata!");
     }
 
-    private static void saveTime(){
+    private static void saveTime() {
         currentSave.putString("time", LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss")));
     }
 
-    public static boolean isEmpty(){
+    public static boolean isEmpty() {
         return currentSave.get().isEmpty();
     }
 }
