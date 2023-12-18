@@ -10,6 +10,7 @@ import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TmxMapLoader;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
 import com.badlogic.gdx.utils.ScreenUtils;
+import com.badlogic.gdx.utils.viewport.ExtendViewport;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
@@ -30,6 +31,7 @@ import com.gruppo3.game.model.dialog.Dialog;
 import com.gruppo3.game.model.dialog.LinearDialogNode;
 import com.gruppo3.game.model.dialog.ChoiceDialogNode;
 import com.gruppo3.game.model.interactables.Item;
+
 
 public class TestScreen implements Screen {
     private final MyGame game;
@@ -52,10 +54,11 @@ public class TestScreen implements Screen {
     private List<Item> itemList;
 
     private ScreenViewport gameViewport;
-    private ScreenViewport uiViewport;
+    private ExtendViewport uiViewport;
 
     public TestScreen(final MyGame game) {
         this.game = game;
+        
         gameViewport = new ScreenViewport();
         // Initialize camera, map, and renderer
         camera = new OrthographicCamera();
@@ -102,10 +105,10 @@ public class TestScreen implements Screen {
     }
 
     private void initUI() {
-        uiViewport = new ScreenViewport();
+        uiViewport = new ExtendViewport(800, 480);
         stage = new Stage(uiViewport);
 
-        stage.getViewport().update(Gdx.graphics.getWidth() / 2, Gdx.graphics.getHeight() / 2, true);
+        stage.getViewport().update(Gdx.graphics.getWidth(), Gdx.graphics.getHeight(), true);
 
         dialogRoot = new Table();
         dialogRoot.setFillParent(true);
@@ -234,7 +237,7 @@ public class TestScreen implements Screen {
         game.batch.getProjectionMatrix().setToOrtho2D(0, 0, width, height);
         gameViewport.update(width, height, true);
 
-        uiViewport.update(width / 2, height / 2, true);
+        stage.getViewport().update(width, height, true);
         pauseStage.getViewport().update(width, height, true);
     }
 
