@@ -7,8 +7,7 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.gruppo3.game.model.dialog.Dialog;
 import com.gruppo3.game.controller.DialogController;
 
-
-public class NPC{
+public class NPC {
     Texture npcTexture;
     Rectangle npcBox;
     Animation<TextureRegion>[] idleAnimation;
@@ -24,11 +23,11 @@ public class NPC{
     Direction NPCDirection = Direction.SOUTH;
 
     public enum MOVEMENT_STATE {
-		MOVING,
-		STILL,
-		REFACING,
-		;
-	}
+        MOVING,
+        STILL,
+        REFACING,
+        ;
+    }
 
     public NPC(Texture npcTexture) {
         this.npcTexture = npcTexture;
@@ -39,7 +38,7 @@ public class NPC{
         int frameDimensionY = 32;
         npcBox.width = frameDimensionX;
         npcBox.height = 24;
-        int numAnimations = 4;
+        int numAnimations = 2;
         int numFrames = 6;
         idleAnimation = new Animation[numAnimations];
 
@@ -47,8 +46,8 @@ public class NPC{
             TextureRegion[] framesIdle = new TextureRegion[numFrames];
 
             for (int j = 0; j < numFrames; j++) {
-                    framesIdle[j] = new TextureRegion(npcTexture, (i * numFrames + j) * frameDimensionX,
-                                    0, frameDimensionX, frameDimensionY);
+                framesIdle[j] = new TextureRegion(npcTexture, (i * numFrames + j) * frameDimensionX,
+                        0, frameDimensionX, frameDimensionY);
             }
             idleAnimation[i] = new Animation<>(0.1f, framesIdle);
         }
@@ -57,10 +56,10 @@ public class NPC{
     public Animation<TextureRegion> getIdleAnimation(Direction direction) {
         return idleAnimation[direction.ordinal()];
     }
+
     public void setNPCDirection(Direction direction) {
         this.NPCDirection = direction;
     }
-
 
     // public void create () {
     // for (int i = 0; i < 5; i++) {
@@ -91,7 +90,6 @@ public class NPC{
 
     public void action(DialogController dialogController) {
         dialogController.startDialog(this.dialog);
-
 
     }
 }

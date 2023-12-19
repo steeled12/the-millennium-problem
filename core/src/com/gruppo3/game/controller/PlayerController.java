@@ -2,6 +2,7 @@ package com.gruppo3.game.controller;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
+import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.maps.MapLayer;
 import com.badlogic.gdx.maps.MapObjects;
@@ -13,30 +14,25 @@ import com.badlogic.gdx.InputAdapter;
 public class PlayerController extends InputAdapter {
     private Player player;
     float playerSpeed;
-    float stateTime;
-    TextureRegion animationFrame;
+    Animation<TextureRegion> animation;
 
     public PlayerController() {
         this.player = Player.getPlayer();
         this.playerSpeed = 150f;
-        this.stateTime = 0f;
     }
 
-    public TextureRegion getTextureToRender() {
-        return animationFrame;
+    public Animation<TextureRegion> getAnimationToRender() {
+        return animation;
     }
 
     public void updateInput() {
-        stateTime += Gdx.graphics.getDeltaTime();
         TestScreen.camera.position.set(player.getPlayerBox().x, player.getPlayerBox().y,
                 TestScreen.camera.position.z);
 
         if (moveUp() + moveDown() + moveLeft() + moveRight() > 0) {
-            this.animationFrame = player.getWalkAnimation(player.getPlayerDirection()).getKeyFrame(stateTime, true);
-
+            this.animation = player.getWalkAnimation(player.getPlayerDirection());
         } else {
-            stateTime = 0;
-            this.animationFrame = player.getIdleAnimation(player.getPlayerDirection()).getKeyFrame(stateTime, true);
+            this.animation = player.getIdleAnimation(player.getPlayerDirection());
         }
     }
 
