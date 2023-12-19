@@ -52,7 +52,7 @@ public class PlayerController extends InputAdapter {
     // }
 
     private boolean isColliding() {
-        MapLayer collisionObjectLayer = TestScreen.map.getLayers().get("Collisione");
+        MapLayer collisionObjectLayer = TestScreen.map.getLayers().get("Collisioni");
         MapObjects objects = collisionObjectLayer.getObjects();
 
         for (RectangleMapObject rectangleMapObject : objects.getByType(RectangleMapObject.class)) {

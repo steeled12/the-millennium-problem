@@ -213,7 +213,7 @@ public class TestScreen implements Screen {
 
     private void renderGame() {
         renderer.setView(camera);
-        renderer.render(new int[] { 0 });
+        renderer.render(new int[] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 });
         camera.update();
         game.batch.setProjectionMatrix(camera.combined);
         gameViewport.apply();
@@ -230,7 +230,7 @@ public class TestScreen implements Screen {
                 Player.getPlayer().getPlayerBox().y);
         game.batch.end();
 
-        renderer.render(new int[] { 1, 2, 3, 4, });
+        renderer.render(new int[] { 10, 11 });
     }
 
     private void renderUI() {
