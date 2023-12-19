@@ -65,7 +65,7 @@ public class TestScreen implements Screen {
         // Initialize camera, map, and renderer
         camera = new OrthographicCamera();
         camera.setToOrtho(false, 800, 480);
-        map = new TmxMapLoader().load("test.tmx");
+        map = new TmxMapLoader().load("map/tutorial/tutorialMap.tmx");
         renderer = new OrthogonalTiledMapRenderer(map);
 
         initUI();
