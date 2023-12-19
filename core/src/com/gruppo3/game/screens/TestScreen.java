@@ -18,6 +18,7 @@ import com.gruppo3.game.MyGame;
 import com.gruppo3.game.MyGame.GameState;
 import com.gruppo3.game.controller.*;
 import com.gruppo3.game.model.interactables.NPC;
+import com.gruppo3.game.model.interactables.NPC.Direction;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
@@ -54,16 +55,18 @@ public class TestScreen implements Screen {
 
     private ScreenViewport gameViewport;
     private ExtendViewport uiViewport;
+    float stateTime;
 
     public TestScreen(final MyGame game) {
         this.game = game;
+        this.stateTime = 0f;
         game.gameState = GameState.RUNNING;
 
         gameViewport = new ScreenViewport();
         // Initialize camera, map, and renderer
         camera = new OrthographicCamera();
         camera.setToOrtho(false, 800, 480);
-        map = new TmxMapLoader().load("test.tmx");
+        map = new TmxMapLoader().load("map/tutorial/tutorialMap.tmx");
         renderer = new OrthogonalTiledMapRenderer(map);
 
         initUI();
@@ -192,6 +195,8 @@ public class TestScreen implements Screen {
     @Override
     public void render(float delta) {
 
+        stateTime += delta;
+
         if (game.gameState.equals(GameState.RUNNING)) {
             multiplexer.removeProcessor(pauseStage);
             ScreenUtils.clear(1, 1, 1, 1);
@@ -216,12 +221,14 @@ public class TestScreen implements Screen {
         gameViewport.apply();
         game.batch.begin();
         for (NPC npc : npcController.npcList) {
-            game.batch.draw(npc.getNpcImage(), npc.getNpcBox().x, npc.getNpcBox().y);
+            game.batch.draw(npc.getIdleAnimation(Direction.NORTH).getKeyFrame(stateTime, true), npc.getNpcBox().x,
+                    npc.getNpcBox().y);
         }
         if (!dialogBox.isVisible()) {
             playerController.updateInput();
         }
-        game.batch.draw(playerController.getTextureToRender(), Player.getPlayer().getPlayerBox().x,
+        game.batch.draw(playerController.getAnimationToRender().getKeyFrame(stateTime, true),
+                Player.getPlayer().getPlayerBox().x,
                 Player.getPlayer().getPlayerBox().y);
         game.batch.end();
 
