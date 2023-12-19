@@ -35,7 +35,6 @@ import com.gruppo3.game.model.interactables.Item;
 
 public class TestScreen implements Screen {
     private final MyGame game;
-
     public static OrthographicCamera camera;
     private PlayerController playerController;
     private PauseController pauseController;
@@ -76,11 +75,10 @@ public class TestScreen implements Screen {
         interactionController = new InteractionController(npcController.npcList, this.itemList);
 
         multiplexer = new InputMultiplexer();
-        multiplexer.addProcessor(0, pauseStage);
-        multiplexer.addProcessor(1, pauseController);
-        multiplexer.addProcessor(2, dialogController);
-        multiplexer.addProcessor(3, interactionController);
-        multiplexer.addProcessor(4, playerController);
+        multiplexer.addProcessor(0, pauseController);
+        multiplexer.addProcessor(1, dialogController);
+        multiplexer.addProcessor(2, interactionController);
+        multiplexer.addProcessor(3, playerController);
         Gdx.input.setInputProcessor(multiplexer);
 
         // Creo un NPC
@@ -194,16 +192,18 @@ public class TestScreen implements Screen {
     public void render(float delta) {
 
         if (game.gameState.equals(GameState.RUNNING)) {
+            multiplexer.removeProcessor(pauseStage);
             ScreenUtils.clear(1, 1, 1, 1);
             renderGame();
             renderUI();
         }
 
         if (game.gameState.equals(GameState.PAUSED)) {
-
+            multiplexer.addProcessor(pauseStage);
             pauseStage.act();
             pauseStage.draw();
         }
+
     }
 
     private void renderGame() {
