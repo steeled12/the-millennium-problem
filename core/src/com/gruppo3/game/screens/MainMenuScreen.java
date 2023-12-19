@@ -1,28 +1,51 @@
-package com.gruppo3.game.model.menus;
+package com.gruppo3.game.screens;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.graphics.GL20;
+import com.badlogic.gdx.graphics.OrthographicCamera;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import com.gruppo3.game.MyGame;
-import com.gruppo3.game.controller.MenuController;
-import com.gruppo3.game.screens.TestScreen;
 
-public class MainMenu extends MenuState {
+public class MainMenuScreen implements Screen {
 
-    Stage stage;
+    MyGame game;
+    private SpriteBatch batch;
+    protected Stage stage;
     private Viewport viewport;
-    MyGame game = (MyGame) Gdx.app.getApplicationListener();
+    private OrthographicCamera camera;
+    private TextureAtlas atlas;
+    protected Skin skin;
 
-    public MainMenu(MenuController loader) {
-        super(loader);
+    public MainMenuScreen(MyGame game) {
+
+        this.game = game;
+        atlas = new TextureAtlas("flat-earth/skin/flat-earth-ui.atlas");
+        skin = new Skin(Gdx.files.internal("flat-earth/skin/flat-earth-ui.json"), atlas);
+
+        batch = new SpriteBatch();
+        camera = new OrthographicCamera();
+
+        camera.position.set(camera.viewportWidth / 2, camera.viewportHeight / 2, 0);
+        camera.update();
 
         viewport = new ScreenViewport();
         stage = new Stage(viewport);
+    }
+
+    @Override
+    public void show() {
+        // Stage should controll input:
+        Gdx.input.setInputProcessor(stage);
 
         // Create Table
         Table mainTable = new Table();
@@ -42,17 +65,16 @@ public class MainMenu extends MenuState {
                 game.setScreen(new TestScreen(game));
             }
         });
-
         loadButton.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
-                loader.changeState(new SavesMenu(loader));
+                game.setScreen(new SavesScreen(game));
             }
         });
         optionsButton.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
-                loader.changeState(new OptionMenu(loader));
+                game.setScreen(new OptionScreen(game));
             }
         });
         exitButton.addListener(new ClickListener() {
@@ -63,13 +85,12 @@ public class MainMenu extends MenuState {
         });
 
         // Add buttons to table
-        mainTable.row().spaceBottom(10);
         mainTable.add(playButton);
-        mainTable.row().spaceBottom(10);
+        mainTable.row();
         mainTable.add(loadButton);
-        mainTable.row().spaceBottom(10);
+        mainTable.row();
         mainTable.add(optionsButton);
-        mainTable.row().spaceBottom(15);
+        mainTable.row();
         mainTable.add(exitButton);
 
         // Add table to stage
@@ -77,8 +98,36 @@ public class MainMenu extends MenuState {
     }
 
     @Override
-    public Stage getStage() {
-        return this.stage;
+    public void render(float delta) {
+        Gdx.gl.glClearColor(0f, 0f, 0f, 1);
+        Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+
+        stage.act();
+        stage.draw();
     }
 
+    @Override
+    public void resize(int width, int height) {
+        stage.getViewport().update(width, height, true);
+    }
+
+    @Override
+    public void pause() {
+
+    }
+
+    @Override
+    public void resume() {
+
+    }
+
+    @Override
+    public void hide() {
+
+    }
+
+    @Override
+    public void dispose() {
+        stage.dispose();
+    }
 }

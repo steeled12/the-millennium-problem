@@ -1,8 +1,5 @@
 package com.gruppo3.game.model.menus;
 
-import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.graphics.OrthographicCamera;
-import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.scenes.scene2d.Event;
 import com.badlogic.gdx.scenes.scene2d.EventListener;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
@@ -29,8 +26,6 @@ public class OptionMenu extends MenuState {
         Table mainTable = new Table();
         // Set table to fill stage
         mainTable.setFillParent(true);
-        // Set alignment of contents in the table.
-        mainTable.top();
 
         // Create buttons
         final Slider musicVolumeSlider = new Slider(0f, 1f, 0.1f, false, skin);
@@ -101,21 +96,22 @@ public class OptionMenu extends MenuState {
         });
 
         // Add buttons to table
+        mainTable.row().spaceBottom(5);
         mainTable.add(new Label("Music volume: ", skin));
         mainTable.add(musicVolumeSlider);
-        mainTable.row();
+        mainTable.row().spaceBottom(10);
         mainTable.add(new Label("Game volume: ", skin));
         mainTable.add(gameVolumeSlider);
-        mainTable.row();
+        mainTable.row().spaceBottom(10);
         mainTable.add(new Label("Fps: ", skin));
         mainTable.add(maxFpsSlider);
-        mainTable.row();
+        mainTable.row().spaceBottom(5);
         mainTable.add(new Label("Fullscreen: ", skin));
         mainTable.add(fullscreenCheckbox);
-        mainTable.row();
+        mainTable.row().spaceBottom(10);
         mainTable.add(new Label("Vsync: ", skin));
         mainTable.add(vsyncCheckbox);
-        mainTable.row();
+        mainTable.row().spaceBottom(15);
         mainTable.add(backButton);
         mainTable.add(applyButton);
 
