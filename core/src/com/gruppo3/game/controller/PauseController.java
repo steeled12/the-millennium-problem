@@ -22,4 +22,9 @@ public class PauseController extends InputAdapter {
         }
         return false;
     }
+
+    @Override
+    public boolean keyUp(int keycode) {
+        return false;
+    }
 }

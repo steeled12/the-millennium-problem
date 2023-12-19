@@ -60,6 +60,7 @@ public class TestScreen implements Screen {
     public TestScreen(final MyGame game) {
         this.game = game;
         this.stateTime = 0f;
+        game.gameState = GameState.RUNNING;
 
         gameViewport = new ScreenViewport();
         // Initialize camera, map, and renderer
@@ -204,11 +205,12 @@ public class TestScreen implements Screen {
         }
 
         if (game.gameState.equals(GameState.PAUSED)) {
-            multiplexer.addProcessor(pauseStage);
+            if (!multiplexer.getProcessors().contains(pauseStage, true)) {
+                multiplexer.addProcessor(4, pauseStage);
+            }
             pauseStage.act();
             pauseStage.draw();
         }
-
     }
 
     private void renderGame() {
