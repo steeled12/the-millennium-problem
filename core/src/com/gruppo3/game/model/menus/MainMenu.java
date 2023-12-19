@@ -1,51 +1,28 @@
-package com.gruppo3.game.screens;
+package com.gruppo3.game.model.menus;
 
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.Screen;
-import com.badlogic.gdx.graphics.GL20;
-import com.badlogic.gdx.graphics.OrthographicCamera;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
-import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import com.gruppo3.game.MyGame;
+import com.gruppo3.game.controller.MenuController;
+import com.gruppo3.game.screens.TestScreen;
 
-public class MainMenuScreen implements Screen {
+public class MainMenu extends MenuState {
 
-    MyGame game;
-    private SpriteBatch batch;
-    protected Stage stage;
+    Stage stage;
     private Viewport viewport;
-    private OrthographicCamera camera;
-    private TextureAtlas atlas;
-    protected Skin skin;
+    MyGame game = (MyGame) Gdx.app.getApplicationListener();
 
-    public MainMenuScreen(MyGame game) {
-
-        this.game = game;
-        atlas = new TextureAtlas("flat-earth/skin/flat-earth-ui.atlas");
-        skin = new Skin(Gdx.files.internal("flat-earth/skin/flat-earth-ui.json"), atlas);
-
-        batch = new SpriteBatch();
-        camera = new OrthographicCamera();
-
-        camera.position.set(camera.viewportWidth / 2, camera.viewportHeight / 2, 0);
-        camera.update();
+    public MainMenu(MenuController loader) {
+        super(loader);
 
         viewport = new ScreenViewport();
         stage = new Stage(viewport);
-    }
-
-    @Override
-    public void show() {
-        // Stage should controll input:
-        Gdx.input.setInputProcessor(stage);
 
         // Create Table
         Table mainTable = new Table();
@@ -65,16 +42,17 @@ public class MainMenuScreen implements Screen {
                 game.setScreen(new TestScreen(game));
             }
         });
+
         loadButton.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
-                game.setScreen(new SavesScreen(game));
+                loader.changeState(new SavesMenu(loader));
             }
         });
         optionsButton.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
-                game.setScreen(new OptionScreen(game));
+                loader.changeState(new OptionMenu(loader));
             }
         });
         exitButton.addListener(new ClickListener() {
@@ -98,36 +76,8 @@ public class MainMenuScreen implements Screen {
     }
 
     @Override
-    public void render(float delta) {
-        Gdx.gl.glClearColor(0f, 0f, 0f, 1);
-        Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-
-        stage.act();
-        stage.draw();
+    public Stage getStage() {
+        return this.stage;
     }
 
-    @Override
-    public void resize(int width, int height) {
-        stage.getViewport().update(width, height, true);
-    }
-
-    @Override
-    public void pause() {
-
-    }
-
-    @Override
-    public void resume() {
-
-    }
-
-    @Override
-    public void hide() {
-
-    }
-
-    @Override
-    public void dispose() {
-        stage.dispose();
-    }
 }

@@ -5,6 +5,7 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.gruppo3.game.controller.SettingController;
 import com.gruppo3.game.screens.MainMenuScreen;
+import com.gruppo3.game.screens.MenuScreen;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
@@ -35,7 +36,7 @@ public class MyGame extends Game {
 		skin = SkinGenerator.generateSkin(assetManager);
 		SettingController.load();
 		SettingController.apply();
-		setScreen(new MainMenuScreen(this));
+		setScreen(new MenuScreen());
 	}
 
 	@Override
