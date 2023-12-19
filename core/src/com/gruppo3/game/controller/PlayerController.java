@@ -11,10 +11,16 @@ import com.gruppo3.game.screens.TestScreen;
 import com.badlogic.gdx.InputAdapter;
 
 public class PlayerController extends InputAdapter {
-    public Player player = Player.getPlayer();
-    float playerSpeed = 300f;
-    float stateTime = 0f;
+    private Player player;
+    float playerSpeed;
+    float stateTime;
     TextureRegion animationFrame;
+
+    public PlayerController() {
+        this.player = Player.getPlayer();
+        this.playerSpeed = 150f;
+        this.stateTime = 0f;
+    }
 
     public TextureRegion getTextureToRender() {
         return animationFrame;

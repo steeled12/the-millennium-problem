@@ -20,7 +20,7 @@ public class Player {
         Animation<TextureRegion>[] idleAnimation;
         Animation<TextureRegion>[] walkAnimation;
 
-        final static Player player = new Player();
+        private final static Player player;
 
         private Player() {
 
@@ -64,6 +64,9 @@ public class Player {
         }
 
         public static Player getPlayer() {
+                if(player == null)
+                        this.player= new Player();
+
                 return player;
         }
 
