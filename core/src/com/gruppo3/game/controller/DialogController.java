@@ -10,18 +10,17 @@ import com.gruppo3.game.model.dialog.LinearDialogNode;
 import com.gruppo3.game.ui.DialogBox;
 import com.gruppo3.game.ui.OptionBox;
 
-
 public class DialogController extends InputAdapter {
-	
+
 	private DialogTraverser traverser;
 	private DialogBox dialogBox;
 	private OptionBox optionBox;
-	
+
 	public DialogController(DialogBox box, OptionBox optionBox) {
 		this.dialogBox = box;
 		this.optionBox = optionBox;
 	}
-	
+
 	@Override
 	public boolean keyDown(int keycode) {
 		if (dialogBox.isVisible()) {
@@ -29,7 +28,7 @@ public class DialogController extends InputAdapter {
 		}
 		return false;
 	}
-	
+
 	@Override
 	public boolean keyUp(int keycode) {
 		if (optionBox.isVisible()) {
@@ -46,21 +45,21 @@ public class DialogController extends InputAdapter {
 		}
 		if (traverser != null && keycode == Keys.X) { // continue through tree
 			DialogNode thisNode = traverser.getNode();
-			
-			if (thisNode instanceof LinearDialogNode)  {
-				LinearDialogNode node = (LinearDialogNode)thisNode;
+
+			if (thisNode instanceof LinearDialogNode) {
+				LinearDialogNode node = (LinearDialogNode) thisNode;
 				if (node.getPointers().isEmpty()) { // dead end, since no pointers
-					traverser = null;				// end dialog
+					traverser = null; // end dialog
 					dialogBox.setVisible(false);
 				} else {
 					progress(0); // progress through first pointer
 				}
 			}
-			if (thisNode instanceof ChoiceDialogNode)  {
-				ChoiceDialogNode node = (ChoiceDialogNode)thisNode;
+			if (thisNode instanceof ChoiceDialogNode) {
+				// ChoiceDialogNode node = (ChoiceDialogNode)thisNode;
 				progress(optionBox.getIndex());
 			}
-			
+
 			return true;
 		}
 		if (dialogBox.isVisible()) {
@@ -68,7 +67,7 @@ public class DialogController extends InputAdapter {
 		}
 		return false;
 	}
-	
+
 	public void update(float delta) {
 		if (dialogBox.isFinished() && traverser != null) {
 			DialogNode nextNode = traverser.getNode();
@@ -77,18 +76,18 @@ public class DialogController extends InputAdapter {
 			}
 		}
 	}
-	
+
 	public void startDialog(Dialog dialog) {
 		traverser = new DialogTraverser(dialog);
 		dialogBox.setVisible(true);
-		
+
 		DialogNode nextNode = traverser.getNode();
 		if (nextNode instanceof LinearDialogNode) {
-			LinearDialogNode node = (LinearDialogNode)nextNode;
+			LinearDialogNode node = (LinearDialogNode) nextNode;
 			dialogBox.animateText(node.getText());
 		}
 		if (nextNode instanceof ChoiceDialogNode) {
-			ChoiceDialogNode node = (ChoiceDialogNode)nextNode;
+			ChoiceDialogNode node = (ChoiceDialogNode) nextNode;
 			dialogBox.animateText(node.getText());
 			optionBox.clear();
 			for (String s : node.getLabels()) {
@@ -96,17 +95,17 @@ public class DialogController extends InputAdapter {
 			}
 		}
 	}
-	
+
 	private void progress(int index) {
 		optionBox.setVisible(false);
 		DialogNode nextNode = traverser.getNextNode(index);
-		
+
 		if (nextNode instanceof LinearDialogNode) {
-			LinearDialogNode node = (LinearDialogNode)nextNode;
+			LinearDialogNode node = (LinearDialogNode) nextNode;
 			dialogBox.animateText(node.getText());
 		}
 		if (nextNode instanceof ChoiceDialogNode) {
-			ChoiceDialogNode node = (ChoiceDialogNode)nextNode;
+			ChoiceDialogNode node = (ChoiceDialogNode) nextNode;
 			dialogBox.animateText(node.getText());
 			optionBox.clearChoices();
 			for (String s : node.getLabels()) {
@@ -114,7 +113,7 @@ public class DialogController extends InputAdapter {
 			}
 		}
 	}
-	
+
 	public boolean isDialogShowing() {
 		return dialogBox.isVisible();
 	}

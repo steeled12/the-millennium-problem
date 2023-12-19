@@ -40,20 +40,20 @@ public class PlayerController extends InputAdapter {
         }
     }
 
-    private void checkBorder() {
-        // make sure the player stays within the screen bounds
-        if (player.getPlayerBox().x < 0)
-            player.getPlayerBox().x = 0;
+    // private void checkBorder() {
+    // // make sure the player stays within the screen bounds
+    // if (player.getPlayerBox().x < 0)
+    // player.getPlayerBox().x = 0;
 
-        if (player.getPlayerBox().x > 1920 - 64)
-            player.getPlayerBox().x = 1920 - 64;
+    // if (player.getPlayerBox().x > 1920 - 64)
+    // player.getPlayerBox().x = 1920 - 64;
 
-        if (player.getPlayerBox().y < 0)
-            player.getPlayerBox().y = 0;
+    // if (player.getPlayerBox().y < 0)
+    // player.getPlayerBox().y = 0;
 
-        if (player.getPlayerBox().y > 1080 - 64)
-            player.getPlayerBox().y = 1080 - 64;
-    }
+    // if (player.getPlayerBox().y > 1080 - 64)
+    // player.getPlayerBox().y = 1080 - 64;
+    // }
 
     private boolean isColliding() {
         MapLayer collisionObjectLayer = TestScreen.map.getLayers().get("Collisione");

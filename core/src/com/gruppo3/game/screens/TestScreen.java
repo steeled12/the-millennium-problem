@@ -29,9 +29,9 @@ import com.badlogic.gdx.utils.Align;
 import com.badlogic.gdx.InputMultiplexer;
 import com.gruppo3.game.model.dialog.Dialog;
 import com.gruppo3.game.model.dialog.LinearDialogNode;
+import com.gruppo3.game.model.Player;
 import com.gruppo3.game.model.dialog.ChoiceDialogNode;
 import com.gruppo3.game.model.interactables.Item;
-
 
 public class TestScreen implements Screen {
     private final MyGame game;
@@ -58,7 +58,7 @@ public class TestScreen implements Screen {
 
     public TestScreen(final MyGame game) {
         this.game = game;
-        
+
         gameViewport = new ScreenViewport();
         // Initialize camera, map, and renderer
         camera = new OrthographicCamera();
@@ -114,10 +114,10 @@ public class TestScreen implements Screen {
         dialogRoot.setFillParent(true);
         stage.addActor(dialogRoot);
 
-        dialogBox = new DialogBox(game.skin);
+        dialogBox = new DialogBox(MyGame.skin);
         dialogBox.setVisible(false);
 
-        optionBox = new OptionBox(game.skin);
+        optionBox = new OptionBox(MyGame.skin);
         optionBox.setVisible(false);
 
         Table dialogTable = new Table();
@@ -219,8 +219,8 @@ public class TestScreen implements Screen {
         if (!dialogBox.isVisible()) {
             playerController.updateInput();
         }
-        game.batch.draw(playerController.getTextureToRender(), playerController.player.getPlayerBox().x,
-                playerController.player.getPlayerBox().y);
+        game.batch.draw(playerController.getTextureToRender(), Player.getPlayer().getPlayerBox().x,
+                Player.getPlayer().getPlayerBox().y);
         game.batch.end();
 
         renderer.render(new int[] { 1, 2, 3, 4, });
