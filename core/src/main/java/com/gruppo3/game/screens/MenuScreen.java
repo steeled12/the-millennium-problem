@@ -17,7 +17,7 @@ public class MenuScreen implements Screen {
     private OrthographicCamera camera;
     MyGame game = (MyGame) Gdx.app.getApplicationListener();
     Viewport textViewport;
-    Music music;
+    private static Music music = Gdx.audio.newMusic(Gdx.files.internal("music/Menu.ogg"));;
     public MenuScreen() {
         this.menuController = new MenuController();
 
@@ -26,8 +26,7 @@ public class MenuScreen implements Screen {
         camera.update();
 
         textViewport = new ScreenViewport();
-
-        music = Gdx.audio.newMusic(Gdx.files.internal("music/Menu.ogg")); 
+        music.setLooping(true);
     }
 
     @Override
@@ -77,6 +76,10 @@ public class MenuScreen implements Screen {
         menuController.getStage().dispose();
         music.dispose();
 
+    }
+
+    public static void updateMusicVolume() {
+        music.setVolume(SettingController.option.getFloat("musicVolume", SettingController.musicVolume));
     }
 
 }

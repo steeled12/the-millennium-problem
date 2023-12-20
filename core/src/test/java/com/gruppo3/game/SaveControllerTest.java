@@ -1,6 +1,8 @@
 package com.gruppo3.game;
 
 import com.badlogic.gdx.Preferences;
+import com.badlogic.gdx.backends.headless.HeadlessApplication;
+import com.badlogic.gdx.backends.headless.HeadlessApplicationConfiguration;
 import com.gruppo3.game.model.Player;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -10,15 +12,22 @@ import com.gruppo3.game.controller.SaveController;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Map;
+import com.gruppo3.game.MyGame;
 
 public class SaveControllerTest {
 
     private Preferences mockSave;
+    HeadlessApplication headlessApplication;
+    MyGame game;
 
     @BeforeEach
     public void setup() {
         mockSave = new MockPreferences();
         SaveController.currentSave = mockSave;
+        if (headlessApplication == null) {
+            HeadlessApplicationConfiguration config = new HeadlessApplicationConfiguration();
+            headlessApplication = new HeadlessApplication(new MyGame(), config);
+        }
     }
 
     @Test

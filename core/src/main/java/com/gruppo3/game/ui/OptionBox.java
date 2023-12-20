@@ -4,12 +4,17 @@ import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.utils.Align;
 import com.badlogic.gdx.utils.Scaling;
+import com.badlogic.gdx.audio.Sound;
+import com.badlogic.gdx.Gdx;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
-import com.badlogic.gdx.scenes.scene2d.ui.Label;;
+import com.badlogic.gdx.scenes.scene2d.ui.Label;
+import com.gruppo3.game.controller.SettingController;
+
+
 
 
 public class OptionBox extends Table {
@@ -20,12 +25,16 @@ public class OptionBox extends Table {
 	private List<Label> options = new ArrayList<Label>();
 	
 	private Table uiContainer;
+
+	private Sound sound;
 	
 	public OptionBox(Skin skin) {
 		super(skin);
 		this.setBackground("optionbox");
 		uiContainer = new Table();
 		this.add(uiContainer).pad(5f);
+		this.sound = Gdx.audio.newSound(Gdx.files.internal("sound/sfx-blipfemale.wav"));
+        this.sound.setVolume(0, SettingController.option.getFloat("musicVolume", SettingController.gameVolume));
 	}
 	
 	public void addOption(String option) {
@@ -60,6 +69,7 @@ public class OptionBox extends Table {
 				arrows.get(i).setVisible(false);
 			}
 		}
+		sound.play();
 	}
 	
 	public void moveDown() {
@@ -74,6 +84,7 @@ public class OptionBox extends Table {
 				arrows.get(i).setVisible(false);
 			}
 		}
+		sound.play();
 	}
 	
 	public void clearChoices() {

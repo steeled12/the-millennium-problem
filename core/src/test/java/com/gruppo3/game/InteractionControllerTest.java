@@ -1,6 +1,8 @@
 package com.gruppo3.game;
 
 import com.badlogic.gdx.Input;
+import com.badlogic.gdx.backends.headless.HeadlessApplication;
+import com.badlogic.gdx.backends.headless.HeadlessApplicationConfiguration;
 import com.gruppo3.game.controller.InteractionController;
 import com.gruppo3.game.model.interactables.Item;
 import com.gruppo3.game.model.interactables.NPC;
@@ -12,6 +14,7 @@ import org.junit.jupiter.api.Test;
 import com.badlogic.gdx.math.Rectangle;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
+import com.gruppo3.game.MyGame;
 
 
 import java.util.List;
@@ -35,14 +38,23 @@ public class InteractionControllerTest {
     @Mock
     private NPC npc;
 
+    HeadlessApplication headlessApplication;
+    MyGame game;
+
     @BeforeEach
     public void setUp() {
         MockitoAnnotations.openMocks(this);
         interactionController = new InteractionController(npcList, itemList);
+        game = new MyGame();
+        if (headlessApplication == null) {
+            HeadlessApplicationConfiguration config = new HeadlessApplicationConfiguration();
+            headlessApplication = new HeadlessApplication(game, config);
+        }
     }
 
     @Test
     public void testKeyDownWithItemListAndItemOverlap() {
+
         when(itemList.size()).thenReturn(1);
         when(itemList.get(0)).thenReturn(item);
         when(item.getBox()).thenReturn(new Rectangle(0, 0, 10, 10));

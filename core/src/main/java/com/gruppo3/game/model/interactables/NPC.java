@@ -15,12 +15,12 @@ public class NPC {
 
     public enum Direction {
         EAST,
-        NORTH,
-        WEAST,
+        NORTH, 
+        WEST,
         SOUTH;
     }
 
-    Direction NPCDirection = Direction.SOUTH;
+    Direction NPCDirection = Direction.EAST;
 
     public enum MOVEMENT_STATE {
         MOVING,
@@ -32,8 +32,8 @@ public class NPC {
     public NPC(Texture npcTexture) {
         this.npcTexture = npcTexture;
         this.npcBox = new Rectangle();
-        npcBox.x = 8;
-        npcBox.y = 8;
+        npcBox.x = 11.1f;
+        npcBox.y = 9;
         int frameDimensionX = 16;
         int frameDimensionY = 32;
         npcBox.width = 1;

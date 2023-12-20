@@ -186,7 +186,7 @@ public class TestScreen implements Screen {
         gameViewport.apply();
         game.batch.begin();
         for (NPC npc : npcController.npcList) {
-            game.batch.draw(npc.getIdleAnimation(Direction.NORTH).getKeyFrame(stateTime, true), npc.getNpcBox().x,
+            game.batch.draw(npc.getIdleAnimation(Direction.EAST).getKeyFrame(stateTime, true), npc.getNpcBox().x,
                     npc.getNpcBox().y, 1, 2);
         }
 
