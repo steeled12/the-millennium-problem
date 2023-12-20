@@ -7,6 +7,8 @@ import com.badlogic.gdx.InputAdapter;
 import com.gruppo3.game.model.Player;
 import com.gruppo3.game.screens.TestScreen;
 import com.gruppo3.game.model.interactables.Item;
+import com.gruppo3.game.model.Player;
+import com.gruppo3.game.model.interactables.NPC.Direction;
 
 public class InteractionController extends InputAdapter {
 
@@ -33,6 +35,20 @@ public class InteractionController extends InputAdapter {
                 for (NPC npc : npcList) {
                     if (npc.getNpcBox().overlaps(Player.getPlayer().getPlayerBox())) {
                         npc.action(TestScreen.dialogController);
+                        switch(Player.getPlayer().getPlayerDirection()) {
+                            case NORTH:
+                                npc.setNPCDirection(Direction.SOUTH);
+                                break;
+                            case SOUTH:
+                                npc.setNPCDirection(Direction.NORTH);
+                                break;
+                            case WEST:
+                                npc.setNPCDirection(Direction.EAST);
+                                break;
+                            case EAST:
+                                npc.setNPCDirection(Direction.WEST);
+                                break;
+                        }
                         return true;
                     }
                 }

@@ -103,7 +103,7 @@ public class TestScreen implements Screen {
         // Creo un NPC
 
         NPC npc = new NPC(
-                new Texture("Modern_Interiors_Free_v2.2/Modern tiles_Free/Characters_free/Alex_sit3_16x16.png"));
+                new Texture("Modern_Interiors_Free_v2.2/Modern tiles_Free/Characters_free/Amelia_idle_anim_16x16.png"));
         npcController.add(npc);
         dialog = new Dialog();
         LinearDialogNode node1 = new LinearDialogNode("Ciao avventuriero!", 0);
@@ -186,7 +186,7 @@ public class TestScreen implements Screen {
         gameViewport.apply();
         game.batch.begin();
         for (NPC npc : npcController.npcList) {
-            game.batch.draw(npc.getIdleAnimation(Direction.EAST).getKeyFrame(stateTime, true), npc.getNpcBox().x,
+            game.batch.draw(npc.getIdleAnimation(npc.getNPCDirection()).getKeyFrame(stateTime, true), npc.getNpcBox().x,
                     npc.getNpcBox().y, 1, 2);
         }
 

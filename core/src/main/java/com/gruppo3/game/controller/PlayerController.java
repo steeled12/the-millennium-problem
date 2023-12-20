@@ -68,7 +68,7 @@ public class PlayerController extends InputAdapter {
         float previousX = player.getPlayerBox().x;
         if (Gdx.input.isKeyPressed(Input.Keys.LEFT)) {
             player.getPlayerBox().x -= playerSpeed * Gdx.graphics.getDeltaTime();
-            player.setPlayerDirection(Player.PlayerDirection.WEAST);
+            player.setPlayerDirection(Player.PlayerDirection.WEST);
 
             if (isColliding()) {
                 player.getPlayerBox().x = previousX;

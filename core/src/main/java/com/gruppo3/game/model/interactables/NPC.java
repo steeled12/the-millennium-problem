@@ -32,13 +32,13 @@ public class NPC {
     public NPC(Texture npcTexture) {
         this.npcTexture = npcTexture;
         this.npcBox = new Rectangle();
-        npcBox.x = 11.1f;
-        npcBox.y = 9;
+        npcBox.x = 10f;
+        npcBox.y = 8;
         int frameDimensionX = 16;
         int frameDimensionY = 32;
         npcBox.width = 1;
         npcBox.height = 1;
-        int numAnimations = 2;
+        int numAnimations = 4;
         int numFrames = 6;
         idleAnimation = new Animation[numAnimations];
 
@@ -59,6 +59,10 @@ public class NPC {
 
     public void setNPCDirection(Direction direction) {
         this.NPCDirection = direction;
+    }
+
+    public Direction getNPCDirection() {
+        return NPCDirection;
     }
 
     // public void create () {

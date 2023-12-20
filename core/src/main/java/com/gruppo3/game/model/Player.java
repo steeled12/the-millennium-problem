@@ -10,7 +10,7 @@ public class Player {
         public enum PlayerDirection {
                 EAST,
                 NORTH,
-                WEAST,
+                WEST,
                 SOUTH;
         }
 
