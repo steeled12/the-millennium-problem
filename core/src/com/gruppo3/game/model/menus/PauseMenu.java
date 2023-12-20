@@ -9,16 +9,17 @@ import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import com.gruppo3.game.MyGame;
+import com.gruppo3.game.MyGame.GameState;
 import com.gruppo3.game.controller.MenuController;
-import com.gruppo3.game.screens.TestScreen;
+import com.gruppo3.game.controller.SaveController;
 
-public class MainMenu extends MenuState {
+public class PauseMenu extends MenuState {
 
     Stage stage;
     private Viewport viewport;
     MyGame game = (MyGame) Gdx.app.getApplicationListener();
 
-    public MainMenu(MenuController loader) {
+    public PauseMenu(MenuController loader) {
         super(loader);
 
         viewport = new ScreenViewport();
@@ -30,29 +31,28 @@ public class MainMenu extends MenuState {
         mainTable.setFillParent(true);
 
         // Create buttons
-        TextButton playButton = new TextButton("Play", skin);
-        TextButton loadButton = new TextButton("Load save", skin);
+        TextButton resumeButton = new TextButton("Resume", skin);
+        TextButton saveButton = new TextButton("Save", skin);
         TextButton optionsButton = new TextButton("Options", skin);
         TextButton exitButton = new TextButton("Exit", skin);
 
         // Add listeners to buttons
-        playButton.addListener(new ClickListener() {
+        resumeButton.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
-                game.setScreen(new TestScreen(game));
+                game.gameState = GameState.RUNNING;
             }
         });
-
-        loadButton.addListener(new ClickListener() {
+        saveButton.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
-                loader.changeState(new SavesMenu(loader));
+                SaveController.save();
             }
         });
         optionsButton.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
-                loader.changeState(new OptionMenu(loader, new MainMenu(loader)));
+                loader.changeState(new OptionMenu(loader, new PauseMenu(loader)));
             }
         });
         exitButton.addListener(new ClickListener() {
@@ -64,12 +64,12 @@ public class MainMenu extends MenuState {
 
         // Add buttons to table
         mainTable.row().spaceBottom(10);
-        mainTable.add(playButton);
+        mainTable.add(resumeButton);
         mainTable.row().spaceBottom(10);
-        mainTable.add(loadButton);
+        mainTable.add(saveButton);
         mainTable.row().spaceBottom(10);
         mainTable.add(optionsButton);
-        mainTable.row().spaceBottom(15);
+        mainTable.row();
         mainTable.add(exitButton);
 
         // Add table to stage
@@ -78,7 +78,7 @@ public class MainMenu extends MenuState {
 
     @Override
     public Stage getStage() {
-        return this.stage;
+        return stage;
     }
 
 }

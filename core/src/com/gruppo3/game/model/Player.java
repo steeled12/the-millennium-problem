@@ -29,11 +29,11 @@ public class Player {
 
                 this.playerBox = new Rectangle();
 
-                playerBox.x = 1920 / 2 - 64 / 2;
-                playerBox.y = 1080 / 2 - 64 / 2;
+                playerBox.x = 8;
+                playerBox.y = 8;
                 // the bottom screen edge
-                playerBox.width = frameDimensionX;
-                playerBox.height = 24;
+                playerBox.width = 1;
+                playerBox.height = 0.5f;
 
                 // load animation
                 int numAnimations = 4;

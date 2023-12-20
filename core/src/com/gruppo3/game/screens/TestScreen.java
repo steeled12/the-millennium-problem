@@ -5,25 +5,25 @@ import java.util.List;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.badlogic.gdx.maps.MapLayer;
+import com.badlogic.gdx.maps.MapObject;
+import com.badlogic.gdx.maps.objects.RectangleMapObject;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TmxMapLoader;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
+import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.utils.ScreenUtils;
 import com.badlogic.gdx.utils.viewport.ExtendViewport;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
-import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.gruppo3.game.MyGame;
 import com.gruppo3.game.MyGame.GameState;
 import com.gruppo3.game.controller.*;
 import com.gruppo3.game.model.interactables.NPC;
 import com.gruppo3.game.model.interactables.NPC.Direction;
+import com.gruppo3.game.model.menus.PauseMenu;
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
-import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
-import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.gruppo3.game.ui.DialogBox;
 import com.gruppo3.game.ui.OptionBox;
 import com.badlogic.gdx.utils.Align;
@@ -43,7 +43,6 @@ public class TestScreen implements Screen {
     public static TiledMap map;
     private OrthogonalTiledMapRenderer renderer;
     private Stage stage;
-    private Stage pauseStage;
     private Table dialogRoot;
     private DialogBox dialogBox;
     private OptionBox optionBox;
@@ -52,22 +51,36 @@ public class TestScreen implements Screen {
     public static DialogController dialogController;
     private InteractionController interactionController;
     private List<Item> itemList;
-
     private ScreenViewport gameViewport;
     private ExtendViewport uiViewport;
     float stateTime;
+    float unitScale;
+    MenuController menuController;
 
     public TestScreen(final MyGame game) {
         this.game = game;
         this.stateTime = 0f;
+        this.unitScale = 1 / 16f;
         game.gameState = GameState.RUNNING;
 
         gameViewport = new ScreenViewport();
         // Initialize camera, map, and renderer
         camera = new OrthographicCamera();
-        camera.setToOrtho(false, 800, 480);
+        camera.setToOrtho(false, 32, 32);
         map = new TmxMapLoader().load("map/tutorial/tutorialMap.tmx");
-        renderer = new OrthogonalTiledMapRenderer(map);
+        renderer = new OrthogonalTiledMapRenderer(map, unitScale);
+
+        // scaling a game units
+        MapLayer collisionObjectLayer = TestScreen.map.getLayers().get("Collisioni");
+        for (MapObject object : collisionObjectLayer.getObjects()) {
+            if (object instanceof RectangleMapObject) {
+                Rectangle rect = ((RectangleMapObject) object).getRectangle();
+                rect.x *= unitScale;
+                rect.y *= unitScale;
+                rect.width *= unitScale;
+                rect.height *= unitScale;
+            }
+        }
 
         initUI();
 
@@ -75,6 +88,8 @@ public class TestScreen implements Screen {
         dialogController = new DialogController(dialogBox, optionBox);
         npcController = new NPCController();
         pauseController = new PauseController(game);
+        this.menuController = new MenuController();
+        this.menuController.changeState(new PauseMenu(menuController));
 
         interactionController = new InteractionController(npcController.npcList, this.itemList);
 
@@ -107,13 +122,14 @@ public class TestScreen implements Screen {
     }
 
     private void initUI() {
-        uiViewport = new ExtendViewport(800, 480);
+        uiViewport = new ExtendViewport(400, 300);
         stage = new Stage(uiViewport);
 
-        stage.getViewport().update(Gdx.graphics.getWidth(), Gdx.graphics.getHeight(), true);
+        stage.getViewport().update(Gdx.graphics.getWidth() / 5, Gdx.graphics.getHeight() / 5, true);
 
         dialogRoot = new Table();
         dialogRoot.setFillParent(true);
+        dialogRoot.setWidth(300);
         stage.addActor(dialogRoot);
 
         dialogBox = new DialogBox(MyGame.skin);
@@ -135,85 +151,34 @@ public class TestScreen implements Screen {
                 .row();
 
         dialogRoot.add(dialogTable).expand().align(Align.bottom);
-
-        /*** PAUSE UI ***/
-        pauseStage = new Stage(uiViewport);
-
-        TextureAtlas atlas = new TextureAtlas("flat-earth/skin/flat-earth-ui.atlas");
-        Skin skin = new Skin(Gdx.files.internal("flat-earth/skin/flat-earth-ui.json"), atlas);
-
-        // Create Table
-        Table mainTable = new Table();
-        // Set table to fill stage
-        mainTable.setFillParent(true);
-
-        // Create buttons
-        TextButton resumeButton = new TextButton("Resume", skin);
-        TextButton saveButton = new TextButton("Save", skin);
-        TextButton optionsButton = new TextButton("Options", skin);
-        TextButton exitButton = new TextButton("Exit", skin);
-
-        // Add listeners to buttons
-        resumeButton.addListener(new ClickListener() {
-            @Override
-            public void clicked(InputEvent event, float x, float y) {
-                game.gameState = GameState.RUNNING;
-            }
-        });
-        saveButton.addListener(new ClickListener() {
-            @Override
-            public void clicked(InputEvent event, float x, float y) {
-                SaveController.save();
-            }
-        });
-        optionsButton.addListener(new ClickListener() {
-            @Override
-            public void clicked(InputEvent event, float x, float y) {
-                game.setScreen(new OptionScreen(game));
-            }
-        });
-        exitButton.addListener(new ClickListener() {
-            @Override
-            public void clicked(InputEvent event, float x, float y) {
-                Gdx.app.exit();
-            }
-        });
-
-        // Add buttons to table
-        mainTable.add(resumeButton);
-        mainTable.row();
-        mainTable.add(saveButton);
-        mainTable.row();
-        mainTable.add(optionsButton);
-        mainTable.row();
-        mainTable.add(exitButton);
-
-        // Add table to stage
-        pauseStage.addActor(mainTable);
     }
 
     @Override
     public void render(float delta) {
-
         stateTime += delta;
 
+        ScreenUtils.clear(0, 0, 0, 1);
         if (game.gameState.equals(GameState.RUNNING)) {
-            multiplexer.removeProcessor(pauseStage);
-            ScreenUtils.clear(1, 1, 1, 1);
-            renderGame();
-            renderUI();
+            multiplexer.removeProcessor(menuController.getStage());
+            if (!dialogBox.isVisible()) {
+                playerController.updateInput();
+            }
         }
 
+        renderGame();
+        renderUI();
+
         if (game.gameState.equals(GameState.PAUSED)) {
-            if (!multiplexer.getProcessors().contains(pauseStage, true)) {
-                multiplexer.addProcessor(4, pauseStage);
+            if (!multiplexer.getProcessors().contains(menuController.getStage(), true)) {
+                multiplexer.addProcessor(4, menuController.getStage());
             }
-            pauseStage.act();
-            pauseStage.draw();
+            menuController.getStage().act();
+            menuController.getStage().draw();
         }
     }
 
     private void renderGame() {
+        Gdx.app.log("player position", Player.getPlayer().getPlayerBox().x + " " + Player.getPlayer().getPlayerBox().y);
         renderer.setView(camera);
         renderer.render(new int[] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 });
         camera.update();
@@ -222,16 +187,15 @@ public class TestScreen implements Screen {
         game.batch.begin();
         for (NPC npc : npcController.npcList) {
             game.batch.draw(npc.getIdleAnimation(Direction.NORTH).getKeyFrame(stateTime, true), npc.getNpcBox().x,
-                    npc.getNpcBox().y);
+                    npc.getNpcBox().y, 1, 2);
         }
-        if (!dialogBox.isVisible()) {
-            playerController.updateInput();
-        }
+
         game.batch.draw(playerController.getAnimationToRender().getKeyFrame(stateTime, true),
                 Player.getPlayer().getPlayerBox().x,
-                Player.getPlayer().getPlayerBox().y);
-        game.batch.end();
+                Player.getPlayer().getPlayerBox().y,
+                1, 2);
 
+        game.batch.end();
         renderer.render(new int[] { 10, 11 });
     }
 
@@ -243,11 +207,13 @@ public class TestScreen implements Screen {
 
     @Override
     public void resize(int width, int height) {
-        game.batch.getProjectionMatrix().setToOrtho2D(0, 0, width, height);
+        camera.viewportWidth = 32f;
+        camera.viewportHeight = 32f * height / width;
+        camera.update();
         gameViewport.update(width, height, true);
 
         stage.getViewport().update(width, height, true);
-        pauseStage.getViewport().update(width, height, true);
+        menuController.getStage().getViewport().update(width, height, true);
     }
 
     @Override

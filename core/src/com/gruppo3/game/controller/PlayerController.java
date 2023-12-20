@@ -18,7 +18,7 @@ public class PlayerController extends InputAdapter {
 
     public PlayerController() {
         this.player = Player.getPlayer();
-        this.playerSpeed = 150f;
+        this.playerSpeed = 8f;
     }
 
     public Animation<TextureRegion> getAnimationToRender() {

@@ -1,5 +1,6 @@
 package com.gruppo3.game.controller;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.gruppo3.game.model.menus.MainMenu;
 import com.gruppo3.game.model.menus.MenuState;
@@ -17,6 +18,8 @@ public class MenuController {
 
     public void changeState(MenuState menu) {
         this.currentMenu = menu;
+        // fix viewport dopo back
+        currentMenu.getStage().getViewport().update(Gdx.graphics.getWidth(), Gdx.graphics.getHeight(), true);
     }
 
     public Stage getStage() {

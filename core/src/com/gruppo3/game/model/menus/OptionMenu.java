@@ -1,8 +1,10 @@
 package com.gruppo3.game.model.menus;
 
+import com.badlogic.gdx.Input;
 import com.badlogic.gdx.scenes.scene2d.Event;
 import com.badlogic.gdx.scenes.scene2d.EventListener;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
+import com.badlogic.gdx.scenes.scene2d.InputListener;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.*;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
@@ -15,9 +17,12 @@ public class OptionMenu extends MenuState {
 
     Stage stage;
     private Viewport viewport;
+    MenuState backState;
 
-    public OptionMenu(MenuController loader) {
+    public OptionMenu(MenuController loader, MenuState backState) {
         super(loader);
+
+        this.backState = backState;
 
         viewport = new ScreenViewport();
         stage = new Stage(viewport);
@@ -91,7 +96,7 @@ public class OptionMenu extends MenuState {
         backButton.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
-                loader.changeState(new MainMenu(loader));
+                loader.changeState(backState);
             }
         });
 
@@ -117,6 +122,15 @@ public class OptionMenu extends MenuState {
 
         // Add table to stage
         stage.addActor(mainTable);
+        stage.addListener(new InputListener() {
+            @Override
+            public boolean keyDown(InputEvent event, int keycode) {
+                if (keycode == Input.Keys.ESCAPE) {
+                    loader.changeState(backState);
+                }
+                return false;
+            }
+        });
     }
 
     @Override

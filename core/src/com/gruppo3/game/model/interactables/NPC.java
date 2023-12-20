@@ -32,12 +32,12 @@ public class NPC {
     public NPC(Texture npcTexture) {
         this.npcTexture = npcTexture;
         this.npcBox = new Rectangle();
-        npcBox.x = 1920 / 2 - 64 / 2;
-        npcBox.y = 1080 / 2 - 64 / 2;
+        npcBox.x = 8;
+        npcBox.y = 8;
         int frameDimensionX = 16;
         int frameDimensionY = 32;
-        npcBox.width = frameDimensionX;
-        npcBox.height = 24;
+        npcBox.width = 1;
+        npcBox.height = 1;
         int numAnimations = 2;
         int numFrames = 6;
         idleAnimation = new Animation[numAnimations];
