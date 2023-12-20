@@ -5,34 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="058c3908-cd1f-46d4-87ed-d90aff9f72bc" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.gradle/7.5.1/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5.1/checksums/checksums.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.5.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5.1/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.5.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5.1/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.5.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5.1/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.5.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5.1/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.5.1/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5.1/fileHashes/resourceHashesCache.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/core/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/build/classes/java/main/com/gruppo3/game/MyGame.class" beforeDir="false" afterPath="$PROJECT_DIR$/core/build/classes/java/main/com/gruppo3/game/MyGame.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/build/classes/java/main/com/gruppo3/game/controller/NPCController.class" beforeDir="false" afterPath="$PROJECT_DIR$/core/build/classes/java/main/com/gruppo3/game/controller/NPCController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/build/classes/java/main/com/gruppo3/game/controller/PlayerController.class" beforeDir="false" afterPath="$PROJECT_DIR$/core/build/classes/java/main/com/gruppo3/game/controller/PlayerController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/build/classes/java/main/com/gruppo3/game/model/Player$PlayerDirection.class" beforeDir="false" afterPath="$PROJECT_DIR$/core/build/classes/java/main/com/gruppo3/game/model/Player$PlayerDirection.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/build/classes/java/main/com/gruppo3/game/model/Player.class" beforeDir="false" afterPath="$PROJECT_DIR$/core/build/classes/java/main/com/gruppo3/game/model/Player.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/build/classes/java/main/com/gruppo3/game/model/interactables/NPC.class" beforeDir="false" afterPath="$PROJECT_DIR$/core/build/classes/java/main/com/gruppo3/game/model/interactables/NPC.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/build/classes/java/main/com/gruppo3/game/screens/TestScreen.class" beforeDir="false" afterPath="$PROJECT_DIR$/core/build/classes/java/main/com/gruppo3/game/screens/TestScreen.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/build/libs/core-1.0.jar" beforeDir="false" afterPath="$PROJECT_DIR$/core/build/libs/core-1.0.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/core/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/gruppo3/game/model/menus/OptionMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/com/gruppo3/game/model/menus/OptionMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/gruppo3/game/screens/MenuScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/com/gruppo3/game/screens/MenuScreen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/gruppo3/game/screens/OptionScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/com/gruppo3/game/screens/OptionScreen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/gruppo3/game/ui/DialogBox.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/com/gruppo3/game/ui/DialogBox.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/gruppo3/game/ui/OptionBox.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/com/gruppo3/game/ui/OptionBox.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/test/java/com/gruppo3/game/GameApplicationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/test/java/com/gruppo3/game/GameApplicationTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/test/java/com/gruppo3/game/InteractionControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/test/java/com/gruppo3/game/InteractionControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/test/java/com/gruppo3/game/SaveControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/test/java/com/gruppo3/game/SaveControllerTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -183,7 +168,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1703100547185</updated>
-      <workItem from="1703100549596" duration="3397000" />
+      <workItem from="1703100549596" duration="4692000" />
     </task>
     <servers />
   </component>
