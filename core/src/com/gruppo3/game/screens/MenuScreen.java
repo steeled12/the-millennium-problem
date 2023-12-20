@@ -8,6 +8,7 @@ import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import com.gruppo3.game.MyGame;
 import com.gruppo3.game.controller.MenuController;
+import com.badlogic.gdx.audio.Music;
 
 public class MenuScreen implements Screen {
 
@@ -15,7 +16,7 @@ public class MenuScreen implements Screen {
     private OrthographicCamera camera;
     MyGame game = (MyGame) Gdx.app.getApplicationListener();
     Viewport textViewport;
-
+    Music music;
     public MenuScreen() {
         this.menuController = new MenuController();
 
@@ -24,10 +25,14 @@ public class MenuScreen implements Screen {
         camera.update();
 
         textViewport = new ScreenViewport();
+
+        music = Gdx.audio.newMusic(Gdx.files.internal("music/Menu.ogg")); 
     }
 
     @Override
     public void show() {
+        music.setVolume(0.1f);
+        music.play();
     }
 
     @Override
@@ -43,6 +48,7 @@ public class MenuScreen implements Screen {
                 10,
                 20);
         game.batch.end();
+        
     }
 
     @Override

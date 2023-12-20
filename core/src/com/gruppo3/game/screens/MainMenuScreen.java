@@ -14,6 +14,7 @@ import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import com.gruppo3.game.MyGame;
+import com.badlogic.gdx.audio.Music;
 
 public class MainMenuScreen implements Screen {
 
@@ -23,14 +24,16 @@ public class MainMenuScreen implements Screen {
     private OrthographicCamera camera;
     private TextureAtlas atlas;
     protected Skin skin;
+    Music music;
 
     public MainMenuScreen(MyGame game) {
 
         this.game = game;
         atlas = new TextureAtlas("flat-earth/skin/flat-earth-ui.atlas");
         skin = new Skin(Gdx.files.internal("flat-earth/skin/flat-earth-ui.json"), atlas);
-
+        music = Gdx.audio.newMusic(Gdx.files.internal("music/Menu.ogg")); 
         camera = new OrthographicCamera();
+        
 
         camera.position.set(camera.viewportWidth / 2, camera.viewportHeight / 2, 0);
         camera.update();
@@ -43,7 +46,7 @@ public class MainMenuScreen implements Screen {
     public void show() {
         // Stage should controll input:
         Gdx.input.setInputProcessor(stage);
-
+        
         // Create Table
         Table mainTable = new Table();
         // Set table to fill stage
@@ -126,5 +129,6 @@ public class MainMenuScreen implements Screen {
     @Override
     public void dispose() {
         stage.dispose();
+        music.dispose();
     }
 }
