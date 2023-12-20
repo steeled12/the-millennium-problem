@@ -12,6 +12,7 @@ import com.gruppo3.game.MyGame;
 import com.gruppo3.game.MyGame.GameState;
 import com.gruppo3.game.controller.MenuController;
 import com.gruppo3.game.controller.SaveController;
+import com.gruppo3.game.screens.MenuScreen;
 
 public class PauseMenu extends MenuState {
 
@@ -31,10 +32,10 @@ public class PauseMenu extends MenuState {
         mainTable.setFillParent(true);
 
         // Create buttons
-        TextButton resumeButton = new TextButton("Resume", skin);
-        TextButton saveButton = new TextButton("Save", skin);
-        TextButton optionsButton = new TextButton("Options", skin);
-        TextButton exitButton = new TextButton("Exit", skin);
+        TextButton resumeButton = new TextButton("Riprendi", skin);
+        TextButton saveButton = new TextButton("Salva", skin);
+        TextButton optionsButton = new TextButton("Impostazioni", skin);
+        TextButton exitButton = new TextButton("Vai al menu", skin);
 
         // Add listeners to buttons
         resumeButton.addListener(new ClickListener() {
@@ -58,7 +59,7 @@ public class PauseMenu extends MenuState {
         exitButton.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
-                Gdx.app.exit();
+                game.setScreen(new MenuScreen());
             }
         });
 

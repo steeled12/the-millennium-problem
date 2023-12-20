@@ -120,13 +120,13 @@ public class OptionScreen implements Screen {
         });
 
         // Add buttons to table
-        mainTable.add(new Label("Music volume: ", skin));
+        mainTable.add(new Label("Volume musica: ", skin));
         mainTable.add(musicVolumeSlider);
         mainTable.row();
-        mainTable.add(new Label("Game volume: ", skin));
+        mainTable.add(new Label("Volume gioco: ", skin));
         mainTable.add(gameVolumeSlider);
         mainTable.row();
-        mainTable.add(new Label("Fps: ", skin));
+        mainTable.add(new Label("FPS: ", skin));
         mainTable.add(maxFpsSlider);
         mainTable.row();
         mainTable.add(new Label("Fullscreen: ", skin));

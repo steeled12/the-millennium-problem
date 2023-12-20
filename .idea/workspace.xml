@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="058c3908-cd1f-46d4-87ed-d90aff9f72bc" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/assets/music/Menu.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/sound/sfx-blipfemale.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/sound/sfx-blipmale.wav" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.5.1/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5.1/checksums/checksums.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.5.1/checksums/md5-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5.1/checksums/md5-checksums.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.5.1/checksums/sha1-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5.1/checksums/sha1-checksums.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.5.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5.1/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.5.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5.1/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.5.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5.1/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.5.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.5.1/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5.1/fileHashes/resourceHashesCache.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/core/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/build/classes/java/main/com/gruppo3/game/MyGame.class" beforeDir="false" afterPath="$PROJECT_DIR$/core/build/classes/java/main/com/gruppo3/game/MyGame.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/build/classes/java/main/com/gruppo3/game/controller/NPCController.class" beforeDir="false" afterPath="$PROJECT_DIR$/core/build/classes/java/main/com/gruppo3/game/controller/NPCController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/build/classes/java/main/com/gruppo3/game/controller/PlayerController.class" beforeDir="false" afterPath="$PROJECT_DIR$/core/build/classes/java/main/com/gruppo3/game/controller/PlayerController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/build/classes/java/main/com/gruppo3/game/model/Player$PlayerDirection.class" beforeDir="false" afterPath="$PROJECT_DIR$/core/build/classes/java/main/com/gruppo3/game/model/Player$PlayerDirection.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/build/classes/java/main/com/gruppo3/game/model/Player.class" beforeDir="false" afterPath="$PROJECT_DIR$/core/build/classes/java/main/com/gruppo3/game/model/Player.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/build/classes/java/main/com/gruppo3/game/model/interactables/NPC.class" beforeDir="false" afterPath="$PROJECT_DIR$/core/build/classes/java/main/com/gruppo3/game/model/interactables/NPC.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/build/classes/java/main/com/gruppo3/game/screens/TestScreen.class" beforeDir="false" afterPath="$PROJECT_DIR$/core/build/classes/java/main/com/gruppo3/game/screens/TestScreen.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/build/libs/core-1.0.jar" beforeDir="false" afterPath="$PROJECT_DIR$/core/build/libs/core-1.0.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/core/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/com/gruppo3/game/MyGame.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/com/gruppo3/game/controller/DialogController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/com/gruppo3/game/controller/InputManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/com/gruppo3/game/controller/InteractionController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/com/gruppo3/game/controller/MenuController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/com/gruppo3/game/controller/NPCController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/com/gruppo3/game/controller/OptionBoxController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/com/gruppo3/game/controller/PauseController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/com/gruppo3/game/controller/PlayerController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/com/gruppo3/game/controller/SaveController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/com/gruppo3/game/controller/SettingController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/com/gruppo3/game/model/Player.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/com/gruppo3/game/model/dialog/ChoiceDialogNode.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/com/gruppo3/game/model/dialog/Dialog.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/com/gruppo3/game/model/dialog/DialogNode.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/com/gruppo3/game/model/dialog/DialogTraverser.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/com/gruppo3/game/model/dialog/LinearDialogNode.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/com/gruppo3/game/model/interactables/GenericItem.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/com/gruppo3/game/model/interactables/Item.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/com/gruppo3/game/model/interactables/NPC.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/com/gruppo3/game/model/menus/MainMenu.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/com/gruppo3/game/model/menus/MenuState.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/com/gruppo3/game/model/menus/OptionMenu.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/com/gruppo3/game/model/menus/PauseMenu.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/com/gruppo3/game/model/menus/SavesMenu.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/com/gruppo3/game/screens/MainMenuScreen.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/com/gruppo3/game/screens/MenuScreen.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/com/gruppo3/game/screens/OptionScreen.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/com/gruppo3/game/screens/SavesScreen.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/com/gruppo3/game/screens/TestScreen.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/com/gruppo3/game/ui/DialogBox.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/com/gruppo3/game/ui/OptionBox.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/com/gruppo3/game/util/Action.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/com/gruppo3/game/util/SkinGenerator.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/com/gruppo3/test/GameApplicationTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/desktop/build/classes/java/main/com/gruppo3/game/DesktopLauncher.class" beforeDir="false" afterPath="$PROJECT_DIR$/desktop/build/classes/java/main/com/gruppo3/game/DesktopLauncher.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/desktop/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/desktop/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/desktop/src/com/gruppo3/game/DesktopLauncher.java" beforeDir="false" afterPath="$PROJECT_DIR$/desktop/src/com/gruppo3/game/DesktopLauncher.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/settings.gradle" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "customColor": "",
+  "associatedIndex": 1
+}]]></component>
+  <component name="ProjectId" id="2Zou2KzqX835afph9xYp7qwi6tx" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "main",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "settings.editor.selected.configurable": "reference.settingsdialog.project.gradle",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RunManager" selected="Application.DesktopLauncher">
+    <configuration name="DesktopLauncher" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.gruppo3.game.DesktopLauncher" />
+      <module name="giocoiss.desktop.main" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.gruppo3.game.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="InteractionControllerTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":core:test" />
+            <option value="--tests" />
+            <option value="&quot;com.gruppo3.game.InteractionControllerTest&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="GameApplicationTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="giocoiss.core.test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.gruppo3.game.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.gruppo3.game" />
+      <option name="MAIN_CLASS_NAME" value="com.gruppo3.game.GameApplicationTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="InteractionControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="giocoiss.core.test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.gruppo3.game.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.gruppo3.game" />
+      <option name="MAIN_CLASS_NAME" value="com.gruppo3.game.InteractionControllerTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.DesktopLauncher" />
+        <item itemvalue="JUnit.GameApplicationTest" />
+        <item itemvalue="JUnit.InteractionControllerTest" />
+        <item itemvalue="Gradle.InteractionControllerTest" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="058c3908-cd1f-46d4-87ed-d90aff9f72bc" name="Changes" comment="" />
+      <created>1703100547185</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1703100547185</updated>
+      <workItem from="1703100549596" duration="888000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

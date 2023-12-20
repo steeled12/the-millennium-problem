@@ -4,6 +4,9 @@ import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.utils.Align;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
+import com.badlogic.gdx.audio.Sound;
+import com.badlogic.gdx.Gdx;
+import com.gruppo3.game.controller.SettingController;
 
 public class DialogBox extends Table {
     private String targetText = "";
@@ -12,6 +15,7 @@ public class DialogBox extends Table {
     private float TIME_PER_CHAR = 0.05f;
     private STATE state = STATE.IDLE;
     private Label textLabel;
+    private Sound typingSound;
 
     private enum STATE {
         IDLE,
@@ -23,6 +27,8 @@ public class DialogBox extends Table {
         textLabel = new Label("", skin);
         this.add(textLabel).expand().align(Align.left).pad(5f);
         this.setBackground("dialoguebox");
+        this.typingSound = Gdx.audio.newSound(Gdx.files.internal("sound/sfx-blipmale.wav"));
+        this.typingSound.setVolume(0, SettingController.option.getFloat("musicVolume", SettingController.musicVolume));
     }
 
     public void animateText(String text) {
@@ -53,6 +59,10 @@ public class DialogBox extends Table {
                 animTimer = animationTotalTime;
             }
             int numChars = (int) (animTimer / TIME_PER_CHAR);
+            
+                typingSound.stop();
+                typingSound.play();
+
             setText(targetText.substring(0, numChars));
         }
     }

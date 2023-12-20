@@ -9,6 +9,7 @@ import com.badlogic.gdx.utils.viewport.Viewport;
 import com.gruppo3.game.MyGame;
 import com.gruppo3.game.controller.MenuController;
 import com.badlogic.gdx.audio.Music;
+import com.gruppo3.game.controller.SettingController;
 
 public class MenuScreen implements Screen {
 
@@ -31,7 +32,7 @@ public class MenuScreen implements Screen {
 
     @Override
     public void show() {
-        music.setVolume(0.1f);
+        music.setVolume(SettingController.option.getFloat("musicVolume", SettingController.musicVolume));
         music.play();
     }
 
@@ -68,12 +69,14 @@ public class MenuScreen implements Screen {
 
     @Override
     public void hide() {
-
+        music.stop();
     }
 
     @Override
     public void dispose() {
         menuController.getStage().dispose();
+        music.dispose();
+
     }
 
 }

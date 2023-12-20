@@ -30,10 +30,10 @@ public class MainMenu extends MenuState {
         mainTable.setFillParent(true);
 
         // Create buttons
-        TextButton playButton = new TextButton("Play", skin);
-        TextButton loadButton = new TextButton("Load save", skin);
-        TextButton optionsButton = new TextButton("Options", skin);
-        TextButton exitButton = new TextButton("Exit", skin);
+        TextButton playButton = new TextButton("Nuova Partita", skin);
+        TextButton loadButton = new TextButton("Carica", skin);
+        TextButton optionsButton = new TextButton("Impostazioni", skin);
+        TextButton exitButton = new TextButton("Chiudi", skin);
 
         // Add listeners to buttons
         playButton.addListener(new ClickListener() {
