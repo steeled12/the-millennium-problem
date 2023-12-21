@@ -12,7 +12,6 @@ import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import com.gruppo3.game.controller.MenuController;
 import com.gruppo3.game.controller.SettingController;
-import com.badlogic.gdx.Gdx;
 import com.gruppo3.game.screens.MenuScreen;
 
 public class OptionMenu extends MenuState {

@@ -12,7 +12,6 @@ import com.gruppo3.game.controller.SaveController;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Map;
-import com.gruppo3.game.MyGame;
 
 public class SaveControllerTest {
 

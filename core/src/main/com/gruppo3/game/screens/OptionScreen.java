@@ -16,7 +16,6 @@ import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import com.gruppo3.game.MyGame;
 import com.gruppo3.game.controller.SettingController;
-import com.gruppo3.game.screens.MenuScreen;
 
 public class OptionScreen implements Screen {
     MyGame game;

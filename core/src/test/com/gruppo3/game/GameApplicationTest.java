@@ -1,17 +1,16 @@
 package com.gruppo3.game;
 
-
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.backends.headless.HeadlessApplicationConfiguration;
-import com.gruppo3.game.MyGame;
 import com.gruppo3.game.controller.PauseController;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import com.badlogic.gdx.backends.headless.HeadlessApplication;
 
-public class GameApplicationTest{
+public class GameApplicationTest {
 
     HeadlessApplication headlessApplication;
+
     @Test
     public void testStartNewGame() {
         MyGame game = new MyGame();

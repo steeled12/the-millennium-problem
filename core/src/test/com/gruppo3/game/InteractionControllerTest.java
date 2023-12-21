@@ -14,13 +14,10 @@ import org.junit.jupiter.api.Test;
 import com.badlogic.gdx.math.Rectangle;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
-import com.gruppo3.game.MyGame;
-
 
 import java.util.List;
 
 import static org.mockito.Mockito.*;
-
 
 public class InteractionControllerTest {
 

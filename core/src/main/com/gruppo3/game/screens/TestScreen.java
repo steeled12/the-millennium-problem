@@ -20,7 +20,6 @@ import com.gruppo3.game.MyGame;
 import com.gruppo3.game.MyGame.GameState;
 import com.gruppo3.game.controller.*;
 import com.gruppo3.game.model.interactables.NPC;
-import com.gruppo3.game.model.interactables.NPC.Direction;
 import com.gruppo3.game.model.menus.PauseMenu;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
