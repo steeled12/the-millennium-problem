@@ -9,6 +9,7 @@ public class DesktopLauncher {
 		Lwjgl3ApplicationConfiguration config = new Lwjgl3ApplicationConfiguration();
 		config.setTitle("GiocoIss");
 		// config.setResizable(false);
+		config.setWindowSizeLimits(800, 600, -1, -1);
 
 		new Lwjgl3Application(new MyGame(), config);
 	}

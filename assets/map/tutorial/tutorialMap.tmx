@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="16" height="16" tilewidth="16" tileheight="16" infinite="0" nextlayerid="14" nextobjectid="21">
+ <tileset firstgid="1" source="Interiors_free_16x16.tsx"/>
+ <tileset firstgid="1425" source="Room_Builder_free_16x16.tsx"/>
+ <layer id="1" name="Pavimento" width="16" height="16">
+  <data encoding="base64" compression="zlib">
+   eJzbxMDAsGkUj+JRPCIxAHzrsgE=
+  </data>
+ </layer>
+ <layer id="8" name="Pianta dietro muro" width="16" height="16">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFlIDTTAwMZ5jI138bqPcOBfpfA/W+oUD/KBgYMFjSDQBAMgpj
+  </data>
+ </layer>
+ <layer id="2" name="Muri" width="16" height="16">
+  <data encoding="base64" compression="zlib">
+   eJzjZGNg4KQAS1GIRzrAFa5cRIYNrnCVHg3bYQs4qRi3AOOhBEs=
+  </data>
+ </layer>
+ <layer id="4" name="Armadio" width="16" height="16">
+  <data encoding="base64" compression="zlib">
+   eJxjYGBg8GdhYAgAYl8g9gNiXAAmD1MPA/FAdgIQxwJxHB79MHmYehjIB7ILgDgXiPPw6IfJw9SPglEwCigDAFFvCT0=
+  </data>
+ </layer>
+ <layer id="10" name="Sopra pavimento" width="16" height="16">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgc4BwjA8N5RvL13wPqvU+B/lEwCkYiAAA8MQNf
+  </data>
+ </layer>
+ <layer id="9" name="Pianta davanti muro" width="16" height="16">
+  <data encoding="base64" compression="zlib">
+   eJxjYKA9uMtEmf63FOofiuA00M9nKPD3baDeOxTofw3U+2YEhvtIAwBj9wcA
+  </data>
+ </layer>
+ <layer id="5" name="Tavolo" width="16" height="16">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgF9ASiTOTrVQDqFcGjfxszA8N2ZtzyBgT0HwPqPY5HPwioYtHPxcrAwM2KXx8+IAXUK42m/wcQ/wTiX0D8m4B+LaBebTT9HIwMDJxAzAXE3Iyku0kCqEcSiKWAWJoM/UMFAADT8Aj8
+  </data>
+ </layer>
+ <layer id="7" name="Sopra tavolo" width="16" height="16">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFpAB7Zsr0++PR/xCIHxHQ78eEW+4jEH8ioD8Oj/5RMPIAAIKDBOs=
+  </data>
+ </layer>
+ <layer id="6" name="Finestra" width="16" height="16">
+  <data encoding="base64" compression="zlib">
+   eJxjYMAO2hkZGtqAuBWIcSjBC6YD9U0D4qlk6h/JYCELZfo3Uqh/FIwcAAD6KAe1
+  </data>
+ </layer>
+ <layer id="12" name="Player" width="16" height="16">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo2AUjFQAAAQAAAE=
+  </data>
+ </layer>
+ <layer id="13" name="Muri davanti" width="16" height="16">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo2AUDBTgZMONexghGJ8aKTx4DiME41MDACTvBOc=
+  </data>
+ </layer>
+ <layer id="3" name="Muri laterali" width="16" height="16">
+  <data encoding="base64" compression="zlib">
+   eJzbycpANtgB1DudAv3TBrH+tUSYi0//DAr1L6dQPzFgVP/A618BMWMBOZiYNEIIAADB+iXj
+  </data>
+ </layer>
+ <objectgroup id="11" name="Collisioni">
+  <object id="3" x="14.9708" y="6.28772" width="64.9731" height="32.3368"/>
+  <object id="5" x="146.115" y="30.8398" width="11.0784" height="10.4795"/>
+  <object id="6" x="176.505" y="7.03627" width="63.1766" height="32.0374"/>
+  <object id="7" x="192.075" y="79.7942" width="15.5696" height="57.7871"/>
+  <object id="8" x="182.643" y="104.646" width="10.1801" height="12.8748"/>
+  <object id="9" x="235.041" y="234.891" width="10.1801" height="12.8748"/>
+  <object id="10" x="15.869" y="158.241" width="22.4561" height="34.4327"/>
+  <object id="11" x="48.0562" y="117.52" width="31.738" height="19.7614"/>
+  <object id="12" x="106.592" y="122.311" width="10.1801" height="12.8748"/>
+  <object id="13" x="11.0784" y="106.742" width="10.1801" height="12.8748"/>
+  <object id="14" x="0.299415" y="25.1509" width="6.58713" height="229.951"/>
+  <object id="15" x="-0.299415" y="248.814" width="256.299" height="7.18596"/>
+  <object id="16" x="1.49728" y="23.6538" width="256.299" height="7.18596"/>
+  <object id="18" x="249.413" y="24.8514" width="6.58713" height="229.951"/>
+  <object id="19" x="6.58713" y="102.101" width="105.394" height="25.4503"/>
+  <object id="20" x="105.095" y="64.3743" width="6.58698" height="62.2784"/>
+ </objectgroup>
+</map>
