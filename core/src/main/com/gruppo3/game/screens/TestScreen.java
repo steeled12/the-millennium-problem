@@ -107,15 +107,17 @@ public class TestScreen implements Screen {
         dialog = new Dialog();
         LinearDialogNode node1 = new LinearDialogNode("Ciao avventuriero!", 0);
         ChoiceDialogNode node2 = new ChoiceDialogNode("Come stai?", 1);
-        LinearDialogNode node3 = new LinearDialogNode("Ah ok!", 2);
+        LinearDialogNode node3 = new LinearDialogNode("Bene, sono contenta", 2);
+        LinearDialogNode node4 = new LinearDialogNode("Cosa significherebbe?!", 3);
 
         node1.setPointer(1);
         node2.addChoice("Bene, grazie!", 2);
-        node2.addChoice("No", 2);
+        node2.addChoice("Dipende", 3);
 
         dialog.addNode(node1);
         dialog.addNode(node2);
         dialog.addNode(node3);
+        dialog.addNode(node4);
 
         npc.setDialog(dialog);
     }
