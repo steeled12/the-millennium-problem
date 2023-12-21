@@ -12,18 +12,27 @@ import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import com.gruppo3.game.controller.MenuController;
 import com.gruppo3.game.controller.SettingController;
-import com.gruppo3.game.screens.MenuScreen;
 
 public class OptionMenu extends MenuState {
 
     Stage stage;
     private Viewport viewport;
     MenuState backState;
+    float musicVolume;
+    float gameVolume;
+    boolean fullscreen;
+    boolean vsync;
+    int maxFps;
 
     public OptionMenu(MenuController loader, MenuState backState) {
         super(loader);
 
         this.backState = backState;
+        this.musicVolume = SettingController.musicVolume;
+        this.gameVolume = SettingController.gameVolume;
+        this.fullscreen = SettingController.fullscreen;
+        this.vsync = SettingController.vsync;
+        this.maxFps = SettingController.maxFps;
 
         viewport = new ScreenViewport();
         stage = new Stage(viewport);
@@ -39,8 +48,7 @@ public class OptionMenu extends MenuState {
         musicVolumeSlider.addListener(new EventListener() {
             @Override
             public boolean handle(Event event) {
-                SettingController.musicVolume = musicVolumeSlider.getValue();
-                MenuScreen.updateMusicVolume();
+                musicVolume = musicVolumeSlider.getValue();
                 return false;
             }
         });
@@ -50,7 +58,7 @@ public class OptionMenu extends MenuState {
         gameVolumeSlider.addListener(new EventListener() {
             @Override
             public boolean handle(Event event) {
-                SettingController.gameVolume = gameVolumeSlider.getValue();
+                gameVolume = gameVolumeSlider.getValue();
                 return false;
             }
         });
@@ -60,7 +68,7 @@ public class OptionMenu extends MenuState {
         maxFpsSlider.addListener(new EventListener() {
             @Override
             public boolean handle(Event event) {
-                SettingController.maxFps = (int) maxFpsSlider.getValue();
+                maxFps = (int) maxFpsSlider.getValue();
                 return false;
             }
         });
@@ -70,7 +78,7 @@ public class OptionMenu extends MenuState {
         fullscreenCheckbox.addListener(new EventListener() {
             @Override
             public boolean handle(Event event) {
-                SettingController.fullscreen = fullscreenCheckbox.isChecked();
+                fullscreen = fullscreenCheckbox.isChecked();
                 return false;
             }
         });
@@ -80,7 +88,7 @@ public class OptionMenu extends MenuState {
         vsyncCheckbox.addListener(new EventListener() {
             @Override
             public boolean handle(Event event) {
-                SettingController.vsync = vsyncCheckbox.isChecked();
+                vsync = vsyncCheckbox.isChecked();
                 return false;
             }
         });
@@ -92,6 +100,11 @@ public class OptionMenu extends MenuState {
         applyButton.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
+                SettingController.gameVolume = gameVolume;
+                SettingController.musicVolume = musicVolume;
+                SettingController.maxFps = maxFps;
+                SettingController.fullscreen = fullscreen;
+                SettingController.vsync = vsync;
                 SettingController.apply();
             }
         });

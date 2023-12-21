@@ -1,7 +1,6 @@
 package com.gruppo3.game;
 
 import com.badlogic.gdx.Game;
-import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.gruppo3.game.controller.SettingController;
@@ -24,14 +23,11 @@ public class MyGame extends Game {
 	Texture img;
 	public static Skin skin;
 	private AssetManager assetManager;
-	public BitmapFont debugFont;
 
 	@Override
 	public void create() {
 		assetManager = new AssetManager();
-
 		batch = new SpriteBatch();
-		debugFont = new BitmapFont(Gdx.files.internal("flat-earth/raw/font-export.fnt"));
 		assetManager.load("ui/uipack.atlas", TextureAtlas.class);
 		assetManager.load("font/small_letters_font.fnt", BitmapFont.class);
 		assetManager.finishLoading();

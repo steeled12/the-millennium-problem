@@ -47,7 +47,8 @@ public class SaveController {
         currentSave = Gdx.app.getPreferences(SAVE_NAME + String.valueOf(numSave));
 
         /* Effetturare il load di tutti i valori necessari */
-        Player.getPlayer().getPlayerBox().setPosition(currentSave.getFloat("playerX"), currentSave.getFloat("playerY"));
+        Player.getPlayer().getPlayerBox().setPosition(currentSave.getFloat("playerX", 8),
+                currentSave.getFloat("playerY", 8));
         Gdx.app.log("SaveController", "Load effettuato!");
     }
 

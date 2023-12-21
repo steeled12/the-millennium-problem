@@ -4,8 +4,12 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
-import com.badlogic.gdx.utils.viewport.ScreenViewport;
-import com.badlogic.gdx.utils.viewport.Viewport;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
+import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator.FreeTypeFontParameter;
+import com.badlogic.gdx.scenes.scene2d.ui.Label;
+import com.badlogic.gdx.scenes.scene2d.ui.Label.LabelStyle;
 import com.gruppo3.game.MyGame;
 import com.gruppo3.game.controller.MenuController;
 import com.badlogic.gdx.audio.Music;
@@ -16,22 +20,30 @@ public class MenuScreen implements Screen {
     MenuController menuController;
     private OrthographicCamera camera;
     MyGame game = (MyGame) Gdx.app.getApplicationListener();
-    Viewport textViewport;
-    private static Music music = Gdx.audio.newMusic(Gdx.files.internal("music/Menu.ogg"));;
+    private static Music music = Gdx.audio.newMusic(Gdx.files.internal("music/Menu.ogg"));
+    BitmapFont debugFont;
+    SpriteBatch batch;
+
     public MenuScreen() {
         this.menuController = new MenuController();
+        this.batch = new SpriteBatch();
 
         camera = new OrthographicCamera();
         camera.position.set(camera.viewportWidth / 2, camera.viewportHeight / 2, 0);
         camera.update();
 
-        textViewport = new ScreenViewport();
         music.setLooping(true);
+
+        FreeTypeFontGenerator generator = new FreeTypeFontGenerator(
+                Gdx.files.internal("font/pkmnrsi.ttf"));
+        FreeTypeFontParameter parameter = new FreeTypeFontParameter();
+        parameter.size = 12;
+        this.debugFont = generator.generateFont(parameter);
+        generator.dispose();
     }
 
     @Override
     public void show() {
-        music.setVolume(SettingController.option.getFloat("musicVolume", SettingController.musicVolume));
         music.play();
     }
 
@@ -43,12 +55,12 @@ public class MenuScreen implements Screen {
         menuController.getStage().act();
         menuController.getStage().draw();
         Gdx.input.setInputProcessor(menuController.getStage());
-        game.batch.begin();
-        game.debugFont.draw(game.batch, "VERSION: DEVELOPER-BUILD_0.4",
+        this.batch.begin();
+        this.debugFont.draw(this.batch, "VERSION: DEVELOPER-BUILD_0.4",
                 10,
-                20);
-        game.batch.end();
-        
+                15);
+        this.batch.end();
+        music.setVolume(SettingController.musicVolume);
     }
 
     @Override
@@ -75,11 +87,7 @@ public class MenuScreen implements Screen {
     public void dispose() {
         menuController.getStage().dispose();
         music.dispose();
-
+        debugFont.dispose();
+        batch.dispose();
     }
-
-    public static void updateMusicVolume() {
-        music.setVolume(SettingController.option.getFloat("musicVolume", SettingController.musicVolume));
-    }
-
 }
