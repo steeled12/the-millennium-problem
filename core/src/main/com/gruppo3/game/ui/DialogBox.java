@@ -28,7 +28,6 @@ public class DialogBox extends Table {
         this.add(textLabel).expand().align(Align.left).pad(5f);
         this.setBackground("dialoguebox");
         this.typingSound = Gdx.audio.newSound(Gdx.files.internal("sound/sfx-blipmale.wav"));
-        this.typingSound.setVolume(0, SettingController.option.getFloat("musicVolume", SettingController.gameVolume));
     }
 
     public void animateText(String text) {
@@ -60,7 +59,7 @@ public class DialogBox extends Table {
             }
             int numChars = (int) (animTimer / TIME_PER_CHAR);
             if (animTimer % 0.08f <= delta) {
-                typingSound.play();
+                typingSound.play(SettingController.gameVolume);
             }
             setText(targetText.substring(0, numChars));
         }
