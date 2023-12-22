@@ -73,6 +73,7 @@ project(":tests") {
     apply plugin: "java-library"
 
     sourceSets.test.java.srcDirs = ["src/test/"]
+    sourceSets.test.resources.srcDirs = ["../assets"]
 
     dependencies {
         implementation project(":core")

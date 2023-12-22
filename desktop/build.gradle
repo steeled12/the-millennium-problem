@@ -1,6 +1,8 @@
 sourceCompatibility = 1.8
-sourceSets.main.java.srcDirs = [ "src/" ]
+sourceSets.main.java.srcDirs = [ "src/main" ]
 sourceSets.main.resources.srcDirs = ["../assets"]
+sourceSets.test.java.srcDirs = [ "src/test" ]
+sourceSets.test.resources.srcDirs = [ "../assets" ]
 
 project.ext.mainClassName = "com.gruppo3.game.DesktopLauncher"
 project.ext.assetsDir = new File("../assets")
