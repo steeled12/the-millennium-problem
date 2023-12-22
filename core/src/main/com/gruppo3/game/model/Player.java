@@ -1,5 +1,6 @@
 package com.gruppo3.game.model;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
@@ -39,8 +40,8 @@ public class Player {
                 int numAnimations = 4;
                 int numFrames = 6;
 
-                Texture playerIdle = new Texture("player_idle.png");
-                Texture playerWalk = new Texture("player_walk.png");
+                Texture playerIdle = new Texture(Gdx.files.internal("Player_idle.png"));
+                Texture playerWalk = new Texture(Gdx.files.internal("Player_walk.png"));
 
                 idleAnimation = new Animation[numAnimations];
                 walkAnimation = new Animation[numAnimations];
