@@ -176,6 +176,8 @@ public class TestScreen implements Screen {
             menuController.getStage().act();
             menuController.getStage().draw();
         }
+
+        
     }
 
     private void renderGame() {

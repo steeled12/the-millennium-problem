@@ -2,6 +2,7 @@ package com.gruppo3.game.controller;
 
 import java.util.List;
 import com.badlogic.gdx.Input.Keys;
+import com.badlogic.gdx.math.Rectangle;
 import com.gruppo3.game.model.interactables.NPC;
 import com.badlogic.gdx.InputAdapter;
 import com.gruppo3.game.model.Player;
@@ -24,7 +25,14 @@ public class InteractionController extends InputAdapter {
         if (keycode == Keys.X) {
             if (itemList != null) {
                 for (Item item : itemList) {
-                    if (item.getBox().overlaps(Player.getPlayer().getPlayerBox())) {
+                    Rectangle expandedItemBox = new Rectangle(item.getBox());
+                    float expansionAmount = 0.1f;
+                    expandedItemBox.x -= expansionAmount / 2;
+                    expandedItemBox.y -= expansionAmount / 2;
+                    expandedItemBox.width += expansionAmount;
+                    expandedItemBox.height += expansionAmount;
+    
+                    if (expandedItemBox.overlaps(Player.getPlayer().getPlayerBox())) {
                         item.action(TestScreen.dialogController);
                         return true;
                     }
@@ -32,7 +40,14 @@ public class InteractionController extends InputAdapter {
             }
             if (npcList != null) {
                 for (NPC npc : npcList) {
-                    if (npc.getNpcBox().overlaps(Player.getPlayer().getPlayerBox())) {
+                    Rectangle expandedNpcBox = new Rectangle(npc.getNpcBox());
+                    float expansionAmount = 0.1f;
+                    expandedNpcBox.x -= expansionAmount / 2;
+                    expandedNpcBox.y -= expansionAmount / 2;
+                    expandedNpcBox.width += expansionAmount;
+                    expandedNpcBox.height += expansionAmount;
+    
+                    if (expandedNpcBox.overlaps(Player.getPlayer().getPlayerBox())) {
                         npc.action(TestScreen.dialogController);
                         switch (Player.getPlayer().getPlayerDirection()) {
                             case NORTH:
