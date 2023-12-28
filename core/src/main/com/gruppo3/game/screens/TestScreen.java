@@ -32,6 +32,7 @@ import com.gruppo3.game.model.dialog.LinearDialogNode;
 import com.gruppo3.game.model.Player;
 import com.gruppo3.game.model.dialog.ChoiceDialogNode;
 import com.gruppo3.game.model.interactables.Item;
+import com.badlogic.gdx.audio.Music;
 
 public class TestScreen implements Screen {
     private final MyGame game;
@@ -55,6 +56,7 @@ public class TestScreen implements Screen {
     float stateTime;
     float unitScale;
     MenuController menuController;
+    private static Music music = Gdx.audio.newMusic(Gdx.files.internal("music/CoconutMall.mp3"));
 
     public TestScreen(final MyGame game) {
         this.game = game;
@@ -177,7 +179,7 @@ public class TestScreen implements Screen {
             menuController.getStage().draw();
         }
 
-        
+        music.setVolume(SettingController.musicVolume);
     }
 
     private void renderGame() {
@@ -220,11 +222,12 @@ public class TestScreen implements Screen {
 
     @Override
     public void show() {
+        music.play();
     }
 
     @Override
     public void hide() {
-
+        music.stop();
     }
 
     @Override
@@ -241,5 +244,6 @@ public class TestScreen implements Screen {
         stage.dispose();
         map.dispose();
         renderer.dispose();
+        music.dispose();
     }
 }
