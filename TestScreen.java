@@ -1,7 +1,10 @@
 package com.gruppo3.game.screens;
 
+import java.util.List;
+
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.OrthographicCamera;
+import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.maps.MapLayer;
 import com.badlogic.gdx.maps.MapObject;
 import com.badlogic.gdx.maps.objects.RectangleMapObject;
@@ -16,8 +19,6 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.gruppo3.game.MyGame;
 import com.gruppo3.game.MyGame.GameState;
 import com.gruppo3.game.controller.*;
-import com.gruppo3.game.model.interactables.Computer;
-import com.gruppo3.game.model.interactables.GenericItem;
 import com.gruppo3.game.model.interactables.NPC;
 import com.gruppo3.game.model.menus.PauseMenu;
 import com.badlogic.gdx.Gdx;
@@ -30,9 +31,9 @@ import com.gruppo3.game.model.dialog.Dialog;
 import com.gruppo3.game.model.dialog.LinearDialogNode;
 import com.gruppo3.game.model.Player;
 import com.gruppo3.game.model.dialog.ChoiceDialogNode;
+import com.gruppo3.game.model.interactables.Item;
 import com.badlogic.gdx.audio.Music;
-import com.badlogic.gdx.graphics.Texture;
-import com.gruppo3.game.model.interactables.Cat;
+import com.badlogic.gdx.Input.Keys;
 
 public class TestScreen implements Screen {
     private final MyGame game;
@@ -40,7 +41,6 @@ public class TestScreen implements Screen {
     private PlayerController playerController;
     private PauseController pauseController;
     private NPCController npcController;
-    private ItemController itemController;
     public static TiledMap map;
     private OrthogonalTiledMapRenderer renderer;
     private Stage stage;
@@ -48,9 +48,10 @@ public class TestScreen implements Screen {
     private DialogBox dialogBox;
     private OptionBox optionBox;
     private InputMultiplexer multiplexer;
-    private Dialog computerDialog;
+    private Dialog dialog;
     public static DialogController dialogController;
     private InteractionController interactionController;
+    private List<Item> itemList;
     private ScreenViewport gameViewport;
     private ExtendViewport uiViewport;
     float stateTime;
@@ -70,11 +71,11 @@ public class TestScreen implements Screen {
         // Initialize camera, map, and renderer
         camera = new OrthographicCamera();
         camera.setToOrtho(false, 32, 32);
-        map = new TmxMapLoader().load("map/atto3/stanza-segreta.tmx");
+        map = new TmxMapLoader().load("map/tutorial/tutorialMap.tmx");
         renderer = new OrthogonalTiledMapRenderer(map, unitScale);
 
         // scaling a game units
-        MapLayer collisionObjectLayer = this.map.getLayers().get("Collisioni");
+        MapLayer collisionObjectLayer = TestScreen.map.getLayers().get("Collisioni");
         for (MapObject object : collisionObjectLayer.getObjects()) {
             if (object instanceof RectangleMapObject) {
                 Rectangle rect = ((RectangleMapObject) object).getRectangle();
@@ -90,12 +91,11 @@ public class TestScreen implements Screen {
         playerController = new PlayerController();
         dialogController = new DialogController(dialogBox, optionBox);
         npcController = new NPCController();
-        itemController = new ItemController();
         pauseController = new PauseController(game);
         this.menuController = new MenuController();
         this.menuController.changeState(new PauseMenu(menuController));
 
-        interactionController = new InteractionController(npcController.npcList, itemController.itemList);
+        interactionController = new InteractionController(npcController.npcList, this.itemList);
 
         multiplexer = new InputMultiplexer();
         multiplexer.addProcessor(0, pauseController);
@@ -104,15 +104,27 @@ public class TestScreen implements Screen {
         multiplexer.addProcessor(3, playerController);
         Gdx.input.setInputProcessor(multiplexer);
 
-        Computer computer = new Computer();
-        itemController.addwithId(computer, 3);
+        // Creo un NPC
 
-        Cat npc = new Cat(
-                new Texture("player.png"));
-        npc.getNpcBox().x = 10;
-        npc.getNpcBox().y = 10;
+        NPC npc = new NPC(
+                new Texture("Modern_Interiors_Free_v2.2/Modern tiles_Free/Characters_free/Amelia_idle_anim_16x16.png"));
         npcController.add(npc);
-        
+        dialog = new Dialog();
+        LinearDialogNode node1 = new LinearDialogNode("Ciao avventuriero!", 0);
+        ChoiceDialogNode node2 = new ChoiceDialogNode("Come stai?", 1);
+        LinearDialogNode node3 = new LinearDialogNode("Bene, sono contenta", 2);
+        LinearDialogNode node4 = new LinearDialogNode("Cosa significherebbe?!", 3);
+
+        node1.setPointer(1);
+        node2.addChoice("Bene, grazie!", 2);
+        node2.addChoice("Dipende", 3);
+
+        dialog.addNode(node1);
+        dialog.addNode(node2);
+        dialog.addNode(node3);
+        dialog.addNode(node4);
+
+        npc.setDialog(dialog);
     }
 
     private void initUI() {
@@ -175,7 +187,7 @@ public class TestScreen implements Screen {
 
     private void renderGame() {
         renderer.setView(camera);
-        renderer.render(new int[] { 0, 1 });
+        renderer.render(new int[] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 });
         camera.update();
         game.batch.setProjectionMatrix(camera.combined);
         gameViewport.apply();
@@ -191,18 +203,27 @@ public class TestScreen implements Screen {
                 1, 2);
 
         game.batch.end();
-        renderer.render(new int[] { 2 });
+        renderer.render(new int[] { 10, 11 });
+        
+        if (flag != 1 && dialogController.getTraverser() != null && dialogController.getTraverser().getNode().equals(dialog.getNode(3))) {
+            timer += Gdx.graphics.getDeltaTime();
+            if (timer > 5) {
+                timer = 0;
+                LinearDialogNode node5 = new LinearDialogNode("Premi X AOOOOO", 4);
+                LinearDialogNode current=(LinearDialogNode)dialog.getNode(3);
+                current.setPointer(4);
+                dialog.addNode(node5);
+                dialogController.keyUp(Keys.X);
+                dialog.removeNode(4);
+                flag=1;
+            }
+        }
     }
 
     private void renderUI() {
         dialogController.update(Math.min(Gdx.graphics.getDeltaTime(), 1 / 30f));
         stage.act(Math.min(Gdx.graphics.getDeltaTime(), 1 / 30f));
         stage.draw();
-    }
-
-    public static void setMusic(Music music) {
-        TestScreen.music = music;
-        music.play();
     }
 
     @Override
@@ -218,6 +239,7 @@ public class TestScreen implements Screen {
 
     @Override
     public void show() {
+        music.play();
         music.setLooping(true);
     }
 

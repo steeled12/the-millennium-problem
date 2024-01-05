@@ -3,6 +3,8 @@ package com.gruppo3.game.model.dialog;
 import java.util.HashMap;
 import java.util.Map;
 
+import com.badlogic.gdx.Gdx;
+
 
 public class Dialog {
 	
@@ -22,5 +24,12 @@ public class Dialog {
 	
 	public int size() {
 		return nodes.size();
+	}
+
+	public void removeNode(int id) {
+		DialogNode previousNode = nodes.get(id-1);
+		previousNode.getPointers().remove((Integer) id);
+		nodes.remove(id);
+		
 	}
 }

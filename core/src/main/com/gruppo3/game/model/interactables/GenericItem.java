@@ -15,6 +15,10 @@ public class GenericItem implements Item {
         this.texture = texture;
         this.box = new Rectangle(0, 0, 32, 32);
     }
+
+    public GenericItem() {
+        this.box = new Rectangle(0, 0, 32, 32);
+    }
     @Override
     public Texture getTexture(){
         return texture;
