@@ -15,7 +15,7 @@ public class NPC {
 
     public enum Direction {
         EAST,
-        NORTH, 
+        NORTH,
         WEST,
         SOUTH;
     }
@@ -94,6 +94,5 @@ public class NPC {
 
     public void action(DialogController dialogController) {
         dialogController.startDialog(this.dialog);
-
     }
 }

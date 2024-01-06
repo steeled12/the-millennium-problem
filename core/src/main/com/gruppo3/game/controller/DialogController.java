@@ -89,7 +89,7 @@ public class DialogController extends InputAdapter {
 		if (nextNode instanceof ChoiceDialogNode) {
 			ChoiceDialogNode node = (ChoiceDialogNode) nextNode;
 			dialogBox.animateText(node.getText());
-			optionBox.clear();
+			optionBox.clearChoices();
 			for (String s : node.getLabels()) {
 				optionBox.addOption(s);
 			}

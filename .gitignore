@@ -2,3 +2,5 @@
 .vscode/
 core/build/
 core/bin/
+desktop/build
+tests/build

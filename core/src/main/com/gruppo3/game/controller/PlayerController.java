@@ -66,15 +66,16 @@ public class PlayerController extends InputAdapter {
         return false;
     }
 
-    //Overload per controllare se il player collide con un oggetto in una specifica direzione
+    // Overload per controllare se il player collide con un oggetto in una specifica
+    // direzione
     private boolean isColliding(PlayerDirection direction) {
         MapLayer collisionObjectLayer = TestScreen.map.getLayers().get("Collisioni");
         MapObjects objects = collisionObjectLayer.getObjects();
-    
+
         for (RectangleMapObject rectangleMapObject : objects.getByType(RectangleMapObject.class)) {
-            Rectangle playerRectangle = new Rectangle(player.getPlayerBox()); 
+            Rectangle playerRectangle = new Rectangle(player.getPlayerBox());
             Rectangle objectRectangle = rectangleMapObject.getRectangle();
-    
+
             switch (direction) {
                 case WEST:
                     playerRectangle.x -= playerSpeed * Gdx.graphics.getDeltaTime();
@@ -89,18 +90,17 @@ public class PlayerController extends InputAdapter {
                     playerRectangle.y -= playerSpeed * Gdx.graphics.getDeltaTime();
                     break;
             }
-    
+
             if (playerRectangle.overlaps(objectRectangle)) {
                 return true;
             }
         }
-    
+
         return false;
     }
-    
 
     private int moveLeft() {
-        if(!isColliding(PlayerDirection.WEST)) {
+        if (!isColliding(PlayerDirection.WEST)) {
             if (Gdx.input.isKeyPressed(Input.Keys.LEFT)) {
                 player.getPlayerBox().x -= playerSpeed * Gdx.graphics.getDeltaTime();
                 player.setPlayerDirection(Player.PlayerDirection.WEST);
@@ -112,7 +112,7 @@ public class PlayerController extends InputAdapter {
     }
 
     private int moveRight() {
-        if(!isColliding(PlayerDirection.EAST)) {
+        if (!isColliding(PlayerDirection.EAST)) {
             if (Gdx.input.isKeyPressed(Input.Keys.RIGHT)) {
                 player.getPlayerBox().x += playerSpeed * Gdx.graphics.getDeltaTime();
                 player.setPlayerDirection(Player.PlayerDirection.EAST);
@@ -124,7 +124,7 @@ public class PlayerController extends InputAdapter {
     }
 
     private int moveUp() {
-        if(!isColliding(PlayerDirection.NORTH)) {
+        if (!isColliding(PlayerDirection.NORTH)) {
             if (Gdx.input.isKeyPressed((Input.Keys.UP))) {
                 player.getPlayerBox().y += playerSpeed * Gdx.graphics.getDeltaTime();
                 player.setPlayerDirection(Player.PlayerDirection.NORTH);
@@ -136,7 +136,7 @@ public class PlayerController extends InputAdapter {
     }
 
     private int moveDown() {
-        if(!isColliding(PlayerDirection.SOUTH)) {
+        if (!isColliding(PlayerDirection.SOUTH)) {
             if (Gdx.input.isKeyPressed((Input.Keys.DOWN))) {
                 player.getPlayerBox().y -= playerSpeed * Gdx.graphics.getDeltaTime();
                 player.setPlayerDirection(Player.PlayerDirection.SOUTH);
