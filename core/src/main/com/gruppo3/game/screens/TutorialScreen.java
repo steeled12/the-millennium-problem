@@ -43,6 +43,7 @@ public class TutorialScreen implements Screen {
     private PlayerController playerController;
     private PauseController pauseController;
     private NPCController npcController;
+    private ItemController itemController;
     public static TiledMap map;
     private OrthogonalTiledMapRenderer renderer;
     private Stage stage;
@@ -52,7 +53,6 @@ public class TutorialScreen implements Screen {
     private InputMultiplexer multiplexer;
     public static DialogController dialogController;
     private InteractionController interactionController;
-    private List<Item> itemList;
     private ScreenViewport gameViewport;
     private ExtendViewport uiViewport;
     float stateTime;
@@ -94,7 +94,7 @@ public class TutorialScreen implements Screen {
         this.menuController = new MenuController();
         this.menuController.changeState(new PauseMenu(menuController));
 
-        interactionController = new InteractionController(npcController.npcList, this.itemList);
+        interactionController = new InteractionController(npcController, itemController);
 
         multiplexer = new InputMultiplexer();
         multiplexer.addProcessor(0, pauseController);
