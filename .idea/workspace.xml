@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b1f22ba1-b82b-46ff-9765-9c31bfe1d21a" name="Changes" comment="">
+    <list default="true" id="b1f22ba1-b82b-46ff-9765-9c31bfe1d21a" name="Changes" comment="collisioni npc">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/src/main/com/gruppo3/game/model/interactables/Computer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.5.1/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5.1/checksums/checksums.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.5.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5.1/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.5.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5.1/executionHistory/executionHistory.lock" afterDir="false" />
@@ -12,14 +14,25 @@
       <change beforePath="$PROJECT_DIR$/.gradle/7.5.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5.1/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.5.1/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5.1/fileHashes/resourceHashesCache.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/core/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/build/classes/java/main/com/gruppo3/game/controller/NPCController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/build/classes/java/main/com/gruppo3/game/controller/PlayerController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/build/classes/java/main/com/gruppo3/game/model/interactables/NPC.class" beforeDir="false" afterPath="$PROJECT_DIR$/core/build/classes/java/main/com/gruppo3/game/model/interactables/NPC.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/build/classes/java/main/com/gruppo3/game/screens/TestScreen.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/core/build/libs/core-1.0.jar" beforeDir="false" afterPath="$PROJECT_DIR$/core/build/libs/core-1.0.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/desktop/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/desktop/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/com/gruppo3/game/controller/DialogController.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/com/gruppo3/game/controller/DialogController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/com/gruppo3/game/controller/NPCController.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/com/gruppo3/game/controller/NPCController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/com/gruppo3/game/controller/OptionBoxController.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/com/gruppo3/game/controller/OptionBoxController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/com/gruppo3/game/controller/PlayerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/com/gruppo3/game/controller/PlayerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/com/gruppo3/game/model/dialog/ChoiceDialogNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/com/gruppo3/game/model/dialog/ChoiceDialogNode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/com/gruppo3/game/model/dialog/Dialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/com/gruppo3/game/model/dialog/Dialog.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/com/gruppo3/game/model/dialog/LinearDialogNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/com/gruppo3/game/model/dialog/LinearDialogNode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/com/gruppo3/game/model/interactables/GenericItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/com/gruppo3/game/model/interactables/GenericItem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/com/gruppo3/game/model/interactables/NPC.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/com/gruppo3/game/model/interactables/NPC.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/com/gruppo3/game/screens/TestScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/com/gruppo3/game/screens/TestScreen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/com/gruppo3/game/ui/OptionBox.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/com/gruppo3/game/ui/OptionBox.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,6 +48,12 @@
     <system id="GRADLE">
       <state>
         <task path="$PROJECT_DIR$">
+          <activation />
+        </task>
+        <task path="$PROJECT_DIR$/desktop">
+          <activation />
+        </task>
+        <task path="$PROJECT_DIR$/core">
           <activation />
         </task>
         <projects_view>
@@ -56,6 +75,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 6
 }</component>
@@ -68,6 +90,7 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
     "external.system.has.shared.sources": "true",
     "git-widget-placeholder": "main",
@@ -81,7 +104,29 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager" selected="JUnit.SaveControllerTest">
+  <component name="RunManager" selected="Gradle.giocoiss:desktop [run]">
+    <configuration name="giocoiss:desktop [run]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/desktop" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="run" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>false</RunAsTest>
+      <method v="2" />
+    </configuration>
     <configuration name="GameApplicationTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="giocoiss.core.test" />
       <extension name="coverage">
@@ -108,22 +153,6 @@
       <option name="PACKAGE_NAME" value="com.gruppo3.game" />
       <option name="MAIN_CLASS_NAME" value="com.gruppo3.game.InteractionControllerTest" />
       <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="InteractionControllerTest.testKeyDownWithNoItemListAndNoNPCList" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="giocoiss.core.test" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.gruppo3.game.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.gruppo3.game" />
-      <option name="MAIN_CLASS_NAME" value="com.gruppo3.game.InteractionControllerTest" />
-      <option name="METHOD_NAME" value="testKeyDownWithNoItemListAndNoNPCList" />
-      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -161,11 +190,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.SaveControllerTest" />
-        <item itemvalue="JUnit.SaveControllerTest.testSave" />
+        <item itemvalue="Gradle.giocoiss:desktop [run]" />
         <item itemvalue="JUnit.InteractionControllerTest (1)" />
+        <item itemvalue="JUnit.SaveControllerTest" />
         <item itemvalue="JUnit.GameApplicationTest" />
-        <item itemvalue="JUnit.InteractionControllerTest.testKeyDownWithNoItemListAndNoNPCList" />
+        <item itemvalue="JUnit.SaveControllerTest.testSave" />
       </list>
     </recent_temporary>
   </component>
@@ -180,24 +209,36 @@
       <workItem from="1702888519606" duration="977000" />
       <workItem from="1702890344719" duration="14000" />
       <workItem from="1703181173808" duration="4303000" />
-      <workItem from="1703282555013" duration="4792000" />
+      <workItem from="1703282555013" duration="6175000" />
+      <workItem from="1703459022182" duration="1019000" />
+      <workItem from="1703607690329" duration="2449000" />
+      <workItem from="1703689200610" duration="643000" />
+      <workItem from="1704480973062" duration="4830000" />
     </task>
+    <task id="LOCAL-00001" summary="collisioni npc">
+      <option name="closed" value="true" />
+      <created>1703610045994</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1703610045994</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="collisioni npc" />
+    <option name="LAST_COMMIT_MESSAGE" value="collisioni npc" />
+  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/core/src/main/com/gruppo3/game/controller/InteractionController.java</url>
-          <line>25</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/core/src/main/com/gruppo3/game/model/Player.java</url>
-          <line>67</line>
+          <line>68</line>
           <option name="timeStamp" value="3" />
         </line-breakpoint>
       </breakpoints>

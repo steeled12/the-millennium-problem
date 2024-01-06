@@ -12,6 +12,7 @@ import com.gruppo3.game.model.dialog.LinearDialogNode;
 import com.gruppo3.game.ui.DialogBox;
 import com.gruppo3.game.ui.OptionBox;
 import com.gruppo3.game.util.Action;
+import com.badlogic.gdx.Gdx;
 
 public class DialogController extends InputAdapter {
 
@@ -51,6 +52,9 @@ public class DialogController extends InputAdapter {
 
 			if (thisNode instanceof LinearDialogNode) {
 				LinearDialogNode node = (LinearDialogNode) thisNode;
+				if (node.getAction() != null) {
+					node.getAction().action();
+				}
 				if (node.getPointers().isEmpty()) { // dead end, since no pointers
 					traverser = null; // end dialog
 					dialogBox.setVisible(false);
@@ -61,7 +65,15 @@ public class DialogController extends InputAdapter {
 			if (thisNode instanceof ChoiceDialogNode) {
 				ChoiceDialogNode node = (ChoiceDialogNode)thisNode;
 				optionBox.callAction();
-				progress(optionBox.getIndex());
+				Gdx.app.log("DialogController", "Called action");
+				int index = optionBox.getIndex();
+				if(node.getPointers().get(index) == -1) {
+					traverser = null;
+					dialogBox.setVisible(false);
+					optionBox.setVisible(false);
+				} else {
+					progress(index);
+				}
 			}
 
 			return true;
@@ -123,6 +135,7 @@ public class DialogController extends InputAdapter {
 				Action action = entry.getValue();
 				if(action != null) {
 					optionBox.addOption(option, action);
+					Gdx.app.log("DialogController", "Added option with action");
 				} else {
 					optionBox.addOption(option);
 				}

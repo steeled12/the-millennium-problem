@@ -13,6 +13,11 @@ import com.gruppo3.game.MyGame.GameState;
 import com.gruppo3.game.controller.MenuController;
 import com.gruppo3.game.controller.SaveController;
 import com.gruppo3.game.screens.MenuScreen;
+import com.gruppo3.game.model.interactables.Item;
+import com.badlogic.gdx.scenes.scene2d.ui.Label;
+import com.badlogic.gdx.utils.Align;
+import java.util.List;
+import com.gruppo3.game.controller.ItemController;
 
 public class PauseMenu extends MenuState {
 

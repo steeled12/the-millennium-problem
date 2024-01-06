@@ -1,5 +1,8 @@
 package com.gruppo3.game.controller;
-
+import com.gruppo3.game.model.interactables.Item;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Preferences;
 import com.gruppo3.game.model.Player;
@@ -64,5 +67,11 @@ public class SaveController {
 
     public static boolean isEmpty() {
         return currentSave.get().isEmpty();
+    }
+
+    private static void saveInventory(List<Item> inventory) {
+        Map<String, List<Item>> inventoryMap = new HashMap<>();
+        // TODO
+
     }
 }

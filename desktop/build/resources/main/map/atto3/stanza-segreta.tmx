@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="30" height="20" tilewidth="16" tileheight="16" infinite="0" nextlayerid="11" nextobjectid="38">
+ <tileset firstgid="1" name="Room_Builder_16x16" tilewidth="16" tileheight="16" tilecount="8284" columns="76">
+  <image source="../Room_Builder_16x16.png" width="1216" height="1744"/>
+ </tileset>
+ <tileset firstgid="8285" name="Interiors_16x16" tilewidth="16" tileheight="16" tilecount="17024" columns="16">
+  <image source="../Interiors_16x16.png" width="256" height="17024"/>
+ </tileset>
+ <tileset firstgid="25309" name="Room_Builder_16x16" tilewidth="16" tileheight="16" tilecount="8284" columns="76">
+  <image source="../Room_Builder_16x16.png" width="1216" height="1744"/>
+ </tileset>
+ <tileset firstgid="33593" source="../arrow_up.tsx"/>
+ <group id="8" name="Terra">
+  <layer id="2" name="pavimento" width="30" height="20">
+   <data encoding="base64" compression="zlib">
+   eJzFVEEOwCAI8wHzPfr/7+gjFg8khACCQ9akmTOLXSlSyn8YD88p7J9woiegVZ5d2D/hOovqRnuz+oX3KG+YcLami7+5wZ1ur2fUarzLl+bszf2LX5oNrLnsLP8B9ZgGXVw3qkP7xcN1rnSPrF48tdfyxb4i71Ina2lO0hmjzQBv71nmpDYHaC94vHsxBD2oyy1w/Zalq/VNBsBvNlqix0jdF305E8Y=
+  </data>
+  </layer>
+  <layer id="1" name="muri" width="30" height="20">
+   <data encoding="base64" compression="zlib">
+   eJxjYAACUfphRhANBTNF6YthwEeUftgXyd5RMLzBnXJMfBeIJ5eTb2YfSC8s36DTUFBagR3fp8DeW+WE85FGBSbWBGLtCvLtVasgPx/dLmc4QK69+yhw80DZOwpGwSgY3AAADz9EmA==
+  </data>
+  </layer>
+  <layer id="4" name="bordo" width="30" height="20">
+   <data encoding="base64" compression="zlib">
+   eJy7wshAd3ANaKcCE/3tVWIatXfU3lF7R+0dtXew2psDxLlEYCki3CcNVHOVkTDOI8GvxIQLUM0B4k2knr1KNIizHBxhjhy2pIQfOaAFqY3STMf2CjXsBQDFkhi8
+  </data>
+  </layer>
+  <layer id="3" name="arco" width="30" height="20">
+   <data encoding="base64" compression="zlib">
+   eJxjYBgFo2AUjIJRMApGwSjAD+yZGRgcmOlvbzfQzp4BsPc60M4bFNgLANqxA1g=
+  </data>
+  </layer>
+ </group>
+ <group id="9" name="Oggetti">
+  <layer id="5" name="oggetti" width="30" height="20">
+   <data encoding="base64" compression="zlib">
+   eJxjYEAF1xwgGBsQdGRgeASUewzEQkC2MBJfxBG7HnzmIYNnDhCMDSgCzf4ElPsMxEpAtjISXwVqb60pA0OdKXHmEQsMgWYzATEzEBsBsTES3wRqby/Qzj5T/OaQAmSB5soRwPI4wpoSoAs0U48A1qeBvdiAZTN97BkqgE8Hv3yiBQNDEhAnA7GjMQODExA7G1NurxwWe3mRxAqB9hUBcTEQBwLtCwLiYCrYCwJ5dgwM+XYI/nwktj8wv+lC81wi0L4kIE6mgr1bgH6rA9pTj2TXeiR2PBXzOT7QD7RnApJd/nSydz7QngVIdtHLv0MNcCkxMHArES9OLSAFNFsai/m4xEfBwAMAbO85yQ==
+  </data>
+  </layer>
+  <layer id="6" name="sopra_tavolo" width="30" height="20">
+   <data encoding="base64" compression="zlib">
+   eJxjYBhYYOqIHbsaMzC4GVPPPHTg6ogdhwLtDCPDXlzmoYNQR+w4FWhnGg57fzvgtheXeeQAC6A+ASS93I4IcV8yzSQGeOAwG5f4KBhcgM2Hdma3e+CWE0OyN9+VuvZOx2MvMqinsr2jYBSMguEDAAuLHlA=
+  </data>
+  </layer>
+ </group>
+ <objectgroup id="10" name="Collisioni">
+  <object id="1" x="176.75" y="79.875" width="14.125" height="11.625"/>
+  <object id="3" x="273.063" y="80.3125" width="14.125" height="11.625"/>
+  <object id="4" x="160.574" y="60.0057" width="159.216" height="19.0795"/>
+  <object id="5" x="240.756" y="62.9148" width="14.125" height="26.7159"/>
+  <object id="6" x="132.392" y="46.0057" width="24.3068" height="11.625"/>
+  <object id="7" x="32.392" y="48.3693" width="95.2159" height="11.625"/>
+  <object id="8" x="352.574" y="47.8239" width="95.2159" height="11.625"/>
+  <object id="9" x="217.188" y="277.188" width="6.875" height="43.125"/>
+  <object id="11" x="256.063" y="276.688" width="6.875" height="43.125"/>
+  <object id="12" x="176.063" y="272.188" width="47.625" height="5.125"/>
+  <object id="13" x="256.688" y="272.188" width="47.625" height="5.125"/>
+  <object id="14" x="169.063" y="229.438" width="6.875" height="48.125"/>
+  <object id="15" x="303.813" y="229.688" width="6.875" height="48.125"/>
+  <object id="16" x="15.9375" y="224.688" width="159.625" height="5.125"/>
+  <object id="17" x="304.188" y="224.688" width="159.625" height="5.125"/>
+  <object id="18" x="464.063" y="5.9375" width="6.875" height="224.125"/>
+  <object id="19" x="9.0625" y="6.1875" width="6.875" height="224.125"/>
+  <object id="20" x="9.4375" y="0.4375" width="461.375" height="46.875"/>
+  <object id="21" x="358.688" y="112.188" width="105.875" height="46.875"/>
+  <object id="22" x="351.813" y="112.438" width="15.625" height="78.875"/>
+  <object id="23" x="111.938" y="112.563" width="15.625" height="78.875"/>
+  <object id="24" x="16.0625" y="112.813" width="105.875" height="46.875"/>
+  <object id="25" x="64.7557" y="156.915" width="45.9432" height="11.625"/>
+  <object id="26" x="98.9375" y="170.188" width="9.94318" height="13.4432"/>
+  <object id="27" x="33.9375" y="160.369" width="12.3068" height="15.2614"/>
+  <object id="28" x="19.7557" y="161.824" width="11.7614" height="20.1705"/>
+  <object id="29" x="19.7557" y="193.733" width="11.7614" height="20.1705"/>
+  <object id="30" x="49.0284" y="159.551" width="14.8523" height="15.9887"/>
+  <object id="31" x="186.21" y="258.733" width="11.5796" height="11.6251"/>
+  <object id="32" x="282.392" y="258.733" width="11.5796" height="11.6251"/>
+  <object id="33" x="217.847" y="316.187" width="43.9432" height="4.17055"/>
+  <object id="34" x="386.46" y="157.937" width="24.0796" height="11.6251"/>
+  <object id="35" x="416.835" y="159.687" width="14.0796" height="7.6251"/>
+  <object id="36" x="450.335" y="159.687" width="11.3296" height="7.6251"/>
+  <object id="37" x="431.96" y="192.312" width="31.4546" height="7.6251"/>
+ </objectgroup>
+</map>

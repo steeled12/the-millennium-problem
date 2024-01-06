@@ -9,22 +9,24 @@ import com.gruppo3.game.model.Player;
 import com.gruppo3.game.screens.TestScreen;
 import com.gruppo3.game.model.interactables.Item;
 import com.gruppo3.game.model.interactables.NPC.Direction;
+import com.gruppo3.game.model.interactables.PickableItem;
+import com.badlogic.gdx.Gdx;
 
 public class InteractionController extends InputAdapter {
 
-    private List<NPC> npcList;
-    private List<Item> itemList;
+    private NPCController npcController;
+    private ItemController itemController;
 
-    public InteractionController(List<NPC> npcList, List<Item> itemList) {
-        this.npcList = npcList;
-        this.itemList = itemList;
+    public InteractionController(NPCController npcController, ItemController itemController) {
+        this.npcController = npcController;
+        this.itemController = itemController;
     }
 
     @Override
     public boolean keyDown(int keycode) {
         if (keycode == Keys.X) {
-            if (itemList != null) {
-                for (Item item : itemList) {
+            if (itemController.itemList != null) {
+                for (Item item : itemController.itemList) {
                     Rectangle expandedItemBox = new Rectangle(item.getBox());
                     float expansionAmount = 0.1f;
                     expandedItemBox.x -= expansionAmount / 2;
@@ -33,13 +35,17 @@ public class InteractionController extends InputAdapter {
                     expandedItemBox.height += expansionAmount;
     
                     if (expandedItemBox.overlaps(Player.getPlayer().getPlayerBox())) {
+                        if(item instanceof PickableItem){
+                            Gdx.app.log("InteractionController", "Aggiunto oggetto all'inventario");
+                            itemController.addItemToInventory((PickableItem) item);
+                        }
                         item.action(TestScreen.dialogController);
                         return true;
                     }
                 }
             }
-            if (npcList != null) {
-                for (NPC npc : npcList) {
+            if (npcController.npcList != null) {
+                for (NPC npc : npcController.npcList) {
                     Rectangle expandedNpcBox = new Rectangle(npc.getNpcBox());
                     float expansionAmount = 0.1f;
                     expandedNpcBox.x -= expansionAmount / 2;

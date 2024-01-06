@@ -59,6 +59,7 @@ public class OptionBox extends Table {
 	public void addOption(String option, Action action) {
 		Label optionLabel = new Label(option, this.getSkin());
 		options.add(optionLabel);
+		actions.add(action);
 		Image selectorLabel = new Image(this.getSkin(), "arrow");
 		selectorLabel.setScaling(Scaling.none);
 		arrows.add(selectorLabel);
@@ -75,7 +76,7 @@ public class OptionBox extends Table {
 				.space(8f);
 		uiContainer.row();
 
-		actions.add(action);
+		
 	}
 
 	public void moveUp() {
@@ -112,6 +113,7 @@ public class OptionBox extends Table {
 		uiContainer.clearChildren();
 		options.clear();
 		arrows.clear();
+		actions.clear();
 		selectorIndex = 0;
 	}
 
@@ -124,7 +126,10 @@ public class OptionBox extends Table {
 	}
 
 	public void callAction() {
+		Gdx.app.log("OptionBox", "indice" + selectorIndex);
+		Gdx.app.log("OptionBox", "actions: " + actions.toString());
 		if (actions.get(selectorIndex) != null) {
+			Gdx.app.log("OptionBox", "Calling action on index " + selectorIndex);
 			actions.get(selectorIndex).action();
 		}
 	}

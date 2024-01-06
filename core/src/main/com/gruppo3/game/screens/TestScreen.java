@@ -1,5 +1,7 @@
 package com.gruppo3.game.screens;
 
+import java.util.List;
+
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.maps.MapLayer;
@@ -33,6 +35,10 @@ import com.gruppo3.game.model.dialog.ChoiceDialogNode;
 import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.Texture;
 import com.gruppo3.game.model.interactables.Cat;
+import com.gruppo3.game.model.interactables.PickableItem;
+import com.gruppo3.game.model.interactables.Item;
+import com.badlogic.gdx.scenes.scene2d.ui.Label;
+
 
 public class TestScreen implements Screen {
     private final MyGame game;
@@ -95,7 +101,7 @@ public class TestScreen implements Screen {
         this.menuController = new MenuController();
         this.menuController.changeState(new PauseMenu(menuController));
 
-        interactionController = new InteractionController(npcController.npcList, itemController.itemList);
+        interactionController = new InteractionController(npcController, itemController);
 
         multiplexer = new InputMultiplexer();
         multiplexer.addProcessor(0, pauseController);
@@ -107,12 +113,48 @@ public class TestScreen implements Screen {
         Computer computer = new Computer();
         itemController.addwithId(computer, 3);
 
-        Cat npc = new Cat(
-                new Texture("player.png"));
+         Cat npc = new Cat(new Texture("map/atto3/cat.png"));
         npc.getNpcBox().x = 10;
         npc.getNpcBox().y = 10;
-        npcController.add(npc);
+        npcController.add(npc); 
+
+        //tutti i dialoghi
+
+        GenericItem libreria = new GenericItem("libreria");
+        itemController.addwithId(libreria, 4);
+        Dialog libDialog = new Dialog();
+        LinearDialogNode libNode0 = new LinearDialogNode("Un foglietto sporge leggermente \n dalla libreria", 0);
+        ChoiceDialogNode libNode1 = new ChoiceDialogNode("Leggi il foglietto?", 1);
+        LinearDialogNode linNode2 = new LinearDialogNode("\"Il vero grande fratello nacque quell\'anno\"", 2);
+
+        libNode0.setPointer(1);
+        libNode1.addChoice("Si", 2);
+        libNode1.addChoice("No");
+
+        libDialog.addNode(libNode0);
+        libDialog.addNode(libNode1);
+        libDialog.addNode(linNode2);
+
+        libreria.setDialog(libDialog);
         
+        GenericItem cassetto = new GenericItem("cassetto");
+        itemController.addwithId(cassetto, 34);
+        Dialog cassDialog = new Dialog();
+        LinearDialogNode cassNode0 = new LinearDialogNode("Ci sono delle scritte incise sul cassetto", 0);
+        LinearDialogNode cassNode1 = new LinearDialogNode("\"Sono la struttura migliore, ma tutti si \n dimenticano di me\"", 1);
+
+        cassDialog.addNode(cassNode0);
+        cassDialog.addNode(cassNode1);
+
+        cassetto.setDialog(cassDialog);
+
+        /*  PickableItem pippo = new PickableItem("caminoPippo", new Texture("map/atto3/Living_Room_Singles_111.png"));
+        pippo.getBox().x = 10;
+        pippo.getBox().y = 10;
+        pippo.getBox().width = 1;
+        pippo.getBox().height = 1;
+        itemController.addWithOutId(pippo); */
+
     }
 
     private void initUI() {
@@ -175,14 +217,21 @@ public class TestScreen implements Screen {
 
     private void renderGame() {
         renderer.setView(camera);
-        renderer.render(new int[] { 0, 1 });
+        renderer.render(new int[] { 0 });
         camera.update();
         game.batch.setProjectionMatrix(camera.combined);
         gameViewport.apply();
         game.batch.begin();
         for (NPC npc : npcController.npcList) {
             game.batch.draw(npc.getIdleAnimation(npc.getNPCDirection()).getKeyFrame(stateTime, true), npc.getNpcBox().x,
-                    npc.getNpcBox().y, 1, 2);
+                    npc.getNpcBox().y, 1, 1);
+        }
+
+        for (Item item : itemController.itemList) {
+            if(item.getTexture() != null){
+                game.batch.draw(item.getTexture(), item.getBox().x, item.getBox().y, item.getBox().width,
+                        item.getBox().height);
+            }
         }
 
         game.batch.draw(playerController.getAnimationToRender().getKeyFrame(stateTime, true),
@@ -191,12 +240,13 @@ public class TestScreen implements Screen {
                 1, 2);
 
         game.batch.end();
-        renderer.render(new int[] { 2 });
+        renderer.render(new int[] { 1, 2 });
     }
 
     private void renderUI() {
         dialogController.update(Math.min(Gdx.graphics.getDeltaTime(), 1 / 30f));
         stage.act(Math.min(Gdx.graphics.getDeltaTime(), 1 / 30f));
+
         stage.draw();
     }
 

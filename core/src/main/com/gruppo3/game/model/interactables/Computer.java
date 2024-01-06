@@ -26,14 +26,15 @@ public class Computer implements Item {
         LinearDialogNode node3 = new LinearDialogNode("Password errata", 3);
 
         node0.setPointer(1);
-        node1.addChoice("1234", 2, new Action() {
+        node1.addChoice("Mappa1984", 2, new Action() {
             @Override
             public void action() {
                 Music music = Gdx.audio.newMusic(Gdx.files.internal("music/CoconutMall.mp3"));
                 TestScreen.setMusic(music);
             }
         });
-        node1.addChoice("4321", 3);
+        node1.addChoice("Password", 3);
+        node1.addChoice("1234", 3);
 
         dialog.addNode(node0);
         dialog.addNode(node1);
@@ -53,6 +54,11 @@ public class Computer implements Item {
     @Override
     public Rectangle getBox(){
         return box;
+    }
+
+    @Override
+    public String getName(){
+        return "Computer";
     }
 
     public void setDialog(Dialog dialog){

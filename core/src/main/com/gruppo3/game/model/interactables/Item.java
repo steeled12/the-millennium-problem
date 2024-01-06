@@ -6,6 +6,7 @@ import com.gruppo3.game.controller.DialogController;
 
 public interface Item {
     Texture getTexture();
+    String getName();
     Rectangle getBox();
     void action(DialogController dialogController);
 }

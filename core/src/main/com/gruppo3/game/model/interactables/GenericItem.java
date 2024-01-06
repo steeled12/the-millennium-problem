@@ -10,13 +10,15 @@ public class GenericItem implements Item {
     Texture texture;
     Rectangle box;
     Dialog dialog;
+    String name;
 
-    public GenericItem(Texture texture) {
+    public GenericItem(String name, Texture texture) {
         this.texture = texture;
         this.box = new Rectangle(0, 0, 32, 32);
     }
 
-    public GenericItem() {
+    public GenericItem(String name) {
+        this.texture = null;
         this.box = new Rectangle(0, 0, 32, 32);
     }
     @Override
@@ -27,6 +29,11 @@ public class GenericItem implements Item {
     @Override
     public Rectangle getBox(){
         return box;
+    }
+    
+    @Override
+    public String getName(){
+        return name;
     }
 
     public void setDialog(Dialog dialog){
