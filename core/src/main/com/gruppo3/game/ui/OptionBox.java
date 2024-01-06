@@ -13,6 +13,7 @@ import java.util.List;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.gruppo3.game.controller.SettingController;
+import com.gruppo3.game.util.Action;
 
 public class OptionBox extends Table {
 
@@ -20,6 +21,7 @@ public class OptionBox extends Table {
 
 	private List<Image> arrows = new ArrayList<Image>();
 	private List<Label> options = new ArrayList<Label>();
+	private List<Action> actions = new ArrayList<Action>();
 
 	private Table uiContainer;
 
@@ -51,6 +53,29 @@ public class OptionBox extends Table {
 				.align(Align.left)
 				.space(8f);
 		uiContainer.row();
+		actions.add(null);
+	}
+
+	public void addOption(String option, Action action) {
+		Label optionLabel = new Label(option, this.getSkin());
+		options.add(optionLabel);
+		Image selectorLabel = new Image(this.getSkin(), "arrow");
+		selectorLabel.setScaling(Scaling.none);
+		arrows.add(selectorLabel);
+		selectorLabel.setVisible(false);
+
+		if (selectorLabel == arrows.get(selectorIndex)) {
+			selectorLabel.setVisible(true);
+		}
+
+		uiContainer.add(selectorLabel).expand().align(Align.left).space(5f);
+		uiContainer.add(optionLabel)
+				.expand()
+				.align(Align.left)
+				.space(8f);
+		uiContainer.row();
+
+		actions.add(action);
 	}
 
 	public void moveUp() {
@@ -96,5 +121,11 @@ public class OptionBox extends Table {
 
 	public int getAmount() {
 		return options.size();
+	}
+
+	public void callAction() {
+		if (actions.get(selectorIndex) != null) {
+			actions.get(selectorIndex).action();
+		}
 	}
 }

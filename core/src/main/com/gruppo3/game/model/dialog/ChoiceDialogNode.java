@@ -1,7 +1,11 @@
 package com.gruppo3.game.model.dialog;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
+import com.gruppo3.game.util.Action;
 
 public class ChoiceDialogNode implements DialogNode {
 	
@@ -9,7 +13,7 @@ public class ChoiceDialogNode implements DialogNode {
 	private int id;
 	
 	private List<Integer> pointers = new ArrayList<Integer>();
-	private List<String> labels = new ArrayList<String>();
+	private Map<String, Action> options = new HashMap<String, Action>();
 	
 	public ChoiceDialogNode(String text, int id) {
 		this.text = text;
@@ -18,7 +22,12 @@ public class ChoiceDialogNode implements DialogNode {
 	
 	public void addChoice(String text, int targetId) {
 		pointers.add(targetId);
-		labels.add(text);
+		options.put(text, null);
+	}
+
+	public void addChoice(String text, int targetId, Action action) {
+		pointers.add(targetId);
+		options.put(text, action);
 	}
 	
 	public String getText() {
@@ -35,8 +44,8 @@ public class ChoiceDialogNode implements DialogNode {
 		return pointers;
 	}
 	
-	public List<String> getLabels() {
-		return labels;
+	public Map<String, Action> getOptions() {
+		return options;
 	}
 
 }

@@ -1,5 +1,7 @@
 package com.gruppo3.game.controller;
 
+import java.util.Map;
+
 import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.InputAdapter;
 import com.gruppo3.game.model.dialog.ChoiceDialogNode;
@@ -9,6 +11,7 @@ import com.gruppo3.game.model.dialog.DialogTraverser;
 import com.gruppo3.game.model.dialog.LinearDialogNode;
 import com.gruppo3.game.ui.DialogBox;
 import com.gruppo3.game.ui.OptionBox;
+import com.gruppo3.game.util.Action;
 
 public class DialogController extends InputAdapter {
 
@@ -56,7 +59,8 @@ public class DialogController extends InputAdapter {
 				}
 			}
 			if (thisNode instanceof ChoiceDialogNode) {
-				// ChoiceDialogNode node = (ChoiceDialogNode)thisNode;
+				ChoiceDialogNode node = (ChoiceDialogNode) thisNode;
+				optionBox.callAction();
 				progress(optionBox.getIndex());
 			}
 
@@ -90,8 +94,14 @@ public class DialogController extends InputAdapter {
 			ChoiceDialogNode node = (ChoiceDialogNode) nextNode;
 			dialogBox.animateText(node.getText());
 			optionBox.clearChoices();
-			for (String s : node.getLabels()) {
-				optionBox.addOption(s);
+			for (Map.Entry<String, Action> entry : node.getOptions().entrySet()) {
+				String option = entry.getKey();
+				Action action = entry.getValue();
+				if (action != null) {
+					optionBox.addOption(option, action);
+				} else {
+					optionBox.addOption(option);
+				}
 			}
 		}
 	}
@@ -108,13 +118,23 @@ public class DialogController extends InputAdapter {
 			ChoiceDialogNode node = (ChoiceDialogNode) nextNode;
 			dialogBox.animateText(node.getText());
 			optionBox.clearChoices();
-			for (String s : node.getLabels()) {
-				optionBox.addOption(s);
+			for (Map.Entry<String, Action> entry : node.getOptions().entrySet()) {
+				String option = entry.getKey();
+				Action action = entry.getValue();
+				if (action != null) {
+					optionBox.addOption(option, action);
+				} else {
+					optionBox.addOption(option);
+				}
 			}
 		}
 	}
 
 	public boolean isDialogShowing() {
 		return dialogBox.isVisible();
+	}
+
+	public DialogTraverser getTraverser() {
+		return traverser;
 	}
 }

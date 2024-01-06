@@ -158,7 +158,7 @@ public class PlayerController extends InputAdapter {
         } else if (keycode == Input.Keys.DOWN) {
             moveDown();
         }
-
+        Gdx.app.log("PlayerController", "Player position: " + player.getPlayerBox().x + " " + player.getPlayerBox().y);
         if (keycode == Input.Keys.NUM_1)
             SaveController.loadSave(0);
         if (keycode == Input.Keys.NUM_2)

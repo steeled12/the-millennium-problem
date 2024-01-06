@@ -28,7 +28,7 @@ public class OptionBoxController extends InputAdapter {
 			return true;
 		} else if (keycode == Keys.DOWN) {
 			return true;
-		} else if (keycode == Keys.ENTER) {
+		} else if (keycode == Keys.X) {
 			return true;
 		}
 		return false;
@@ -51,7 +51,7 @@ public class OptionBoxController extends InputAdapter {
 		} else if (keycode == Keys.DOWN) {
 			box.moveDown();
 			return true;
-		} else if (keycode == Keys.ENTER) {
+		} else if (keycode == Keys.X) {
 			actions.get(box.getIndex()).action();
 			box.setVisible(false);
 			return true;

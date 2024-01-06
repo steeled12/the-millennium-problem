@@ -32,4 +32,8 @@ public class LinearDialogNode implements DialogNode {
 		return pointers;
 	}
 
+	public void setText(String text) {
+		this.text = text;
+	}
+
 }
