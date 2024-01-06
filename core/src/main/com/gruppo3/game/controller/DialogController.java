@@ -63,7 +63,7 @@ public class DialogController extends InputAdapter {
 				}
 			}
 			if (thisNode instanceof ChoiceDialogNode) {
-				ChoiceDialogNode node = (ChoiceDialogNode)thisNode;
+				ChoiceDialogNode node = (ChoiceDialogNode) thisNode;
 				optionBox.callAction();
 				Gdx.app.log("DialogController", "Called action");
 				int index = optionBox.getIndex();
@@ -109,7 +109,7 @@ public class DialogController extends InputAdapter {
 			for (Map.Entry<String, Action> entry : node.getOptions().entrySet()) {
 				String option = entry.getKey();
 				Action action = entry.getValue();
-				if(action != null) {
+				if (action != null) {
 					optionBox.addOption(option, action);
 				} else {
 					optionBox.addOption(option);
@@ -133,7 +133,7 @@ public class DialogController extends InputAdapter {
 			for (Map.Entry<String, Action> entry : node.getOptions().entrySet()) {
 				String option = entry.getKey();
 				Action action = entry.getValue();
-				if(action != null) {
+				if (action != null) {
 					optionBox.addOption(option, action);
 					Gdx.app.log("DialogController", "Added option with action");
 				} else {

@@ -38,7 +38,7 @@ public class Cat extends NPC {
             animation = new Animation<>(0.1f, framesIdle);
         } 
 
-        super.dialog = new Dialog();
+        dialog = new Dialog();
 
         ChoiceDialogNode node1 = new ChoiceDialogNode("Meow!", 0);
         LinearDialogNode node2 = new LinearDialogNode("Prrrup!", 1);
@@ -52,11 +52,11 @@ public class Cat extends NPC {
         });
         node1.addChoice("Non accarezzare", 2);
 
-        super.dialog.addNode(node1);
-        super.dialog.addNode(node2);
-        super.dialog.addNode(node3);
+        dialog.addNode(node1);
+        dialog.addNode(node2);
+        dialog.addNode(node3);
 
-        super.setDialog(dialog);
+        super.dialog = dialog;
 
         
     }

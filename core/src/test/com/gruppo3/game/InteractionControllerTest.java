@@ -5,20 +5,16 @@ import com.badlogic.gdx.backends.headless.HeadlessApplication;
 import com.badlogic.gdx.backends.headless.HeadlessApplicationConfiguration;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.math.Rectangle;
-import com.gruppo3.game.MyGame;
 import com.gruppo3.game.controller.InteractionController;
 import com.gruppo3.game.model.interactables.Item;
 import com.gruppo3.game.model.interactables.NPC;
 import com.gruppo3.game.model.Player;
 import com.gruppo3.game.screens.TestScreen;
 import com.badlogic.gdx.Input.Keys;
-import com.badlogic.gdx.InputAdapter;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
-
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 

@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="30" height="20" tilewidth="16" tileheight="16" infinite="0" nextlayerid="39" nextobjectid="47">
+ <tileset firstgid="1" source="Room_Builder_16x16.tsx"/>
+ <tileset firstgid="8285" source="Interiors_16x16.tsx"/>
+ <tileset firstgid="25309" source="3_Bathroom_16x16.tsx"/>
+ <tileset firstgid="26205" source="4_Bedroom_16x16.tsx"/>
+ <tileset firstgid="27917" source="RetroWhite.tsx"/>
+ <group id="5" name="Pavimento" locked="1">
+  <layer id="1" name="Pavimento" width="30" height="20" locked="1">
+   <data encoding="base64" compression="zlib">
+   eJwL52RgiKATRgaLgfwldMK0tNeFCzceafbCMEjdqL2j9lLbDbS2F90NyPzhbi86HrV31N5ReynHAMWgbHc=
+  </data>
+  </layer>
+  <layer id="6" name="Shadow" width="30" height="20" locked="1">
+   <data encoding="base64" compression="zlib">
+   eJxjYBh5YD0jA8MGEjA+9X/wyKGD31jE8AF86v+QYNZQsRcfGI7+JVb9PwLqhoO9yPlmoPxLbUAte0ktrzYSaS+hcmuoh9uovaP2DrS9ADN4PxA=
+  </data>
+  </layer>
+ </group>
+ <layer id="30" name="1" width="30" height="20">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo2AUjIJRMAqGL3A0Z2BwAmJnIHYxp5+9gUC7goA4GIhD6GhvItCuJCBOBuIUOto7HMFyc1RMCgAAQxsJ6w==
+  </data>
+ </layer>
+ <layer id="31" name="2" width="30" height="20">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo2AUjIJRMAoGDiiYD4y9BnSw1x9oRwCaPQ5UsHeDKQPDRijeZEq5ecSCA0C7DkLxITraCwIrgeG2agDSyk6gnbvIsBcAubENVQ==
+  </data>
+ </layer>
+ <layer id="32" name="3" width="30" height="20">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo2AUjIJRMApGAS2An/lAuwABTpsNjL23B8jegQYAir4CmA==
+  </data>
+ </layer>
+ <layer id="2" name="Muri" width="30" height="20" locked="1">
+  <data encoding="base64" compression="zlib">
+   eJyrFmNgEBEnDosSgW8IMDDcFIDQyNgJiJHBcaC9CeLE4UQisIogA4OqIIRGxn1o9gqLM9AF3Bph9qoJQuL9JjSu6WVvETTeVaFxTS97kcEtGthrCjTzAhBbCeBWQwt7G4FmygDDso3O9sLAJQL2WkDDhVgsKUicvXKCmHpAcXARGgct0HAhFqcSaW8WFj2gOJCFxsF5POFBK3Bp1N5Re0ftJRv8FGc48AOIQfYCAOuySFs=
+  </data>
+ </layer>
+ <layer id="4" name="Boarders" width="30" height="20" locked="1">
+  <data encoding="base64" compression="zlib">
+   eJxjYCANbBVkeEBAPoFEI0ftHUT2bh4gewkBGvp3wUDYSyh+aQVGmr2jYBSMglHwU5zhwFVG+mKQnQCQ1kal
+  </data>
+ </layer>
+ <layer id="7" name="Porte" width="30" height="20" locked="1">
+  <data encoding="base64" compression="zlib">
+   eJxjYCAPTE5iYJgCwQ1Tk8g0hAywGGjXEghuWEpHe0fBKBgFo2AUjIJRMAqIBQB+eQjx
+  </data>
+ </layer>
+ <layer id="12" name="Tappetino" width="30" height="20" locked="1">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFQxXsTWFg2JdCf3vPAu08NwD2joJRMApGwSgYBUMFAABmbgSn
+  </data>
+ </layer>
+ <layer id="9" name="Bagno" width="30" height="20" locked="1">
+  <data encoding="base64" compression="zlib">
+   eJxjYKAteJZEYwuQwOVkBoYrQJwOxN+A9v6gk92PgfY9AeJyIGZLpo+dIPAZaNcXOtpHCASlMDAEp9DO/GlY/PoDaF8SECfT0F5sgCOVgSED6J7MQRT+o2AUjIJRMAoGDwAAkfQVAg==
+  </data>
+ </layer>
+ <layer id="17" name="Stanza" width="30" height="20">
+  <data encoding="base64" compression="zlib">
+   eJzt0MsNgkAYReGrFQAVKBX5aEBhwyALH8WoFahLoQK1ArQRS/CQuDGauBk2+t/k28xMcpKRpEEmDTHCGMFMChGh2bGQSlSFvG5Ca4oEKXr0+oif3RO9My6eu3NaCyyxyt7va3pX3Dx3/233D3/bbJ1LW2zylsJO6qDrXo939A7Yt9QN6IWI3Pe3NpvNZvvtPQD6uSFp
+  </data>
+ </layer>
+ <layer id="18" name="Comodino" width="30" height="20">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo2AUUAN8zRoYe1mzB8beUTAKRsEoGAW4AQDSzQHQ
+  </data>
+ </layer>
+ <layer id="20" name="tavolo" width="30" height="20">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo2AU0APIOjIwyAGxvCN97dUF2qcHxPp0tncUjIJRMApGMgAAwdUCaw==
+  </data>
+ </layer>
+ <layer id="19" name="Lampada" width="30" height="20">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo2AUUAPczMIv/82BgeEPEP9woINjkACbIwMDDxBzONLX3lEwCkbBKBjJAAAulQXL
+  </data>
+ </layer>
+ <layer id="21" name="Sedia" width="30" height="20">
+  <data encoding="base64" compression="zlib">
+   eJxjYKAOsA2lkkFQsC2YOHW+VLb3GJH2xlJg73EvBoYTXqhi14i0lxJwHWjnDS/C6kbB8AMVjgwMCd70t7cDaG/BANg7CkbBKBgFAw0AlNQMgA==
+  </data>
+ </layer>
+ <layer id="33" name="Albero di natale 1" width="30" height="20">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo2AUjIKBAwKWDAyCQCxkSV97FYD2KQKxEp3tNQDaZwjERnS2dxSMglFAXwAAssoDKw==
+  </data>
+ </layer>
+ <layer id="34" name="Albero di natale 2" width="30" height="20">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo2AUjAIIeGLBwPDUgv72fgHa+XUA7GWxZGBgtaS/vaNgFIyC4Q8AR20FDg==
+  </data>
+ </layer>
+ <layer id="35" name="Albero di natale 3" width="30" height="20">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo2AUjAIIcLZkYHCxpL+9wUA7QwbA3mSgnSkDYO8oGAWjYPgDANeXA0w=
+  </data>
+ </layer>
+ <layer id="23" name="Cucina" width="30" height="20">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo2AUjILhBZ4ZUt/MiwYMDJeg+DIQqxqi8kHgGw3s/QA0+yMQfwLiz0BsagihYRgE2Iyob+9gAcrQMHWiQdjiA8ZA+xYCcRCd7QWBjUA7Nw2AvaOAugAA6O8Wdg==
+  </data>
+ </layer>
+ <layer id="25" name="sopra piano" width="30" height="20">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo2AUjIKhCY4bINhvDGlr13WgXV+B+BsQv0Sy9w/Q3nIj2to9CkbBKBh6AACYnQhW
+  </data>
+ </layer>
+ <layer id="24" name="sopra" width="30" height="20">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo2AUjIKhBfINIfRzAwaGFwb0s7ceau93oJ0/6GjvYAALgH5fCMSLDOlr7wSgfd1GDAyT6GzvQPl3A9C+jUC8ic72jgLqAwC1cA+i
+  </data>
+ </layer>
+ <layer id="26" name="sopra tavolo" width="30" height="20">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo2AUjIJRMArwA2YjBgYWIGY1oq+9nw0ZGL4A8VfDkWGvMDB8RYBYlM7hPAqoDwCSEghT
+  </data>
+ </layer>
+ <layer id="27" name="sopra sopra tavolo" width="30" height="20">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo2AUjILhA0SM6WfXLCMEW4WO9iIDEzrae9uIsBpagHsDZO8oGAWUAACoyAPv
+  </data>
+ </layer>
+ <objectgroup id="36" name="Collisioni">
+  <object id="1" x="0.5" y="0" width="14.5" height="319.5"/>
+  <object id="2" x="1" y="1.5" width="415.5" height="30.5"/>
+  <object id="3" x="415.5" y="-1" width="16" height="96.5"/>
+  <object id="4" x="418" y="64.5" width="58" height="30.5"/>
+  <object id="5" x="463.5" y="94" width="16.5" height="225.5"/>
+  <object id="6" x="0.5" y="314.5" width="479" height="5.5"/>
+  <object id="10" x="240.25" y="269" width="63.875" height="19"/>
+  <object id="11" x="240" y="309.875" width="64" height="4.75"/>
+  <object id="12" x="88.875" y="211.875" width="29.875" height="53.375"/>
+  <object id="13" x="118.5" y="230.375" width="7.25" height="15.75"/>
+  <object id="14" x="82.125" y="232.125" width="8" height="13.625"/>
+  <object id="16" x="6.25" y="179" width="169.5" height="22.375"/>
+  <object id="17" x="174.25" y="179.25" width="32.125" height="12.25"/>
+  <object id="18" x="202.5" y="103.295" width="4.5" height="87.9545"/>
+  <object id="19" x="320.333" y="1.66667" width="5" height="141.333"/>
+  <object id="21" x="321.667" y="133.667" width="40.6667" height="9.33333"/>
+  <object id="22" x="353" y="141.333" width="9.33333" height="49.3333"/>
+  <object id="23" x="352.667" y="179.667" width="62.3943" height="11.6667"/>
+  <object id="24" x="359.818" y="238.545" width="48" height="31.6364"/>
+  <object id="25" x="449.273" y="244.909" width="13.4545" height="9.63636"/>
+  <object id="27" x="449.091" y="275.636" width="14.1818" height="8.36364"/>
+  <object id="28" x="288.727" y="32.1818" width="13.2727" height="8.54545"/>
+  <object id="29" x="317.818" y="154.182" width="33.8182" height="28.1818"/>
+  <object id="30" x="17.75" y="97.25" width="35.375" height="20.875"/>
+  <object id="31" x="17.125" y="117.75" width="15.375" height="20"/>
+  <object id="32" x="16" y="30" width="63.75" height="17"/>
+  <object id="33" x="145.5" y="31.125" width="45.5" height="17.375"/>
+  <object id="34" x="126.625" y="46.875" width="18.5" height="6.375"/>
+  <object id="35" x="145.636" y="125.455" width="45.2727" height="18.1818"/>
+  <object id="36" x="160.182" y="143.273" width="15.0909" height="11.2727"/>
+  <object id="37" x="177.455" y="143.455" width="13.4545" height="7.45455"/>
+  <object id="38" x="339.273" y="31.4545" width="25.0909" height="24.1818"/>
+  <object id="39" x="371.818" y="32" width="9.09091" height="8.18182"/>
+  <object id="40" x="385.455" y="32.1818" width="12.3636" height="8.72727"/>
+  <object id="41" x="418.545" y="95.6364" width="10.5455" height="7.09091"/>
+  <object id="42" x="433.091" y="95.0909" width="30.5455" height="12.7273"/>
+  <object id="43" x="202.659" y="-0.159068" width="4.5" height="79.5909"/>
+  <object id="45" x="432.257" y="179.439" width="47.1216" height="11.6667"/>
+ </objectgroup>
+ <layer id="37" name="Tasti" width="30" height="20">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo2AU0AJczqW/nZ+Adn4G4i8DYPcoGAWjYBSMAgQAAG/mBWE=
+  </data>
+ </layer>
+</map>

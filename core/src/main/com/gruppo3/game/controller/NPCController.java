@@ -20,7 +20,8 @@ public class NPCController extends InputAdapter {
     public void add(NPC npc) {
         npcList.add(npc);
         MapLayer collisionObjectLayer = TestScreen.map.getLayers().get("Collisioni");
-        RectangleMapObject npcObject = new RectangleMapObject(npc.getNpcBox().x, npc.getNpcBox().y, npc.getNpcBox().width, npc.getNpcBox().height);
+        RectangleMapObject npcObject = new RectangleMapObject(npc.getNpcBox().x, npc.getNpcBox().y,
+                npc.getNpcBox().width, npc.getNpcBox().height / 3);
         collisionObjectLayer.getObjects().add(npcObject);
     }
 
