@@ -30,7 +30,7 @@ public class InteractionController extends InputAdapter {
 
     public void displayInteractionWidget(SpriteBatch batch) {
         Player player = Player.getPlayer();
-        for (NPC npc : itemController.npcList) {
+        for (NPC npc : npcController.npcList) {
             double distance = Math.sqrt(Math.pow(player.getPlayerBox().x - npc.getNpcBox().x, 2)
                     + Math.pow(player.getPlayerBox().y - npc.getNpcBox().y, 2));
             if (distance < 1.8f) {
