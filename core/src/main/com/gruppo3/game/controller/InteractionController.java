@@ -1,7 +1,5 @@
 package com.gruppo3.game.controller;
 
-import java.util.List;
-
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.graphics.Texture;
@@ -14,7 +12,6 @@ import com.gruppo3.game.screens.TestScreen;
 import com.gruppo3.game.model.interactables.Item;
 import com.gruppo3.game.model.interactables.NPC.Direction;
 import com.gruppo3.game.model.interactables.PickableItem;
-import com.badlogic.gdx.Gdx;
 
 public class InteractionController extends InputAdapter {
 
@@ -35,7 +32,16 @@ public class InteractionController extends InputAdapter {
                     + Math.pow(player.getPlayerBox().y - npc.getNpcBox().y, 2));
             if (distance < 1.8f) {
                 batch.draw(textureInteractionWidget, npc.getNpcBox().x,
-                        npc.getNpcBox().y + 1, .8f, .8f);
+                        npc.getNpcBox().y + npc.getNpcBox().getHeight(), .8f, .8f);
+            }
+        }
+
+        for (Item item : itemController.itemList) {
+            double distance = Math.sqrt(Math.pow(player.getPlayerBox().x - item.getBox().x, 2)
+                    + Math.pow(player.getPlayerBox().y - item.getBox().y, 2));
+            if (distance < 1.8f) {
+                batch.draw(textureInteractionWidget, item.getBox().x,
+                        item.getBox().y + item.getBox().getHeight() + 1f, .8f, .8f);
             }
         }
     }
@@ -53,7 +59,7 @@ public class InteractionController extends InputAdapter {
                     expandedItemBox.height += expansionAmount;
 
                     if (expandedItemBox.overlaps(Player.getPlayer().getPlayerBox())) {
-                        if(item instanceof PickableItem){
+                        if (item instanceof PickableItem) {
                             Gdx.app.log("InteractionController", "Aggiunto oggetto all'inventario");
                             itemController.addItemToInventory((PickableItem) item);
                         }

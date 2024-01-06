@@ -25,8 +25,8 @@ public class Cat extends NPC {
         int numAnimations = 1;
         int numFrames = 4;
 
-
-        this.meowSound1 = Gdx.audio.newSound(Gdx.files.internal("sound/meow.mp3"));
+        this.meowSound1 = Gdx.audio.newSound(Gdx.files.internal("sound/meow1.mp3"));
+        this.meowSound2 = Gdx.audio.newSound(Gdx.files.internal("sound/meow2.mp3"));
 
         for (int i = 0; i < numAnimations; i++) {
             TextureRegion[] framesIdle = new TextureRegion[numFrames];
@@ -36,13 +36,12 @@ public class Cat extends NPC {
                         0, frameDimensionX, frameDimensionY);
             }
             animation = new Animation<>(0.1f, framesIdle);
-        } 
+        }
 
         dialog = new Dialog();
 
         ChoiceDialogNode node1 = new ChoiceDialogNode("Meow!", 0);
         LinearDialogNode node2 = new LinearDialogNode("Prrrup!", 1);
-        LinearDialogNode node3 = new LinearDialogNode(":c", 2);
 
         node1.addChoice("Accarezza", 1, new Action() {
             @Override
@@ -50,26 +49,28 @@ public class Cat extends NPC {
                 meowSound1.play(SettingController.gameVolume);
             }
         });
-        node1.addChoice("Non accarezzare", 2);
+        node1.addChoice("Non accarezzare");
 
         dialog.addNode(node1);
         dialog.addNode(node2);
-        dialog.addNode(node3);
 
         super.dialog = dialog;
 
-        
     }
 
-     @Override
+    @Override
     public Animation<TextureRegion> getIdleAnimation(Direction direction) {
         return animation;
-    } 
+    }
 
-     @Override
+    @Override
     public void action(DialogController dialogController) {
-        
+        if (new Random().nextInt(100) < 95) {
+            meowSound1.play(SettingController.gameVolume);
+        } else {
+            meowSound2.play(SettingController.gameVolume);
+        }
 
         dialogController.startDialog(this.dialog);
-    } 
+    }
 }

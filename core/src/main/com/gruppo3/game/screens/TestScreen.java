@@ -1,7 +1,5 @@
 package com.gruppo3.game.screens;
 
-import java.util.List;
-
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.maps.MapLayer;
@@ -35,10 +33,7 @@ import com.gruppo3.game.model.dialog.ChoiceDialogNode;
 import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.Texture;
 import com.gruppo3.game.model.interactables.Cat;
-import com.gruppo3.game.model.interactables.PickableItem;
 import com.gruppo3.game.model.interactables.Item;
-import com.badlogic.gdx.scenes.scene2d.ui.Label;
-
 
 public class TestScreen implements Screen {
     private final MyGame game;
@@ -54,7 +49,6 @@ public class TestScreen implements Screen {
     private DialogBox dialogBox;
     private OptionBox optionBox;
     private InputMultiplexer multiplexer;
-    private Dialog computerDialog;
     public static DialogController dialogController;
     private InteractionController interactionController;
     private ScreenViewport gameViewport;
@@ -113,12 +107,12 @@ public class TestScreen implements Screen {
         Computer computer = new Computer();
         itemController.addwithId(computer, 3);
 
-         Cat npc = new Cat(new Texture("map/atto3/cat.png"));
+        Cat npc = new Cat(new Texture("map/atto3/cat.png"));
         npc.getNpcBox().x = 10;
         npc.getNpcBox().y = 10;
-        npcController.add(npc); 
+        npcController.add(npc);
 
-        //tutti i dialoghi
+        // tutti i dialoghi
 
         GenericItem libreria = new GenericItem("libreria");
         itemController.addwithId(libreria, 4);
@@ -136,24 +130,28 @@ public class TestScreen implements Screen {
         libDialog.addNode(linNode2);
 
         libreria.setDialog(libDialog);
-        
+
         GenericItem cassetto = new GenericItem("cassetto");
         itemController.addwithId(cassetto, 34);
         Dialog cassDialog = new Dialog();
         LinearDialogNode cassNode0 = new LinearDialogNode("Ci sono delle scritte incise sul cassetto", 0);
-        LinearDialogNode cassNode1 = new LinearDialogNode("\"Sono la struttura migliore, ma tutti si \n dimenticano di me\"", 1);
+        LinearDialogNode cassNode1 = new LinearDialogNode(
+                "\"Sono la struttura migliore, ma tutti si \n dimenticano di me\"", 1);
 
         cassDialog.addNode(cassNode0);
         cassDialog.addNode(cassNode1);
 
         cassetto.setDialog(cassDialog);
 
-        /*  PickableItem pippo = new PickableItem("caminoPippo", new Texture("map/atto3/Living_Room_Singles_111.png"));
-        pippo.getBox().x = 10;
-        pippo.getBox().y = 10;
-        pippo.getBox().width = 1;
-        pippo.getBox().height = 1;
-        itemController.addWithOutId(pippo); */
+        /*
+         * PickableItem pippo = new PickableItem("caminoPippo", new
+         * Texture("map/atto3/Living_Room_Singles_111.png"));
+         * pippo.getBox().x = 10;
+         * pippo.getBox().y = 10;
+         * pippo.getBox().width = 1;
+         * pippo.getBox().height = 1;
+         * itemController.addWithOutId(pippo);
+         */
 
     }
 
@@ -228,7 +226,7 @@ public class TestScreen implements Screen {
         }
 
         for (Item item : itemController.itemList) {
-            if(item.getTexture() != null){
+            if (item.getTexture() != null) {
                 game.batch.draw(item.getTexture(), item.getBox().x, item.getBox().y, item.getBox().width,
                         item.getBox().height);
             }
@@ -238,9 +236,12 @@ public class TestScreen implements Screen {
                 Player.getPlayer().getPlayerBox().x,
                 Player.getPlayer().getPlayerBox().y,
                 1, 2);
+        renderer.render(new int[] { 1, 2 });
+        // mostra widget dell'interazione quando il player si avvicina
+        interactionController.displayInteractionWidget(game.batch);
 
         game.batch.end();
-        renderer.render(new int[] { 1, 2 });
+
     }
 
     private void renderUI() {
