@@ -49,6 +49,7 @@ public class ItemController extends InputAdapter {
         itemObjectMap.remove(item);
         itemList.remove(item);
         Player.getPlayer().getInventory().add(item);
+        GameScreen.updateInventoryUI();
 
     }
 

@@ -18,6 +18,7 @@ import com.gruppo3.game.model.dialog.LinearDialogNode;
 import com.gruppo3.game.model.interactables.Cat;
 import com.gruppo3.game.model.interactables.Computer;
 import com.gruppo3.game.model.interactables.GenericItem;
+import com.gruppo3.game.model.interactables.PickableItem;
 
 public class SecretRoomLevel extends LevelStrategy {
 
@@ -84,15 +85,13 @@ public class SecretRoomLevel extends LevelStrategy {
 
         cassetto.setDialog(cassDialog);
 
-        /*
-         * PickableItem pippo = new PickableItem("caminoPippo", new
-         * Texture("map/atto3/Living_Room_Singles_111.png"));
-         * pippo.getBox().x = 10;
-         * pippo.getBox().y = 10;
-         * pippo.getBox().width = 1;
-         * pippo.getBox().height = 1;
-         * itemController.addWithOutId(pippo);
-         */
+        PickableItem pippo = new PickableItem("caminoPippo", new Texture("map/atto3/Living_Room_Singles_111.png"));
+        pippo.getBox().x = 10;
+        pippo.getBox().y = 10;
+        pippo.getBox().width = 1;
+        pippo.getBox().height = 1;
+        itemController.addWithOutId(pippo);
+
     }
 
     @Override

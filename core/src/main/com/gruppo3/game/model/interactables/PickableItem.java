@@ -11,7 +11,7 @@ public class PickableItem extends GenericItem {
         super(name, texture);
         dialog = new Dialog();
 
-        LinearDialogNode node1 = new LinearDialogNode("Hai raccolto pippo", 0);
+        LinearDialogNode node1 = new LinearDialogNode("Hai raccolto " + this.name, 0);
 
         dialog.addNode(node1);
 

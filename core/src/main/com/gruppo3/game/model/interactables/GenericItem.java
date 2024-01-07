@@ -13,34 +13,38 @@ public class GenericItem implements Item {
     String name;
 
     public GenericItem(String name, Texture texture) {
+        this.name = name;
         this.texture = texture;
         this.box = new Rectangle(0, 0, 32, 32);
     }
 
     public GenericItem(String name) {
+        this.name = name;
         this.texture = null;
         this.box = new Rectangle(0, 0, 32, 32);
     }
+
     @Override
-    public Texture getTexture(){
+    public Texture getTexture() {
         return texture;
-    
+
     }
+
     @Override
-    public Rectangle getBox(){
+    public Rectangle getBox() {
         return box;
     }
-    
+
     @Override
-    public String getName(){
+    public String getName() {
         return name;
     }
 
-    public void setDialog(Dialog dialog){
+    public void setDialog(Dialog dialog) {
         this.dialog = dialog;
     }
 
-    public Dialog getDialog(){
+    public Dialog getDialog() {
         return dialog;
     }
 

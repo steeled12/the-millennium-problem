@@ -1,12 +1,10 @@
 package com.gruppo3.game.controller;
 
-import com.gruppo3.game.model.interactables.Item;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Preferences;
+import com.badlogic.gdx.utils.Json;
 import com.gruppo3.game.model.Player;
+
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import com.badlogic.gdx.utils.Json;
@@ -77,6 +75,10 @@ public class SaveController {
 
     private static void saveTime() {
         currentSave.putString("time", LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss")));
+    }
+
+    private static void saveLevel() {
+        // TODO
     }
 
     public static boolean isEmpty() {
