@@ -8,7 +8,7 @@ import com.badlogic.gdx.math.Rectangle;
 import com.gruppo3.game.model.interactables.NPC;
 import com.badlogic.gdx.InputAdapter;
 import com.gruppo3.game.model.Player;
-import com.gruppo3.game.screens.TestScreen;
+import com.gruppo3.game.screens.GameScreen;
 import com.gruppo3.game.model.interactables.Item;
 import com.gruppo3.game.model.interactables.NPC.Direction;
 import com.gruppo3.game.model.interactables.PickableItem;
@@ -63,7 +63,7 @@ public class InteractionController extends InputAdapter {
                             Gdx.app.log("InteractionController", "Aggiunto oggetto all'inventario");
                             itemController.addItemToInventory((PickableItem) item);
                         }
-                        item.action(TestScreen.dialogController);
+                        item.action(GameScreen.dialogController);
                         return true;
                     }
                 }
@@ -78,7 +78,7 @@ public class InteractionController extends InputAdapter {
                     expandedNpcBox.height += expansionAmount;
 
                     if (expandedNpcBox.overlaps(Player.getPlayer().getPlayerBox())) {
-                        npc.action(TestScreen.dialogController);
+                        npc.action(GameScreen.dialogController);
                         switch (Player.getPlayer().getPlayerDirection()) {
                             case NORTH:
                                 npc.setNPCDirection(Direction.SOUTH);

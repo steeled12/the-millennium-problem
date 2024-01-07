@@ -12,7 +12,7 @@ import com.badlogic.gdx.utils.viewport.Viewport;
 import com.gruppo3.game.MyGame;
 import com.gruppo3.game.controller.MenuController;
 import com.gruppo3.game.controller.SaveController;
-import com.gruppo3.game.screens.TestScreen;
+import com.gruppo3.game.screens.GameScreen;
 
 public class SavesMenu extends MenuState {
 
@@ -42,21 +42,21 @@ public class SavesMenu extends MenuState {
             @Override
             public void clicked(InputEvent event, float x, float y) {
                 SaveController.loadSave(0);
-                game.setScreen(new TestScreen(game));
+                game.setScreen(new GameScreen(game));
             }
         });
         load2Button.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
                 SaveController.loadSave(1);
-                game.setScreen(new TestScreen(game));
+                game.setScreen(new GameScreen(game));
             }
         });
         load3Button.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
                 SaveController.loadSave(2);
-                game.setScreen(new TestScreen(game));
+                game.setScreen(new GameScreen(game));
             }
         });
         backButton.addListener(new ClickListener() {
