@@ -2,15 +2,12 @@ package com.gruppo3.game.controller;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.maps.MapLayer;
 import com.gruppo3.game.model.interactables.Item;
 import com.badlogic.gdx.InputAdapter;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.maps.objects.RectangleMapObject;
 import com.gruppo3.game.screens.TestScreen;
-import com.badlogic.gdx.Gdx;
 import com.gruppo3.game.model.interactables.PickableItem;
 import com.badlogic.gdx.maps.MapObject;
 import java.util.LinkedHashMap;
@@ -22,7 +19,7 @@ public class ItemController extends InputAdapter {
     private Map<Item, MapObject> itemObjectMap = new LinkedHashMap<>();
     TextureRegion animationFrame;
 
-    //USARE SOLO CON OGGETTI CHE NON ANDRANNO IN INVENTARIO
+    // USARE SOLO CON OGGETTI CHE NON ANDRANNO IN INVENTARIO
     public void addwithId(Item item, int mapId) {
         MapLayer collisionObjectLayer = TestScreen.map.getLayers().get("Collisioni");
         RectangleMapObject itemObject = (RectangleMapObject) collisionObjectLayer.getObjects().get(mapId);
@@ -32,13 +29,14 @@ public class ItemController extends InputAdapter {
         item.getBox().height = itemObject.getRectangle().height;
         itemList.add(item);
         itemObjectMap.put(item, itemObject);
-        
+
     }
 
     public void addWithOutId(Item item) {
         itemList.add(item);
         MapLayer collisionObjectLayer = TestScreen.map.getLayers().get("Collisioni");
-        RectangleMapObject itemObject = new RectangleMapObject(item.getBox().x, item.getBox().y, item.getBox().width, item.getBox().height);
+        RectangleMapObject itemObject = new RectangleMapObject(item.getBox().x, item.getBox().y, item.getBox().width,
+                item.getBox().height);
         collisionObjectLayer.getObjects().add(itemObject);
         itemObjectMap.put(item, itemObject);
     }

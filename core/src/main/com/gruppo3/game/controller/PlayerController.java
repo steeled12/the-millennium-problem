@@ -53,19 +53,6 @@ public class PlayerController extends InputAdapter {
     // player.getPlayerBox().y = 1080 - 64;
     // }
 
-    private boolean isColliding() {
-        MapLayer collisionObjectLayer = TestScreen.map.getLayers().get("Collisioni");
-        MapObjects objects = collisionObjectLayer.getObjects();
-
-        for (RectangleMapObject rectangleMapObject : objects.getByType(RectangleMapObject.class)) {
-            if (player.getPlayerBox().overlaps(rectangleMapObject.getRectangle())) {
-                return true;
-            }
-        }
-
-        return false;
-    }
-
     // Overload per controllare se il player collide con un oggetto in una specifica
     // direzione
     private boolean isColliding(PlayerDirection direction) {

@@ -6,8 +6,6 @@ import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.gruppo3.game.model.dialog.Dialog;
 import com.gruppo3.game.controller.DialogController;
-import com.gruppo3.game.model.dialog.ChoiceDialogNode;
-import com.gruppo3.game.model.dialog.LinearDialogNode;
 
 public class NPC {
     Texture npcTexture;

@@ -2,8 +2,6 @@ package com.gruppo3.game.controller;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.maps.MapLayer;
 import com.gruppo3.game.model.interactables.NPC;
 import com.badlogic.gdx.InputAdapter;
@@ -11,11 +9,9 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.maps.objects.RectangleMapObject;
 import com.gruppo3.game.screens.TestScreen;
 
-
 public class NPCController extends InputAdapter {
     public List<NPC> npcList = new ArrayList<>();
     TextureRegion animationFrame;
-
 
     public void add(NPC npc) {
         npcList.add(npc);

@@ -1,16 +1,11 @@
 package com.gruppo3.game.screens;
 
-import java.util.List;
-
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.maps.MapLayer;
 import com.badlogic.gdx.maps.MapObject;
-import com.badlogic.gdx.maps.MapObjects;
 import com.badlogic.gdx.maps.objects.RectangleMapObject;
-import com.badlogic.gdx.maps.objects.TextureMapObject;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
 import com.badlogic.gdx.maps.tiled.TmxMapLoader;
@@ -34,7 +29,6 @@ import com.badlogic.gdx.utils.Align;
 import com.badlogic.gdx.InputMultiplexer;
 import com.gruppo3.game.model.Player;
 import com.gruppo3.game.model.interactables.Cat;
-import com.gruppo3.game.model.interactables.Item;
 import com.badlogic.gdx.audio.Music;
 
 public class TutorialScreen implements Screen {
