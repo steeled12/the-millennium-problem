@@ -2,6 +2,9 @@ package com.gruppo3.game.controller;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+import java.util.LinkedHashMap;
+
 import com.badlogic.gdx.maps.MapLayer;
 import com.gruppo3.game.model.interactables.Item;
 import com.badlogic.gdx.InputAdapter;
@@ -10,8 +13,6 @@ import com.badlogic.gdx.maps.objects.RectangleMapObject;
 import com.gruppo3.game.screens.GameScreen;
 import com.gruppo3.game.model.interactables.PickableItem;
 import com.badlogic.gdx.maps.MapObject;
-import java.util.LinkedHashMap;
-import java.util.Map;
 import com.gruppo3.game.model.Player;
 
 public class ItemController extends InputAdapter {

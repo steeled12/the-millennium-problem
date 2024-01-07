@@ -35,6 +35,10 @@ public class LevelController {
         return currentLevel.getRenderer();
     }
 
+    public LevelStrategy getCurrentLevel() {
+        return currentLevel;
+    }
+
     public void dispose() {
         currentLevel.dispose();
     }

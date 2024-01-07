@@ -9,6 +9,9 @@ import com.badlogic.gdx.Preferences;
 import com.gruppo3.game.model.Player;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import com.badlogic.gdx.utils.Json;
+import java.util.ArrayList;
+import com.gruppo3.game.screens.GameScreen;
 
 public class SaveController {
 
@@ -29,7 +32,8 @@ public class SaveController {
         /* Effetturare il save di tutti i valori necessari */
         savePlayerPosition(Player.getPlayer().getPlayerBox().x, Player.getPlayer().getPlayerBox().y);
         saveTime();
-
+        saveInventory();
+        saveLevel();
         /* --- */
 
         currentSave.flush();
@@ -53,6 +57,15 @@ public class SaveController {
         /* Effetturare il load di tutti i valori necessari */
         Player.getPlayer().getPlayerBox().setPosition(currentSave.getFloat("playerX", 8),
                 currentSave.getFloat("playerY", 8));
+        
+        Player.getPlayer().getInventory().clear();
+        String inventoryString = currentSave.getString("inventory", "");
+        if (!inventoryString.isEmpty()) {
+            Json json = new Json();
+            List<Item> inventory = json.fromJson(List.class, inventoryString);
+            Player.getPlayer().getInventory().addAll(inventory);
+        }
+        GameScreen.levelToLoad = currentSave.getString("level");
         Gdx.app.log("SaveController", "Load effettuato!");
     }
 
@@ -70,9 +83,15 @@ public class SaveController {
         return currentSave.get().isEmpty();
     }
 
-    private static void saveInventory(List<Item> inventory) {
-        Map<String, List<Item>> inventoryMap = new HashMap<>();
-        // TODO
+    private static void saveInventory() {
+        List<Item> inventory = Player.getPlayer().getInventory();
+        Json json = new Json();
+        String inventoryString = json.toJson(inventory);
+        currentSave.putString("inventory", inventoryString);
 
+    }
+
+    private static void saveLevel() {
+        currentSave.putString("level", GameScreen.levelController.getCurrentLevel().getClass().getSimpleName());
     }
 }

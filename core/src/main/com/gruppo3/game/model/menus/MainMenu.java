@@ -40,7 +40,7 @@ public class MainMenu extends MenuState {
         playButton.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
-                SaveController.loadSave(0);
+                //SaveController.loadSave(0);
                 game.setScreen(new GameScreen(game));
             }
         });

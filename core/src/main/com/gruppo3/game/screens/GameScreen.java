@@ -23,6 +23,9 @@ import com.badlogic.gdx.utils.Align;
 import com.badlogic.gdx.InputMultiplexer;
 import com.gruppo3.game.model.Player;
 import com.gruppo3.game.model.interactables.Item;
+import com.gruppo3.game.controller.SaveController;
+import com.gruppo3.game.model.level.LevelStrategy;
+import com.gruppo3.game.model.level.TutorialLevel;
 
 public class GameScreen implements Screen {
     private final MyGame game;
@@ -43,6 +46,7 @@ public class GameScreen implements Screen {
     private ExtendViewport uiViewport;
     float stateTime;
     float timer;
+    public static String levelToLoad = "SecretRoomLevel";
 
     int flag = 0;
 
@@ -62,9 +66,21 @@ public class GameScreen implements Screen {
         this.pauseController = new PauseController(game);
         this.menuController = new MenuController();
         this.menuController.changeState(new PauseMenu(menuController));
-
-        levelController = new LevelController(new SecretRoomLevel());
+        Gdx.app.log("GameScreen", "Loading level: " + levelToLoad);
+        switch(levelToLoad){
+            case "TutorialLevel":
+                levelController = new LevelController(new TutorialLevel());
+                break;
+            case "SecretRoomLevel":
+                levelController = new LevelController(new SecretRoomLevel());
+                break;
+            default:
+                levelController = new LevelController(new TutorialLevel());
+                break;
+        }
         levelController.init();
+
+        
 
         this.interactionController = new InteractionController(levelController.getNpcController(),
                 levelController.getItemController());
