@@ -16,4 +16,7 @@ public abstract class ScriptableObject implements Action {
         return this.collidingBox;
     }
 
+    public Boolean getShowInteractionWidget() {
+        return showInteractionWidget;
+    }
 }

@@ -25,8 +25,6 @@ import com.badlogic.gdx.utils.Align;
 import com.badlogic.gdx.InputMultiplexer;
 import com.gruppo3.game.model.Player;
 import com.gruppo3.game.model.interactables.Item;
-import com.gruppo3.game.controller.SaveController;
-import com.gruppo3.game.model.level.LevelStrategy;
 import com.gruppo3.game.model.level.TutorialLevel;
 
 public class GameScreen implements Screen {
@@ -48,8 +46,7 @@ public class GameScreen implements Screen {
     private ExtendViewport uiViewport;
     float stateTime;
     float timer;
-    public static String levelToLoad = "SecretRoomLevel";
-
+    public static String levelToLoad = "TutorialLevel";
     int flag = 0;
     private static Stage stageInventory;
 
@@ -205,7 +202,7 @@ public class GameScreen implements Screen {
                         if (cell != null && cell.getTile() != null) {
 
                             if (y < playerBoxY) {
-                                System.out.println("Tile: " + x + " " + y);
+                                // System.out.println("Tile: " + x + " " + y);
                                 game.batch.draw(cell.getTile().getTextureRegion(),
                                         x,
                                         y,

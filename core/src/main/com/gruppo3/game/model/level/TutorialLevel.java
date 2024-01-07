@@ -1,5 +1,7 @@
 package com.gruppo3.game.model.level;
 
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.maps.MapLayer;
 import com.badlogic.gdx.maps.MapObject;
@@ -7,9 +9,15 @@ import com.badlogic.gdx.maps.objects.RectangleMapObject;
 import com.badlogic.gdx.maps.tiled.TmxMapLoader;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
 import com.badlogic.gdx.math.Rectangle;
+import com.gruppo3.game.controller.SettingController;
 import com.gruppo3.game.model.interactables.Cat;
+import com.gruppo3.game.model.interactables.PickableItem;
+import com.gruppo3.game.model.interactables.ScriptableObject;
+import com.gruppo3.game.screens.GameScreen;
 
 public class TutorialLevel extends LevelStrategy {
+
+    Sound duckSound;
 
     public TutorialLevel() {
         super();
@@ -30,6 +38,7 @@ public class TutorialLevel extends LevelStrategy {
         // render
         renderer = new OrthogonalTiledMapRenderer(map, unitScale);
 
+        this.duckSound = Gdx.audio.newSound(Gdx.files.internal("sound/rubber_duck_sound.mp3"));
     }
 
     @Override
@@ -40,6 +49,32 @@ public class TutorialLevel extends LevelStrategy {
         cat.getNpcBox().x = 14;
         cat.getNpcBox().y = 16;
         npcController.add(cat);
+
+        // items
+        PickableItem latte = new PickableItem("Latte", new Texture("milk.png"));
+        latte.getBox().x = 2;
+        latte.getBox().y = 2;
+        latte.getBox().width = 1;
+        latte.getBox().height = 1;
+        itemController.addWithOutId(latte);
+
+        // scriptable
+        ScriptableObject paperella = new ScriptableObject(new Rectangle(21, 14, 1, 1), true) {
+            @Override
+            public void action() {
+                duckSound.play(SettingController.gameVolume);
+            }
+        };
+
+        ScriptableObject porta = new ScriptableObject(new Rectangle(15, 18, 2, 2), true) {
+            @Override
+            public void action() {
+                GameScreen.levelController.setLevel(new SecretRoomLevel());
+            }
+        };
+
+        scriptableObjectsController.scriptableObjectsList.add(paperella);
+        scriptableObjectsController.scriptableObjectsList.add(porta);
     }
 
     @Override

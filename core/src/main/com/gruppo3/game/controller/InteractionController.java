@@ -50,11 +50,14 @@ public class InteractionController extends InputAdapter {
         }
 
         for (ScriptableObject scriptableObject : scriptableObjectsController.scriptableObjectsList) {
-            double distance = Math.sqrt(Math.pow(player.getPlayerBox().x - scriptableObject.getBox().x, 2)
-                    + Math.pow(player.getPlayerBox().y - scriptableObject.getBox().y, 2));
-            if (distance < 1.8f) {
-                batch.draw(textureInteractionWidget, scriptableObject.getBox().x,
-                        scriptableObject.getBox().y + scriptableObject.getBox().getHeight() + 1f, .8f, .8f);
+            if (scriptableObject.getShowInteractionWidget()) {
+                double distance = Math.sqrt(Math.pow(player.getPlayerBox().x - scriptableObject.getBox().x, 2)
+                        + Math.pow(player.getPlayerBox().y - scriptableObject.getBox().y, 2));
+                if (distance < 1.8f) {
+                    batch.draw(textureInteractionWidget,
+                            (scriptableObject.getBox().x * 2 + scriptableObject.getBox().getWidth()) / 2 - .5f,
+                            scriptableObject.getBox().y + scriptableObject.getBox().getHeight(), .8f, .8f);
+                }
             }
         }
     }
