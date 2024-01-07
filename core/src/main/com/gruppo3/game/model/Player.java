@@ -1,10 +1,16 @@
 package com.gruppo3.game.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Rectangle;
+import com.gruppo3.game.model.interactables.Item;
+
+
 
 public class Player {
 
@@ -20,6 +26,8 @@ public class Player {
 
         Animation<TextureRegion>[] idleAnimation;
         Animation<TextureRegion>[] walkAnimation;
+
+        private List<Item> inventory;
 
         private static Player player;
 
@@ -58,6 +66,8 @@ public class Player {
                         idleAnimation[i] = new Animation<>(0.1f, framesIdle);
                         walkAnimation[i] = new Animation<>(0.1f, framesWalk);
                 }
+
+                this.inventory = new ArrayList<>();
         }
 
         public Rectangle getPlayerBox() {
@@ -85,5 +95,9 @@ public class Player {
 
         public Animation<TextureRegion> getWalkAnimation(PlayerDirection direction) {
                 return walkAnimation[direction.ordinal()];
+        }
+
+        public List<Item> getInventory() {
+                return inventory;
         }
 }

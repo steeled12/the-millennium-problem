@@ -52,9 +52,7 @@ public class DialogController extends InputAdapter {
 
 			if (thisNode instanceof LinearDialogNode) {
 				LinearDialogNode node = (LinearDialogNode) thisNode;
-				if (node.getAction() != null) {
-					node.getAction().action();
-				}
+				
 				if (node.getPointers().isEmpty()) { // dead end, since no pointers
 					traverser = null; // end dialog
 					dialogBox.setVisible(false);
@@ -123,8 +121,12 @@ public class DialogController extends InputAdapter {
 		DialogNode nextNode = traverser.getNextNode(index);
 
 		if (nextNode instanceof LinearDialogNode) {
+			
 			LinearDialogNode node = (LinearDialogNode) nextNode;
 			dialogBox.animateText(node.getText());
+			if (node.getAction() != null) {
+				node.getAction().action();
+			}
 		}
 		if (nextNode instanceof ChoiceDialogNode) {
 			ChoiceDialogNode node = (ChoiceDialogNode) nextNode;

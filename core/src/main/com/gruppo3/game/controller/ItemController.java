@@ -12,10 +12,10 @@ import com.gruppo3.game.model.interactables.PickableItem;
 import com.badlogic.gdx.maps.MapObject;
 import java.util.LinkedHashMap;
 import java.util.Map;
+import com.gruppo3.game.model.Player;
 
 public class ItemController extends InputAdapter {
     public List<Item> itemList = new ArrayList<>();
-    public List<Item> inventory = new ArrayList<>();
     private Map<Item, MapObject> itemObjectMap = new LinkedHashMap<>();
     TextureRegion animationFrame;
 
@@ -47,16 +47,12 @@ public class ItemController extends InputAdapter {
         collisionObjectLayer.getObjects().remove(itemObject);
         itemObjectMap.remove(item);
         itemList.remove(item);
-        inventory.add(item);
+        Player.getPlayer().getInventory().add(item);
 
     }
 
     public void removeItemFromInventory(PickableItem item) {
-        inventory.remove(item);
-    }
-
-    public List<Item> getInventory() {
-        return inventory;
+        Player.getPlayer().getInventory().remove(item);
     }
 
     /*

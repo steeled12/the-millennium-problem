@@ -10,6 +10,7 @@ import com.gruppo3.game.model.dialog.LinearDialogNode;
 import com.gruppo3.game.util.Action;
 import com.badlogic.gdx.audio.Music;
 import com.gruppo3.game.screens.TestScreen;
+import com.badlogic.gdx.audio.Sound;
 
 //Item generico per dimostrazione
 public class Computer implements Item {
@@ -23,7 +24,13 @@ public class Computer implements Item {
         LinearDialogNode node0 = new LinearDialogNode("Questo computer richiede una password", 0);
         ChoiceDialogNode node1 = new ChoiceDialogNode("Inserisci la password", 1);
         LinearDialogNode node2 = new LinearDialogNode("Password corretta", 2);
-        LinearDialogNode node3 = new LinearDialogNode("Password errata", 3);
+        LinearDialogNode node3 = new LinearDialogNode("Password errata", 3, new Action() {
+            @Override
+            public void action() {
+                Sound sound = Gdx.audio.newSound(Gdx.files.internal("sound/heheheha.mp3"));
+                sound.play();
+            }
+        });
 
         node0.setPointer(1);
         node1.addChoice("Mappa1984", 2, new Action() {
