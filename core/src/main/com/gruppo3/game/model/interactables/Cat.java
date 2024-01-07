@@ -50,7 +50,7 @@ public class Cat extends NPC {
                 meowSound1.play(SettingController.gameVolume);
             }
         });
-        node1.addChoice("Non accarezzare", 2);
+        node1.addChoice("Non accarezzare");
 
         dialog.addNode(node1);
         dialog.addNode(node2);

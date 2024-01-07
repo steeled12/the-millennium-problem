@@ -29,7 +29,7 @@ public class Computer implements Item {
         node1.addChoice("Mappa1984", 2, new Action() {
             @Override
             public void action() {
-                Music music = Gdx.audio.newMusic(Gdx.files.internal("music/CoconutMall.mp3"));
+                Music music = Gdx.audio.newMusic(Gdx.files.internal("music/cocoremix.mp3"));
                 TestScreen.setMusic(music);
             }
         });
