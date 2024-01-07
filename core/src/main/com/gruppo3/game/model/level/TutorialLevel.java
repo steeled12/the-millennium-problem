@@ -4,12 +4,9 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.maps.MapLayer;
 import com.badlogic.gdx.maps.MapObject;
 import com.badlogic.gdx.maps.objects.RectangleMapObject;
-import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TmxMapLoader;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
 import com.badlogic.gdx.math.Rectangle;
-import com.gruppo3.game.controller.ItemController;
-import com.gruppo3.game.controller.NPCController;
 import com.gruppo3.game.model.interactables.Cat;
 
 public class TutorialLevel extends LevelStrategy {
@@ -46,25 +43,6 @@ public class TutorialLevel extends LevelStrategy {
     }
 
     @Override
-    public TiledMap getMap() {
-        return this.map;
-    }
-
-    @Override
-    public NPCController getNpcController() {
-        return this.npcController;
-    }
-
-    @Override
-    public ItemController getItemController() {
-        return this.itemController;
-    }
-
-    @Override
-    public OrthogonalTiledMapRenderer getRenderer() {
-        return this.renderer;
-    }
-
     public void dispose() {
         map.dispose();
         renderer.dispose();

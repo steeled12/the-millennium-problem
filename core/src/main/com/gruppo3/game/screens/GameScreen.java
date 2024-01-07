@@ -70,7 +70,7 @@ public class GameScreen implements Screen {
         this.menuController = new MenuController();
         this.menuController.changeState(new PauseMenu(menuController));
         Gdx.app.log("GameScreen", "Loading level: " + levelToLoad);
-        switch(levelToLoad){
+        switch (levelToLoad) {
             case "TutorialLevel":
                 levelController = new LevelController(new TutorialLevel());
                 break;
@@ -83,10 +83,8 @@ public class GameScreen implements Screen {
         }
         levelController.init();
 
-        
-
         this.interactionController = new InteractionController(levelController.getNpcController(),
-                levelController.getItemController());
+                levelController.getItemController(), levelController.getScriptableObjectsController());
 
         multiplexer = new InputMultiplexer();
         multiplexer.addProcessor(0, pauseController);

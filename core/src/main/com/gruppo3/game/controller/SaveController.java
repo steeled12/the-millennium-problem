@@ -4,11 +4,11 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Preferences;
 import com.badlogic.gdx.utils.Json;
 import com.gruppo3.game.model.Player;
-
+import com.gruppo3.game.model.interactables.Item;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import com.badlogic.gdx.utils.Json;
-import java.util.ArrayList;
+import java.util.List;
+
 import com.gruppo3.game.screens.GameScreen;
 
 public class SaveController {
@@ -55,7 +55,7 @@ public class SaveController {
         /* Effetturare il load di tutti i valori necessari */
         Player.getPlayer().getPlayerBox().setPosition(currentSave.getFloat("playerX", 8),
                 currentSave.getFloat("playerY", 8));
-        
+
         Player.getPlayer().getInventory().clear();
         String inventoryString = currentSave.getString("inventory", "");
         if (!inventoryString.isEmpty()) {
@@ -75,10 +75,6 @@ public class SaveController {
 
     private static void saveTime() {
         currentSave.putString("time", LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss")));
-    }
-
-    private static void saveLevel() {
-        // TODO
     }
 
     public static boolean isEmpty() {

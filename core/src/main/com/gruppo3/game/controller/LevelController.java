@@ -31,6 +31,10 @@ public class LevelController {
         return currentLevel.getItemController();
     }
 
+    public ScriptableObjectsController getScriptableObjectsController() {
+        return this.currentLevel.getScriptableObjectsController();
+    }
+
     public OrthogonalTiledMapRenderer getRenderer() {
         return currentLevel.getRenderer();
     }
