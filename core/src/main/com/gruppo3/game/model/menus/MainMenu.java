@@ -11,7 +11,7 @@ import com.badlogic.gdx.utils.viewport.Viewport;
 import com.gruppo3.game.MyGame;
 import com.gruppo3.game.controller.MenuController;
 import com.gruppo3.game.controller.SaveController;
-import com.gruppo3.game.screens.TestScreen;
+import com.gruppo3.game.screens.GameScreen;
 
 public class MainMenu extends MenuState {
 
@@ -41,7 +41,7 @@ public class MainMenu extends MenuState {
             @Override
             public void clicked(InputEvent event, float x, float y) {
                 SaveController.loadSave(0);
-                game.setScreen(new TestScreen(game));
+                game.setScreen(new GameScreen(game));
             }
         });
 

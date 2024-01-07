@@ -9,7 +9,7 @@ import com.gruppo3.game.controller.InteractionController;
 import com.gruppo3.game.model.interactables.Item;
 import com.gruppo3.game.model.interactables.NPC;
 import com.gruppo3.game.model.Player;
-import com.gruppo3.game.screens.TestScreen;
+import com.gruppo3.game.screens.GameScreen;
 import com.badlogic.gdx.Input.Keys;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -51,7 +51,7 @@ class InteractionControllerTest {
         interactionController = new InteractionController(npcList, itemList);
         assertTrue(interactionController.keyDown(Keys.X));
 
-        verify(item).action(TestScreen.dialogController);
+        verify(item).action(GameScreen.dialogController);
     }
 
     @Test
@@ -66,7 +66,7 @@ class InteractionControllerTest {
 
         assertTrue(interactionController.keyDown(Keys.X));
 
-        verify(npc).action(TestScreen.dialogController);
+        verify(npc).action(GameScreen.dialogController);
         verify(npc).setNPCDirection(any(NPC.Direction.class));
     }
 

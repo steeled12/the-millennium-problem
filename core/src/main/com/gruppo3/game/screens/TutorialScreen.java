@@ -50,40 +50,25 @@ public class TutorialScreen implements Screen {
     private ScreenViewport gameViewport;
     private ExtendViewport uiViewport;
     float stateTime;
-    float unitScale;
+
     MenuController menuController;
     private static Music music = Gdx.audio.newMusic(Gdx.files.internal("music/CoconutMall.mp3"));
 
     public TutorialScreen(final MyGame game) {
         this.game = game;
         this.stateTime = 0f;
-        this.unitScale = 1 / 16f;
         game.gameState = GameState.RUNNING;
 
         gameViewport = new ScreenViewport();
+
         // Initialize camera, map, and renderer
         camera = new OrthographicCamera();
         camera.setToOrtho(false, 16, 16);
-        map = new TmxMapLoader().load("maps/tutorial/Tutorial_map.tmx");
-        renderer = new OrthogonalTiledMapRenderer(map, unitScale);
-
-        // scaling a game units
-        MapLayer collisionObjectLayer = TutorialScreen.map.getLayers().get("Collisioni");
-        for (MapObject object : collisionObjectLayer.getObjects()) {
-            if (object instanceof RectangleMapObject) {
-                Rectangle rect = ((RectangleMapObject) object).getRectangle();
-                rect.x *= unitScale;
-                rect.y *= unitScale;
-                rect.width *= unitScale;
-                rect.height *= unitScale;
-            }
-        }
 
         initUI();
 
         playerController = new PlayerController();
         dialogController = new DialogController(dialogBox, optionBox);
-        npcController = new NPCController();
         pauseController = new PauseController(game);
         this.menuController = new MenuController();
         this.menuController.changeState(new PauseMenu(menuController));
@@ -96,14 +81,6 @@ public class TutorialScreen implements Screen {
         multiplexer.addProcessor(2, interactionController);
         multiplexer.addProcessor(3, playerController);
         Gdx.input.setInputProcessor(multiplexer);
-
-        // Creo un NPC
-
-        Cat npc = new Cat(
-                new Texture("cat.png"));
-        npc.getNpcBox().x = 14;
-        npc.getNpcBox().y = 16;
-        npcController.add(npc);
     }
 
     private void initUI() {

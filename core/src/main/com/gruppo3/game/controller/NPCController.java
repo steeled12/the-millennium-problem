@@ -7,7 +7,7 @@ import com.gruppo3.game.model.interactables.NPC;
 import com.badlogic.gdx.InputAdapter;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.maps.objects.RectangleMapObject;
-import com.gruppo3.game.screens.TestScreen;
+import com.gruppo3.game.screens.GameScreen;
 
 public class NPCController extends InputAdapter {
     public List<NPC> npcList = new ArrayList<>();
@@ -15,7 +15,7 @@ public class NPCController extends InputAdapter {
 
     public void add(NPC npc) {
         npcList.add(npc);
-        MapLayer collisionObjectLayer = TestScreen.map.getLayers().get("Collisioni");
+        MapLayer collisionObjectLayer = GameScreen.levelController.getMap().getLayers().get("Collisioni");
         RectangleMapObject npcObject = new RectangleMapObject(npc.getNpcBox().x, npc.getNpcBox().y,
                 npc.getNpcBox().width, npc.getNpcBox().height / 3);
         collisionObjectLayer.getObjects().add(npcObject);

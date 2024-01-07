@@ -9,7 +9,7 @@ import com.badlogic.gdx.maps.MapObjects;
 import com.badlogic.gdx.maps.objects.RectangleMapObject;
 import com.badlogic.gdx.math.Rectangle;
 import com.gruppo3.game.model.Player;
-import com.gruppo3.game.screens.TestScreen;
+import com.gruppo3.game.screens.GameScreen;
 import com.badlogic.gdx.InputAdapter;
 import com.gruppo3.game.model.Player.PlayerDirection;
 
@@ -28,8 +28,8 @@ public class PlayerController extends InputAdapter {
     }
 
     public void updateInput() {
-        TestScreen.camera.position.set(player.getPlayerBox().x, player.getPlayerBox().y,
-                TestScreen.camera.position.z);
+        GameScreen.camera.position.set(player.getPlayerBox().x, player.getPlayerBox().y,
+                GameScreen.camera.position.z);
 
         if (moveUp() + moveDown() + moveLeft() + moveRight() > 0) {
             this.animation = player.getWalkAnimation(player.getPlayerDirection());
@@ -56,7 +56,7 @@ public class PlayerController extends InputAdapter {
     // Overload per controllare se il player collide con un oggetto in una specifica
     // direzione
     private boolean isColliding(PlayerDirection direction) {
-        MapLayer collisionObjectLayer = TestScreen.map.getLayers().get("Collisioni");
+        MapLayer collisionObjectLayer = GameScreen.levelController.getMap().getLayers().get("Collisioni");
         MapObjects objects = collisionObjectLayer.getObjects();
 
         for (RectangleMapObject rectangleMapObject : objects.getByType(RectangleMapObject.class)) {

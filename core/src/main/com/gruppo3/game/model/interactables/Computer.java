@@ -9,7 +9,7 @@ import com.gruppo3.game.model.dialog.Dialog;
 import com.gruppo3.game.model.dialog.LinearDialogNode;
 import com.gruppo3.game.util.Action;
 import com.badlogic.gdx.audio.Music;
-import com.gruppo3.game.screens.TestScreen;
+import com.gruppo3.game.model.level.SecretRoomLevel;
 
 //Item generico per dimostrazione
 public class Computer implements Item {
@@ -30,7 +30,7 @@ public class Computer implements Item {
             @Override
             public void action() {
                 Music music = Gdx.audio.newMusic(Gdx.files.internal("music/CoconutMall.mp3"));
-                TestScreen.setMusic(music);
+                SecretRoomLevel.setMusic(music);
             }
         });
         node1.addChoice("Password", 3);
@@ -43,29 +43,29 @@ public class Computer implements Item {
 
         this.setDialog(dialog);
 
-        
     }
 
     @Override
-    public Texture getTexture(){
+    public Texture getTexture() {
         return texture;
-    
+
     }
+
     @Override
-    public Rectangle getBox(){
+    public Rectangle getBox() {
         return box;
     }
 
     @Override
-    public String getName(){
+    public String getName() {
         return "Computer";
     }
 
-    public void setDialog(Dialog dialog){
+    public void setDialog(Dialog dialog) {
         this.dialog = dialog;
     }
 
-    public Dialog getDialog(){
+    public Dialog getDialog() {
         return dialog;
     }
 
