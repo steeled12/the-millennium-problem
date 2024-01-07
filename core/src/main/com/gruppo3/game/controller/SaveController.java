@@ -1,12 +1,10 @@
 package com.gruppo3.game.controller;
 
-import com.gruppo3.game.model.interactables.Item;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Preferences;
+import com.badlogic.gdx.utils.Json;
 import com.gruppo3.game.model.Player;
+
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
@@ -29,7 +27,7 @@ public class SaveController {
         /* Effetturare il save di tutti i valori necessari */
         savePlayerPosition(Player.getPlayer().getPlayerBox().x, Player.getPlayer().getPlayerBox().y);
         saveTime();
-
+        saveInventory();
         /* --- */
 
         currentSave.flush();
@@ -51,8 +49,11 @@ public class SaveController {
         currentSave = Gdx.app.getPreferences(SAVE_NAME + String.valueOf(numSave));
 
         /* Effetturare il load di tutti i valori necessari */
-        Player.getPlayer().getPlayerBox().setPosition(currentSave.getFloat("playerX", 8),
-                currentSave.getFloat("playerY", 8));
+        if (currentSave.contains("playerX") && currentSave.contains("playerY")) {
+            Player.getPlayer().getPlayerBox().setPosition(currentSave.getFloat("playerX"),
+                    currentSave.getFloat("playerY"));
+        }
+
         Gdx.app.log("SaveController", "Load effettuato!");
     }
 
@@ -66,13 +67,15 @@ public class SaveController {
         currentSave.putString("time", LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss")));
     }
 
+    private static void saveLevel() {
+        // TODO
+    }
+
     public static boolean isEmpty() {
         return currentSave.get().isEmpty();
     }
 
-    private static void saveInventory(List<Item> inventory) {
-        Map<String, List<Item>> inventoryMap = new HashMap<>();
-        // TODO
-
+    private static void saveInventory() {
+        currentSave.putString("Inventario", new Json().toJson(Player.getPlayer().getInventory()));
     }
 }

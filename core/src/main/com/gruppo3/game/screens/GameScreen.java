@@ -16,6 +16,8 @@ import com.gruppo3.game.model.interactables.NPC;
 import com.gruppo3.game.model.level.SecretRoomLevel;
 import com.gruppo3.game.model.menus.PauseMenu;
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.scenes.scene2d.ui.Image;
+import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.gruppo3.game.ui.DialogBox;
 import com.gruppo3.game.ui.OptionBox;
@@ -45,6 +47,7 @@ public class GameScreen implements Screen {
     float timer;
 
     int flag = 0;
+    private static Stage stageInventory;
 
     public GameScreen(final MyGame game) {
         this.game = game;
@@ -81,6 +84,11 @@ public class GameScreen implements Screen {
 
     private void initUI() {
         uiViewport = new ExtendViewport(400, 300);
+        // INVENTORY UI
+        stageInventory = new Stage(new ScreenViewport());
+        GameScreen.updateInventoryUI();
+
+        // DIALOG UI
         stage = new Stage(uiViewport);
 
         stage.getViewport().update(Gdx.graphics.getWidth() / 5, Gdx.graphics.getHeight() / 5, true);
@@ -226,8 +234,39 @@ public class GameScreen implements Screen {
     private void renderUI() {
         dialogController.update(Math.min(Gdx.graphics.getDeltaTime(), 1 / 30f));
         stage.act(Math.min(Gdx.graphics.getDeltaTime(), 1 / 30f));
-
         stage.draw();
+
+        stageInventory.act();
+        stageInventory.draw();
+    }
+
+    public static void updateInventoryUI() {
+        if (!Player.getPlayer().getInventory().isEmpty()) {
+            stageInventory.clear(); // pulisco
+
+            // Setting della tabella
+            Table invetoryTable = new Table();
+            invetoryTable.setFillParent(true);
+            invetoryTable.setHeight(100);
+            invetoryTable.bottom().left();
+            invetoryTable.padBottom(16);
+            invetoryTable.padLeft(16);
+            invetoryTable.row().spaceBottom(5);
+            invetoryTable.add(new Label("Inventario:", MyGame.skin));
+
+            // aggiungo gli items
+            invetoryTable.row();
+            for (Item item : Player.getPlayer().getInventory()) {
+                Table itemTable = new Table();
+                itemTable.padRight(5);
+                itemTable.add(new Image(item.getTexture()));
+                itemTable.row();
+                itemTable.add(new Label(item.getName(), MyGame.skin));
+                invetoryTable.add(itemTable);
+                // System.out.println("Aggiunto item: " + item.getTexture().toString());
+            }
+            stageInventory.addActor(invetoryTable);
+        }
     }
 
     @Override
@@ -238,6 +277,7 @@ public class GameScreen implements Screen {
         gameViewport.update(width, height, true);
 
         stage.getViewport().update(width, height, true);
+        stageInventory.getViewport().update(width, height, true);
         menuController.getStage().getViewport().update(width, height, true);
     }
 
