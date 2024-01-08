@@ -39,7 +39,7 @@ public class Player {
 
                 this.playerBox = new Rectangle();
 
-                playerBox.x = 8;
+                playerBox.x = 15;
                 playerBox.y = 8;
                 // the bottom screen edge
                 playerBox.width = 1;

@@ -51,7 +51,7 @@ public class TutorialLevel extends LevelStrategy {
         npcController.add(cat);
 
         // items
-        PickableItem latte = new PickableItem("Latte", new Texture("milk.png"));
+        PickableItem latte = new PickableItem("Latte", "milk.png");
         latte.getBox().x = 2;
         latte.getBox().y = 2;
         latte.getBox().width = 1;
