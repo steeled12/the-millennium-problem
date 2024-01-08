@@ -71,8 +71,8 @@ public class MainMenu extends MenuState {
         });
 
         // Add buttons to table
-        mainTable.row().spaceBottom(10);
-        mainTable.add(logoImage).colspan(2).center().padBottom(50).padTop(50);
+        mainTable.row();
+        mainTable.add(logoImage).center().padBottom(50);
         mainTable.row().spaceBottom(10);
         mainTable.add(playButton);
         mainTable.row().spaceBottom(10);

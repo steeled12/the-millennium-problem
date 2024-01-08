@@ -226,7 +226,8 @@ public class SecretRoomLevel extends LevelStrategy {
         libreria.setDialog(libDialog);
 
         Player.getPlayer().getPlayerBox().x = 14.5f;
-        Player.getPlayer().getPlayerBox().y = 1;
+        Player.getPlayer().getPlayerBox().y = 0;
+        Player.getPlayer().setPlayerDirection(Player.PlayerDirection.NORTH);
     }
 
     public static void setMusic(Music music) {
