@@ -55,7 +55,11 @@ public class Computer implements Item {
     @Override
     public Texture getTexture() {
         return texture;
+    }
 
+    @Override
+    public String getTexturePath() {
+        return "";
     }
 
     @Override

@@ -34,6 +34,9 @@ public class ItemController extends InputAdapter {
     }
 
     public void addWithOutId(Item item) {
+        if(Player.getPlayer().getInventory().contains(item) || itemList.contains(item)){
+            return;
+        }
         itemList.add(item);
         MapLayer collisionObjectLayer = GameScreen.levelController.getMap().getLayers().get("Collisioni");
         RectangleMapObject itemObject = new RectangleMapObject(item.getBox().x, item.getBox().y, item.getBox().width,

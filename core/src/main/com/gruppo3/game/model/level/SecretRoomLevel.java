@@ -85,7 +85,7 @@ public class SecretRoomLevel extends LevelStrategy {
 
         cassetto.setDialog(cassDialog);
 
-        PickableItem pippo = new PickableItem("caminoPippo", new Texture("map/atto3/Living_Room_Singles_111.png"));
+        PickableItem pippo = new PickableItem("caminoPippo", "map/atto3/Living_Room_Singles_111.png");
         pippo.getBox().x = 10;
         pippo.getBox().y = 10;
         pippo.getBox().width = 1;
