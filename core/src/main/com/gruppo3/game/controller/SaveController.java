@@ -25,14 +25,6 @@ public class SaveController {
     public static Preferences currentSave;
 
     public static void save() {
-        // salvo nel primo file save libero
-        if (currentSave == null) {
-            int i = 0;
-            loadSave(i);
-            while (!isEmpty() && i < MAX_SAVES) {
-                loadSave(++i);
-            }
-        }
 
         /* Effetturare il save di tutti i valori necessari */
         savePlayerPosition(Player.getPlayer().getPlayerBox().x, Player.getPlayer().getPlayerBox().y);
@@ -46,11 +38,13 @@ public class SaveController {
     }
 
     public static void save(int numSave) {
-        loadSave(numSave);
+        //loadSave(numSave);
+        currentSave = Gdx.app.getPreferences(SAVE_NAME + String.valueOf(numSave));
         save();
     }
 
-    public static void deleteSave() {
+    public static void deleteSave(int numSave) {
+        currentSave = Gdx.app.getPreferences(SAVE_NAME + String.valueOf(numSave));
         currentSave.clear();
         currentSave.flush();
         Gdx.app.log("SaveController", "Delete effettuato!");
@@ -60,7 +54,7 @@ public class SaveController {
         currentSave = Gdx.app.getPreferences(SAVE_NAME + String.valueOf(numSave));
 
         /* Effetturare il load di tutti i valori necessari */
-        Player.getPlayer().getPlayerBox().setPosition(currentSave.getFloat("playerX", 8),
+        Player.getPlayer().getPlayerBox().setPosition(currentSave.getFloat("playerX", 15),
                 currentSave.getFloat("playerY", 8));
 
         Player.getPlayer().getInventory().clear();
@@ -82,6 +76,16 @@ public class SaveController {
 
         GameScreen.levelToLoad = currentSave.getString("level");
         Gdx.app.log("SaveController", "Load effettuato!");
+    }
+
+    public static void newGame() {
+        currentSave = null;
+        Player.getPlayer().getInventory().clear();
+        Player.getPlayer().getPlayerBox().setPosition(15, 8);
+    }
+
+    public static boolean saveExists(int numSave) {
+        return !Gdx.app.getPreferences(SAVE_NAME + String.valueOf(numSave)).get().isEmpty();
     }
 
     private static void savePlayerPosition(float x, float y) {
@@ -111,5 +115,9 @@ public class SaveController {
 
     private static void saveLevel() {
         currentSave.putString("level", GameScreen.levelController.getCurrentLevel().getClass().getSimpleName());
+    }
+
+    public static Preferences getSave(int numSave) {
+        return Gdx.app.getPreferences(SAVE_NAME + String.valueOf(numSave));
     }
 }

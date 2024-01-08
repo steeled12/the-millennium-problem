@@ -47,7 +47,7 @@ public class PauseMenu extends MenuState {
         saveButton.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
-                SaveController.save();
+                loader.changeState(new SaveMenu(loader, new PauseMenu(loader)));
             }
         });
         optionsButton.addListener(new ClickListener() {

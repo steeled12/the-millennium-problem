@@ -5,13 +5,16 @@ import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
+import com.badlogic.gdx.scenes.scene2d.ui.TextTooltip;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import com.gruppo3.game.MyGame;
 import com.gruppo3.game.controller.MenuController;
-import com.gruppo3.game.controller.SaveController;
 import com.gruppo3.game.screens.GameScreen;
+import com.gruppo3.game.controller.SaveController;
+import com.badlogic.gdx.scenes.scene2d.ui.Image;
+import com.badlogic.gdx.graphics.Texture;
 
 public class MainMenu extends MenuState {
 
@@ -27,8 +30,11 @@ public class MainMenu extends MenuState {
 
         // Create Table
         Table mainTable = new Table();
+        mainTable.setSkin(skin);
         // Set table to fill stage
-        mainTable.setFillParent(true);
+        mainTable.setFillParent(true);  
+        Image logoImage = new Image(new Texture(Gdx.files.internal("logo.gif")));
+                
 
         // Create buttons
         TextButton playButton = new TextButton("Nuova Partita", skin);
@@ -40,7 +46,7 @@ public class MainMenu extends MenuState {
         playButton.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
-                //SaveController.loadSave(0);
+                SaveController.newGame();
                 game.setScreen(new GameScreen(game));
             }
         });
@@ -48,7 +54,7 @@ public class MainMenu extends MenuState {
         loadButton.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
-                loader.changeState(new SavesMenu(loader));
+                loader.changeState(new LoadMenu(loader));
             }
         });
         optionsButton.addListener(new ClickListener() {
@@ -65,6 +71,8 @@ public class MainMenu extends MenuState {
         });
 
         // Add buttons to table
+        mainTable.row().spaceBottom(10);
+        mainTable.add(logoImage).colspan(2).center().padBottom(50).padTop(50);
         mainTable.row().spaceBottom(10);
         mainTable.add(playButton);
         mainTable.row().spaceBottom(10);

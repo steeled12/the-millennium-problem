@@ -14,13 +14,13 @@ import com.gruppo3.game.controller.MenuController;
 import com.gruppo3.game.controller.SaveController;
 import com.gruppo3.game.screens.GameScreen;
 
-public class SavesMenu extends MenuState {
+public class LoadMenu extends MenuState {
 
     protected Stage stage;
     private Viewport viewport;
     MyGame game = (MyGame) Gdx.app.getApplicationListener();
 
-    public SavesMenu(MenuController loader) {
+    public LoadMenu(MenuController loader) {
         super(loader);
 
         viewport = new ScreenViewport();
@@ -32,33 +32,42 @@ public class SavesMenu extends MenuState {
         mainTable.setFillParent(true);
 
         // Create buttons
-        TextButton load1Button = new TextButton("Avvia", skin);
-        TextButton load2Button = new TextButton("Avvia", skin);
-        TextButton load3Button = new TextButton("Avvia", skin);
+        TextButton load1Button = new TextButton("Vuoto", skin);
+        TextButton load2Button = new TextButton("Vuoto", skin);
+        TextButton load3Button = new TextButton("Vuoto", skin);
         TextButton backButton = new TextButton("Back", skin);
 
         // Add listeners to buttons
-        load1Button.addListener(new ClickListener() {
-            @Override
-            public void clicked(InputEvent event, float x, float y) {
-                SaveController.loadSave(0);
-                game.setScreen(new GameScreen(game));
-            }
-        });
-        load2Button.addListener(new ClickListener() {
-            @Override
-            public void clicked(InputEvent event, float x, float y) {
-                SaveController.loadSave(1);
-                game.setScreen(new GameScreen(game));
-            }
-        });
-        load3Button.addListener(new ClickListener() {
-            @Override
-            public void clicked(InputEvent event, float x, float y) {
-                SaveController.loadSave(2);
-                game.setScreen(new GameScreen(game));
-            }
-        });
+        if (SaveController.saveExists(0)) {
+            load1Button.setText("Avvia");
+            load1Button.addListener(new ClickListener() {
+                @Override
+                public void clicked(InputEvent event, float x, float y) {
+                    SaveController.loadSave(0);
+                    game.setScreen(new GameScreen(game));
+                }
+            });
+        }
+        if (SaveController.saveExists(1)) {
+            load2Button.setText("Avvia");
+            load2Button.addListener(new ClickListener() {
+                @Override
+                public void clicked(InputEvent event, float x, float y) {
+                    SaveController.loadSave(1);
+                    game.setScreen(new GameScreen(game));
+                }
+            });
+        }
+        if (SaveController.saveExists(2)) {
+            load3Button.setText("Avvia");
+            load3Button.addListener(new ClickListener() {
+                @Override
+                public void clicked(InputEvent event, float x, float y) {
+                    SaveController.loadSave(2);
+                    game.setScreen(new GameScreen(game));
+                }
+            });
+        }
         backButton.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
@@ -70,12 +79,21 @@ public class SavesMenu extends MenuState {
         mainTable.row().spaceBottom(10);
         mainTable.add(new Label("Save1: ", skin));
         mainTable.add(load1Button);
+        if (SaveController.saveExists(0)) {
+            mainTable.add(new Label(" " + SaveController.getSave(0).getString("time"), skin));
+        }
         mainTable.row().spaceBottom(10);
         mainTable.add(new Label("Save2: ", skin));
         mainTable.add(load2Button);
+        if (SaveController.saveExists(1)) {
+            mainTable.add(new Label(" " + SaveController.getSave(1).getString("time"), skin));
+        }
         mainTable.row().spaceBottom(10);
         mainTable.add(new Label("Save3: ", skin));
         mainTable.add(load3Button);
+        if (SaveController.saveExists(2)) {
+            mainTable.add(new Label(" " + SaveController.getSave(2).getString("time"), skin));
+        }
         mainTable.row().spaceBottom(15);
         mainTable.add(backButton);
 

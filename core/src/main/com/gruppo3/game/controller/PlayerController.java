@@ -146,14 +146,14 @@ public class PlayerController extends InputAdapter {
             moveDown();
         }
         Gdx.app.log("PlayerController", "Player position: " + player.getPlayerBox().x + " " + player.getPlayerBox().y);
-        if (keycode == Input.Keys.NUM_1)
+        /* if (keycode == Input.Keys.NUM_1)
             SaveController.loadSave(0);
         if (keycode == Input.Keys.NUM_2)
             SaveController.loadSave(1);
         if (keycode == Input.Keys.NUM_3)
             SaveController.loadSave(2);
         if (keycode == Input.Keys.NUM_4)
-            SaveController.deleteSave();
+            SaveController.deleteSave(); */
 
         if (keycode == Input.Keys.NUM_5) {
             SaveController.save();

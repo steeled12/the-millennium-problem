@@ -69,6 +69,7 @@ public class TutorialLevel extends LevelStrategy {
         ScriptableObject porta = new ScriptableObject(new Rectangle(15, 18, 2, 2), true) {
             @Override
             public void action() {
+                GameScreen.levelToLoad = "SecretRoomLevel";
                 GameScreen.levelController.setLevel(new SecretRoomLevel());
             }
         };

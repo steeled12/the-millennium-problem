@@ -60,6 +60,8 @@ public class ItemController extends InputAdapter {
         Player.getPlayer().getInventory().remove(item);
     }
 
+    
+
     /*
      * @Override
      * public boolean keyDown(int keycode) {

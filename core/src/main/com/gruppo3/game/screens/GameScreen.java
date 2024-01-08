@@ -46,7 +46,7 @@ public class GameScreen implements Screen {
     private ExtendViewport uiViewport;
     float stateTime;
     float timer;
-    public static String levelToLoad = "TutorialLevel";
+    public static String levelToLoad = "SecretRoomLevel";
     int flag = 0;
     private static Stage stageInventory;
 

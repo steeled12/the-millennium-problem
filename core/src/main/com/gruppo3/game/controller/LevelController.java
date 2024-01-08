@@ -13,6 +13,7 @@ public class LevelController {
 
     public void setLevel(LevelStrategy level) {
         this.currentLevel = level;
+        this.init();
     }
 
     public void init() {
