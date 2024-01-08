@@ -9,9 +9,11 @@ import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.gruppo3.game.controller.DialogController;
 import com.gruppo3.game.controller.SettingController;
+import com.gruppo3.game.model.Player;
 import com.gruppo3.game.model.dialog.ChoiceDialogNode;
 import com.gruppo3.game.model.dialog.Dialog;
 import com.gruppo3.game.model.dialog.LinearDialogNode;
+import com.gruppo3.game.screens.GameScreen;
 import com.gruppo3.game.util.Action;
 
 public class Cat extends NPC {
@@ -42,6 +44,7 @@ public class Cat extends NPC {
 
         ChoiceDialogNode node1 = new ChoiceDialogNode("Meow!", 0);
         LinearDialogNode node2 = new LinearDialogNode("Prrrup!", 1);
+        LinearDialogNode node3 = new LinearDialogNode("Dovrei dare del cibo al gatto!", 2);
 
         node1.addChoice("Accarezza", 1, new Action() {
             @Override
@@ -49,13 +52,13 @@ public class Cat extends NPC {
                 meowSound1.play(SettingController.gameVolume);
             }
         });
-        node1.addChoice("Non accarezzare");
+        node1.addChoice("Non accarezzare", 2);
 
         dialog.addNode(node1);
         dialog.addNode(node2);
+        dialog.addNode(node3);
 
         super.dialog = dialog;
-
     }
 
     @Override
@@ -65,6 +68,20 @@ public class Cat extends NPC {
 
     @Override
     public void action(DialogController dialogController) {
+        for (Item item : Player.getPlayer().getInventory()) {
+            // se ha il latte
+            if (item.getName() == "Latte") {
+                Gdx.audio.newSound(Gdx.files.internal("sound/success.mp3")).play(SettingController.gameVolume);
+                Dialog latteDialog = new Dialog();
+                latteDialog.addNode(new LinearDialogNode("Hai dato il latte al gatto", 0));
+                System.out.println("Inventario:" + Player.getPlayer().getInventory().toString());
+                Player.getPlayer().getInventory().remove(item);
+                GameScreen.updateInventoryUI();
+                System.out.println("Inventario:" + Player.getPlayer().getInventory().toString());
+                dialogController.startDialog(latteDialog);
+                return;
+            }
+        }
         if (new Random().nextInt(100) < 95) {
             meowSound1.play(SettingController.gameVolume);
         } else {

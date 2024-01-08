@@ -62,7 +62,7 @@ public class SaveController {
         /* Effetturare il load di tutti i valori necessari */
         Player.getPlayer().getPlayerBox().setPosition(currentSave.getFloat("playerX", 8),
                 currentSave.getFloat("playerY", 8));
-        
+
         Player.getPlayer().getInventory().clear();
         Json json = new Json();
         String inventoryString = currentSave.getString("inventory");

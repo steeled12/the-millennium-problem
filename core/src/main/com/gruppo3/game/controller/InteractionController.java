@@ -12,16 +12,20 @@ import com.gruppo3.game.screens.GameScreen;
 import com.gruppo3.game.model.interactables.Item;
 import com.gruppo3.game.model.interactables.NPC.Direction;
 import com.gruppo3.game.model.interactables.PickableItem;
+import com.gruppo3.game.model.interactables.ScriptableObject;
 
 public class InteractionController extends InputAdapter {
 
     private NPCController npcController;
     private ItemController itemController;
+    private ScriptableObjectsController scriptableObjectsController;
     private Texture textureInteractionWidget;
 
-    public InteractionController(NPCController npcController, ItemController itemController) {
+    public InteractionController(NPCController npcController, ItemController itemController,
+            ScriptableObjectsController scriptableObjectsController) {
         this.npcController = npcController;
         this.itemController = itemController;
+        this.scriptableObjectsController = scriptableObjectsController;
         this.textureInteractionWidget = new Texture(Gdx.files.internal("ui/X.png"));
     }
 
@@ -42,6 +46,18 @@ public class InteractionController extends InputAdapter {
             if (distance < 1.8f) {
                 batch.draw(textureInteractionWidget, item.getBox().x,
                         item.getBox().y + item.getBox().getHeight() + 1f, .8f, .8f);
+            }
+        }
+
+        for (ScriptableObject scriptableObject : scriptableObjectsController.scriptableObjectsList) {
+            if (scriptableObject.getShowInteractionWidget()) {
+                double distance = Math.sqrt(Math.pow(player.getPlayerBox().x - scriptableObject.getBox().x, 2)
+                        + Math.pow(player.getPlayerBox().y - scriptableObject.getBox().y, 2));
+                if (distance < 1.8f) {
+                    batch.draw(textureInteractionWidget,
+                            (scriptableObject.getBox().x * 2 + scriptableObject.getBox().getWidth()) / 2 - .5f,
+                            scriptableObject.getBox().y + scriptableObject.getBox().getHeight(), .8f, .8f);
+                }
             }
         }
     }
@@ -93,6 +109,22 @@ public class InteractionController extends InputAdapter {
                                 npc.setNPCDirection(Direction.WEST);
                                 break;
                         }
+                        return true;
+                    }
+                }
+            }
+
+            if (!scriptableObjectsController.scriptableObjectsList.isEmpty()) {
+                for (ScriptableObject scriptableObject : scriptableObjectsController.scriptableObjectsList) {
+                    Rectangle expandedItemBox = new Rectangle(scriptableObject.getBox());
+                    float expansionAmount = 0.1f;
+                    expandedItemBox.x -= expansionAmount / 2;
+                    expandedItemBox.y -= expansionAmount / 2;
+                    expandedItemBox.width += expansionAmount;
+                    expandedItemBox.height += expansionAmount;
+
+                    if (expandedItemBox.overlaps(Player.getPlayer().getPlayerBox())) {
+                        scriptableObject.action();
                         return true;
                     }
                 }

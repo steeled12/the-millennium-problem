@@ -17,17 +17,17 @@
   </data>
   </layer>
  </group>
- <layer id="30" name="1" width="30" height="20">
+ <layer id="30" name="1" width="30" height="20" locked="1">
   <data encoding="base64" compression="zlib">
    eJxjYBgFo2AUjIJRMAqGL3A0Z2BwAmJnIHYxp5+9gUC7goA4GIhD6GhvItCuJCBOBuIUOto7HMFyc1RMCgAAQxsJ6w==
   </data>
  </layer>
- <layer id="31" name="2" width="30" height="20">
+ <layer id="31" name="2" width="30" height="20" locked="1">
   <data encoding="base64" compression="zlib">
    eJxjYBgFo2AUjIJRMAoGDiiYD4y9BnSw1x9oRwCaPQ5UsHeDKQPDRijeZEq5ecSCA0C7DkLxITraCwIrgeG2agDSyk6gnbvIsBcAubENVQ==
   </data>
  </layer>
- <layer id="32" name="3" width="30" height="20">
+ <layer id="32" name="3" width="30" height="20" locked="1">
   <data encoding="base64" compression="zlib">
    eJxjYBgFo2AUjIJRMApGAS2An/lAuwABTpsNjL23B8jegQYAir4CmA==
   </data>
@@ -39,7 +39,7 @@
  </layer>
  <layer id="4" name="Boarders" width="30" height="20" locked="1">
   <data encoding="base64" compression="zlib">
-   eJxjYCANbBVkeEBAPoFEI0ftHUT2bh4gewkBGvp3wUDYSyh+aQVGmr2jYBSMglHwU5zhwFVG+mKQnQCQ1kal
+   eJxjYCANtDDil28mIE8uGLWXPvYqMA2MvTkDZO+VQRq/tAIjzd5RMApGwSj4Kc5w4CojfTHITgBguTit
   </data>
  </layer>
  <layer id="7" name="Porte" width="30" height="20" locked="1">
@@ -57,22 +57,22 @@
    eJxjYKAteJZEYwuQwOVkBoYrQJwOxN+A9v6gk92PgfY9AeJyIGZLpo+dIPAZaNcXOtpHCASlMDAEp9DO/GlY/PoDaF8SECfT0F5sgCOVgSED6J7MQRT+o2AUjIJRMAoGDwAAkfQVAg==
   </data>
  </layer>
- <layer id="17" name="Stanza" width="30" height="20">
+ <layer id="17" name="Stanza" width="30" height="20" locked="1">
   <data encoding="base64" compression="zlib">
    eJzt0MsNgkAYReGrFQAVKBX5aEBhwyALH8WoFahLoQK1ArQRS/CQuDGauBk2+t/k28xMcpKRpEEmDTHCGMFMChGh2bGQSlSFvG5Ca4oEKXr0+oif3RO9My6eu3NaCyyxyt7va3pX3Dx3/233D3/bbJ1LW2zylsJO6qDrXo939A7Yt9QN6IWI3Pe3NpvNZvvtPQD6uSFp
   </data>
  </layer>
- <layer id="18" name="Comodino" width="30" height="20">
+ <layer id="18" name="Comodino" width="30" height="20" locked="1">
   <data encoding="base64" compression="zlib">
    eJxjYBgFo2AUUAN8zRoYe1mzB8beUTAKRsEoGAW4AQDSzQHQ
   </data>
  </layer>
- <layer id="20" name="tavolo" width="30" height="20">
+ <layer id="20" name="tavolo" width="30" height="20" locked="1">
   <data encoding="base64" compression="zlib">
    eJxjYBgFo2AU0APIOjIwyAGxvCN97dUF2qcHxPp0tncUjIJRMApGMgAAwdUCaw==
   </data>
  </layer>
- <layer id="19" name="Lampada" width="30" height="20">
+ <layer id="19" name="Lampada" width="30" height="20" locked="1">
   <data encoding="base64" compression="zlib">
    eJxjYBgFo2AUUAPczMIv/82BgeEPEP9woINjkACbIwMDDxBzONLX3lEwCkbBKBjJAAAulQXL
   </data>
@@ -122,7 +122,7 @@
    eJxjYBgFo2AUjILhA0SM6WfXLCMEW4WO9iIDEzrae9uIsBpagHsDZO8oGAWUAACoyAPv
   </data>
  </layer>
- <objectgroup id="36" name="Collisioni">
+ <objectgroup id="36" name="Collisioni" visible="0">
   <object id="1" x="0.5" y="0" width="14.5" height="319.5"/>
   <object id="2" x="1" y="1.5" width="415.5" height="30.5"/>
   <object id="3" x="415.5" y="-1" width="16" height="96.5"/>
