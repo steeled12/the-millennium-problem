@@ -47,7 +47,7 @@ public class SaveMenu extends MenuState {
             @Override
             public void clicked(InputEvent event, float x, float y) {
                 SaveController.save(0);
-                game.setScreen(new GameScreen(game));
+                
             }
         });
         if (SaveController.saveExists(1)) {
@@ -57,7 +57,7 @@ public class SaveMenu extends MenuState {
             @Override
             public void clicked(InputEvent event, float x, float y) {
                 SaveController.save(1);
-                game.setScreen(new GameScreen(game));
+                
             }
         });
         if (SaveController.saveExists(2)) {
@@ -67,7 +67,6 @@ public class SaveMenu extends MenuState {
             @Override
             public void clicked(InputEvent event, float x, float y) {
                 SaveController.save(2);
-                game.setScreen(new GameScreen(game));
             }
         });
 

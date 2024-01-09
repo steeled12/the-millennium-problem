@@ -53,7 +53,7 @@ public class Atto2Level extends LevelStrategy {
 
     public void changeMap(String mapName, float x, float y) {
         this.map = new TmxMapLoader().load(mapName);
-        this.renderer = new OrthogonalTiledMapRenderer(map, unitScale);
+        
         MapLayer collisionObjectLayer = this.map.getLayers().get("Collisioni");
         for (MapObject object : collisionObjectLayer.getObjects()) {
             if (object instanceof RectangleMapObject) {
@@ -64,6 +64,8 @@ public class Atto2Level extends LevelStrategy {
                 rect.height *= unitScale;
             }
         }
+        this.renderer = new OrthogonalTiledMapRenderer(map, unitScale);
+
         Player.getPlayer().getPlayerBox().x = x;
         Player.getPlayer().getPlayerBox().y = y;
         
