@@ -6,12 +6,12 @@ import java.util.List;
 import com.gruppo3.game.util.Action;
 
 public class LinearDialogNode implements DialogNode {
-	
+
 	private String text;
 	private int id;
 	private List<Integer> pointers = new ArrayList<Integer>();
 	private Action action;
-	
+
 	public LinearDialogNode(String text, int id) {
 		this.text = text;
 		this.id = id;
@@ -27,11 +27,12 @@ public class LinearDialogNode implements DialogNode {
 	public void setAction(Action action) {
 		this.action = action;
 	}
-	
-	public void setPointer(int id) {
+
+	public DialogNode setPointer(int id) {
 		pointers.add(id);
+		return this;
 	}
-	
+
 	public String getText() {
 		return text;
 	}
