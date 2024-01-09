@@ -44,7 +44,7 @@ public class Cat extends NPC {
 
         ChoiceDialogNode node1 = new ChoiceDialogNode("Gatto: Meow!", 0);
         LinearDialogNode node2 = new LinearDialogNode("Gatto: Prrrup!", 1);
-        LinearDialogNode node3 = new LinearDialogNode("(Dovrei dare del cibo al gatto!)", 2);
+        LinearDialogNode node3 = new LinearDialogNode("(Dovrei dare del cibo al gatto)", 2);
 
         node2.setPointer(2);
 
@@ -76,11 +76,11 @@ public class Cat extends NPC {
                 Gdx.audio.newSound(Gdx.files.internal("sound/success.mp3")).play(SettingController.gameVolume);
                 Dialog latteDialog = new Dialog();
                 latteDialog.addNode(new LinearDialogNode("[Hai dato il latte al gatto]", 0));
-                System.out.println("Inventario:" + Player.getPlayer().getInventory().toString());
                 Player.getPlayer().getInventory().remove(item);
                 GameScreen.updateInventoryUI();
-                System.out.println("Inventario:" + Player.getPlayer().getInventory().toString());
                 dialogController.startDialog(latteDialog);
+                GameScreen.savedInformation.put("ciboGatto", "true");
+                dialog.removeNode(2);
                 return;
             }
         }

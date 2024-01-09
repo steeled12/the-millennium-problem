@@ -34,7 +34,7 @@ public class ItemController extends InputAdapter {
     }
 
     public void addWithOutId(Item item) {
-        if(Player.getPlayer().getInventory().contains(item) || itemList.contains(item)){
+        if (Player.getPlayer().getInventory().contains(item) || itemList.contains(item)) {
             return;
         }
         itemList.add(item);
@@ -52,6 +52,7 @@ public class ItemController extends InputAdapter {
         itemObjectMap.remove(item);
         itemList.remove(item);
         Player.getPlayer().getInventory().add(item);
+        GameScreen.savedInformation.put("isPicked" + item.getName(), "true");
         GameScreen.updateInventoryUI();
 
     }
@@ -59,8 +60,6 @@ public class ItemController extends InputAdapter {
     public void removeItemFromInventory(PickableItem item) {
         Player.getPlayer().getInventory().remove(item);
     }
-
-    
 
     /*
      * @Override
