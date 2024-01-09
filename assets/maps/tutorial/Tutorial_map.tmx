@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="30" height="20" tilewidth="16" tileheight="16" infinite="0" nextlayerid="39" nextobjectid="47">
+<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="30" height="20" tilewidth="16" tileheight="16" infinite="0" nextlayerid="40" nextobjectid="52">
  <tileset firstgid="1" source="Room_Builder_16x16.tsx"/>
  <tileset firstgid="8285" source="Interiors_16x16.tsx"/>
  <tileset firstgid="25309" source="3_Bathroom_16x16.tsx"/>
  <tileset firstgid="26205" source="4_Bedroom_16x16.tsx"/>
  <tileset firstgid="27917" source="RetroWhite.tsx"/>
+ <tileset firstgid="28941" source="UI_16x16.tsx"/>
  <group id="5" name="Pavimento" locked="1">
   <layer id="1" name="Pavimento" width="30" height="20" locked="1">
    <data encoding="base64" compression="zlib">
@@ -77,42 +78,42 @@
    eJxjYBgFo2AUUAPczMIv/82BgeEPEP9woINjkACbIwMDDxBzONLX3lEwCkbBKBjJAAAulQXL
   </data>
  </layer>
- <layer id="21" name="Sedia" width="30" height="20">
+ <layer id="21" name="Sedia" width="30" height="20" locked="1">
   <data encoding="base64" compression="zlib">
    eJxjYKAOsA2lkkFQsC2YOHW+VLb3GJH2xlJg73EvBoYTXqhi14i0lxJwHWjnDS/C6kbB8AMVjgwMCd70t7cDaG/BANg7CkbBKBgFAw0AlNQMgA==
   </data>
  </layer>
- <layer id="33" name="Albero di natale 1" width="30" height="20">
+ <layer id="33" name="Albero di natale 1" width="30" height="20" locked="1">
   <data encoding="base64" compression="zlib">
    eJxjYBgFo2AUjIKBAwKWDAyCQCxkSV97FYD2KQKxEp3tNQDaZwjERnS2dxSMglFAXwAAssoDKw==
   </data>
  </layer>
- <layer id="34" name="Albero di natale 2" width="30" height="20">
+ <layer id="34" name="Albero di natale 2" width="30" height="20" locked="1">
   <data encoding="base64" compression="zlib">
    eJxjYBgFo2AUjAIIeGLBwPDUgv72fgHa+XUA7GWxZGBgtaS/vaNgFIyC4Q8AR20FDg==
   </data>
  </layer>
- <layer id="35" name="Albero di natale 3" width="30" height="20">
+ <layer id="35" name="Albero di natale 3" width="30" height="20" locked="1">
   <data encoding="base64" compression="zlib">
    eJxjYBgFo2AUjAIIcLZkYHCxpL+9wUA7QwbA3mSgnSkDYO8oGAWjYPgDANeXA0w=
   </data>
  </layer>
- <layer id="23" name="Cucina" width="30" height="20">
+ <layer id="23" name="Cucina" width="30" height="20" locked="1">
   <data encoding="base64" compression="zlib">
    eJxjYBgFo2AUjILhBZ4ZUt/MiwYMDJeg+DIQqxqi8kHgGw3s/QA0+yMQfwLiz0BsagihYRgE2Iyob+9gAcrQMHWiQdjiA8ZA+xYCcRCd7QWBjUA7Nw2AvaOAugAA6O8Wdg==
   </data>
  </layer>
- <layer id="25" name="sopra piano" width="30" height="20">
+ <layer id="25" name="sopra piano" width="30" height="20" locked="1">
   <data encoding="base64" compression="zlib">
    eJxjYBgFo2AUjIKhCY4bINhvDGlr13WgXV+B+BsQv0Sy9w/Q3nIj2to9CkbBKBh6AACYnQhW
   </data>
  </layer>
- <layer id="24" name="sopra" width="30" height="20">
+ <layer id="24" name="sopra" width="30" height="20" locked="1">
   <data encoding="base64" compression="zlib">
    eJxjYBgFo2AUjIKhBfINIfRzAwaGFwb0s7ceau93oJ0/6GjvYAALgH5fCMSLDOlr7wSgfd1GDAyT6GzvQPl3A9C+jUC8ic72jgLqAwC1cA+i
   </data>
  </layer>
- <layer id="26" name="sopra tavolo" width="30" height="20">
+ <layer id="26" name="sopra tavolo" width="30" height="20" locked="1">
   <data encoding="base64" compression="zlib">
    eJxjYBgFo2AUjIJRMArwA2YjBgYWIGY1oq+9nw0ZGL4A8VfDkWGvMDB8RYBYlM7hPAqoDwCSEghT
   </data>
@@ -122,7 +123,7 @@
    eJxjYBgFo2AUjILhA0SM6WfXLCMEW4WO9iIDEzrae9uIsBpagHsDZO8oGAWUAACoyAPv
   </data>
  </layer>
- <objectgroup id="36" name="Collisioni" visible="0">
+ <objectgroup id="36" name="Collisioni" locked="1">
   <object id="1" x="0.5" y="0" width="14.5" height="319.5"/>
   <object id="2" x="1" y="1.5" width="415.5" height="30.5"/>
   <object id="3" x="415.5" y="-1" width="16" height="96.5"/>
@@ -162,9 +163,14 @@
   <object id="43" x="202.659" y="-0.159068" width="4.5" height="79.5909"/>
   <object id="45" x="432.257" y="179.439" width="47.1216" height="11.6667"/>
  </objectgroup>
- <layer id="37" name="Tasti" width="30" height="20">
+ <layer id="37" name="Tasti" width="30" height="20" locked="1">
   <data encoding="base64" compression="zlib">
    eJxjYBgFo2AU0AJczqW/nZ+Adn4G4i8DYPcoGAWjYBSMAgQAAG/mBWE=
+  </data>
+ </layer>
+ <layer id="39" name="Messaggio" width="30" height="20" locked="1">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo2DkgbhC+tv51YGB4RcQ/3Sgr72sjgwMXEDM6Uhfe0fBKBgFo2AkAwCaXQVT
   </data>
  </layer>
 </map>

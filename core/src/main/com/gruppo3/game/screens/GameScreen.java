@@ -17,7 +17,6 @@ import com.gruppo3.game.model.level.SecretRoomLevel;
 import com.gruppo3.game.model.menus.PauseMenu;
 import java.util.HashMap;
 import java.util.Map;
-
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
@@ -92,6 +91,8 @@ public class GameScreen implements Screen {
         interactionController = new InteractionController(levelController.getNpcController(),
                 levelController.getItemController(),
                 levelController.getScriptableObjectsController());
+
+        Gdx.app.log("uga", savedInformation.toString());
 
         multiplexer = new InputMultiplexer();
         multiplexer.addProcessor(0, pauseController);
@@ -263,32 +264,30 @@ public class GameScreen implements Screen {
     }
 
     public static void updateInventoryUI() {
-        if (!Player.getPlayer().getInventory().isEmpty()) {
-            stageInventory.clear(); // pulisco
+        stageInventory.clear(); // pulisco
 
-            // Setting della tabella
-            Table inventoryTable = new Table(MyGame.skin);
+        // Setting della tabella
+        Table inventoryTable = new Table(MyGame.skin);
 
-            inventoryTable.setFillParent(true);
-            inventoryTable.top().left();
-            inventoryTable.padBottom(16);
-            inventoryTable.padLeft(16);
-            inventoryTable.row().spaceBottom(5);
-            inventoryTable.add(new Label("Inventario:", MyGame.skin));
+        inventoryTable.setFillParent(true);
+        inventoryTable.top().left();
+        inventoryTable.padBottom(16);
+        inventoryTable.padLeft(16);
+        inventoryTable.row().spaceBottom(5);
+        inventoryTable.add(new Label("Inventario:", MyGame.skin));
 
-            // aggiungo gli items
-            inventoryTable.row();
-            for (Item item : Player.getPlayer().getInventory()) {
-                Table itemTable = new Table();
-                itemTable.padRight(5);
-                itemTable.add(new Image(item.getTexture()));
-                itemTable.row();
-                itemTable.add(new Label(item.getName(), MyGame.skin));
-                inventoryTable.add(itemTable);
-                // System.out.println("Aggiunto item: " + item.getTexture().toString());
-            }
-            stageInventory.addActor(inventoryTable);
+        // aggiungo gli items
+        inventoryTable.row();
+        for (Item item : Player.getPlayer().getInventory()) {
+            Table itemTable = new Table();
+            itemTable.padRight(5);
+            itemTable.add(new Image(item.getTexture()));
+            itemTable.row();
+            itemTable.add(new Label(item.getName(), MyGame.skin));
+            inventoryTable.add(itemTable);
+            // System.out.println("Aggiunto item: " + item.getTexture().toString());
         }
+        stageInventory.addActor(inventoryTable);
     }
 
     @Override
