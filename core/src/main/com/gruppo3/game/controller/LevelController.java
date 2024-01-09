@@ -13,9 +13,9 @@ public class LevelController {
     }
 
     public void setLevel(LevelStrategy level) {
-        GameScreen.updateInteractionController();
         this.currentLevel = level;
         this.init();
+        GameScreen.updateInteractionController();
     }
 
     public void init() {
