@@ -1,28 +1,26 @@
 package com.gruppo3.game.controller;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.LinkedHashMap;
-
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Preferences;
 import com.badlogic.gdx.utils.Json;
+import com.gruppo3.game.MyGame;
 import com.gruppo3.game.model.Player;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import com.badlogic.gdx.utils.Json;
 import com.gruppo3.game.screens.GameScreen;
 import com.gruppo3.game.model.interactables.Item;
 import com.gruppo3.game.model.interactables.PickableItem;
-
-
 
 public class SaveController {
 
     private static final int MAX_SAVES = 3;
     private static final String SAVE_NAME = "save_";
     public static Preferences currentSave;
+
+    static MyGame game = (MyGame) Gdx.app.getApplicationListener();
 
     public static void save() {
 
@@ -31,6 +29,7 @@ public class SaveController {
         saveTime();
         saveInventory();
         saveLevel();
+        saveSavedInformation();
         /* --- */
 
         currentSave.flush();
@@ -38,7 +37,7 @@ public class SaveController {
     }
 
     public static void save(int numSave) {
-        //loadSave(numSave);
+        // loadSave(numSave);
         currentSave = Gdx.app.getPreferences(SAVE_NAME + String.valueOf(numSave));
         save();
     }
@@ -72,9 +71,9 @@ public class SaveController {
                 Player.getPlayer().getInventory().add(item);
             }
         }
-        
-
         GameScreen.levelToLoad = currentSave.getString("level");
+        GameScreen.savedInformation = (Map<String, String>) currentSave.get();
+
         Gdx.app.log("SaveController", "Load effettuato!");
     }
 
@@ -106,7 +105,7 @@ public class SaveController {
         List<Item> inventory = Player.getPlayer().getInventory();
         Json json = new Json();
         Map<String, String> inventoryData = new LinkedHashMap<>();
-        for(Item item : inventory) {
+        for (Item item : inventory) {
             inventoryData.put(item.getName(), item.getTexturePath());
         }
         currentSave.putString("inventory", json.toJson(inventoryData));
@@ -119,5 +118,9 @@ public class SaveController {
 
     public static Preferences getSave(int numSave) {
         return Gdx.app.getPreferences(SAVE_NAME + String.valueOf(numSave));
+    }
+
+    private static void saveSavedInformation() {
+        currentSave.put(GameScreen.savedInformation);
     }
 }

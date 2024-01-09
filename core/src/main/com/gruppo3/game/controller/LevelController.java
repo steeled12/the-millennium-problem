@@ -3,6 +3,7 @@ package com.gruppo3.game.controller;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
 import com.gruppo3.game.model.level.LevelStrategy;
+import com.gruppo3.game.screens.GameScreen;
 
 public class LevelController {
     LevelStrategy currentLevel;
@@ -12,6 +13,7 @@ public class LevelController {
     }
 
     public void setLevel(LevelStrategy level) {
+        GameScreen.updateInteractionController();
         this.currentLevel = level;
         this.init();
     }
@@ -45,7 +47,7 @@ public class LevelController {
     }
 
     public void setMusicVolume(float volume) {
-        if(currentLevel.getMusic() != null)
+        if (currentLevel.getMusic() != null)
             currentLevel.getMusic().setVolume(volume);
     }
 

@@ -78,6 +78,7 @@ public class InteractionController extends InputAdapter {
                         if (item instanceof PickableItem) {
                             Gdx.app.log("InteractionController", "Aggiunto oggetto all'inventario");
                             itemController.addItemToInventory((PickableItem) item);
+                            GameScreen.savedInformation.put("isPicked" + item.getName(), "true");
                         }
                         item.action(GameScreen.dialogController);
                         return true;

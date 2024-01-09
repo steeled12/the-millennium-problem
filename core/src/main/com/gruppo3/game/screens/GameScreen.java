@@ -15,6 +15,9 @@ import com.gruppo3.game.controller.*;
 import com.gruppo3.game.model.interactables.NPC;
 import com.gruppo3.game.model.level.SecretRoomLevel;
 import com.gruppo3.game.model.menus.PauseMenu;
+import java.util.HashMap;
+import java.util.Map;
+
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
@@ -35,21 +38,24 @@ public class GameScreen implements Screen {
     private PauseController pauseController;
     MenuController menuController;
     public static LevelController levelController;
+    public static DialogController dialogController;
+    private static InteractionController interactionController;
 
     private Stage stage;
+    private static Stage stageInventory;
     private Table dialogRoot;
     private DialogBox dialogBox;
     private OptionBox optionBox;
+
     private InputMultiplexer multiplexer;
-    public static DialogController dialogController;
-    private InteractionController interactionController;
+
     private ScreenViewport gameViewport;
     private ExtendViewport uiViewport;
     float stateTime;
     float timer;
-    public static String levelToLoad = "Atto2Level";
+    public static String levelToLoad = "TutorialLevel";
     int flag = 0;
-    private static Stage stageInventory;
+    public static Map<String, String> savedInformation = new HashMap<>();
 
     public GameScreen(final MyGame game) {
         this.game = game;
@@ -84,8 +90,7 @@ public class GameScreen implements Screen {
         }
         levelController.init();
 
-        this.interactionController = new InteractionController(levelController.getNpcController(),
-                levelController.getItemController(), levelController.getScriptableObjectsController());
+        updateInteractionController();
 
         multiplexer = new InputMultiplexer();
         multiplexer.addProcessor(0, pauseController);
@@ -102,7 +107,6 @@ public class GameScreen implements Screen {
         // INVENTORY UI
         stageInventory = new Stage(new ScreenViewport());
         GameScreen.updateInventoryUI();
-
 
         // DIALOG UI
         stage = new Stage(uiViewport);
@@ -151,7 +155,7 @@ public class GameScreen implements Screen {
         renderUI();
 
         if (game.gameState.equals(GameState.PAUSED)) {
-            //TODO?: stop musica con pausa
+            // TODO?: stop musica con pausa
             if (!multiplexer.getProcessors().contains(menuController.getStage(), true)) {
                 multiplexer.addProcessor(4, menuController.getStage());
             }
@@ -305,7 +309,7 @@ public class GameScreen implements Screen {
 
     @Override
     public void hide() {
-         this.levelController.getCurrentLevel().dispose();
+        levelController.getCurrentLevel().dispose();
     }
 
     @Override
@@ -322,5 +326,10 @@ public class GameScreen implements Screen {
         stage.dispose();
         levelController.dispose();
         // music.dispose();
+    }
+
+    public static void updateInteractionController() {
+        interactionController = new InteractionController(levelController.getNpcController(),
+                levelController.getItemController(), levelController.getScriptableObjectsController());
     }
 }
