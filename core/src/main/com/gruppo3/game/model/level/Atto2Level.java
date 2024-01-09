@@ -47,8 +47,7 @@ public class Atto2Level extends LevelStrategy {
 
     @Override
     public void init() {
-        Player.getPlayer().getPlayerBox().x = 33;
-        Player.getPlayer().getPlayerBox().y = 1;
+
     }
 
     public void changeMap(String mapName, float x, float y) {
