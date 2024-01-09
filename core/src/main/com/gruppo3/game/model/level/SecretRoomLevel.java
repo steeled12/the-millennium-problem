@@ -112,7 +112,8 @@ public class SecretRoomLevel extends LevelStrategy {
         LinearDialogNode libNode11 = new LinearDialogNode("!!!!!!", 11, new Action() {
             @Override
             public void action() {
-                Sound sound = Gdx.audio.newSound(Gdx.files.internal("sound/sfx-badum.wav"));
+                Sound sound = Gdx.audio.newSound(Gdx.files.internal("sound/sfx-badum.mp3"));
+                sound.play(SettingController.gameVolume);
                 Music music = Gdx.audio.newMusic(Gdx.files.internal("music/suspenseMusic.mp3"));
                 music.setLooping(true);
                 setMusic(music);

@@ -12,9 +12,12 @@ import com.badlogic.gdx.math.Rectangle;
 import com.gruppo3.game.controller.SettingController;
 import com.gruppo3.game.model.dialog.Dialog;
 import com.gruppo3.game.model.dialog.LinearDialogNode;
+import com.gruppo3.game.model.dialog.ChoiceDialogNode;
 import com.gruppo3.game.model.interactables.*;
 import com.gruppo3.game.model.Player;
 import com.gruppo3.game.util.Action;
+import com.gruppo3.game.screens.GameScreen;
+
 
 public class CorridoioAtto2Level extends LevelStrategy {
 
@@ -42,24 +45,76 @@ public class CorridoioAtto2Level extends LevelStrategy {
 
     @Override
     public void init() {
-                // items
-        /* ScriptableObject portaAula6 = new ScriptableObject(new Rectangle(4, 15, 2, 2), true) {
+        // items
+        ScriptableObject portaAula6Sx = new ScriptableObject(new Rectangle(4, 15, 2, 2), true) {
             @Override
             public void action() {
-                gameScreen.levelToLoad = "Aula6";
-                gameScreen.getLevelController().setLevel(new Aula6Level());
+                GameScreen.levelToLoad = "Aula6Level";
+                GameScreen.levelController.setLevel(new Aula6Level());
             }
         };
-        scriptableObjectsController.scriptableObjectsList.add(portaAula6);
+        ScriptableObject portaAula6Dx = new ScriptableObject(new Rectangle(12, 15, 2, 2), true) {
+            @Override
+            public void action() {
+                GameScreen.levelToLoad = "Aula6Level";
+                GameScreen.levelController.setLevel(new Aula6Level());
+            }
+        };
+        scriptableObjectsController.scriptableObjectsList.add(portaAula6Sx);
+        scriptableObjectsController.scriptableObjectsList.add(portaAula6Dx);
 
-        ScriptableObject portaAula4 = new ScriptableObject(new Rectangle(64, 11, 2, 2), true) {
+        ScriptableObject portaAula4Dx = new ScriptableObject(new Rectangle(64, 15, 2, 2), true) {
             @Override
             public void action() {
-                gameScreen.levelToLoad = "Aula4";
-                gameScreen.getLevelController().setLevel(new Aula4Level());
+                GameScreen.levelToLoad = "Aula4Level";
+                GameScreen.levelController.setLevel(new Aula4Level());
             }
         };
-        scriptableObjectsController.scriptableObjectsList.add(portaAula4); */
+        ScriptableObject portaAula4Sx = new ScriptableObject(new Rectangle(58, 15, 2, 2), true) {
+            @Override
+            public void action() {
+                GameScreen.levelToLoad = "Aula4Level";
+                GameScreen.levelController.setLevel(new Aula4Level());
+            }
+        };
+        scriptableObjectsController.scriptableObjectsList.add(portaAula4Dx); 
+        scriptableObjectsController.scriptableObjectsList.add(portaAula4Sx);
+
+        Dialog portaChiusa = new Dialog();
+        LinearDialogNode portaChiusaNode0 = new LinearDialogNode("La porta è chiusa", 0);
+        LinearDialogNode portaChiusaNode1 = new LinearDialogNode("Posso chiedere a qualcuno di aprirla", 1);
+        portaChiusaNode0.setPointer(1);
+        portaChiusa.addNode(portaChiusaNode0);
+        portaChiusa.addNode(portaChiusaNode1);
+
+        Dialog portaAperta = new Dialog();
+        LinearDialogNode portaApertaNode0 = new LinearDialogNode("La porta è aperta", 0);
+        ChoiceDialogNode portaApertaNode1 = new ChoiceDialogNode("Vuoi andare nei sotterranei?", 1);
+        portaApertaNode0.setPointer(1);
+        portaApertaNode1.addChoice("Sì", -1, new Action() {
+            @Override
+            public void action() {
+                GameScreen.levelToLoad = "SotterraneiAtto2Level";
+                //GameScreen.levelController.setLevel(new SotterraneiAtto2Level());
+                Player.getPlayer().getPlayerBox().x = 1;
+                Player.getPlayer().getPlayerBox().y = 1;
+            }
+        });
+        portaApertaNode1.addChoice("Non ancora");
+        portaAperta.addNode(portaApertaNode0);
+        portaAperta.addNode(portaApertaNode1);
+
+        ScriptableObject porta = new ScriptableObject(new Rectangle(34, 18, 2, 2), true) {
+            @Override
+            public void action() {
+                if (GameScreen.savedInformation.containsKey("portaScale")) {
+                    GameScreen.dialogController.startDialog(portaAperta);
+                } else {
+                    GameScreen.dialogController.startDialog(portaChiusa);
+                }
+            }
+        };
+        scriptableObjectsController.scriptableObjectsList.add(porta);
 
         NPC portiere = new NPC(new Texture(Gdx.files.internal("characters/portiere.png")));
         portiere.getNpcBox().x = 51;
@@ -145,7 +200,7 @@ public class CorridoioAtto2Level extends LevelStrategy {
         LinearDialogNode rettoreNode4 = new LinearDialogNode("Rettore:\nQuesto mazzo di chiavi mi permette di accedere a tutta l'università, vedi che bello?!", 4, new Action() {
             @Override
             public void action() {
-                Sound sound = Gdx.audio.newSound(Gdx.files.internal("sound/sfx-realization.wav"));
+                Sound sound = Gdx.audio.newSound(Gdx.files.internal("sound/sfx-realization.mp3"));
                 sound.play(SettingController.gameVolume);
             }
         });

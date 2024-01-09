@@ -12,17 +12,19 @@ import com.badlogic.gdx.math.Rectangle;
 import com.gruppo3.game.controller.SettingController;
 import com.gruppo3.game.model.dialog.Dialog;
 import com.gruppo3.game.model.dialog.LinearDialogNode;
+import com.gruppo3.game.model.dialog.ChoiceDialogNode;
 import com.gruppo3.game.model.interactables.*;
 import com.gruppo3.game.model.Player;
 import com.gruppo3.game.util.Action;
+import com.gruppo3.game.screens.GameScreen;
 
-public class CorridoioAtto2Level extends LevelStrategy {
+public class Aula6Level extends LevelStrategy {
 
-    public CorridoioAtto2Level() {
+    public Aula6Level() {
         super();
 
         // map
-        this.map = new TmxMapLoader().load("map/atto2/Piano_terra.tmx");
+        this.map = new TmxMapLoader().load("map/atto2/aula4.tmx");
         // scaling a game units
         MapLayer collisionObjectLayer = this.map.getLayers().get("Collisioni");
         for (MapObject object : collisionObjectLayer.getObjects()) {
@@ -36,44 +38,88 @@ public class CorridoioAtto2Level extends LevelStrategy {
         }
         // render
         renderer = new OrthogonalTiledMapRenderer(map, unitScale);
-
-
     }
 
     @Override
     public void init() {
-        NPC portiere = new NPC(new Texture(Gdx.files.internal("characters/portiere.png")));
-        portiere.getNpcBox().x = 51;
-        portiere.getNpcBox().y = 19;
-        npcController.npcList.add(portiere);
-        
-        Dialog portiereDialog = new Dialog();
-        LinearDialogNode portiereNode0 = new LinearDialogNode("Buonasera, potrebbe aprire la porta?", 0);
-        LinearDialogNode portiereNode1 = new LinearDialogNode("...", 1);
-        LinearDialogNode portiereNode2 = new LinearDialogNode("...", 2);
-        LinearDialogNode portiereNode3 = new LinearDialogNode("Che lezione hai?", 3);
-        LinearDialogNode portiereNode4 = new LinearDialogNode("Nessuna, ma devo incontrare un professore", 4);
-        LinearDialogNode portiereNode5 = new LinearDialogNode("...", 5);
-        LinearDialogNode portiereNode6 = new LinearDialogNode("...", 6);
-        LinearDialogNode portiereNode7 = new LinearDialogNode("Sembra si sia bloccato.\nMeglio cercare un altro modo per entrare", 7);
-        portiereNode0.setPointer(1);
-        portiereNode1.setPointer(2);
-        portiereNode2.setPointer(3);
-        portiereNode3.setPointer(4);
-        portiereNode4.setPointer(5);
-        portiereNode5.setPointer(6);
-        portiereNode6.setPointer(7);
-        portiereDialog.addNode(portiereNode0);
-        portiereDialog.addNode(portiereNode1);
-        portiereDialog.addNode(portiereNode2);
-        portiereDialog.addNode(portiereNode3);
-        portiereDialog.addNode(portiereNode4);
-        portiereDialog.addNode(portiereNode5);
-        portiereDialog.addNode(portiereNode6);
-        portiereDialog.addNode(portiereNode7);
-        portiere.setDialog(portiereDialog);
+                // items
+         ScriptableObject portaSx = new ScriptableObject(new Rectangle(4, 0, 2, 2), true) {
+            @Override
+            public void action() {
+                GameScreen.levelToLoad = "CorridoioAtto2Level";
+                GameScreen.levelController.setLevel(new CorridoioAtto2Level());
+                Player.getPlayer().getPlayerBox().x = 58;
+                Player.getPlayer().getPlayerBox().y = 14;
+            }
+        };
+        scriptableObjectsController.scriptableObjectsList.add(portaSx);
 
-        Player.getPlayer().getPlayerBox().x = 33;
+        ScriptableObject portaDx = new ScriptableObject(new Rectangle(24, 0, 2, 2), true) {
+            @Override
+            public void action() {
+                GameScreen.levelToLoad = "CorridoioAtto2Level";
+                GameScreen.levelController.setLevel(new CorridoioAtto2Level());
+                Player.getPlayer().getPlayerBox().x = 64;
+                Player.getPlayer().getPlayerBox().y = 14;
+            }
+        };
+        scriptableObjectsController.scriptableObjectsList.add(portaDx);
+
+        NPC prof = new NPC(new Texture(Gdx.files.internal("characters/studente1.png")));
+        prof.getNpcBox().x = 1;
+        prof.getNpcBox().y = 1; 
+        npcController.add(prof);
+
+        Dialog profDialog = new Dialog();
+        LinearDialogNode profNode0 = new LinearDialogNode("Buonasera professore, posso disturbarla?", 0);
+        LinearDialogNode profNode1 = new LinearDialogNode("Valenti:\nPerdonami, ma sono impegnato", 1);
+        ChoiceDialogNode profNode2 = new ChoiceDialogNode("...", 2);
+        LinearDialogNode profNode3 = new LinearDialogNode("ATARI È MEGLIO DI COMMODORE", 3, new Action() {
+            @Override
+            public void action() {
+                Sound sound = Gdx.audio.newSound(Gdx.files.internal("sound/sfx-badum.mp3"));
+                sound.play(SettingController.gameVolume);
+            }
+        });
+        LinearDialogNode profNode4 = new LinearDialogNode("Valenti:\nCOSA HAI DETTO?", 4);
+        LinearDialogNode profNode5 = new LinearDialogNode("Scusi, volevo solo chiederle se può chiedere al portiere\ndi aprire la porta delle scale", 5);
+        LinearDialogNode profNode6 = new LinearDialogNode("Valenti:\n...", 6);
+        LinearDialogNode profNode7 = new LinearDialogNode("Valenti:\nVa bene... basta che non ti fai più vedere...", 7);
+        LinearDialogNode profNode8 = new LinearDialogNode("Grazie professore", 8);
+        LinearDialogNode profNode9 = new LinearDialogNode("[Adesso la porta dovrebbe essere aperta]", 9, new Action() {
+            @Override
+            public void action() {
+                Sound sound = Gdx.audio.newSound(Gdx.files.internal("sound/sfx-selectjingle.mp3"));
+                sound.play(SettingController.gameVolume);
+                GameScreen.savedInformation.put("portaScale", "true");
+            }
+        });
+
+        profNode0.setPointer(1);
+        profNode1.setPointer(2);
+        profNode2.addChoice("Vai via");
+        profNode2.addChoice("Fallo innervosire", 3);
+        profNode3.setPointer(4);
+        profNode4.setPointer(5);
+        profNode5.setPointer(6);
+        profNode6.setPointer(7);
+        profNode7.setPointer(8);
+        profNode8.setPointer(9); 
+
+        profDialog.addNode(profNode0);
+        profDialog.addNode(profNode1);
+        profDialog.addNode(profNode2);
+        profDialog.addNode(profNode3);
+        profDialog.addNode(profNode4);
+        profDialog.addNode(profNode5);
+        profDialog.addNode(profNode6);
+        profDialog.addNode(profNode7);
+        profDialog.addNode(profNode8);
+        profDialog.addNode(profNode9);
+
+        prof.setDialog(profDialog);
+
+        Player.getPlayer().getPlayerBox().x = 25;
         Player.getPlayer().getPlayerBox().y = 1;
     }
 

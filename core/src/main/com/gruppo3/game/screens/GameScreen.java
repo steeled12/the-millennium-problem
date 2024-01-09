@@ -29,6 +29,8 @@ import com.gruppo3.game.model.Player;
 import com.gruppo3.game.model.interactables.Item;
 import com.gruppo3.game.model.level.TutorialLevel;
 import com.gruppo3.game.model.level.CorridoioAtto2Level;
+import com.gruppo3.game.model.level.Aula4Level;
+import com.gruppo3.game.model.level.Aula6Level;
 
 public class GameScreen implements Screen {
     private final MyGame game;
@@ -79,6 +81,12 @@ public class GameScreen implements Screen {
                 break;
             case "CorridoioAtto2Level":
                 levelController = new LevelController(new CorridoioAtto2Level());
+                break;
+            case "Aula4Level":
+                levelController = new LevelController(new Aula4Level());
+                break;
+            case "Aula6Level":
+                levelController = new LevelController(new Aula6Level());
                 break;
             case "SecretRoomLevel":
                 levelController = new LevelController(new SecretRoomLevel());
