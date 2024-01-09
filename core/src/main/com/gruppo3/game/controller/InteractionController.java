@@ -78,7 +78,6 @@ public class InteractionController extends InputAdapter {
                         if (item instanceof PickableItem) {
                             Gdx.app.log("InteractionController", "Aggiunto oggetto all'inventario");
                             itemController.addItemToInventory((PickableItem) item);
-                            GameScreen.savedInformation.put("isPicked" + item.getName(), "true");
                         }
                         item.action(GameScreen.dialogController);
                         return true;
@@ -118,7 +117,7 @@ public class InteractionController extends InputAdapter {
             if (!scriptableObjectsController.scriptableObjectsList.isEmpty()) {
                 for (ScriptableObject scriptableObject : scriptableObjectsController.scriptableObjectsList) {
                     Rectangle expandedItemBox = new Rectangle(scriptableObject.getBox());
-                    float expansionAmount = 0.1f;
+                    float expansionAmount = 0.5f;
                     expandedItemBox.x -= expansionAmount / 2;
                     expandedItemBox.y -= expansionAmount / 2;
                     expandedItemBox.width += expansionAmount;

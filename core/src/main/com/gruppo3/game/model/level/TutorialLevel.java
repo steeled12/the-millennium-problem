@@ -64,18 +64,31 @@ public class TutorialLevel extends LevelStrategy {
         cat.getNpcBox().x = 14;
         cat.getNpcBox().y = 16;
         npcController.add(cat);
-
-        // items
-        if (!GameScreen.savedInformation.containsKey("isPickedLatte")) {
-            PickableItem latte = new PickableItem("Latte", "milk.png");
-            latte.getBox().x = 2;
-            latte.getBox().y = 2;
-            latte.getBox().width = 1;
-            latte.getBox().height = 1;
-            itemController.addWithOutId(latte);
-        }
-
         // scriptable
+        ScriptableObject frigorifero = new ScriptableObject(new Rectangle(10, 7, 1, 3), true) {
+            @Override
+            public void action() {
+                Dialog dialog = new Dialog();
+                if (!GameScreen.savedInformation.containsKey("isPickedLatte")) {
+                    ChoiceDialogNode scelta = new ChoiceDialogNode("C'è del latte, potrei darlo al gatto", 0);
+                    scelta.addChoice("Prendi il latte!", -1, new Action() {
+                        @Override
+                        public void action() {
+                            PickableItem latte = new PickableItem("Latte", "milk.png");
+                            itemController.addItemToInventory(latte);
+                        }
+                    });
+                    scelta.addChoice("Non prenderlo");
+                    dialog.addNode(scelta);
+                } else {
+                    dialog.addNode(new LinearDialogNode(
+                            "[Apri il frigorifero.\nForse ti aiuta a farti tornare in mente qualcosa...]", 0));
+                }
+                GameScreen.dialogController.startDialog(dialog);
+            }
+        };
+        scriptableObjectsController.scriptableObjectsList.add(frigorifero);
+
         ScriptableObject paperella = new ScriptableObject(new Rectangle(21, 14, 1, 1), true) {
             @Override
             public void action() {
@@ -83,19 +96,33 @@ public class TutorialLevel extends LevelStrategy {
             }
         };
 
-        ScriptableObject pc = new ScriptableObject(new Rectangle(9, 11, 3, 2), true) {
+        ScriptableObject albero = new ScriptableObject(new Rectangle(20, 8, 2, 4), true) {
             @Override
             public void action() {
                 Dialog dialog = new Dialog();
+                dialog.addNode(new LinearDialogNode(
+                        "(Forse dovrei smontarlo...)", 0).setPointer(1));
+                dialog.addNode(new LinearDialogNode(
+                        "(Ma poi perchè non ho aperto i regali?!)", 1));
+                GameScreen.dialogController.startDialog(dialog);
+            }
+        };
+
+        ScriptableObject pc = new ScriptableObject(new Rectangle(8, 11, 3, 2), true) {
+            @Override
+            public void action() {
+                Dialog dialog = new Dialog();
+                int sceltaPointer = 0;
                 if (!GameScreen.savedInformation.get("turialDoor").equals("pc")) {
                     dialog.addNode(new LinearDialogNode("Vediamo un pò chi ha scritto...", 0).setPointer(1));
                     dialog.addNode(new LinearDialogNode("Il professore Rettangolo?!", 1).setPointer(2));
                     dialog.addNode(new LinearDialogNode(
                             "Che cos'è questo messaggio, non riesco a leggerlo.\nPossibile che sia CRITTOGRAFATO?!", 2)
                             .setPointer(3));
+                    sceltaPointer = 3;
                 }
 
-                ChoiceDialogNode scelta = new ChoiceDialogNode("TEMPO DI...", 3);
+                ChoiceDialogNode scelta = new ChoiceDialogNode("TEMPO DI...", sceltaPointer);
                 scelta.addChoice("DECIFRARLO!", -1, new Action() {
                     @Override
                     public void action() {
@@ -132,6 +159,11 @@ public class TutorialLevel extends LevelStrategy {
                                 "(L'istinto ti dice che forse dovresti decifrare il messaggio...)", 0));
                         GameScreen.dialogController.startDialog(dialog2);
                         break;
+                    case "leggere":
+                        Dialog dialog3 = new Dialog();
+                        dialog3.addNode(new LinearDialogNode("(Dovrei andarla a leggere)", 0));
+                        GameScreen.dialogController.startDialog(dialog3);
+                        break;
 
                     case "messaggio":
                         map.getLayers().get("Messaggio").setVisible(true);
@@ -140,6 +172,7 @@ public class TutorialLevel extends LevelStrategy {
                         Dialog dialog = new Dialog();
                         dialog.addNode(new LinearDialogNode("Una email in questo momento?", 0));
                         GameScreen.dialogController.startDialog(dialog);
+                        GameScreen.savedInformation.put("turialDoor", "leggere");
                         break;
 
                     default:
@@ -150,6 +183,7 @@ public class TutorialLevel extends LevelStrategy {
 
         scriptableObjectsController.scriptableObjectsList.add(paperella);
         scriptableObjectsController.scriptableObjectsList.add(porta);
+        scriptableObjectsController.scriptableObjectsList.add(albero);
     }
 
     @Override
