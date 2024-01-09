@@ -133,4 +133,12 @@ public class InteractionController extends InputAdapter {
         }
         return false;
     }
+
+    public void updateContollers(NPCController npcController, ItemController itemController,
+            ScriptableObjectsController scriptableObjectsController) {
+        this.npcController = npcController;
+        this.itemController = itemController;
+        this.scriptableObjectsController = scriptableObjectsController;
+    }
+
 }

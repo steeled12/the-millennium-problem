@@ -89,8 +89,9 @@ public class GameScreen implements Screen {
                 break;
         }
         levelController.init();
-
-        updateInteractionController();
+        interactionController = new InteractionController(levelController.getNpcController(),
+                levelController.getItemController(),
+                levelController.getScriptableObjectsController());
 
         multiplexer = new InputMultiplexer();
         multiplexer.addProcessor(0, pauseController);
@@ -329,7 +330,7 @@ public class GameScreen implements Screen {
     }
 
     public static void updateInteractionController() {
-        interactionController = new InteractionController(levelController.getNpcController(),
-                levelController.getItemController(), levelController.getScriptableObjectsController());
+        interactionController.updateContollers(levelController.getNpcController(), levelController.getItemController(),
+                levelController.getScriptableObjectsController());
     }
 }
