@@ -37,7 +37,7 @@ public class NPC {
         int frameDimensionX = 16;
         int frameDimensionY = 32;
         npcBox.width = 1;
-        npcBox.height = 1;
+        npcBox.height = 2;
         int numAnimations = 4;
         int numFrames = 6;
         idleAnimation = new Animation[numAnimations];

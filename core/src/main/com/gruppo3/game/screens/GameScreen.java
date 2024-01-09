@@ -29,7 +29,7 @@ import com.badlogic.gdx.InputMultiplexer;
 import com.gruppo3.game.model.Player;
 import com.gruppo3.game.model.interactables.Item;
 import com.gruppo3.game.model.level.TutorialLevel;
-import com.gruppo3.game.model.level.Atto2Level;
+import com.gruppo3.game.model.level.CorridoioAtto2Level;
 
 public class GameScreen implements Screen {
     private final MyGame game;
@@ -53,7 +53,7 @@ public class GameScreen implements Screen {
     private ExtendViewport uiViewport;
     float stateTime;
     float timer;
-    public static String levelToLoad = "TutorialLevel";
+    public static String levelToLoad = "CorridoioAtto2Level";
     int flag = 0;
     public static Map<String, String> savedInformation = new HashMap<>();
 
@@ -78,8 +78,8 @@ public class GameScreen implements Screen {
             case "TutorialLevel":
                 levelController = new LevelController(new TutorialLevel());
                 break;
-            case "Atto2Level":
-                levelController = new LevelController(new Atto2Level());
+            case "CorridoioAtto2Level":
+                levelController = new LevelController(new CorridoioAtto2Level());
                 break;
             case "SecretRoomLevel":
                 levelController = new LevelController(new SecretRoomLevel());
