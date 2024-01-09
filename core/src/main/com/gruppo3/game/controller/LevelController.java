@@ -44,6 +44,11 @@ public class LevelController {
         return currentLevel;
     }
 
+    public void setMusicVolume(float volume) {
+        if(currentLevel.getMusic() != null)
+            currentLevel.getMusic().setVolume(volume);
+    }
+
     public void dispose() {
         currentLevel.dispose();
     }

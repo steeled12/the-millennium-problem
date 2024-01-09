@@ -27,7 +27,7 @@ public class DialogBox extends Table {
         textLabel = new Label("", skin);
         this.add(textLabel).expand().align(Align.left).pad(5f);
         this.setBackground("dialoguebox");
-        this.typingSound = Gdx.audio.newSound(Gdx.files.internal("sound/sfx-blipmale.wav"));
+        this.typingSound = Gdx.audio.newSound(Gdx.files.internal("sound/sfx-blipmale.mp3"));
     }
 
     public void animateText(String text) {

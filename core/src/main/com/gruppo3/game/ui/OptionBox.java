@@ -32,7 +32,7 @@ public class OptionBox extends Table {
 		this.setBackground("optionbox");
 		uiContainer = new Table();
 		this.add(uiContainer).pad(5f);
-		this.sound = Gdx.audio.newSound(Gdx.files.internal("sound/sfx-blipfemale.wav"));
+		this.sound = Gdx.audio.newSound(Gdx.files.internal("sound/sfx-blipfemale.mp3"));
 	}
 
 	public void addOption(String option) {
@@ -85,13 +85,13 @@ public class OptionBox extends Table {
 			selectorIndex = 0;
 		}
 		for (int i = 0; i < arrows.size(); i++) {
+			sound.play(SettingController.gameVolume);
 			if (i == selectorIndex) {
 				arrows.get(i).setVisible(true);
 			} else {
 				arrows.get(i).setVisible(false);
 			}
 		}
-		sound.play();
 	}
 
 	public void moveDown() {
@@ -100,13 +100,14 @@ public class OptionBox extends Table {
 			selectorIndex = arrows.size() - 1;
 		}
 		for (int i = 0; i < arrows.size(); i++) {
+			sound.play(SettingController.gameVolume);
 			if (i == selectorIndex) {
 				arrows.get(i).setVisible(true);
 			} else {
 				arrows.get(i).setVisible(false);
 			}
 		}
-		sound.play(SettingController.gameVolume);
+		
 	}
 
 	public void clearChoices() {
@@ -129,7 +130,6 @@ public class OptionBox extends Table {
 		Gdx.app.log("OptionBox", "indice" + selectorIndex);
 		Gdx.app.log("OptionBox", "actions: " + actions.toString());
 		if (actions.get(selectorIndex) != null) {
-			Gdx.app.log("OptionBox", "Calling action on index " + selectorIndex);
 			actions.get(selectorIndex).action();
 		}
 	}

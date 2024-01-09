@@ -70,7 +70,7 @@ public class GenericItem implements Item {
         GenericItem otherItem = (GenericItem) obj;
 
         return name.equals(otherItem.name) &&
-            (texturePath == null ? otherItem.texturePath == null : texturePath.equals(otherItem.texturePath));
+            (Objects.equals(texturePath, otherItem.texturePath));
     }
 
     @Override

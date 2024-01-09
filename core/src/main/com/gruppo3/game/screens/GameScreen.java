@@ -26,6 +26,7 @@ import com.badlogic.gdx.InputMultiplexer;
 import com.gruppo3.game.model.Player;
 import com.gruppo3.game.model.interactables.Item;
 import com.gruppo3.game.model.level.TutorialLevel;
+import com.gruppo3.game.model.level.Atto2Level;
 
 public class GameScreen implements Screen {
     private final MyGame game;
@@ -46,7 +47,7 @@ public class GameScreen implements Screen {
     private ExtendViewport uiViewport;
     float stateTime;
     float timer;
-    public static String levelToLoad = "SecretRoomLevel";
+    public static String levelToLoad = "Atto2Level";
     int flag = 0;
     private static Stage stageInventory;
 
@@ -70,6 +71,9 @@ public class GameScreen implements Screen {
         switch (levelToLoad) {
             case "TutorialLevel":
                 levelController = new LevelController(new TutorialLevel());
+                break;
+            case "Atto2Level":
+                levelController = new LevelController(new Atto2Level());
                 break;
             case "SecretRoomLevel":
                 levelController = new LevelController(new SecretRoomLevel());
@@ -98,6 +102,7 @@ public class GameScreen implements Screen {
         // INVENTORY UI
         stageInventory = new Stage(new ScreenViewport());
         GameScreen.updateInventoryUI();
+
 
         // DIALOG UI
         stage = new Stage(uiViewport);
@@ -146,6 +151,7 @@ public class GameScreen implements Screen {
         renderUI();
 
         if (game.gameState.equals(GameState.PAUSED)) {
+            //TODO?: stop musica con pausa
             if (!multiplexer.getProcessors().contains(menuController.getStage(), true)) {
                 multiplexer.addProcessor(4, menuController.getStage());
             }
@@ -153,7 +159,7 @@ public class GameScreen implements Screen {
             menuController.getStage().draw();
         }
 
-        // TODO: music.setVolume(SettingController.musicVolume);
+        levelController.setMusicVolume(SettingController.musicVolume);
     }
 
     private void renderGame() {
@@ -256,27 +262,27 @@ public class GameScreen implements Screen {
             stageInventory.clear(); // pulisco
 
             // Setting della tabella
-            Table invetoryTable = new Table();
-            invetoryTable.setFillParent(true);
-            invetoryTable.setHeight(100);
-            invetoryTable.bottom().left();
-            invetoryTable.padBottom(16);
-            invetoryTable.padLeft(16);
-            invetoryTable.row().spaceBottom(5);
-            invetoryTable.add(new Label("Inventario:", MyGame.skin));
+            Table inventoryTable = new Table(MyGame.skin);
+
+            inventoryTable.setFillParent(true);
+            inventoryTable.top().left();
+            inventoryTable.padBottom(16);
+            inventoryTable.padLeft(16);
+            inventoryTable.row().spaceBottom(5);
+            inventoryTable.add(new Label("Inventario:", MyGame.skin));
 
             // aggiungo gli items
-            invetoryTable.row();
+            inventoryTable.row();
             for (Item item : Player.getPlayer().getInventory()) {
                 Table itemTable = new Table();
                 itemTable.padRight(5);
                 itemTable.add(new Image(item.getTexture()));
                 itemTable.row();
                 itemTable.add(new Label(item.getName(), MyGame.skin));
-                invetoryTable.add(itemTable);
+                inventoryTable.add(itemTable);
                 // System.out.println("Aggiunto item: " + item.getTexture().toString());
             }
-            stageInventory.addActor(invetoryTable);
+            stageInventory.addActor(inventoryTable);
         }
     }
 
@@ -299,7 +305,7 @@ public class GameScreen implements Screen {
 
     @Override
     public void hide() {
-        // music.stop();
+         this.levelController.getCurrentLevel().dispose();
     }
 
     @Override

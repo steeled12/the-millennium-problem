@@ -24,7 +24,7 @@ import com.gruppo3.game.controller.SettingController;
 
 public class SecretRoomLevel extends LevelStrategy {
 
-    public static Music music = Gdx.audio.newMusic(Gdx.files.internal("music/CoconutMall.mp3"));
+    private static Music music;
 
     public SecretRoomLevel() {
         super();
@@ -56,8 +56,6 @@ public class SecretRoomLevel extends LevelStrategy {
         itemController.addwithId(computer, 3);
 
         // tutti i dialoghi
-
-
 
         GenericItem cassetto = new GenericItem("cassetto");
         itemController.addwithId(cassetto, 30);
@@ -235,8 +233,14 @@ public class SecretRoomLevel extends LevelStrategy {
         music.play();
     }
 
+    @Override
+    public Music getMusic() {
+        return this.music;
+    }
+
     public void dispose() {
         map.dispose();
         renderer.dispose();
+        music.dispose();
     }
 }

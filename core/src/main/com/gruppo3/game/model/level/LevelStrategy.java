@@ -5,6 +5,7 @@ import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
 import com.gruppo3.game.controller.ItemController;
 import com.gruppo3.game.controller.NPCController;
 import com.gruppo3.game.controller.ScriptableObjectsController;
+import com.badlogic.gdx.audio.Music;
 
 public abstract class LevelStrategy {
 
@@ -42,6 +43,10 @@ public abstract class LevelStrategy {
 
     public OrthogonalTiledMapRenderer getRenderer() {
         return this.renderer;
+    }
+
+    public Music getMusic() {
+        return null;
     }
 
     public abstract void dispose();
