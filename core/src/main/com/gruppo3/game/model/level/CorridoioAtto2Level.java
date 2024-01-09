@@ -63,17 +63,17 @@ public class CorridoioAtto2Level extends LevelStrategy {
 
         NPC portiere = new NPC(new Texture(Gdx.files.internal("characters/portiere.png")));
         portiere.getNpcBox().x = 51;
-        portiere.getNpcBox().y = 19;
+        portiere.getNpcBox().y = 18;
         npcController.npcList.add(portiere);
         
         Dialog portiereDialog = new Dialog();
         LinearDialogNode portiereNode0 = new LinearDialogNode("Buonasera, potrebbe aprire la porta?", 0);
-        LinearDialogNode portiereNode1 = new LinearDialogNode("...", 1);
-        LinearDialogNode portiereNode2 = new LinearDialogNode("...", 2);
-        LinearDialogNode portiereNode3 = new LinearDialogNode("Che lezione hai?", 3);
+        LinearDialogNode portiereNode1 = new LinearDialogNode("Portiere:\n...", 1);
+        LinearDialogNode portiereNode2 = new LinearDialogNode("Portiere:\n...", 2);
+        LinearDialogNode portiereNode3 = new LinearDialogNode("Portiere:\nChe lezione hai?", 3);
         LinearDialogNode portiereNode4 = new LinearDialogNode("Nessuna, ma devo incontrare un professore", 4);
-        LinearDialogNode portiereNode5 = new LinearDialogNode("...", 5);
-        LinearDialogNode portiereNode6 = new LinearDialogNode("...", 6);
+        LinearDialogNode portiereNode5 = new LinearDialogNode("Portiere:\n...", 5);
+        LinearDialogNode portiereNode6 = new LinearDialogNode("Portiere:\n...", 6);
         LinearDialogNode portiereNode7 = new LinearDialogNode("Sembra si sia bloccato.\nMeglio cercare un altro modo per entrare", 7);
         portiereNode0.setPointer(1);
         portiereNode1.setPointer(2);
@@ -92,15 +92,15 @@ public class CorridoioAtto2Level extends LevelStrategy {
         portiereDialog.addNode(portiereNode7);
         portiere.setDialog(portiereDialog);
 
-        NPC studente1 = new NPC(new Texture(Gdx.files.internal("characters/studente1.png")));
+        NPC studente1 = new NPC(new Texture(Gdx.files.internal("characters/studente2.png")));
         studente1.getNpcBox().x = 40;
         studente1.getNpcBox().y = 5; 
         npcController.add(studente1);
 
         Dialog studente1Dialog = new Dialog();
-        LinearDialogNode studente1Node0 = new LinearDialogNode("Finalmente! Sono riuscito a superare l'esame", 0);
-        LinearDialogNode studente1Node1 = new LinearDialogNode("È stato un incubo,\nma finalmente il professore GianRaffa mi ha promosso", 1);
-        LinearDialogNode studente1Node2 = new LinearDialogNode("Forse ho fatto pietà all'altra professoressa in commissione...", 2);
+        LinearDialogNode studente1Node0 = new LinearDialogNode("Studente:\nFinalmente! Sono riuscito a superare l'esame", 0);
+        LinearDialogNode studente1Node1 = new LinearDialogNode("Studente:\nÈ stato un incubo,\nma finalmente il professore GianRaffa mi ha promosso", 1);
+        LinearDialogNode studente1Node2 = new LinearDialogNode("Studente:\nForse ho fatto pietà all'altra professoressa in commissione...", 2);
 
         studente1Node0.setPointer(1);
         studente1Node1.setPointer(2);
@@ -110,16 +110,16 @@ public class CorridoioAtto2Level extends LevelStrategy {
         studente1Dialog.addNode(studente1Node2);
         studente1.setDialog(studente1Dialog);
 
-        NPC studente2 = new NPC(new Texture(Gdx.files.internal("characters/studente2.png")));
+        NPC studente2 = new NPC(new Texture(Gdx.files.internal("characters/studente1.png")));
         studente2.getNpcBox().x = 40;
         studente2.getNpcBox().y = 7;
         npcController.add(studente2);
 
         Dialog studente2Dialog = new Dialog();
-        LinearDialogNode studente2Node0 = new LinearDialogNode("Ti chiedi chi sono io?", 0);
-        LinearDialogNode studente2Node1 = new LinearDialogNode("Sono il migliore studente di informatica di sempre!", 1);
-        LinearDialogNode studente2Node2 = new LinearDialogNode("...o almeno lo sarò quando finalmente riuscirò a superare Analisi...", 2);
-        LinearDialogNode studente2Node3 = new LinearDialogNode("A che ci sei, sapresti dirmi cosa è un polinomio di Taylor???", 3);
+        LinearDialogNode studente2Node0 = new LinearDialogNode("Studentessa:\nTi chiedi chi sono io?", 0);
+        LinearDialogNode studente2Node1 = new LinearDialogNode("Studentessa:\nSono la migliore studentessa di informatica di sempre!", 1);
+        LinearDialogNode studente2Node2 = new LinearDialogNode("Studentessa:\n...o almeno lo sarò quando finalmente riuscirò a superare Analisi...", 2);
+        LinearDialogNode studente2Node3 = new LinearDialogNode("Studentessa:\nA che ci sei, sapresti dirmi cosa è un polinomio di Taylor???", 3);
 
         studente2Node0.setPointer(1);
         studente2Node1.setPointer(2);
@@ -138,18 +138,18 @@ public class CorridoioAtto2Level extends LevelStrategy {
         npcController.add(rettore);
 
         Dialog rettoreDialog = new Dialog();
-        LinearDialogNode rettoreNode0 = new LinearDialogNode("BUONGIORNO STUDENTE!", 0);
-        LinearDialogNode rettoreNode1 = new LinearDialogNode("Sono io! Il magnifico rettore!", 1);
-        LinearDialogNode rettoreNode2 = new LinearDialogNode("Sono qui per... supervisionare lo svolgimento\ndi alcuni lavori!", 2);
-        LinearDialogNode rettoreNode3 = new LinearDialogNode("Devi sapere che io, in quanto rettore,\nho il dovere di assicurarmi che sia tutto a posto!", 3);
-        LinearDialogNode rettoreNode4 = new LinearDialogNode("Questo mazzo di chiavi mi permette di accedere a tutta l'università, vedi che bello?!", 4, new Action() {
+        LinearDialogNode rettoreNode0 = new LinearDialogNode("Uomo:\nBUONGIORNO STUDENTE!", 0);
+        LinearDialogNode rettoreNode1 = new LinearDialogNode("Uomo:\nSono io! Il magnifico rettore!", 1);
+        LinearDialogNode rettoreNode2 = new LinearDialogNode("Rettore:\nSono qui per... supervisionare lo svolgimento\ndi alcuni lavori!", 2);
+        LinearDialogNode rettoreNode3 = new LinearDialogNode("Rettore:\nDevi sapere che io, in quanto rettore,\nho il dovere di assicurarmi che sia tutto a posto!", 3);
+        LinearDialogNode rettoreNode4 = new LinearDialogNode("Rettore:\nQuesto mazzo di chiavi mi permette di accedere a tutta l'università, vedi che bello?!", 4, new Action() {
             @Override
             public void action() {
                 Sound sound = Gdx.audio.newSound(Gdx.files.internal("sound/sfx-realization.wav"));
                 sound.play(SettingController.gameVolume);
             }
         });
-        LinearDialogNode rettoreNode5 = new LinearDialogNode("Ecco, ora ti saluto, ho un sacco di cose da fare!", 5);
+        LinearDialogNode rettoreNode5 = new LinearDialogNode("Rettore:\nEcco, ora ti saluto, ho un sacco di cose da fare!", 5);
 
         rettoreNode0.setPointer(1);
         rettoreNode1.setPointer(2);
