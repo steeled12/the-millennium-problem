@@ -62,7 +62,13 @@ public class SecretRoomLevel extends LevelStrategy {
         Dialog cassDialog = new Dialog();
         LinearDialogNode cassNode0 = new LinearDialogNode("Nel cassetto c'è un foglietto", 0);
         LinearDialogNode cassNode1 = new LinearDialogNode(
-                "\"Non dimenticare: la password è custodita dalla natura\"", 1);
+                "\"Non dimenticare: la password è custodita dalla natura\"", 1, new Action() {
+                    @Override
+                    public void action() {
+                        Sound sound = Gdx.audio.newSound(Gdx.files.internal("sound/sfx-realization.wav"));
+                        sound.play(SettingController.gameVolume);
+                    }
+                });
         cassNode0.setPointer(1);
         cassDialog.addNode(cassNode0);
         cassDialog.addNode(cassNode1);
@@ -106,6 +112,7 @@ public class SecretRoomLevel extends LevelStrategy {
         LinearDialogNode libNode11 = new LinearDialogNode("!!!!!!", 11, new Action() {
             @Override
             public void action() {
+                Sound sound = Gdx.audio.newSound(Gdx.files.internal("sound/sfx-badum.wav"));
                 Music music = Gdx.audio.newMusic(Gdx.files.internal("music/suspenseMusic.mp3"));
                 music.setLooping(true);
                 setMusic(music);
