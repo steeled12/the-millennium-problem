@@ -47,6 +47,7 @@ public class SecretRoomLevel extends LevelStrategy {
 
     @Override
     public void init() {
+  
         // item e npc
         GenericItem computer = new GenericItem("computer");
         Dialog computerDialog1 = new Dialog();
@@ -161,16 +162,49 @@ public class SecretRoomLevel extends LevelStrategy {
                 computerNode1.addChoice("Password123", 3);
                 computerNode1.addChoice("Tramezzino-Ciambella", 3);
                 computerNode3.setPointer(4);
-                LinearDialogNode computerNode5 = new LinearDialogNode("\"Tra i file del computer trovi un complesso e lungo\narticolo che spiega la soluzione al problema P=NP\"", 5);
-                LinearDialogNode computerNode6 = new LinearDialogNode("\"Ma a destare interesse è un file recente scritto da qualcuno.\nDecidi di leggere il file...\"", 6);
+                LinearDialogNode computerNode5 = new LinearDialogNode("[Tra i file del computer trovi un complesso e lungo\narticolo che spiega la soluzione al problema P=NP]", 5);
+                LinearDialogNode computerNode6 = new LinearDialogNode("[Ma a destare interesse è un file recente scritto da qualcuno.\nDecidi di leggere il file...]", 6);
                 LinearDialogNode computerNode7 = new LinearDialogNode("\"Pensava di potermi tenere nascosto tutto questo...\"", 7);
                 LinearDialogNode computerNode8 = new LinearDialogNode("\"Ma adesso posso finalmente usare questa conoscenza\n per ciò che voglio\"", 8);
                 LinearDialogNode computerNode9 = new LinearDialogNode("\"Questa scoperta mi permette di eludere tutti i sistemi di sicurezza\ninformatici attualmente in uso!\"", 9);
                 LinearDialogNode computerNode10 = new LinearDialogNode("\"Nessuno può scoprirmi... e in caso la colpa ricadrà sul professore!\"", 10);
-                LinearDialogNode computerNode11 = new LinearDialogNode("Il file si conclude", 11);
-                LinearDialogNode computerNode12 = new LinearDialogNode("Il rettore è il colpevole di tutto questo!", 12);
+                LinearDialogNode computerNode11 = new LinearDialogNode("[Il file si conclude]", 11);
+                LinearDialogNode computerNode12 = new LinearDialogNode("Il rettore è il colpevole di tutto questo!", 12, new Action() {
+                    @Override
+                    public void action() {
+                        Sound sound = Gdx.audio.newSound(Gdx.files.internal("sound/sfx-badum.mp3"));
+                        sound.play(SettingController.gameVolume);
+                    }
+                }
                 LinearDialogNode computerNode13 = new LinearDialogNode("Non è stato molto intelligente a scrivere tutto questo...\nma almeno questo mi permette di agire ora!", 13);
-                LinearDialogNode computerNode14 = new LinearDialogNode("Devo trovare il rettore e fermarlo!", 14); //AGGIUNGERE TRANSIZIONE A NUOVO ATTO
+                LinearDialogNode computerNode14 = new LinearDialogNode("Devo trovare il rettore e fermarlo!", 14, new Action() {
+                    @Override
+                    public void action() {
+                        ScriptableObject porta = new ScriptableObject(new Rectangle(14, 0, 2, 1), true) {
+                            @Override
+                            public void action() {
+                                Dialog portaDialog = new Dialog();
+                                LinearDialogNode portaNode0 = new LinearDialogNode("È il momento di andare al primo piano\ne affrontare il colpevole.", 0);
+                                ChoiceDialogNode portaNode1 = new ChoiceDialogNode("Sono pronto?", 1);
+                                portaNode0.setPointer(1);
+                                portaNode1.addChoice("Sì", -1, new Action() {
+                                    @Override
+                                    public void action() {
+                                        GameScreen.levelToLoad = "CorridoioPiano1Atto4Level";
+                                        GameScreen.levelController.setLevel(new CorridoioPiano1Atto4Level());
+                                        Player.getPlayer().getPlayerBox().x = 4;
+                                        Player.getPlayer().getPlayerBox().y = 14;
+                                    }
+                                });
+                                portaNode1.addChoice("Non ancora");
+                                portaDialog.addNode(portaNode0);
+                                portaDialog.addNode(portaNode1);
+                                GameScreen.dialogController.startDialog(portaDialog);
+                            }
+                        };
+                        GameScreen.levelController.getCurrentLevel().scriptableObjectsController.scriptableObjectsList.add(porta);
+                    }
+                }); //AGGIUNGERE TRANSIZIONE A NUOVO ATTO
                 computerNode2.setPointer(5);
                 computerNode5.setPointer(6);
                 computerNode6.setPointer(7);
@@ -202,7 +236,7 @@ public class SecretRoomLevel extends LevelStrategy {
 
         libNode0.setPointer(1);
         libNode1.setPointer(2);
-        libNode2.addChoice("Si", 3);
+        libNode2.addChoice("Sì", 3);
         libNode2.addChoice("No");
         libNode3.setPointer(4);
         libNode4.setPointer(5);
@@ -210,7 +244,7 @@ public class SecretRoomLevel extends LevelStrategy {
         libNode6.setPointer(7);
         libNode7.setPointer(8);
         libNode8.setPointer(9);
-        libNode9.addChoice("Si", 3);
+        libNode9.addChoice("Sì", 3);
         libNode9.addChoice("No", 10);
         libNode10.setPointer(11);
         libNode11.setPointer(12);
