@@ -19,9 +19,9 @@ import com.gruppo3.game.util.Action;
 import com.gruppo3.game.screens.GameScreen;
 import com.gruppo3.game.controller.SettingController;
 
-public class CorridoioAtto2Level extends LevelStrategy {
+public class CorridoioPiano1Atto4Level extends LevelStrategy {
 
-    public CorridoioAtto2Level() {
+    public CorridoioPiano1Atto4Level() {
         super();
 
         // map
@@ -40,28 +40,30 @@ public class CorridoioAtto2Level extends LevelStrategy {
         // render
         renderer = new OrthogonalTiledMapRenderer(map, unitScale);
 
-
     }
 
     @Override
     public void init() {
-        ScriptableObject portaRettore = new ScriptableObject("PortaRettore", new Rectangle(34, 0, 2, 2), new Action() {
-            @Override
-            public void action() {
-                GameScreen.levelToLoad = "StanzaRettore";
-                GameScreen.levelController.setLevel(new StanzaRettoreLevel());
-            }
-        });
-        ScriptableObject portaRettangolo = new ScriptableObject("PortaRettangolo", new Rectangle(0, 0, 2, 2), new Action() {
-            @Override
-            public void action() {
-                GameScreen.levelToLoad = "StanzaRettangolo";
-                GameScreen.levelController.setLevel(new StanzaRettangolo());
-            }
-        });
+        // ScriptableObject portaRettore = new ScriptableObject("PortaRettore", new
+        // Rectangle(34, 0, 2, 2), new Action() {
+        // @Override
+        // public void action() {
+        // GameScreen.levelToLoad = "StanzaRettore";
+        // GameScreen.levelController.setLevel(new StanzaRettoreLevel());
+        // }
+        // });
+        // ScriptableObject portaRettangolo = new ScriptableObject("PortaRettangolo",
+        // new Rectangle(0, 0, 2, 2),
+        // new Action() {
+        // @Override
+        // public void action() {
+        // GameScreen.levelToLoad = "StanzaRettangolo";
+        // GameScreen.levelController.setLevel(new StanzaRettangolo());
+        // }
+        // });
 
-        Player.getPlayer().getPlayerBox().x = 33;
-        Player.getPlayer().getPlayerBox().y = 1;
+        // Player.getPlayer().getPlayerBox().x = 33;
+        // Player.getPlayer().getPlayerBox().y = 1;
     }
 
     @Override
