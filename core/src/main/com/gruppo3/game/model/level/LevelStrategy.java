@@ -14,11 +14,13 @@ public abstract class LevelStrategy {
     ItemController itemController;
     ScriptableObjectsController scriptableObjectsController;
     OrthogonalTiledMapRenderer renderer;
+    Music music;
 
     public LevelStrategy() {
         this.npcController = new NPCController();
         this.itemController = new ItemController();
         this.scriptableObjectsController = new ScriptableObjectsController();
+        this.music = null;
     }
 
     protected final float unitScale = 1 / 16f;
@@ -46,7 +48,7 @@ public abstract class LevelStrategy {
     }
 
     public Music getMusic() {
-        return null;
+        return this.music;
     }
 
     public abstract void dispose();

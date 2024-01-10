@@ -14,6 +14,7 @@ import com.gruppo3.game.MyGame.GameState;
 import com.gruppo3.game.controller.*;
 import com.gruppo3.game.model.interactables.NPC;
 import com.gruppo3.game.model.level.SecretRoomLevel;
+import com.gruppo3.game.model.level.StanzaRettangoloLevel;
 import com.gruppo3.game.model.menus.PauseMenu;
 import java.util.HashMap;
 import java.util.Map;
@@ -54,7 +55,7 @@ public class GameScreen implements Screen {
     private ExtendViewport uiViewport;
     float stateTime;
     float timer;
-    public static String levelToLoad = "CorridoioAtto2Level";
+    public static String levelToLoad = "TutorialLevel";
     int flag = 0;
     public static Map<String, String> savedInformation = new HashMap<>();
 
@@ -90,6 +91,9 @@ public class GameScreen implements Screen {
                 break;
             case "SecretRoomLevel":
                 levelController = new LevelController(new SecretRoomLevel());
+                break;
+            case "StanzaRettangoloLevel":
+                levelController = new LevelController(new StanzaRettangoloLevel());
                 break;
             default:
                 levelController = new LevelController(new TutorialLevel());

@@ -1,6 +1,7 @@
 package com.gruppo3.game.model.level;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.maps.MapLayer;
@@ -51,10 +52,15 @@ public class TutorialLevel extends LevelStrategy {
 
         this.duckSound = Gdx.audio.newSound(Gdx.files.internal("sound/rubber_duck_sound.mp3"));
         this.messageSound = Gdx.audio.newSound(Gdx.files.internal("sound/message_sound.mp3"));
+        this.music = Gdx.audio.newMusic(Gdx.files.internal("music/tutorialMusic.mp3"));
+        this.music.setLooping(true);
     }
 
     @Override
     public void init() {
+        // Musica
+        this.music.play();
+
         // Player
         Player.getPlayer().getPlayerBox().setPosition(6, 13);
 
@@ -191,6 +197,9 @@ public class TutorialLevel extends LevelStrategy {
     public void dispose() {
         map.dispose();
         renderer.dispose();
+        music.dispose();
+        duckSound.dispose();
+        messageSound.dispose();
     }
 
 }
