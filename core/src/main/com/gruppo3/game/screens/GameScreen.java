@@ -14,7 +14,7 @@ import com.gruppo3.game.MyGame.GameState;
 import com.gruppo3.game.controller.*;
 import com.gruppo3.game.model.interactables.NPC;
 import com.gruppo3.game.model.level.SecretRoomLevel;
-import com.gruppo3.game.model.level.StanzaRettangoloLevel;
+import com.gruppo3.game.model.level.StanzaRettangoloAtto1Level;
 import com.gruppo3.game.model.menus.PauseMenu;
 import java.util.HashMap;
 import java.util.Map;
@@ -30,8 +30,12 @@ import com.gruppo3.game.model.Player;
 import com.gruppo3.game.model.interactables.Item;
 import com.gruppo3.game.model.level.TutorialLevel;
 import com.gruppo3.game.model.level.CorridoioAtto2Level;
+import com.gruppo3.game.model.level.PrimoPianoAtto1Level;
+import com.gruppo3.game.model.level.Aula4Atto1Level;
 import com.gruppo3.game.model.level.Aula4Level;
+import com.gruppo3.game.model.level.Aula6Atto1Level;
 import com.gruppo3.game.model.level.Aula6Level;
+import com.gruppo3.game.model.level.CorridoioAtto1Level;
 import com.gruppo3.game.model.level.SotterraneiAtto2Level;
 
 public class GameScreen implements Screen {
@@ -81,10 +85,25 @@ public class GameScreen implements Screen {
             case "TutorialLevel":
                 levelController = new LevelController(new TutorialLevel());
                 break;
+            case "PrimoPianoAtto1Level":
+                levelController = new LevelController(new PrimoPianoAtto1Level());
+                break;
+            case "StanzaRettangoloAtto1Level":
+                levelController = new LevelController(new StanzaRettangoloAtto1Level());
+                break;
+            case "CorridoioAtto1Level":
+                levelController = new LevelController(new CorridoioAtto1Level());
+                break;
+            case "Aula4Atto1Level":
+                levelController = new LevelController(new Aula4Atto1Level());
+                break;
+            case "Aula6Atto1Level":
+                levelController = new LevelController(new Aula6Atto1Level());
+                break;
             case "CorridoioAtto2Level":
                 levelController = new LevelController(new CorridoioAtto2Level());
                 break;
-            case "SottterraneiAtto2Level":
+            case "SotterraneiAtto2Level":
                 levelController = new LevelController(new SotterraneiAtto2Level());
                 break;
             case "Aula4Level":
@@ -95,9 +114,6 @@ public class GameScreen implements Screen {
                 break;
             case "SecretRoomLevel":
                 levelController = new LevelController(new SecretRoomLevel());
-                break;
-            case "StanzaRettangoloLevel":
-                levelController = new LevelController(new StanzaRettangoloLevel());
                 break;
             default:
                 levelController = new LevelController(new TutorialLevel());
