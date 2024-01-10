@@ -16,13 +16,20 @@ import com.gruppo3.game.model.dialog.LinearDialogNode;
 import com.gruppo3.game.screens.GameScreen;
 import com.gruppo3.game.util.Action;
 import com.gruppo3.game.controller.SettingController;
+import com.badlogic.gdx.graphics.g2d.Animation;
+import com.gruppo3.game.util.AnimationGenerator;
 
 public class Portiere extends NPC {
 
+    private final LinearDialogNode portiereNode7; //Nodo da modificare in metodo action
     public Portiere(Texture texture) {
         super(texture);
-
-
+        int numFrames = 9;
+        this.idleAnimation= new Animation[1];
+        this.idleAnimation[0]= AnimationGenerator.createAnimation(texture, 16, 32, numFrames, 0.1f);
+        this.idleAnimation[0].setPlayMode(Animation.PlayMode.NORMAL);
+        this.loopingAnimation = false;
+        this.NPCDirection = Direction.SOUTH;
         dialog = new Dialog();
         LinearDialogNode portiereNode0 = new LinearDialogNode("Buonasera, potrebbe aprire la porta?", 0);
         LinearDialogNode portiereNode1 = new LinearDialogNode("Portiere:\n...", 1);
@@ -31,7 +38,7 @@ public class Portiere extends NPC {
         LinearDialogNode portiereNode4 = new LinearDialogNode("Nessuna, ma devo incontrare un professore", 4);
         LinearDialogNode portiereNode5 = new LinearDialogNode("Portiere:\n...", 5);
         LinearDialogNode portiereNode6 = new LinearDialogNode("Portiere:\n...", 6);
-        LinearDialogNode portiereNode7 = new LinearDialogNode("Sembra si sia bloccato.\nForse posso cercare qualcosa per\nattirare la sua attenzione", 7);
+        this.portiereNode7 = new LinearDialogNode("Sembra si sia bloccato.\nForse posso cercare qualcosa per\nattirare la sua attenzione", 7);
         portiereNode0.setPointer(1);
         portiereNode1.setPointer(2);
         portiereNode2.setPointer(3);
@@ -48,7 +55,7 @@ public class Portiere extends NPC {
         dialog.addNode(portiereNode6);
         dialog.addNode(portiereNode7);
 
-        super.dialog = dialog;
+        this.dialog = dialog;
     }
 
     @Override
@@ -63,17 +70,18 @@ public class Portiere extends NPC {
             dialogController.startDialog(this.dialog);
             return;
         }
-        if(!GameScreen.savedInformation.containsKey("bibitaComprata")) {
+        if(!GameScreen.savedInformation.containsKey("isPickedbibita")) {
             dialogController.startDialog(this.dialog);
             return;
         }
         
-        if(GameScreen.savedInformation.containsKey("bibitaComprata") && GameScreen.savedInformation.containsKey("parlatoAPortiere")) {
+        if(GameScreen.savedInformation.containsKey("isPickedbibita") && GameScreen.savedInformation.containsKey("parlatoAPortiere")) {
             Dialog portiereDialog = new Dialog();
             this.dialog = portiereDialog;
             index = 0;
         } else {
             GameScreen.savedInformation.put("parlatoAPortiere", "true");
+            portiereNode7.setPointer(8);
             index = 8;
         }
         
@@ -84,7 +92,12 @@ public class Portiere extends NPC {
         LinearDialogNode portiereNode12 = new LinearDialogNode("[Hai dato la bibita al portiere]", index + 4, new Action() {
             @Override
             public void action() {
-                Player.getPlayer().getInventory().remove("bibita");
+                for(Item item : Player.getPlayer().getInventory()) {
+                    if(item.getName().equals("bibita")) {
+                        Player.getPlayer().getInventory().remove(item);
+                        break;
+                    }
+                }
                 GameScreen.updateInventoryUI();
             }
         });

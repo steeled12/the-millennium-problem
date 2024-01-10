@@ -24,6 +24,7 @@ public class Cat extends NPC {
         super(texture);
         int frameDimensionX = 16;
         int frameDimensionY = 16;
+        this.npcBox.height = 1;
         int numAnimations = 1;
         int numFrames = 4;
 
