@@ -241,7 +241,7 @@ public class SecretRoomLevel extends LevelStrategy {
         Player.getPlayer().getPlayerBox().y = 0;
         Player.getPlayer().setPlayerDirection(Player.PlayerDirection.NORTH);
     }
-
+    @Override
     public static void setMusic(Music music) {
         SecretRoomLevel.music = music;
         music.play();
