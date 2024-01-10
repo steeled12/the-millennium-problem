@@ -63,6 +63,7 @@ public class TutorialLevel extends LevelStrategy {
                 new Texture("cat.png"));
         cat.getNpcBox().x = 14;
         cat.getNpcBox().y = 16;
+        cat.getNpcBox().height = 1;
         npcController.add(cat);
         // scriptable
         ScriptableObject frigorifero = new ScriptableObject(new Rectangle(10, 7, 1, 3), true) {
