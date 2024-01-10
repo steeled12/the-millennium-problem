@@ -42,8 +42,8 @@ public class Aula4Atto1Level extends LevelStrategy {
         ScriptableObject portaSx = new ScriptableObject(new Rectangle(4, 0, 2, 2), true) {
             @Override
             public void action() {
-                GameScreen.levelToLoad = "CorridoioAtto2Level";
-                GameScreen.levelController.setLevel(new CorridoioAtto2Level());
+                GameScreen.levelToLoad = "CorridoioAtto1Level";
+                GameScreen.levelController.setLevel(new CorridoioAtto1Level());
                 Player.getPlayer().getPlayerBox().x = 58;
                 Player.getPlayer().getPlayerBox().y = 14;
             }
@@ -53,8 +53,8 @@ public class Aula4Atto1Level extends LevelStrategy {
         ScriptableObject portaDx = new ScriptableObject(new Rectangle(24, 0, 2, 2), true) {
             @Override
             public void action() {
-                GameScreen.levelToLoad = "CorridoioAtto2Level";
-                GameScreen.levelController.setLevel(new CorridoioAtto2Level());
+                GameScreen.levelToLoad = "CorridoioAtto1Level";
+                GameScreen.levelController.setLevel(new CorridoioAtto1Level());
                 Player.getPlayer().getPlayerBox().x = 64;
                 Player.getPlayer().getPlayerBox().y = 14;
             }

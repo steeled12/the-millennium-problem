@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="30" height="20" tilewidth="16" tileheight="16" infinite="0" nextlayerid="40" nextobjectid="52">
+<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="30" height="20" tilewidth="16" tileheight="16" infinite="0" nextlayerid="42" nextobjectid="52">
  <tileset firstgid="1" source="../Room_Builder_16x16.tsx"/>
  <tileset firstgid="8285" source="../Interiors_16x16.tsx"/>
  <tileset firstgid="25309" source="3_Bathroom_16x16.tsx"/>
  <tileset firstgid="26205" source="4_Bedroom_16x16.tsx"/>
  <tileset firstgid="27917" source="RetroWhite.tsx"/>
  <tileset firstgid="28941" source="UI_16x16.tsx"/>
- <group id="5" name="Pavimento" locked="1">
+ <group id="5" name="Pavimento">
   <layer id="1" name="Pavimento" width="30" height="20" locked="1">
    <data encoding="base64" compression="zlib">
    eJwL52RgiKATRgaLgfwldMK0tNeFCzceafbCMEjdqL2j9lLbDbS2F90NyPzhbi86HrV31N5ReynHAMWgbHc=
@@ -15,6 +15,11 @@
   <layer id="6" name="Shadow" width="30" height="20" locked="1">
    <data encoding="base64" compression="zlib">
    eJxjYBh5YD0jA8MGEjA+9X/wyKGD31jE8AF86v+QYNZQsRcfGI7+JVb9PwLqhoO9yPlmoPxLbUAte0ktrzYSaS+hcmuoh9uovaP2DrS9ADN4PxA=
+  </data>
+  </layer>
+  <layer id="12" name="Tappetino" width="30" height="20" locked="1">
+   <data encoding="base64" compression="zlib">
+   eJxjYBgFQxXsTWFg2JdCf3vPAu08R4G907MYGGYC8Yws6rmJGLAcaN9KIF5BZ3tHwSgYBaNgFIw8AADzYQrj
   </data>
   </layer>
  </group>
@@ -38,9 +43,9 @@
    eJyrFmNgEBEnDosSgW8IMDDcFIDQyNgJiJHBcaC9CeLE4UQisIogA4OqIIRGxn1o9gqLM9AF3Bph9qoJQuL9JjSu6WVvETTeVaFxTS97kcEtGthrCjTzAhBbCeBWQwt7G4FmygDDso3O9sLAJQL2WkDDhVgsKUicvXKCmHpAcXARGgct0HAhFqcSaW8WFj2gOJCFxsF5POFBK3Bp1N5Re0ftJRv8FGc48AOIQfYCAOuySFs=
   </data>
  </layer>
- <layer id="4" name="Boarders" width="30" height="20" locked="1">
+ <layer id="4" name="Boarders" width="30" height="20">
   <data encoding="base64" compression="zlib">
-   eJxjYCANtDDil28mIE8uGLWXPvYqMA2MvTkDZO+VQRq/tAIjzd5RMApGwSj4Kc5w4CojfTHITgBguTit
+   eJxjYCANtDDil28mIE8uGLWXPvbmMA2MvYQArey9Mkjjl1ZgpNk7CkbBKBgFP8UZDlxlpC8G2QkAm5w4iw==
   </data>
  </layer>
  <layer id="7" name="Porte" width="30" height="20" locked="1">
@@ -48,11 +53,23 @@
    eJxjYCAPTE5iYJgCwQ1Tk8g0hAywGGjXEghuWEpHe0fBKBgFo2AUjIJRMAqIBQB+eQjx
   </data>
  </layer>
- <layer id="12" name="Tappetino" width="30" height="20" locked="1">
-  <data encoding="base64" compression="zlib">
-   eJxjYBgFQxXsTWFg2JdCf3vPAu08NwD2joJRMApGwSgYBUMFAABmbgSn
+ <group id="41" name="fix">
+  <layer id="33" name="Albero di natale 1" width="30" height="20">
+   <data encoding="base64" compression="zlib">
+   eJxjYBicYFvwwNh7bIDsvTZA9o6CUTDQQMCSgUEQiIUs6WuvAtA+RSBWorO9BkD7DIHYiM72joJRMAroCwAD5QZ2
   </data>
- </layer>
+  </layer>
+  <layer id="34" name="Albero di natale 2" width="30" height="20" locked="1">
+   <data encoding="base64" compression="zlib">
+   eJxjYBgFo2AUjAIIeGLBwPDUgv72fgHa+XUA7GWxZGBgtaS/vaNgFIyC4Q8AR20FDg==
+  </data>
+  </layer>
+  <layer id="35" name="Albero di natale 3" width="30" height="20" locked="1">
+   <data encoding="base64" compression="zlib">
+   eJxjYBgFo2AUjAIIcLZkYHCxpL+9wUA7QwbA3mSgnSkDYO8oGAWjYPgDANeXA0w=
+  </data>
+  </layer>
+ </group>
  <layer id="9" name="Bagno" width="30" height="20" locked="1">
   <data encoding="base64" compression="zlib">
    eJxjYKAteJZEYwuQwOVkBoYrQJwOxN+A9v6gk92PgfY9AeJyIGZLpo+dIPAZaNcXOtpHCASlMDAEp9DO/GlY/PoDaF8SECfT0F5sgCOVgSED6J7MQRT+o2AUjIJRMAoGDwAAkfQVAg==
@@ -60,7 +77,7 @@
  </layer>
  <layer id="17" name="Stanza" width="30" height="20" locked="1">
   <data encoding="base64" compression="zlib">
-   eJzt0MsNgkAYReGrFQAVKBX5aEBhwyALH8WoFahLoQK1ArQRS/CQuDGauBk2+t/k28xMcpKRpEEmDTHCGMFMChGh2bGQSlSFvG5Ca4oEKXr0+oif3RO9My6eu3NaCyyxyt7va3pX3Dx3/233D3/bbJ1LW2zylsJO6qDrXo939A7Yt9QN6IWI3Pe3NpvNZvvtPQD6uSFp
+   eJzt0M0NgkAUReGrFTBUoFak2IDiZoiz8KcypAKkArQRS+CQsNPlZELiu8m3eouTPEnaemmHAntkZ8khx7g6SA80QVF3oHVEiRNW9NbYTN2W3hNd5O6F1hU33P33vaf3wjty99/2+fHbJKukBZZV2mxGzyFP3LXZbDbb/DYAbcYbLQ==
   </data>
  </layer>
  <layer id="18" name="Comodino" width="30" height="20" locked="1">
@@ -78,24 +95,9 @@
    eJxjYBgFo2AUUAPczMIv/82BgeEPEP9woINjkACbIwMDDxBzONLX3lEwCkbBKBjJAAAulQXL
   </data>
  </layer>
- <layer id="21" name="Sedia" width="30" height="20" locked="1">
+ <layer id="21" name="Sedia" width="30" height="20">
   <data encoding="base64" compression="zlib">
-   eJxjYKAOsA2lkkFQsC2YOHW+VLb3GJH2xlJg73EvBoYTXqhi14i0lxJwHWjnDS/C6kbB8AMVjgwMCd70t7cDaG/BANg7CkbBKBgFAw0AlNQMgA==
-  </data>
- </layer>
- <layer id="33" name="Albero di natale 1" width="30" height="20" locked="1">
-  <data encoding="base64" compression="zlib">
-   eJxjYBgFo2AUjIKBAwKWDAyCQCxkSV97FYD2KQKxEp3tNQDaZwjERnS2dxSMglFAXwAAssoDKw==
-  </data>
- </layer>
- <layer id="34" name="Albero di natale 2" width="30" height="20" locked="1">
-  <data encoding="base64" compression="zlib">
-   eJxjYBgFo2AUjAIIeGLBwPDUgv72fgHa+XUA7GWxZGBgtaS/vaNgFIyC4Q8AR20FDg==
-  </data>
- </layer>
- <layer id="35" name="Albero di natale 3" width="30" height="20" locked="1">
-  <data encoding="base64" compression="zlib">
-   eJxjYBgFo2AUjAIIcLZkYHCxpL+9wUA7QwbA3mSgnSkDYO8oGAWjYPgDANeXA0w=
+   eJxjYKAOsA2lkkEkAt8BsjeWAnuPezEwnPCinluIBdeBdt4YAHtHwcCDCkcGhgRv+tvbAbS3YADsHQWjYBSMgoEGAEPICTU=
   </data>
  </layer>
  <layer id="23" name="Cucina" width="30" height="20" locked="1">
@@ -123,7 +125,7 @@
    eJxjYBgFo2AUjILhA0SM6WfXLCMEW4WO9iIDEzrae9uIsBpagHsDZO8oGAWUAACoyAPv
   </data>
  </layer>
- <objectgroup id="36" name="Collisioni" locked="1">
+ <objectgroup id="36" name="Collisioni">
   <object id="1" x="0.5" y="0" width="14.5" height="319.5"/>
   <object id="2" x="1" y="1.5" width="415.5" height="30.5"/>
   <object id="3" x="415.5" y="-1" width="16" height="96.5"/>
@@ -146,12 +148,12 @@
   <object id="25" x="449.273" y="244.909" width="13.4545" height="9.63636"/>
   <object id="27" x="449.091" y="275.636" width="14.1818" height="8.36364"/>
   <object id="28" x="288.727" y="32.1818" width="13.2727" height="8.54545"/>
-  <object id="29" x="317.818" y="154.182" width="33.8182" height="28.1818"/>
+  <object id="29" x="320.932" y="143.637" width="30.7046" height="31.9545"/>
   <object id="30" x="17.75" y="97.25" width="35.375" height="20.875"/>
   <object id="31" x="17.125" y="117.75" width="15.375" height="20"/>
   <object id="32" x="16" y="30" width="63.75" height="17"/>
   <object id="33" x="145.5" y="31.125" width="45.5" height="17.375"/>
-  <object id="34" x="126.625" y="46.875" width="18.5" height="6.375"/>
+  <object id="34" x="126.625" y="31.7841" width="18.5" height="21.4659"/>
   <object id="35" x="145.636" y="125.455" width="45.2727" height="18.1818"/>
   <object id="36" x="160.182" y="143.273" width="15.0909" height="11.2727"/>
   <object id="37" x="177.455" y="143.455" width="13.4545" height="7.45455"/>
@@ -160,7 +162,7 @@
   <object id="40" x="385.455" y="32.1818" width="12.3636" height="8.72727"/>
   <object id="41" x="418.545" y="95.6364" width="10.5455" height="7.09091"/>
   <object id="42" x="433.091" y="95.0909" width="30.5455" height="12.7273"/>
-  <object id="43" x="202.659" y="-0.159068" width="4.5" height="79.5909"/>
+  <object id="43" x="201.75" y="-0.159068" width="5.40909" height="69.5909"/>
   <object id="45" x="432.257" y="179.439" width="47.1216" height="11.6667"/>
  </objectgroup>
  <layer id="37" name="Tasti" width="30" height="20" locked="1">
@@ -168,9 +170,9 @@
    eJxjYBgFo2AU0AJczqW/nZ+Adn4G4i8DYPcoGAWjYBSMAgQAAG/mBWE=
   </data>
  </layer>
- <layer id="39" name="Messaggio" width="30" height="20" locked="1">
+ <layer id="39" name="Messaggio" width="30" height="20">
   <data encoding="base64" compression="zlib">
-   eJxjYBgFo2DkgbhC+tv51YGB4RcQ/3Sgr72sjgwMXEDM6Uhfe0fBKBgFo2AkAwCaXQVT
+   eJxjYBgFo2AU0AN8dWBg+AXEPx3oay+rIwMDFxBzOtLX3lEwCkbBKBjJAABsawSE
   </data>
  </layer>
 </map>

@@ -6,6 +6,7 @@ import com.badlogic.gdx.maps.objects.RectangleMapObject;
 import com.badlogic.gdx.maps.tiled.TmxMapLoader;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
 import com.badlogic.gdx.math.Rectangle;
+import com.gruppo3.game.model.Player;
 import com.gruppo3.game.model.interactables.ScriptableObject;
 import com.gruppo3.game.screens.GameScreen;
 
@@ -40,13 +41,20 @@ public class PrimoPianoAtto1Level extends LevelStrategy {
                 GameScreen.levelController.setLevel(new StanzaRettangoloAtto1Level());
             }
         };
+        ScriptableObject scale = new ScriptableObject(new Rectangle(37, 20, 3, 2), true) {
+            @Override
+            public void action() {
+                GameScreen.levelController.setLevel(new CorridoioAtto1Level());
+                Player.getPlayer().getPlayerBox().setPosition(31, 19);
+            }
+        };
         scriptableObjectsController.scriptableObjectsList.add(portaStanzaRettangolo);
+        scriptableObjectsController.scriptableObjectsList.add(scale);
     }
 
     @Override
     public void dispose() {
         map.dispose();
         renderer.dispose();
-        music.dispose();
     }
 }

@@ -245,7 +245,8 @@ public class GameScreen implements Screen {
 
                         if (cell != null && cell.getTile() != null) {
 
-                            if (y < playerBoxY) {
+                            if (y < playerBoxY) { // fix quando
+                                                  // collisione
                                 // System.out.println("Tile: " + x + " " + y);
                                 game.batch.draw(cell.getTile().getTextureRegion(),
                                         x,

@@ -24,7 +24,7 @@ public class CorridoioAtto1Level extends LevelStrategy {
         super();
 
         // map
-        this.map = new TmxMapLoader().load("map/atto2/Piano_terra.tmx");
+        this.map = new TmxMapLoader().load("map/atto1/Piano_terra.tmx");
         // scaling a game units
         MapLayer collisionObjectLayer = this.map.getLayers().get("Collisioni");
         for (MapObject object : collisionObjectLayer.getObjects()) {
@@ -43,12 +43,12 @@ public class CorridoioAtto1Level extends LevelStrategy {
 
     @Override
     public void init() {
+
         // items
         ScriptableObject portaAula6Sx = new ScriptableObject(new Rectangle(4, 15, 2, 2), true) {
             @Override
             public void action() {
-                GameScreen.levelToLoad = "Aula6Level";
-                GameScreen.levelController.setLevel(new Aula6Level());
+                GameScreen.levelController.setLevel(new Aula6Atto1Level());
                 Player.getPlayer().getPlayerBox().x = 4;
                 Player.getPlayer().getPlayerBox().y = 1;
             }
@@ -56,8 +56,7 @@ public class CorridoioAtto1Level extends LevelStrategy {
         ScriptableObject portaAula6Dx = new ScriptableObject(new Rectangle(12, 15, 2, 2), true) {
             @Override
             public void action() {
-                GameScreen.levelToLoad = "Aula6Level";
-                GameScreen.levelController.setLevel(new Aula6Level());
+                GameScreen.levelController.setLevel(new Aula6Atto1Level());
             }
         };
         scriptableObjectsController.scriptableObjectsList.add(portaAula6Sx);
@@ -66,15 +65,13 @@ public class CorridoioAtto1Level extends LevelStrategy {
         ScriptableObject portaAula4Dx = new ScriptableObject(new Rectangle(64, 15, 2, 2), true) {
             @Override
             public void action() {
-                GameScreen.levelToLoad = "Aula4Level";
-                GameScreen.levelController.setLevel(new Aula4Level());
+                GameScreen.levelController.setLevel(new Aula4Atto1Level());
             }
         };
         ScriptableObject portaAula4Sx = new ScriptableObject(new Rectangle(58, 15, 2, 2), true) {
             @Override
             public void action() {
-                GameScreen.levelToLoad = "Aula4Level";
-                GameScreen.levelController.setLevel(new Aula4Level());
+                GameScreen.levelController.setLevel(new Aula4Atto1Level());
                 Player.getPlayer().getPlayerBox().x = 4;
                 Player.getPlayer().getPlayerBox().y = 1;
             }
@@ -115,38 +112,11 @@ public class CorridoioAtto1Level extends LevelStrategy {
         };
         scriptableObjectsController.scriptableObjectsList.add(macchinetta);
 
-        Dialog portaChiusa = new Dialog();
-        LinearDialogNode portaChiusaNode0 = new LinearDialogNode("La porta è chiusa", 0);
-        LinearDialogNode portaChiusaNode1 = new LinearDialogNode("Posso chiedere a qualcuno di aprirla", 1);
-        portaChiusaNode0.setPointer(1);
-        portaChiusa.addNode(portaChiusaNode0);
-        portaChiusa.addNode(portaChiusaNode1);
-
-        Dialog portaAperta = new Dialog();
-        LinearDialogNode portaApertaNode0 = new LinearDialogNode("La porta è aperta", 0);
-        ChoiceDialogNode portaApertaNode1 = new ChoiceDialogNode("Vuoi andare nei sotterranei?", 1);
-        portaApertaNode0.setPointer(1);
-        portaApertaNode1.addChoice("Sì", -1, new Action() {
+        ScriptableObject porta = new ScriptableObject(new Rectangle(30, 20, 3, 2), true) {
             @Override
             public void action() {
-                GameScreen.levelToLoad = "SotterraneiAtto2Level";
-                GameScreen.levelController.setLevel(new SotterraneiAtto2Level());
-                Player.getPlayer().getPlayerBox().x = 1;
-                Player.getPlayer().getPlayerBox().y = 1;
-            }
-        });
-        portaApertaNode1.addChoice("Non ancora");
-        portaAperta.addNode(portaApertaNode0);
-        portaAperta.addNode(portaApertaNode1);
-
-        ScriptableObject porta = new ScriptableObject(new Rectangle(34, 18, 2, 2), true) {
-            @Override
-            public void action() {
-                if (GameScreen.savedInformation.containsKey("portaScale")) {
-                    GameScreen.dialogController.startDialog(portaAperta);
-                } else {
-                    GameScreen.dialogController.startDialog(portaChiusa);
-                }
+                GameScreen.levelController.setLevel(new PrimoPianoAtto1Level());
+                Player.getPlayer().getPlayerBox().setPosition(38, 19);
             }
         };
         scriptableObjectsController.scriptableObjectsList.add(porta);

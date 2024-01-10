@@ -55,7 +55,7 @@ public class StanzaRettangoloAtto1Level extends LevelStrategy {
                 "Professore Rettangolo:\n Sei arrivato! Hai ricevuto il messaggio?", 0);
 
         node1.addChoice("Si");
-        node1.addChoice("No", 2);
+        node1.addChoice("No");
 
         dialog.addNode(node1);
 

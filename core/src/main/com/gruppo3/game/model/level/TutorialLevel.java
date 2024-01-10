@@ -156,7 +156,16 @@ public class TutorialLevel extends LevelStrategy {
 
                 switch (GameScreen.savedInformation.get("turialDoor")) {
                     case "done":
-                        GameScreen.levelController.setLevel(new SecretRoomLevel());
+                        GameScreen.levelController.setLevel(new CorridoioAtto1Level());
+                        Player.getPlayer().getPlayerBox().setPosition(34, 2);
+                        Dialog arrivoDialog = new Dialog();
+                        arrivoDialog.addNode(new LinearDialogNode("Finalmente sono arrivato...", 0).setPointer(1));
+                        arrivoDialog.addNode(
+                                new LinearDialogNode("Dovrei parlare con il professore per chiedergli del messaggio", 1)
+                                        .setPointer(2));
+                        arrivoDialog
+                                .addNode(new LinearDialogNode("Dovrebbe trovarsi al primo piano nella sua stanza", 2));
+                        GameScreen.dialogController.startDialog(arrivoDialog);
                         break;
 
                     case "pc":
