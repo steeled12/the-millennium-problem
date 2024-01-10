@@ -65,7 +65,7 @@ public class SecretRoomLevel extends LevelStrategy {
                 "\"Non dimenticare: la password è custodita dalla natura\"", 1, new Action() {
                     @Override
                     public void action() {
-                        Sound sound = Gdx.audio.newSound(Gdx.files.internal("sound/sfx-realization.wav"));
+                        Sound sound = Gdx.audio.newSound(Gdx.files.internal("sound/sfx-realization.mp3"));
                         sound.play(SettingController.gameVolume);
                     }
                 });
@@ -81,7 +81,13 @@ public class SecretRoomLevel extends LevelStrategy {
         LinearDialogNode piantaNode0 = new LinearDialogNode("Questa pianta ha qualcosa di strano", 0);
         ChoiceDialogNode piantaNode1 = new ChoiceDialogNode("Ispezioni la pianta?", 1);
         LinearDialogNode piantaNode2 = new LinearDialogNode("Una delle foglie ha una scritta", 2);
-        LinearDialogNode piantaNode3 = new LinearDialogNode("\"Password: Mappa1984\"", 3);
+        LinearDialogNode piantaNode3 = new LinearDialogNode("\"Password: Mappa1984\"", 3, new Action() {
+            @Override
+            public void action() {
+                Sound sound = Gdx.audio.newSound(Gdx.files.internal("sound/sfx-realization.mp3"));
+                sound.play(SettingController.gameVolume);
+            }
+        });
         LinearDialogNode piantaNode4 = new LinearDialogNode("...chi scrive una password su una pianta di plastica?", 4);
         piantaNode0.setPointer(1);
         piantaNode1.addChoice("Si", 2);
