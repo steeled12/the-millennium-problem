@@ -51,7 +51,8 @@ public class SecretRoomLevel extends LevelStrategy {
         // item e npc
         GenericItem computer = new GenericItem("computer");
         Dialog computerDialog1 = new Dialog();
-        LinearDialogNode computerNode0 = new LinearDialogNode("Prima di accedere voglio esplorare per bene la stanza", 0);
+        LinearDialogNode computerNode0 = new LinearDialogNode("Prima di accedere voglio esplorare per bene la stanza",
+                0);
         computerDialog1.addNode(computerNode0);
         computer.setDialog(computerDialog1);
         itemController.addwithId(computer, 3);
@@ -108,11 +109,15 @@ public class SecretRoomLevel extends LevelStrategy {
         LinearDialogNode libNode0 = new LinearDialogNode("Un libro sporge leggermente \n dalla libreria", 0);
         LinearDialogNode libNode1 = new LinearDialogNode("Il titolo è \"Appunti sulla ricerca\"", 1);
         ChoiceDialogNode libNode2 = new ChoiceDialogNode("Vuoi leggere?", 2);
-        LinearDialogNode libNode3 = new LinearDialogNode("\"Sono passati 15 anni dall'inizio della mia ricerca\n sul problema P = NP\"", 3);
-        LinearDialogNode libNode4 = new LinearDialogNode("\"Ero stato preso per pazzo per aver dedicato la mia vita a questo", 4);
+        LinearDialogNode libNode3 = new LinearDialogNode(
+                "\"Sono passati 15 anni dall'inizio della mia ricerca\n sul problema P = NP\"", 3);
+        LinearDialogNode libNode4 = new LinearDialogNode(
+                "\"Ero stato preso per pazzo per aver dedicato la mia vita a questo", 4);
         LinearDialogNode libNode5 = new LinearDialogNode("\"Ma ora ho trovato la soluzione!\"", 5);
         LinearDialogNode libNode6 = new LinearDialogNode("\"Eppure...\"", 6);
-        LinearDialogNode libNode7 = new LinearDialogNode("\"Le implicazioni di questo risultato sono incomprendibili.\nMesso nelle mani sbagliate, non so cosa potrebbe succedere\"", 7);
+        LinearDialogNode libNode7 = new LinearDialogNode(
+                "\"Le implicazioni di questo risultato sono incomprendibili.\nMesso nelle mani sbagliate, non so cosa potrebbe succedere\"",
+                7);
         LinearDialogNode libNode8 = new LinearDialogNode("\"Non posso rischiare.\nSigillerò questa stanza\"", 8);
         ChoiceDialogNode libNode9 = new ChoiceDialogNode("Gli appunti si concludono, vuoi rileggere", 9);
         LinearDialogNode libNode10 = new LinearDialogNode("......", 10);
@@ -256,7 +261,7 @@ public class SecretRoomLevel extends LevelStrategy {
         libDialog.addNode(libNode1);
         libDialog.addNode(libNode2);
         libDialog.addNode(libNode3);
-        libDialog.addNode(libNode4);    
+        libDialog.addNode(libNode4);
         libDialog.addNode(libNode5);
         libDialog.addNode(libNode6);
         libDialog.addNode(libNode7);
@@ -268,13 +273,14 @@ public class SecretRoomLevel extends LevelStrategy {
         libDialog.addNode(libNode13);
         libDialog.addNode(libNode14);
         libDialog.addNode(libNode15);
-        
+
         libreria.setDialog(libDialog);
 
         Player.getPlayer().getPlayerBox().x = 14.5f;
         Player.getPlayer().getPlayerBox().y = 0;
         Player.getPlayer().setPlayerDirection(Player.PlayerDirection.NORTH);
     }
+
     public static void setMusic(Music music) {
         SecretRoomLevel.music = music;
         music.play();

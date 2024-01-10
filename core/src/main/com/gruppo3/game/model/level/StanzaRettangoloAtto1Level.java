@@ -7,7 +7,6 @@ import com.badlogic.gdx.maps.objects.RectangleMapObject;
 import com.badlogic.gdx.maps.tiled.TmxMapLoader;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
 import com.badlogic.gdx.math.Rectangle;
-import com.gruppo3.game.controller.SettingController;
 import com.gruppo3.game.model.Player;
 import com.gruppo3.game.model.dialog.ChoiceDialogNode;
 import com.gruppo3.game.model.dialog.Dialog;
@@ -15,10 +14,9 @@ import com.gruppo3.game.model.dialog.LinearDialogNode;
 import com.gruppo3.game.model.interactables.NPC;
 import com.gruppo3.game.model.interactables.ScriptableObject;
 import com.gruppo3.game.screens.GameScreen;
-import com.gruppo3.game.util.Action;
 
-public class StanzaRettangoloLevel extends LevelStrategy {
-    public StanzaRettangoloLevel() {
+public class StanzaRettangoloAtto1Level extends LevelStrategy {
+    public StanzaRettangoloAtto1Level() {
         super();
 
         // map
@@ -84,9 +82,17 @@ public class StanzaRettangoloLevel extends LevelStrategy {
                 GameScreen.dialogController.startDialog(dialogTrofeo);
             }
         };
+        ScriptableObject portaPrimoPiano = new ScriptableObject(new Rectangle(7, 1, 2, 1), true) {
+            @Override
+            public void action() {
+                GameScreen.levelController.setLevel(new PrimoPianoAtto1Level());
+                Player.getPlayer().getPlayerBox().setPosition(51, 14);
+            }
+        };
 
         scriptableObjectsController.scriptableObjectsList.add(trofei1);
         scriptableObjectsController.scriptableObjectsList.add(trofei2);
+        scriptableObjectsController.scriptableObjectsList.add(portaPrimoPiano);
     }
 
     @Override
