@@ -17,7 +17,7 @@ import com.gruppo3.game.model.interactables.*;
 import com.gruppo3.game.model.Player;
 import com.gruppo3.game.util.Action;
 import com.gruppo3.game.screens.GameScreen;
-
+import com.gruppo3.game.controller.SettingController;
 
 public class CorridoioAtto2Level extends LevelStrategy {
 
@@ -80,6 +80,43 @@ public class CorridoioAtto2Level extends LevelStrategy {
         scriptableObjectsController.scriptableObjectsList.add(portaAula4Dx); 
         scriptableObjectsController.scriptableObjectsList.add(portaAula4Sx);
 
+        ScriptableObject macchinetta = new ScriptableObject(new Rectangle(27, 1, 2, 1), true) {
+            @Override
+            public void action() {
+                if(GameScreen.savedInformation.containsKey("bibitaComprata")){
+                    Dialog dialog = new Dialog();
+                    LinearDialogNode node = new LinearDialogNode("Ho già comprato una bibita", 0);
+                    dialog.addNode(node);
+                    GameScreen.dialogController.startDialog(dialog);
+                }
+                else{
+                    GameScreen.savedInformation.put("bibitaComprata", "true");
+                    Dialog dialog = new Dialog();
+                    ChoiceDialogNode node;
+                    if(GameScreen.savedInformation.containsKey("parlatoAPortiere")){
+                        node = new ChoiceDialogNode("(Potrei comprare una bibita per corrompere\nil portiere...)", 0);
+                    }
+                    else{
+                        node = new ChoiceDialogNode("[Vuoi comprare una bibita?]", 0);
+                    }
+                    node.addChoice("Sì", -1, new Action() {
+                        @Override
+                        public void action() {
+                            PickableItem bibita = new PickableItem("bibita", "bibita.png");
+                            itemController.addItemToInventory(bibita);
+                            Sound sound = Gdx.audio.newSound(Gdx.files.internal("sound/sfx-selectjingle.mp3"));
+                            sound.play(SettingController.gameVolume);
+                        }
+                    });
+                    node.addChoice("No");
+                    dialog.addNode(node);
+                    GameScreen.dialogController.startDialog(dialog);
+
+                }
+            }
+        };
+        scriptableObjectsController.scriptableObjectsList.add(macchinetta);
+
         Dialog portaChiusa = new Dialog();
         LinearDialogNode portaChiusaNode0 = new LinearDialogNode("La porta è chiusa", 0);
         LinearDialogNode portaChiusaNode1 = new LinearDialogNode("Posso chiedere a qualcuno di aprirla", 1);
@@ -95,7 +132,7 @@ public class CorridoioAtto2Level extends LevelStrategy {
             @Override
             public void action() {
                 GameScreen.levelToLoad = "SotterraneiAtto2Level";
-                //GameScreen.levelController.setLevel(new SotterraneiAtto2Level());
+                GameScreen.levelController.setLevel(new SotterraneiAtto2Level());
                 Player.getPlayer().getPlayerBox().x = 1;
                 Player.getPlayer().getPlayerBox().y = 1;
             }
@@ -116,36 +153,11 @@ public class CorridoioAtto2Level extends LevelStrategy {
         };
         scriptableObjectsController.scriptableObjectsList.add(porta);
 
-        NPC portiere = new NPC(new Texture(Gdx.files.internal("characters/portiere.png")));
+        NPC portiere = new Portiere(new Texture(Gdx.files.internal("characters/portiere.png")));
         portiere.getNpcBox().x = 51;
         portiere.getNpcBox().y = 18;
         npcController.npcList.add(portiere);
         
-        Dialog portiereDialog = new Dialog();
-        LinearDialogNode portiereNode0 = new LinearDialogNode("Buonasera, potrebbe aprire la porta?", 0);
-        LinearDialogNode portiereNode1 = new LinearDialogNode("Portiere:\n...", 1);
-        LinearDialogNode portiereNode2 = new LinearDialogNode("Portiere:\n...", 2);
-        LinearDialogNode portiereNode3 = new LinearDialogNode("Portiere:\nChe lezione hai?", 3);
-        LinearDialogNode portiereNode4 = new LinearDialogNode("Nessuna, ma devo incontrare un professore", 4);
-        LinearDialogNode portiereNode5 = new LinearDialogNode("Portiere:\n...", 5);
-        LinearDialogNode portiereNode6 = new LinearDialogNode("Portiere:\n...", 6);
-        LinearDialogNode portiereNode7 = new LinearDialogNode("Sembra si sia bloccato.\nMeglio cercare un altro modo per entrare", 7);
-        portiereNode0.setPointer(1);
-        portiereNode1.setPointer(2);
-        portiereNode2.setPointer(3);
-        portiereNode3.setPointer(4);
-        portiereNode4.setPointer(5);
-        portiereNode5.setPointer(6);
-        portiereNode6.setPointer(7);
-        portiereDialog.addNode(portiereNode0);
-        portiereDialog.addNode(portiereNode1);
-        portiereDialog.addNode(portiereNode2);
-        portiereDialog.addNode(portiereNode3);
-        portiereDialog.addNode(portiereNode4);
-        portiereDialog.addNode(portiereNode5);
-        portiereDialog.addNode(portiereNode6);
-        portiereDialog.addNode(portiereNode7);
-        portiere.setDialog(portiereDialog);
 
         NPC studente1 = new NPC(new Texture(Gdx.files.internal("characters/studente2.png")));
         studente1.getNpcBox().x = 40;
@@ -223,26 +235,6 @@ public class CorridoioAtto2Level extends LevelStrategy {
 
         Player.getPlayer().getPlayerBox().x = 33;
         Player.getPlayer().getPlayerBox().y = 1;
-    }
-
-    public void changeMap(String mapName, float x, float y) {
-        this.map = new TmxMapLoader().load(mapName);
-        
-        MapLayer collisionObjectLayer = this.map.getLayers().get("Collisioni");
-        for (MapObject object : collisionObjectLayer.getObjects()) {
-            if (object instanceof RectangleMapObject) {
-                Rectangle rect = ((RectangleMapObject) object).getRectangle();
-                rect.x *= unitScale;
-                rect.y *= unitScale;
-                rect.width *= unitScale;
-                rect.height *= unitScale;
-            }
-        }
-        this.renderer = new OrthogonalTiledMapRenderer(map, unitScale);
-
-        Player.getPlayer().getPlayerBox().x = x;
-        Player.getPlayer().getPlayerBox().y = y;
-        
     }
 
     @Override

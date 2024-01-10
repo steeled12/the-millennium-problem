@@ -64,7 +64,7 @@ public class Aula4Level extends LevelStrategy {
         };
         scriptableObjectsController.scriptableObjectsList.add(portaDx);
 
-        NPC peppe = new NPC(new Texture(Gdx.files.internal("characters/studente1.png")));
+        NPC peppe = new NPC(new Texture(Gdx.files.internal("characters/peppe.png")));
         peppe.getNpcBox().x = 1;
         peppe.getNpcBox().y = 1; 
         npcController.add(peppe);
@@ -88,13 +88,13 @@ public class Aula4Level extends LevelStrategy {
         peppeDialog.addNode(peppeNode4);
         peppe.setDialog(peppeDialog);
 
-        NPC cristina = new NPC(new Texture(Gdx.files.internal("characters/studente1.png")));
+        NPC cristina = new NPC(new Texture(Gdx.files.internal("characters/cristina.png")));
         cristina.getNpcBox().x = 1;
         cristina.getNpcBox().y = 2;
         npcController.add(cristina);
         cristina.setDialog(peppeDialog);
 
-        NPC andrea = new NPC(new Texture(Gdx.files.internal("characters/studente1.png")));
+        NPC andrea = new NPC(new Texture(Gdx.files.internal("characters/andrea.png")));
         andrea.getNpcBox().x = 2;
         andrea.getNpcBox().y = 2;
         npcController.add(andrea);

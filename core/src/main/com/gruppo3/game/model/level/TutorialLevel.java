@@ -89,7 +89,7 @@ public class TutorialLevel extends LevelStrategy {
                     dialog.addNode(scelta);
                 } else {
                     dialog.addNode(new LinearDialogNode(
-                            "[Apri il frigorifero.\nForse ti aiuta a farti tornare in mente qualcosa...]", 0));
+                            "[Apri il frigorifero.\nForse ti aiuta a far tornare in mente qualcosa...]", 0));
                 }
                 GameScreen.dialogController.startDialog(dialog);
             }
@@ -110,7 +110,7 @@ public class TutorialLevel extends LevelStrategy {
                 dialog.addNode(new LinearDialogNode(
                         "(Forse dovrei smontarlo...)", 0).setPointer(1));
                 dialog.addNode(new LinearDialogNode(
-                        "(Ma poi perchè non ho aperto i regali?!)", 1));
+                        "(Ma poi perché non ho aperto i regali?!)", 1));
                 GameScreen.dialogController.startDialog(dialog);
             }
         };
@@ -121,10 +121,10 @@ public class TutorialLevel extends LevelStrategy {
                 Dialog dialog = new Dialog();
                 int sceltaPointer = 0;
                 if (!GameScreen.savedInformation.get("turialDoor").equals("pc")) {
-                    dialog.addNode(new LinearDialogNode("Vediamo un pò chi ha scritto...", 0).setPointer(1));
+                    dialog.addNode(new LinearDialogNode("Vediamo un po' chi ha scritto...", 0).setPointer(1));
                     dialog.addNode(new LinearDialogNode("Il professore Rettangolo?!", 1).setPointer(2));
                     dialog.addNode(new LinearDialogNode(
-                            "Che cos'è questo messaggio, non riesco a leggerlo.\nPossibile che sia CRITTOGRAFATO?!", 2)
+                            "Che cos'è questo messaggio? Non riesco a leggerlo.\nPossibile che sia CRITTOGRAFATO?!", 2)
                             .setPointer(3));
                     sceltaPointer = 3;
                 }

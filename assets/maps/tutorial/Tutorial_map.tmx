@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="30" height="20" tilewidth="16" tileheight="16" infinite="0" nextlayerid="40" nextobjectid="52">
- <tileset firstgid="1" source="Room_Builder_16x16.tsx"/>
- <tileset firstgid="8285" source="Interiors_16x16.tsx"/>
+ <tileset firstgid="1" source="../Room_Builder_16x16.tsx"/>
+ <tileset firstgid="8285" source="../Interiors_16x16.tsx"/>
  <tileset firstgid="25309" source="3_Bathroom_16x16.tsx"/>
  <tileset firstgid="26205" source="4_Bedroom_16x16.tsx"/>
  <tileset firstgid="27917" source="RetroWhite.tsx"/>
