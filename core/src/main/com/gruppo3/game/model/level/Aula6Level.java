@@ -24,7 +24,7 @@ public class Aula6Level extends LevelStrategy {
         super();
 
         // map
-        this.map = new TmxMapLoader().load("map/atto2/aula4.tmx");
+        this.map = new TmxMapLoader().load("map/atto2/aula41.tmx");
         // scaling a game units
         MapLayer collisionObjectLayer = this.map.getLayers().get("Collisioni");
         for (MapObject object : collisionObjectLayer.getObjects()) {
@@ -48,7 +48,7 @@ public class Aula6Level extends LevelStrategy {
             public void action() {
                 GameScreen.levelToLoad = "CorridoioAtto2Level";
                 GameScreen.levelController.setLevel(new CorridoioAtto2Level());
-                Player.getPlayer().getPlayerBox().x = 58;
+                Player.getPlayer().getPlayerBox().x = 4;
                 Player.getPlayer().getPlayerBox().y = 14;
             }
         };
@@ -59,7 +59,7 @@ public class Aula6Level extends LevelStrategy {
             public void action() {
                 GameScreen.levelToLoad = "CorridoioAtto2Level";
                 GameScreen.levelController.setLevel(new CorridoioAtto2Level());
-                Player.getPlayer().getPlayerBox().x = 64;
+                Player.getPlayer().getPlayerBox().x = 12;
                 Player.getPlayer().getPlayerBox().y = 14;
             }
         };
@@ -67,7 +67,8 @@ public class Aula6Level extends LevelStrategy {
 
         NPC prof = new NPC(new Texture(Gdx.files.internal("characters/studente1.png")));
         prof.getNpcBox().x = 1;
-        prof.getNpcBox().y = 1; 
+        prof.getNpcBox().y = 1;
+        prof.setNPCDirection(NPC.Direction.NORTH); 
         npcController.add(prof);
 
         Dialog profDialog = new Dialog();

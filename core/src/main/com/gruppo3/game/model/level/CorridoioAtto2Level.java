@@ -51,6 +51,8 @@ public class CorridoioAtto2Level extends LevelStrategy {
             public void action() {
                 GameScreen.levelToLoad = "Aula6Level";
                 GameScreen.levelController.setLevel(new Aula6Level());
+                Player.getPlayer().getPlayerBox().x = 4;
+                Player.getPlayer().getPlayerBox().y = 1;
             }
         };
         ScriptableObject portaAula6Dx = new ScriptableObject(new Rectangle(12, 15, 2, 2), true) {
@@ -75,6 +77,8 @@ public class CorridoioAtto2Level extends LevelStrategy {
             public void action() {
                 GameScreen.levelToLoad = "Aula4Level";
                 GameScreen.levelController.setLevel(new Aula4Level());
+                Player.getPlayer().getPlayerBox().x = 4;
+                Player.getPlayer().getPlayerBox().y = 1;
             }
         };
         scriptableObjectsController.scriptableObjectsList.add(portaAula4Dx); 
@@ -104,8 +108,6 @@ public class CorridoioAtto2Level extends LevelStrategy {
                         public void action() {
                             PickableItem bibita = new PickableItem("bibita", "bibita.png");
                             itemController.addItemToInventory(bibita);
-                            Sound sound = Gdx.audio.newSound(Gdx.files.internal("sound/sfx-selectjingle.mp3"));
-                            sound.play(SettingController.gameVolume);
                         }
                     });
                     node.addChoice("No");
@@ -162,7 +164,9 @@ public class CorridoioAtto2Level extends LevelStrategy {
         NPC studente1 = new NPC(new Texture(Gdx.files.internal("characters/studente2.png")));
         studente1.getNpcBox().x = 40;
         studente1.getNpcBox().y = 5; 
+        studente1.setNPCDirection(NPC.Direction.WEST);
         npcController.add(studente1);
+
 
         Dialog studente1Dialog = new Dialog();
         LinearDialogNode studente1Node0 = new LinearDialogNode("Studente:\nFinalmente! Sono riuscito a superare l'esame", 0);
@@ -180,6 +184,7 @@ public class CorridoioAtto2Level extends LevelStrategy {
         NPC studente2 = new NPC(new Texture(Gdx.files.internal("characters/studente1.png")));
         studente2.getNpcBox().x = 40;
         studente2.getNpcBox().y = 7;
+        studente2.setNPCDirection(NPC.Direction.WEST);
         npcController.add(studente2);
 
         Dialog studente2Dialog = new Dialog();
@@ -202,6 +207,7 @@ public class CorridoioAtto2Level extends LevelStrategy {
         NPC rettore = new NPC(new Texture(Gdx.files.internal("characters/rettore.png")));
         rettore.getNpcBox().x = 27;
         rettore.getNpcBox().y = 17;
+        rettore.setNPCDirection(NPC.Direction.SOUTH);
         npcController.add(rettore);
 
         Dialog rettoreDialog = new Dialog();

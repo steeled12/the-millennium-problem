@@ -14,6 +14,8 @@ import com.gruppo3.game.screens.GameScreen;
 import com.gruppo3.game.model.interactables.PickableItem;
 import com.badlogic.gdx.maps.MapObject;
 import com.gruppo3.game.model.Player;
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.audio.Sound;
 
 public class ItemController extends InputAdapter {
     public List<Item> itemList = new ArrayList<>();
@@ -54,6 +56,8 @@ public class ItemController extends InputAdapter {
         Player.getPlayer().getInventory().add(item);
         GameScreen.savedInformation.put("isPicked" + item.getName(), "true");
         GameScreen.updateInventoryUI();
+        Sound sound = new Gdx().audio.newSound(Gdx.files.internal("sound/sfx-selectjingle.mp3"));
+        sound.play(SettingController.gameVolume);
 
     }
 

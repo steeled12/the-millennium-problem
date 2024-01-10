@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="30" height="20" tilewidth="16" tileheight="16" infinite="0" nextlayerid="10" nextobjectid="31">
+<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="30" height="20" tilewidth="16" tileheight="16" infinite="0" nextlayerid="10" nextobjectid="34">
  <tileset firstgid="1" source="../Room_Builder_16x16.tsx"/>
  <tileset firstgid="8285" source="../Interiors_16x16.tsx"/>
  <group id="9" name="pavimento">
@@ -52,9 +52,6 @@
   <object id="11" x="432.167" y="209.167" width="43" height="31"/>
   <object id="12" x="324.266" y="293.083" width="1.36685" height="11.1848"/>
   <object id="13" x="324.118" y="254.995" width="1.58424" height="16.8804"/>
-  <object id="15" x="154.519" y="293.375" width="1.5" height="10.8478"/>
-  <object id="16" x="154.341" y="255.135" width="1.67391" height="14.2913"/>
-  <object id="18" x="154.862" y="251.848" width="12.5291" height="169.324" rotation="270.191"/>
   <object id="19" x="180.542" y="264.25" width="118.667" height="20.125"/>
   <object id="20" x="239.792" y="282.063" width="16.417" height="14.75"/>
   <object id="21" x="80.0415" y="220.688" width="319.886" height="18.875"/>
@@ -63,5 +60,8 @@
   <object id="24" x="79.9165" y="125.063" width="320.136" height="20.375"/>
   <object id="25" x="80.0727" y="92.8125" width="319.917" height="20.125"/>
   <object id="26" x="80.0102" y="60.5625" width="319.823" height="20.125"/>
+  <object id="31" x="159.935" y="239.923" width="160.312" height="11.0622"/>
+  <object id="32" x="155.753" y="255.014" width="1.58424" height="16.8804"/>
+  <object id="33" x="155.753" y="287.742" width="1.58424" height="16.8804"/>
  </objectgroup>
 </map>

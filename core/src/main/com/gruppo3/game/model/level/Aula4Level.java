@@ -23,7 +23,7 @@ public class Aula4Level extends LevelStrategy {
         super();
 
         // map
-        this.map = new TmxMapLoader().load("map/atto2/aula4.tmx");
+        this.map = new TmxMapLoader().load("map/atto2/aula41.tmx");
         // scaling a game units
         MapLayer collisionObjectLayer = this.map.getLayers().get("Collisioni");
         for (MapObject object : collisionObjectLayer.getObjects()) {

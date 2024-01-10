@@ -12,6 +12,7 @@ public class NPC {
     Rectangle npcBox;
     Animation<TextureRegion>[] idleAnimation;
     Dialog dialog;
+    boolean loopingAnimation;
 
     public enum Direction {
         EAST,
@@ -40,6 +41,7 @@ public class NPC {
         npcBox.height = 2;
         int numAnimations = 4;
         int numFrames = 6;
+        this.loopingAnimation = true;
         idleAnimation = new Animation[numAnimations];
 
         for (int i = 0; i < numAnimations; i++) {
@@ -55,7 +57,13 @@ public class NPC {
     }
 
     public Animation<TextureRegion> getIdleAnimation(Direction direction) {
+        if(direction.ordinal() >= idleAnimation.length)
+            return idleAnimation[0];
         return idleAnimation[direction.ordinal()];
+    }
+
+    public TextureRegion getFrame(float stateTime) {
+        return this.getIdleAnimation(this.getNPCDirection()).getKeyFrame(stateTime, loopingAnimation);
     }
 
     public void setNPCDirection(Direction direction) {

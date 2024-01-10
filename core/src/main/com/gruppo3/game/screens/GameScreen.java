@@ -197,7 +197,7 @@ public class GameScreen implements Screen {
 
         // render NPC
         for (NPC npc : levelController.getNpcController().npcList) {
-            game.batch.draw(npc.getIdleAnimation(npc.getNPCDirection()).getKeyFrame(stateTime, true),
+            game.batch.draw(npc.getFrame(stateTime),
                     npc.getNpcBox().x,
                     npc.getNpcBox().y, npc.getNpcBox().width, npc.getNpcBox().height);
         }
