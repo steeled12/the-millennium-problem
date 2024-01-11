@@ -4,7 +4,7 @@
   <image source="../Room_Builder_16x16.png" width="1216" height="1744"/>
  </tileset>
  <tileset firstgid="8285" name="Interiors_16x16" tilewidth="16" tileheight="16" tilecount="17024" columns="16">
-  <image source="..//Interiors_16x16.png" width="256" height="17024"/>
+  <image source="../Interiors_16x16.png" width="256" height="17024"/>
  </tileset>
  <tileset firstgid="25309" name="Room_Builder_16x16" tilewidth="16" tileheight="16" tilecount="8284" columns="76">
   <image source="../Room_Builder_16x16.png" width="1216" height="1744"/>
@@ -46,7 +46,7 @@
   <object id="1" x="176.75" y="79.875" width="14.125" height="11.625"/>
   <object id="3" x="273.063" y="80.3125" width="14.125" height="11.625"/>
   <object id="4" x="160.574" y="60.0057" width="159.216" height="19.0795"/>
-  <object id="5" x="240.756" y="62.9148" width="14.125" height="18.2159"/>
+  <object id="5" x="240.756" y="62.9148" width="14.125" height="19.2159"/>
   <object id="6" x="132.392" y="46.0057" width="24.3068" height="11.625"/>
   <object id="7" x="32.392" y="48.3693" width="95.2159" height="11.625"/>
   <object id="8" x="352.574" y="47.8239" width="95.2159" height="11.625"/>

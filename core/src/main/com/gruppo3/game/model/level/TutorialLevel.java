@@ -55,7 +55,7 @@ public class TutorialLevel extends LevelStrategy {
         this.messageSound = Gdx.audio.newSound(Gdx.files.internal("sound/message_sound.mp3"));
         this.music = Gdx.audio.newMusic(Gdx.files.internal("music/tutorialMusic.mp3"));
         this.music.setLooping(true);
-        Player.getPlayer().getPlayerBox().setPosition(6, 13);
+        //Player.getPlayer().getPlayerBox().setPosition(6, 13);
     }
 
     @Override
@@ -147,7 +147,7 @@ public class TutorialLevel extends LevelStrategy {
                 dialog.addNode(scelta);
                 dialog.addNode(new LinearDialogNode("[Bip bup, bup bip...]", 4).setPointer(5));
                 dialog.addNode(new LinearDialogNode("[BOP ??]", 5).setPointer(6));
-                dialog.addNode(new LinearDialogNode("\"Non-polynomial / Rettangolo / Scoperta / Soldi / Caos\"", 6)
+                dialog.addNode(new LinearDialogNode("\"Non...istic Po...mial / Rettangolo / Scoperta / Soldi / Caos\"", 6)
                         .setPointer(7));
                 dialog.addNode(new LinearDialogNode("Non ha molto senso ma è quello che riesco a decifrare...", 7));
                 GameScreen.dialogController.startDialog(dialog);
@@ -165,7 +165,8 @@ public class TutorialLevel extends LevelStrategy {
                 switch (GameScreen.savedInformation.get("turialDoor")) {
                     case "done":
                         TransitionScreen fadeScreen = new TransitionScreen(GameScreen.levelController.getCurrentLevel(), new CorridoioAtto1Level(), (MyGame) Gdx.app.getApplicationListener(),34,2);
-                         Dialog arrivoDialog = new Dialog();
+                        ((MyGame) Gdx.app.getApplicationListener()).setScreen(fadeScreen);
+                        Dialog arrivoDialog = new Dialog();
                         arrivoDialog.addNode(new LinearDialogNode("Finalmente sono arrivato...", 0).setPointer(1));
                         arrivoDialog.addNode(
                                 new LinearDialogNode("(Dovrei parlare con il professore per chiedergli del messaggio)",

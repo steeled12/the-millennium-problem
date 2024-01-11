@@ -119,26 +119,37 @@ public class CorridoioAtto2Level extends LevelStrategy {
         scriptableObjectsController.scriptableObjectsList.add(macchinetta);
 
         Dialog portaChiusa = new Dialog();
-        LinearDialogNode portaChiusaNode0 = new LinearDialogNode("La porta è chiusa", 0);
+        LinearDialogNode portaChiusaNode0 = new LinearDialogNode("[La porta è chiusa]", 0);
         LinearDialogNode portaChiusaNode1 = new LinearDialogNode("Posso chiedere a qualcuno di aprirla", 1);
         portaChiusaNode0.setPointer(1);
         portaChiusa.addNode(portaChiusaNode0);
         portaChiusa.addNode(portaChiusaNode1);
 
         Dialog portaAperta = new Dialog();
-        LinearDialogNode portaApertaNode0 = new LinearDialogNode("La porta è aperta", 0);
-        ChoiceDialogNode portaApertaNode1 = new ChoiceDialogNode("Vuoi andare nei sotterranei?", 1);
+        LinearDialogNode portaApertaNode0 = new LinearDialogNode("[La porta è aperta]", 0);
+        ChoiceDialogNode portaApertaNode1 = new ChoiceDialogNode("[Dove vuoi andare?]", 1);
+        ChoiceDialogNode portaApertaNode2 = new ChoiceDialogNode("(Sono davvero pronto\nper scendere?)", 2); 
         portaApertaNode0.setPointer(1);
-        portaApertaNode1.addChoice("Sì", -1, new Action() {
+        portaApertaNode1.addChoice("Primo Piano", -1, new Action() {
+            @Override
+            public void action() {
+                TransitionScreen fadeScreen = new TransitionScreen(GameScreen.levelController.getCurrentLevel(), new PrimoPianoAtto1Level(), (MyGame) Gdx.app.getApplicationListener(),1,1);
+                ((MyGame) Gdx.app.getApplicationListener()).setScreen(fadeScreen);
+            }
+        });
+        portaApertaNode1.addChoice("Sotterranei", 2);
+        portaApertaNode2.addChoice("Sì", -1, new Action() {
             @Override
             public void action() {
                 TransitionScreen fadeScreen = new TransitionScreen(GameScreen.levelController.getCurrentLevel(), new SotterraneiAtto2Level(), (MyGame) Gdx.app.getApplicationListener(),1,1);
                 ((MyGame) Gdx.app.getApplicationListener()).setScreen(fadeScreen);
             }
         });
-        portaApertaNode1.addChoice("Non ancora");
+        portaApertaNode2.addChoice("No");
+
         portaAperta.addNode(portaApertaNode0);
         portaAperta.addNode(portaApertaNode1);
+        portaAperta.addNode(portaApertaNode2);
 
         ScriptableObject porta = new ScriptableObject(new Rectangle(34, 18, 2, 2), true) {
             @Override
@@ -158,17 +169,17 @@ public class CorridoioAtto2Level extends LevelStrategy {
         npcController.npcList.add(portiere);
         
 
-        NPC studente1 = new NPC(new Texture(Gdx.files.internal("characters/studente2.png")));
-        studente1.getNpcBox().x = 40;
-        studente1.getNpcBox().y = 5; 
-        studente1.setNPCDirection(NPC.Direction.WEST);
+        NPC studente1 = new NPC(new Texture(Gdx.files.internal("characters/studente1.png")));
+        studente1.getNpcBox().x = 25;
+        studente1.getNpcBox().y = 7; 
+        studente1.setNPCDirection(NPC.Direction.EAST);
         npcController.add(studente1);
 
 
         Dialog studente1Dialog = new Dialog();
-        LinearDialogNode studente1Node0 = new LinearDialogNode("Studente:\nFinalmente! Sono riuscito a superare l'esame", 0);
-        LinearDialogNode studente1Node1 = new LinearDialogNode("Studente:\nÈ stato un incubo,\nma finalmente il professore GianRaffa mi ha promosso", 1);
-        LinearDialogNode studente1Node2 = new LinearDialogNode("Studente:\nForse ho fatto pietà all'altra professoressa in commissione...", 2);
+        LinearDialogNode studente1Node0 = new LinearDialogNode("Studente:\nEhi! Hai visto oggi il rettore?\nUltimamente passa molto tempo qui", 0);
+        LinearDialogNode studente1Node1 = new LinearDialogNode("Studente:\nÈ pure molto simpatico", 1);
+        LinearDialogNode studente1Node2 = new LinearDialogNode("Studente:\nChissà, forse ci darà un nuovo laboratorio!", 2);
 
         studente1Node0.setPointer(1);
         studente1Node1.setPointer(2);
@@ -178,64 +189,22 @@ public class CorridoioAtto2Level extends LevelStrategy {
         studente1Dialog.addNode(studente1Node2);
         studente1.setDialog(studente1Dialog);
 
-        NPC studente2 = new NPC(new Texture(Gdx.files.internal("characters/studente1.png")));
+        NPC studente2 = new NPC(new Texture(Gdx.files.internal("characters/studente2.png")));
         studente2.getNpcBox().x = 40;
         studente2.getNpcBox().y = 7;
         studente2.setNPCDirection(NPC.Direction.WEST);
         npcController.add(studente2);
 
         Dialog studente2Dialog = new Dialog();
-        LinearDialogNode studente2Node0 = new LinearDialogNode("Studentessa:\nTi chiedi chi sono io?", 0);
-        LinearDialogNode studente2Node1 = new LinearDialogNode("Studentessa:\nSono la migliore studentessa di informatica di sempre!", 1);
-        LinearDialogNode studente2Node2 = new LinearDialogNode("Studentessa:\n...o almeno lo sarò quando finalmente riuscirò a superare Analisi...", 2);
-        LinearDialogNode studente2Node3 = new LinearDialogNode("Studentessa:\nA che ci sei, sapresti dirmi cosa è un polinomio di Taylor???", 3);
+        LinearDialogNode studente2Node0 = new LinearDialogNode("Studentessa:\nSono tutti entusiasti che il rettore sia qui...", 0);
+        LinearDialogNode studente2Node1 = new LinearDialogNode("Studentessa:\nIo non mi fido... non tutto è\nsempre come sembra", 1);
 
         studente2Node0.setPointer(1);
-        studente2Node1.setPointer(2);
-        studente2Node2.setPointer(3);
 
         studente2Dialog.addNode(studente2Node0);
         studente2Dialog.addNode(studente2Node1);
-        studente2Dialog.addNode(studente2Node2);
-        studente2Dialog.addNode(studente2Node3);
 
         studente2.setDialog(studente2Dialog);
-
-        NPC rettore = new NPC(new Texture(Gdx.files.internal("characters/rettore.png")));
-        rettore.getNpcBox().x = 27;
-        rettore.getNpcBox().y = 17;
-        rettore.setNPCDirection(NPC.Direction.SOUTH);
-        npcController.add(rettore);
-
-        Dialog rettoreDialog = new Dialog();
-        LinearDialogNode rettoreNode0 = new LinearDialogNode("Uomo:\nBUONGIORNO STUDENTE!", 0);
-        LinearDialogNode rettoreNode1 = new LinearDialogNode("Uomo:\nSono io! Il magnifico rettore!", 1);
-        LinearDialogNode rettoreNode2 = new LinearDialogNode("Rettore:\nSono qui per... supervisionare lo svolgimento\ndi alcuni lavori!", 2);
-        LinearDialogNode rettoreNode3 = new LinearDialogNode("Rettore:\nDevi sapere che io, in quanto rettore,\nho il dovere di assicurarmi che sia tutto a posto!", 3);
-        LinearDialogNode rettoreNode4 = new LinearDialogNode("Rettore:\nQuesto mazzo di chiavi mi permette di accedere a tutta l'università, vedi che bello?!", 4, new Action() {
-            @Override
-            public void action() {
-                Sound sound = Gdx.audio.newSound(Gdx.files.internal("sound/sfx-realization.mp3"));
-                sound.play(SettingController.gameVolume);
-            }
-        });
-        LinearDialogNode rettoreNode5 = new LinearDialogNode("Rettore:\nEcco, ora ti saluto, ho un sacco di cose da fare!", 5);
-
-        rettoreNode0.setPointer(1);
-        rettoreNode1.setPointer(2);
-        rettoreNode2.setPointer(3);
-        rettoreNode3.setPointer(4);
-        rettoreNode4.setPointer(5);
-        
-        rettoreDialog.addNode(rettoreNode0);
-        rettoreDialog.addNode(rettoreNode1);
-        rettoreDialog.addNode(rettoreNode2);
-        rettoreDialog.addNode(rettoreNode3);
-        rettoreDialog.addNode(rettoreNode4);
-        rettoreDialog.addNode(rettoreNode5);
-
-        rettore.setDialog(rettoreDialog);
-
 
     }
 
