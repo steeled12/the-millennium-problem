@@ -39,8 +39,8 @@ public class TransitionScreen implements Screen {
 
 	@Override
 	public void render(float delta) {
-		/* Gdx.gl.glClearColor(0, 0, 0, 0);
-		Gdx.gl.glClear(Gdx.gl.GL_COLOR_BUFFER_BIT); */
+		Gdx.gl.glClearColor(0, 0, 0, 0);
+		Gdx.gl.glClear(Gdx.gl.GL_COLOR_BUFFER_BIT); 
 
 		GameScreen.levelController.setLevel(nextScreen);
         if(playerX != 0 || playerY != 0){
@@ -62,7 +62,7 @@ public class TransitionScreen implements Screen {
 		else if (alpha <= 0 && !fadeDirection) {
 			game.setScreen(gameScreen);
 		}
-		alpha += fadeDirection == true ? 0.01 : -0.01;
+		alpha += fadeDirection == true ? 0.02 : -0.02;
 	}
 
 	@Override

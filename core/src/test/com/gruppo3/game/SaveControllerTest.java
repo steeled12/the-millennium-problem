@@ -35,17 +35,12 @@ public class SaveControllerTest {
 
     @Test
     public void testSave() {
-
-        // Mock player position
         Player.getPlayer().getPlayerBox().setPosition(10, 20);
 
-        // Mock current time
         String currentTime = LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss"));
 
-        // Call the save method
         SaveController.save();
 
-        // Verify that the player position and time are saved correctly
         verify(preferencesMock).putFloat("playerX", 10);
         verify(preferencesMock).putFloat("playerY", 20);
         verify(preferencesMock).putString("time", currentTime);
@@ -55,10 +50,8 @@ public class SaveControllerTest {
 
     @Test
     public void testDeleteSave() {
-        // Call the deleteSave method
         SaveController.deleteSave();
 
-        // Verify that the preferences are cleared and flushed
         verify(preferencesMock).clear();
         verify(preferencesMock).flush();
     }
@@ -67,13 +60,10 @@ public class SaveControllerTest {
     public void testLoadSave() {
         int numSave = 2;
 
-        // Mock preferences for the given numSave
         Preferences preferences = Gdx.app.getPreferences("save_" + numSave);
 
-        // Call the loadSave method
         SaveController.loadSave(numSave);
 
-        // Verify that the currentSave is set to the mocked preferences
         assertSame(preferences, SaveController.currentSave);
 
     }

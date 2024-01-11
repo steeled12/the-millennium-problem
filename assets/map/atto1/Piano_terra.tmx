@@ -29,7 +29,7 @@
  <tileset firstgid="60838" source="../tilesets/24_Ice_Cream_Shop.tsx"/>
  <tileset firstgid="61110" source="../tilesets/25_Shooting_Range.tsx"/>
  <tileset firstgid="61190" source="../tilesets/26_Condominium.tsx"/>
- <tileset firstgid="61494" source="../../maps/Room_Builder_16x16.tsx"/>
+ <tileset firstgid="61494" source="../Room_Builder_16x16.tsx"/>
  <group id="3" name="pavimenot">
   <layer id="1" name="pavimento" width="70" height="30">
    <data encoding="base64">

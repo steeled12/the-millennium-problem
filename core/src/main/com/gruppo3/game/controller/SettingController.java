@@ -27,7 +27,6 @@ public class SettingController {
     }
 
     public static void apply() {
-        /* APPLY ALL CHANGES */
         option.putFloat("musicVolume", musicVolume);
         option.putFloat("gameVolume", gameVolume);
         option.putInteger("maxFps", maxFps);

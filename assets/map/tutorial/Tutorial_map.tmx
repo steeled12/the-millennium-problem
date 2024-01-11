@@ -2,18 +2,18 @@
 <map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="30" height="20" tilewidth="16" tileheight="16" infinite="0" nextlayerid="42" nextobjectid="52">
  <tileset firstgid="1" source="../Room_Builder_16x16.tsx"/>
  <tileset firstgid="8285" source="../Interiors_16x16.tsx"/>
- <tileset firstgid="25309" source="3_Bathroom_16x16.tsx"/>
- <tileset firstgid="26205" source="4_Bedroom_16x16.tsx"/>
+ <tileset firstgid="25309" source="../tilesets/3_Bathroom_16x16.tsx"/>
+ <tileset firstgid="26205" source="../tilesets/4_Bedroom_16x16.tsx"/>
  <tileset firstgid="27917" source="RetroWhite.tsx"/>
  <tileset firstgid="28941" source="UI_16x16.tsx"/>
- <tileset firstgid="29229" source="../../map/tilesets/14_Basement_16x16.tsx"/>
- <tileset firstgid="30029" source="../../map/tilesets/26_Condominium.tsx"/>
- <tileset firstgid="30333" source="../../map/tilesets/15_Christmas_16x16.tsx"/>
- <tileset firstgid="30605" source="../../map/tilesets/18_Jail_16x16.tsx"/>
- <tileset firstgid="31325" source="../../map/tilesets/19_Hospital_16x16.tsx"/>
- <tileset firstgid="33085" source="../../map/tilesets/21_Clothing_Store.tsx"/>
- <tileset firstgid="34157" source="../../map/tilesets/12_Kitchen_16x16.tsx"/>
- <tileset firstgid="34941" source="../../map/tilesets/5_Classroom_and_library_16x16.tsx"/>
+ <tileset firstgid="29229" source="../tilesets/14_Basement_16x16.tsx"/>
+ <tileset firstgid="30029" source="../tilesets/26_Condominium.tsx"/>
+ <tileset firstgid="30333" source="../tilesets/15_Christmas_16x16.tsx"/>
+ <tileset firstgid="30605" source="../tilesets/18_Jail_16x16.tsx"/>
+ <tileset firstgid="31325" source="../tilesets/19_Hospital_16x16.tsx"/>
+ <tileset firstgid="33085" source="../tilesets/21_Clothing_Store.tsx"/>
+ <tileset firstgid="34157" source="../tilesets/12_Kitchen_16x16.tsx"/>
+ <tileset firstgid="34941" source="../tilesets/5_Classroom_and_library_16x16.tsx"/>
  <group id="5" name="Pavimento" locked="1">
   <layer id="1" name="Pavimento" width="30" height="20" locked="1">
    <data encoding="base64" compression="zlib">

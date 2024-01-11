@@ -153,11 +153,11 @@ public class PlayerController extends InputAdapter {
         if (keycode == Input.Keys.NUM_3)
             SaveController.loadSave(2);
         if (keycode == Input.Keys.NUM_4)
-            SaveController.deleteSave(); */
+            SaveController.deleteSave(); 
 
         if (keycode == Input.Keys.NUM_5) {
             SaveController.save();
-        }
+        } */
         return true;
     }
 
@@ -165,23 +165,4 @@ public class PlayerController extends InputAdapter {
     public boolean keyUp(int keycode) {
         return true;
     }
-
-    // public void Interaction() {
-    // if (Gdx.input.isKeyPressed(Input.Keys.I)) {
-    // float playerX = player.getPlayerBox().x;
-    // float playerY = player.getPlayerBox().y;
-    // float objectX = Object.getObject().getObjectBox().x;
-    // float objectY = Object.getObject().getObjectBox().y;
-
-    // float distance = (float ) Math.sqrt(Math.pow(objectX - playerX, 2) +
-    // Math.pow(objectY - playerY, 2));
-
-    // if (distance < 5 && Object.getObject().isInteractable()) {
-
-    // Object.getObject().action();
-
-    // }
-    // }
-    // }
-    // }
 }

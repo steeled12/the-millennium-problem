@@ -2,26 +2,33 @@
 <map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="30" height="20" tilewidth="16" tileheight="16" infinite="0" nextlayerid="10" nextobjectid="34">
  <tileset firstgid="1" source="../Room_Builder_16x16.tsx"/>
  <tileset firstgid="8285" source="../Interiors_16x16.tsx"/>
+ <tileset firstgid="25309" source="../tilesets/26_Condominium.tsx"/>
+ <tileset firstgid="25613" source="../tilesets/13_Conference_Hall_16x16.tsx"/>
+ <tileset firstgid="25805" source="../tilesets/17_Visibile_Upstairs_System_16x16.tsx"/>
+ <tileset firstgid="26237" source="../tilesets/5_Classroom_and_library_16x16.tsx"/>
+ <tileset firstgid="26781" source="../tilesets/1_Generic_16x16.tsx"/>
+ <tileset firstgid="28029" source="../tilesets/6_Music_and_sport_16x16.tsx"/>
+ <tileset firstgid="28797" source="../../maps/tutorial/4_Bedroom_16x16.tsx"/>
  <group id="9" name="pavimento">
   <layer id="2" name="pavimento" width="30" height="20">
    <data encoding="base64" compression="zlib">
-   eJxjYBhZwJl94PFA+XGk2fuDbWDs/c5GWzzQ6RdbONMK47PXhYYYn70jIW4LBRHYhcZxjGyXChSrChIfJ8TGqb0yKh9mDwgPRBgTSmfoeWwg3IMcT/gAtdMucjxRw96BAgC7rLsl
+   eJxjYBhZwJl94PFA+XGk2fuDbWDs/c5GWzzQ6RdbONMK47PXhYYYn70jIW4LBRHYhcZxjGyXChSrChIfJ6TEKTIfZg8ID0QYE0pn6HlsINyDHE/4ALXTLnI8UcPegQIAgOi7DQ==
   </data>
   </layer>
   <layer id="3" name="scale" width="30" height="20">
    <data encoding="base64" compression="zlib">
-   eJxjYKA/yGEaAEsHEWBJYmBgTqK+uSAzWfGYO2rvqL2j9o7aS6q9IkA5MRrYCzJTAo+5KkA5NRrYCzJTlQbmjoJRgA4AjpYUUg==
+   eJxjYKA/yGEaAEsHEQhJZmAITqa+uSAzQ/GYO2rvqL2j9o7aS6q9KUC5ZBrYK5bEwJCKx9wSoFwxDewFmVlKA3NHwShABwD02iMl
   </data>
   </layer>
   <layer id="1" name="Livello tile 1" width="30" height="20">
    <data encoding="base64" compression="zlib">
-   eJy7IcDAcGMAsIrgwGBkMCkRgqkNaGXuKBgFo2AUjALagomJEIwOdE0YGPSAWJ8ANgBiQxPizSUEbIFm2QGxPQHsAMSOWOwlF/w3Jt5eBjLtxVZX8pPgXwETwuYNJAAA33pBuA==
+   eJy7IcDAcGMAsIrgwGBkMCkRgqkNaGXuKBgFo2AUjALagomJEIwOZFMYGOSAWJ4IrJhCvLmEgC7QLDsTBgb9FPzYAIgNsdhLLsgnwd4CMu3FVlfWE2kvCDekEDZvIAEAeiRIVw==
   </data>
   </layer>
  </group>
  <layer id="6" name="Livello tile 6" width="30" height="20">
   <data encoding="base64" compression="zlib">
-   eJy7yshAd3B1AOwcBaNgFIyCoQbEbRGYnnapI2FaA3raNQooB36mA2Nv3ADZSy7IZWJgAABunAeC
+   eJy7yshAd3B1AOwcBaNgFIyCoQbE0xCYnnapI2FaA3raNQooB+sGKJ72DbH0kcvEwAAAzs8KkA==
   </data>
  </layer>
  <layer id="5" name="bordo coso" width="30" height="20">
@@ -31,12 +38,12 @@
  </layer>
  <layer id="4" name="oggetti" width="30" height="20">
   <data encoding="base64" compression="zlib">
-   eJxjYBgFIw3YK1MXD3Yw6t9R/476d9S/Q8W/uICJIgODKQ5spkg7e12AZrviwG40tJeaII8Jlc/rzMDA50w983GZBwArvzWD
+   eJxjYBgFIw0sy2RgWE5FPNjBqH9H/Tvq31H/DhX/4gJMQLcz48AsNPSXENBsYRxYZIiEZx4TKp83n4GBL5965uMyDwAvM4kd
   </data>
  </layer>
  <layer id="7" name="oggetti davanti" width="30" height="20">
   <data encoding="base64" compression="zlib">
-   eJxjYECAtX4MDOuAeL0fA9UAMWbuBcrtA+L9VLSXFmZSG+gpUw/rKw+0bwiDUf+O+nfUv6P+HSr+HcxA2hHBnu9KP3u1gfb+dySsjhaA32lg7KUEAADjrTVs
+   eJxjYECA2FIGhjggji9loBogxsxcoFweEOdT0V5amEltMC2Tuniwg1H/jvp31L+j/h0q/h3MQNoRwZ7vSj97tYH2/nckrI4WgN9pYOylBAAA5/qFCg==
   </data>
  </layer>
  <objectgroup id="8" name="Collisioni">
@@ -60,7 +67,7 @@
   <object id="24" x="79.9165" y="125.063" width="320.136" height="20.375"/>
   <object id="25" x="80.0727" y="92.8125" width="319.917" height="20.125"/>
   <object id="26" x="80.0102" y="60.5625" width="319.823" height="20.125"/>
-  <object id="31" x="159.935" y="239.923" width="160.312" height="11.0622"/>
+  <object id="31" x="159.026" y="251.105" width="160.312" height="0.698564"/>
   <object id="32" x="155.753" y="255.014" width="1.58424" height="16.8804"/>
   <object id="33" x="155.753" y="287.742" width="1.58424" height="16.8804"/>
  </objectgroup>

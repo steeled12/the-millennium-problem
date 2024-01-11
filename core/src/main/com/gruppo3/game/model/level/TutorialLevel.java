@@ -30,7 +30,7 @@ public class TutorialLevel extends LevelStrategy {
         super();
 
         // map
-        this.map = new TmxMapLoader().load("maps/tutorial/Tutorial_map.tmx");
+        this.map = new TmxMapLoader().load("map/tutorial/Tutorial_map.tmx");
 
         // pc acceso o spento
         this.map.getLayers().get("Messaggio").setVisible(false);
