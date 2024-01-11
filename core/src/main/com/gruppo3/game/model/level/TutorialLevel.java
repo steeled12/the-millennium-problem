@@ -129,7 +129,7 @@ public class TutorialLevel extends LevelStrategy {
                 }
 
                 ChoiceDialogNode scelta = new ChoiceDialogNode("TEMPO DI...", sceltaPointer);
-                scelta.addChoice("DECIFRARLO!", -1, new Action() {
+                scelta.addChoice("DECIFRARLO!", 4, new Action() {
                     @Override
                     public void action() {
                         GameScreen.savedInformation.put("turialDoor", "done");
@@ -142,6 +142,11 @@ public class TutorialLevel extends LevelStrategy {
                     }
                 });
                 dialog.addNode(scelta);
+                dialog.addNode(new LinearDialogNode("[Bip bup, bup bip...]", 4).setPointer(5));
+                dialog.addNode(new LinearDialogNode("[BOP ??]", 5).setPointer(6));
+                dialog.addNode(new LinearDialogNode("\"Non-polynomial / Rettangolo / Scoperta / Soldi / Caos\"", 6)
+                        .setPointer(7));
+                dialog.addNode(new LinearDialogNode("Non ha molto senso ma è quello che riesco a decifrare...", 7));
                 GameScreen.dialogController.startDialog(dialog);
             }
         };
@@ -161,10 +166,12 @@ public class TutorialLevel extends LevelStrategy {
                         Dialog arrivoDialog = new Dialog();
                         arrivoDialog.addNode(new LinearDialogNode("Finalmente sono arrivato...", 0).setPointer(1));
                         arrivoDialog.addNode(
-                                new LinearDialogNode("Dovrei parlare con il professore per chiedergli del messaggio", 1)
+                                new LinearDialogNode("(Dovrei parlare con il professore per chiedergli del messaggio)",
+                                        1)
                                         .setPointer(2));
                         arrivoDialog
-                                .addNode(new LinearDialogNode("Dovrebbe trovarsi al primo piano nella sua stanza", 2));
+                                .addNode(
+                                        new LinearDialogNode("(Dovrebbe trovarsi al primo piano nella sua stanza)", 2));
                         GameScreen.dialogController.startDialog(arrivoDialog);
                         break;
 
@@ -196,6 +203,9 @@ public class TutorialLevel extends LevelStrategy {
             }
         };
 
+        if (GameScreen.savedInformation.containsKey("turialDoor")) {
+            scriptableObjectsController.scriptableObjectsList.add(pc);
+        }
         scriptableObjectsController.scriptableObjectsList.add(paperella);
         scriptableObjectsController.scriptableObjectsList.add(porta);
         scriptableObjectsController.scriptableObjectsList.add(albero);

@@ -44,8 +44,14 @@ public class PrimoPianoAtto1Level extends LevelStrategy {
         ScriptableObject scale = new ScriptableObject(new Rectangle(37, 20, 3, 2), true) {
             @Override
             public void action() {
-                GameScreen.levelController.setLevel(new CorridoioAtto1Level());
-                Player.getPlayer().getPlayerBox().setPosition(31, 19);
+                if (GameScreen.savedInformation.get("atto").equals("atto2")) {
+                    GameScreen.levelController.setLevel(new CorridoioAtto2Level());
+                    Player.getPlayer().getPlayerBox().setPosition(32, 17);
+                } else {
+                    GameScreen.levelController.setLevel(new CorridoioAtto1Level());
+                    Player.getPlayer().getPlayerBox().setPosition(31, 19);
+                }
+
             }
         };
         scriptableObjectsController.scriptableObjectsList.add(portaStanzaRettangolo);

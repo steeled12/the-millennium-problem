@@ -91,7 +91,6 @@ public class SaveController {
     private static void savePlayerPosition(float x, float y) {
         currentSave.putFloat("playerX", x);
         currentSave.putFloat("playerY", y);
-        Gdx.app.log("SaveController", "PlayerPosition salvata!");
     }
 
     private static void saveTime() {
