@@ -44,7 +44,9 @@ public class LoadMenu extends MenuState {
                 @Override
                 public void clicked(InputEvent event, float x, float y) {
                     SaveController.loadSave(0);
-                    game.setScreen(new GameScreen(game));
+                    GameScreen gameScreen = new GameScreen(game);
+                    game.currentScreen = gameScreen;
+                    game.setScreen(gameScreen);
                 }
             });
         }
@@ -54,7 +56,9 @@ public class LoadMenu extends MenuState {
                 @Override
                 public void clicked(InputEvent event, float x, float y) {
                     SaveController.loadSave(1);
-                    game.setScreen(new GameScreen(game));
+                    GameScreen gameScreen = new GameScreen(game);
+                    game.currentScreen = gameScreen;
+                    game.setScreen(gameScreen);
                 }
             });
         }
@@ -64,7 +68,9 @@ public class LoadMenu extends MenuState {
                 @Override
                 public void clicked(InputEvent event, float x, float y) {
                     SaveController.loadSave(2);
-                    game.setScreen(new GameScreen(game));
+                    GameScreen gameScreen = new GameScreen(game);
+                    game.currentScreen = gameScreen;
+                    game.setScreen(gameScreen);
                 }
             });
         }

@@ -9,12 +9,14 @@ import com.badlogic.gdx.maps.objects.RectangleMapObject;
 import com.badlogic.gdx.maps.tiled.TmxMapLoader;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
 import com.badlogic.gdx.math.Rectangle;
+import com.gruppo3.game.MyGame;
 import com.gruppo3.game.controller.SettingController;
 import com.gruppo3.game.model.dialog.Dialog;
 import com.gruppo3.game.model.dialog.LinearDialogNode;
 import com.gruppo3.game.model.dialog.ChoiceDialogNode;
 import com.gruppo3.game.model.interactables.*;
 import com.gruppo3.game.model.Player;
+import com.gruppo3.game.screens.TransitionScreen;
 import com.gruppo3.game.util.Action;
 import com.gruppo3.game.screens.GameScreen;
 
@@ -46,10 +48,8 @@ public class Aula6Atto1Level extends LevelStrategy {
         ScriptableObject portaSx = new ScriptableObject(new Rectangle(4, 0, 2, 2), true) {
             @Override
             public void action() {
-                GameScreen.levelToLoad = "CorridoioAtto1Level";
-                GameScreen.levelController.setLevel(new CorridoioAtto1Level());
-                Player.getPlayer().getPlayerBox().x = 4;
-                Player.getPlayer().getPlayerBox().y = 14;
+                TransitionScreen fadeScreen = new TransitionScreen(GameScreen.levelController.getCurrentLevel(), new CorridoioAtto1Level(), (MyGame) Gdx.app.getApplicationListener(), 4, 14);
+                ((MyGame) Gdx.app.getApplicationListener()).setScreen(fadeScreen);
             }
         };
         scriptableObjectsController.scriptableObjectsList.add(portaSx);
@@ -57,10 +57,8 @@ public class Aula6Atto1Level extends LevelStrategy {
         ScriptableObject portaDx = new ScriptableObject(new Rectangle(24, 0, 2, 2), true) {
             @Override
             public void action() {
-                GameScreen.levelToLoad = "CorridoioAtto1Level";
-                GameScreen.levelController.setLevel(new CorridoioAtto1Level());
-                Player.getPlayer().getPlayerBox().x = 12;
-                Player.getPlayer().getPlayerBox().y = 14;
+                TransitionScreen fadeScreen = new TransitionScreen(GameScreen.levelController.getCurrentLevel(), new CorridoioAtto1Level(), (MyGame) Gdx.app.getApplicationListener(), 12, 14);
+                ((MyGame) Gdx.app.getApplicationListener()).setScreen(fadeScreen);
             }
         };
         scriptableObjectsController.scriptableObjectsList.add(portaDx);

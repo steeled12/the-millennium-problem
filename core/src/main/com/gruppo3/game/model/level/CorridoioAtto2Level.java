@@ -18,6 +18,8 @@ import com.gruppo3.game.model.Player;
 import com.gruppo3.game.util.Action;
 import com.gruppo3.game.screens.GameScreen;
 import com.gruppo3.game.controller.SettingController;
+import com.gruppo3.game.screens.TransitionScreen;
+import com.gruppo3.game.MyGame;
 
 public class CorridoioAtto2Level extends LevelStrategy {
 
@@ -49,17 +51,15 @@ public class CorridoioAtto2Level extends LevelStrategy {
         ScriptableObject portaAula6Sx = new ScriptableObject(new Rectangle(4, 15, 2, 2), true) {
             @Override
             public void action() {
-                GameScreen.levelToLoad = "Aula6Level";
-                GameScreen.levelController.setLevel(new Aula6Level());
-                Player.getPlayer().getPlayerBox().x = 4;
-                Player.getPlayer().getPlayerBox().y = 1;
+                TransitionScreen fadeScreen = new TransitionScreen(GameScreen.levelController.getCurrentLevel(), new Aula6Level(), (MyGame) Gdx.app.getApplicationListener(),4,1);
+                ((MyGame) Gdx.app.getApplicationListener()).setScreen(fadeScreen);
             }
         };
         ScriptableObject portaAula6Dx = new ScriptableObject(new Rectangle(12, 15, 2, 2), true) {
             @Override
             public void action() {
-                GameScreen.levelToLoad = "Aula6Level";
-                GameScreen.levelController.setLevel(new Aula6Level());
+                TransitionScreen fadeScreen = new TransitionScreen(GameScreen.levelController.getCurrentLevel(), new Aula6Level(), (MyGame) Gdx.app.getApplicationListener(),0,0);
+                ((MyGame) Gdx.app.getApplicationListener()).setScreen(fadeScreen);
             }
         };
         scriptableObjectsController.scriptableObjectsList.add(portaAula6Sx);
@@ -68,17 +68,15 @@ public class CorridoioAtto2Level extends LevelStrategy {
         ScriptableObject portaAula4Dx = new ScriptableObject(new Rectangle(64, 15, 2, 2), true) {
             @Override
             public void action() {
-                GameScreen.levelToLoad = "Aula4Level";
-                GameScreen.levelController.setLevel(new Aula4Level());
+                TransitionScreen fadeScreen = new TransitionScreen(GameScreen.levelController.getCurrentLevel(), new Aula4Level(), (MyGame) Gdx.app.getApplicationListener(),0,0);
+                ((MyGame) Gdx.app.getApplicationListener()).setScreen(fadeScreen);
             }
         };
         ScriptableObject portaAula4Sx = new ScriptableObject(new Rectangle(58, 15, 2, 2), true) {
             @Override
             public void action() {
-                GameScreen.levelToLoad = "Aula4Level";
-                GameScreen.levelController.setLevel(new Aula4Level());
-                Player.getPlayer().getPlayerBox().x = 4;
-                Player.getPlayer().getPlayerBox().y = 1;
+                TransitionScreen fadeScreen = new TransitionScreen(GameScreen.levelController.getCurrentLevel(), new Aula4Level(), (MyGame) Gdx.app.getApplicationListener(),4,1);
+                ((MyGame) Gdx.app.getApplicationListener()).setScreen(fadeScreen);
             }
         };
         scriptableObjectsController.scriptableObjectsList.add(portaAula4Dx); 
@@ -133,10 +131,8 @@ public class CorridoioAtto2Level extends LevelStrategy {
         portaApertaNode1.addChoice("Sì", -1, new Action() {
             @Override
             public void action() {
-                GameScreen.levelToLoad = "SotterraneiAtto2Level";
-                GameScreen.levelController.setLevel(new SotterraneiAtto2Level());
-                Player.getPlayer().getPlayerBox().x = 1;
-                Player.getPlayer().getPlayerBox().y = 1;
+                TransitionScreen fadeScreen = new TransitionScreen(GameScreen.levelController.getCurrentLevel(), new SotterraneiAtto2Level(), (MyGame) Gdx.app.getApplicationListener(),1,1);
+                ((MyGame) Gdx.app.getApplicationListener()).setScreen(fadeScreen);
             }
         });
         portaApertaNode1.addChoice("Non ancora");

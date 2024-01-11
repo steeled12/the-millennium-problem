@@ -1,5 +1,6 @@
 package com.gruppo3.game.model.level;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.maps.MapLayer;
 import com.badlogic.gdx.maps.MapObject;
@@ -7,6 +8,7 @@ import com.badlogic.gdx.maps.objects.RectangleMapObject;
 import com.badlogic.gdx.maps.tiled.TmxMapLoader;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
 import com.badlogic.gdx.math.Rectangle;
+import com.gruppo3.game.MyGame;
 import com.gruppo3.game.model.Player;
 import com.gruppo3.game.model.dialog.ChoiceDialogNode;
 import com.gruppo3.game.model.dialog.Dialog;
@@ -14,6 +16,7 @@ import com.gruppo3.game.model.dialog.LinearDialogNode;
 import com.gruppo3.game.model.interactables.NPC;
 import com.gruppo3.game.model.interactables.ScriptableObject;
 import com.gruppo3.game.screens.GameScreen;
+import com.gruppo3.game.screens.TransitionScreen;
 
 public class StanzaRettangoloAtto1Level extends LevelStrategy {
     public StanzaRettangoloAtto1Level() {
@@ -85,8 +88,8 @@ public class StanzaRettangoloAtto1Level extends LevelStrategy {
         ScriptableObject portaPrimoPiano = new ScriptableObject(new Rectangle(7, 1, 2, 1), true) {
             @Override
             public void action() {
-                GameScreen.levelController.setLevel(new PrimoPianoAtto1Level());
-                Player.getPlayer().getPlayerBox().setPosition(51, 14);
+                TransitionScreen fadeScreen = new TransitionScreen(GameScreen.levelController.getCurrentLevel(), new PrimoPianoAtto1Level(), (MyGame) Gdx.app.getApplicationListener(),51,14);
+                ((MyGame) Gdx.app.getApplicationListener()).setScreen(fadeScreen);
             }
         };
 

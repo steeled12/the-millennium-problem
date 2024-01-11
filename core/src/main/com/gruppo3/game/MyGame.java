@@ -5,11 +5,13 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.gruppo3.game.controller.SettingController;
 import com.gruppo3.game.screens.MenuScreen;
+import com.gruppo3.game.screens.GameScreen;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.gruppo3.game.util.SkinGenerator;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
+import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 
 public class MyGame extends Game {
 
@@ -23,9 +25,12 @@ public class MyGame extends Game {
 	Texture img;
 	public static Skin skin;
 	private AssetManager assetManager;
+	public GameScreen currentScreen;
+	public ShapeRenderer shapeRenderer;
 
 	@Override
 	public void create() {
+		shapeRenderer = new ShapeRenderer();
 		assetManager = new AssetManager();
 		batch = new SpriteBatch();
 		assetManager.load("ui/uipack.atlas", TextureAtlas.class);

@@ -47,7 +47,9 @@ public class MainMenu extends MenuState {
             @Override
             public void clicked(InputEvent event, float x, float y) {
                 SaveController.newGame();
-                game.setScreen(new GameScreen(game));
+                GameScreen gameScreen = new GameScreen(game);
+                game.currentScreen = gameScreen;
+                game.setScreen(gameScreen);
             }
         });
 

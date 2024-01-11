@@ -9,12 +9,14 @@ import com.badlogic.gdx.maps.objects.RectangleMapObject;
 import com.badlogic.gdx.maps.tiled.TmxMapLoader;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
 import com.badlogic.gdx.math.Rectangle;
+import com.gruppo3.game.MyGame;
 import com.gruppo3.game.controller.SettingController;
 import com.gruppo3.game.model.dialog.Dialog;
 import com.gruppo3.game.model.dialog.LinearDialogNode;
 import com.gruppo3.game.model.dialog.ChoiceDialogNode;
 import com.gruppo3.game.model.interactables.*;
 import com.gruppo3.game.model.Player;
+import com.gruppo3.game.screens.TransitionScreen;
 import com.gruppo3.game.util.Action;
 import com.gruppo3.game.screens.GameScreen;
 
@@ -48,15 +50,15 @@ public class CorridoioAtto1Level extends LevelStrategy {
         ScriptableObject portaAula6Sx = new ScriptableObject(new Rectangle(4, 15, 2, 2), true) {
             @Override
             public void action() {
-                GameScreen.levelController.setLevel(new Aula6Atto1Level());
-                Player.getPlayer().getPlayerBox().x = 4;
-                Player.getPlayer().getPlayerBox().y = 1;
+                TransitionScreen fadeScreen = new TransitionScreen(GameScreen.levelController.getCurrentLevel(), new Aula6Atto1Level(), (MyGame) Gdx.app.getApplicationListener(),4,1);
+                ((MyGame) Gdx.app.getApplicationListener()).setScreen(fadeScreen);
             }
         };
         ScriptableObject portaAula6Dx = new ScriptableObject(new Rectangle(12, 15, 2, 2), true) {
             @Override
             public void action() {
-                GameScreen.levelController.setLevel(new Aula6Atto1Level());
+                TransitionScreen fadeScreen = new TransitionScreen(GameScreen.levelController.getCurrentLevel(), new Aula6Atto1Level(), (MyGame) Gdx.app.getApplicationListener(),0,0);
+                ((MyGame) Gdx.app.getApplicationListener()).setScreen(fadeScreen);
             }
         };
         scriptableObjectsController.scriptableObjectsList.add(portaAula6Sx);
@@ -65,15 +67,15 @@ public class CorridoioAtto1Level extends LevelStrategy {
         ScriptableObject portaAula4Dx = new ScriptableObject(new Rectangle(64, 15, 2, 2), true) {
             @Override
             public void action() {
-                GameScreen.levelController.setLevel(new Aula4Atto1Level());
+                TransitionScreen fadeScreen = new TransitionScreen(GameScreen.levelController.getCurrentLevel(), new Aula4Atto1Level(), (MyGame) Gdx.app.getApplicationListener(),0,0);
+                ((MyGame) Gdx.app.getApplicationListener()).setScreen(fadeScreen);
             }
         };
         ScriptableObject portaAula4Sx = new ScriptableObject(new Rectangle(58, 15, 2, 2), true) {
             @Override
             public void action() {
-                GameScreen.levelController.setLevel(new Aula4Atto1Level());
-                Player.getPlayer().getPlayerBox().x = 4;
-                Player.getPlayer().getPlayerBox().y = 1;
+                TransitionScreen fadeScreen = new TransitionScreen(GameScreen.levelController.getCurrentLevel(), new Aula4Atto1Level(), (MyGame) Gdx.app.getApplicationListener(),4,1);
+                ((MyGame) Gdx.app.getApplicationListener()).setScreen(fadeScreen);
             }
         };
         scriptableObjectsController.scriptableObjectsList.add(portaAula4Dx);
@@ -115,8 +117,8 @@ public class CorridoioAtto1Level extends LevelStrategy {
         ScriptableObject porta = new ScriptableObject(new Rectangle(30, 20, 3, 2), true) {
             @Override
             public void action() {
-                GameScreen.levelController.setLevel(new PrimoPianoAtto1Level());
-                Player.getPlayer().getPlayerBox().setPosition(38, 19);
+                TransitionScreen fadeScreen = new TransitionScreen(GameScreen.levelController.getCurrentLevel(), new PrimoPianoAtto1Level(), (MyGame) Gdx.app.getApplicationListener(),38,19);
+                ((MyGame) Gdx.app.getApplicationListener()).setScreen(fadeScreen);
             }
         };
         scriptableObjectsController.scriptableObjectsList.add(porta);
