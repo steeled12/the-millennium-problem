@@ -39,7 +39,8 @@ public class CorridoioAtto1Level extends LevelStrategy {
         }
         // render
         renderer = new OrthogonalTiledMapRenderer(map, unitScale);
-
+        Player.getPlayer().getPlayerBox().x = 33;
+        Player.getPlayer().getPlayerBox().y = 1;
     }
 
     @Override
@@ -204,8 +205,7 @@ public class CorridoioAtto1Level extends LevelStrategy {
 
         rettore.setDialog(rettoreDialog);
 
-        Player.getPlayer().getPlayerBox().x = 33;
-        Player.getPlayer().getPlayerBox().y = 1;
+
     }
 
     @Override

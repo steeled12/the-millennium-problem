@@ -43,7 +43,8 @@ public class SotterraneiAtto2Level extends LevelStrategy {
         // render
         renderer = new OrthogonalTiledMapRenderer(map, unitScale);
 
-
+        Player.getPlayer().getPlayerBox().x = 1;
+        Player.getPlayer().getPlayerBox().y = 1;
     }
 
     @Override
@@ -89,8 +90,7 @@ public class SotterraneiAtto2Level extends LevelStrategy {
             }
         };
         scriptableObjectsController.scriptableObjectsList.add(portaSx);
-        Player.getPlayer().getPlayerBox().x = 1;
-        Player.getPlayer().getPlayerBox().y = 1;
+
         
     }
 

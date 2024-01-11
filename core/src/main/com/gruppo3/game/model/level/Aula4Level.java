@@ -39,6 +39,8 @@ public class Aula4Level extends LevelStrategy {
         }
         // render
         renderer = new OrthogonalTiledMapRenderer(map, unitScale);
+        Player.getPlayer().getPlayerBox().x = 25;
+        Player.getPlayer().getPlayerBox().y = 1;
     }
 
     @Override
@@ -99,8 +101,7 @@ public class Aula4Level extends LevelStrategy {
         npcController.add(andrea);
         andrea.setDialog(peppeDialog);
 
-        Player.getPlayer().getPlayerBox().x = 25;
-        Player.getPlayer().getPlayerBox().y = 1;
+
     }
 
     public void changeMap(String mapName, float x, float y) {
@@ -118,8 +119,7 @@ public class Aula4Level extends LevelStrategy {
         }
         this.renderer = new OrthogonalTiledMapRenderer(map, unitScale);
 
-        Player.getPlayer().getPlayerBox().x = x;
-        Player.getPlayer().getPlayerBox().y = y;
+
         
     }
 

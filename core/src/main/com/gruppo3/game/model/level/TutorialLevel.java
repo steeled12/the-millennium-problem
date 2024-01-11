@@ -55,6 +55,7 @@ public class TutorialLevel extends LevelStrategy {
         this.messageSound = Gdx.audio.newSound(Gdx.files.internal("sound/message_sound.mp3"));
         this.music = Gdx.audio.newMusic(Gdx.files.internal("music/tutorialMusic.mp3"));
         this.music.setLooping(true);
+        Player.getPlayer().getPlayerBox().setPosition(6, 13);
     }
 
     @Override
@@ -63,7 +64,7 @@ public class TutorialLevel extends LevelStrategy {
         this.music.play();
 
         // Player
-        Player.getPlayer().getPlayerBox().setPosition(6, 13);
+
 
         // NPC
         Cat cat = new Cat(

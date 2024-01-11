@@ -40,6 +40,8 @@ public class Aula6Level extends LevelStrategy {
         }
         // render
         renderer = new OrthogonalTiledMapRenderer(map, unitScale);
+        Player.getPlayer().getPlayerBox().x = 25;
+        Player.getPlayer().getPlayerBox().y = 1;
     }
 
     @Override
@@ -118,8 +120,7 @@ public class Aula6Level extends LevelStrategy {
 
         prof.setDialog(profDialog);
 
-        Player.getPlayer().getPlayerBox().x = 25;
-        Player.getPlayer().getPlayerBox().y = 1;
+
     }
 
     public void changeMap(String mapName, float x, float y) {

@@ -45,6 +45,8 @@ public class SecretRoomLevel extends LevelStrategy {
             }
         }
         renderer = new OrthogonalTiledMapRenderer(map, unitScale);
+        Player.getPlayer().getPlayerBox().x = 14.5f;
+        Player.getPlayer().getPlayerBox().y = 0;
     }
 
     @Override
@@ -303,8 +305,7 @@ public class SecretRoomLevel extends LevelStrategy {
 
         libreria.setDialog(libDialog);
 
-        Player.getPlayer().getPlayerBox().x = 14.5f;
-        Player.getPlayer().getPlayerBox().y = 0;
+
         Player.getPlayer().setPlayerDirection(Player.PlayerDirection.NORTH);
     }
 
