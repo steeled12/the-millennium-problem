@@ -1,8 +1,10 @@
 package com.gruppo3.game.model.menus;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
@@ -30,6 +32,7 @@ public class PauseMenu extends MenuState {
         Table mainTable = new Table();
         // Set table to fill stage
         mainTable.setFillParent(true);
+        mainTable.setBackground(skin.newDrawable("textfield", r, g, b, 1));
 
         // Create buttons
         TextButton resumeButton = new TextButton("Riprendi", skin);
@@ -64,6 +67,8 @@ public class PauseMenu extends MenuState {
         });
 
         // Add buttons to table
+        mainTable.row().spaceBottom(10);
+        mainTable.add(new Label("Pausa", skin, "title")).colspan(4).center();
         mainTable.row().spaceBottom(10);
         mainTable.add(resumeButton);
         mainTable.row().spaceBottom(10);

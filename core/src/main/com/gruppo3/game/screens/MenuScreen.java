@@ -8,6 +8,7 @@ import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
 import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator.FreeTypeFontParameter;
+import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.gruppo3.game.MyGame;
 import com.gruppo3.game.controller.MenuController;
 import com.badlogic.gdx.audio.Music;
@@ -64,6 +65,10 @@ public class MenuScreen implements Screen {
     @Override
     public void resize(int width, int height) {
         menuController.getStage().getViewport().update(width, height, true);
+        // Actor table = menuController.getStage().getActors().first();
+        // table.setSize(width / 1.5f, height / 1.5f);
+        // table.setPosition((width - table.getWidth()) / 2, (height -
+        // table.getHeight()) / 2);
     }
 
     @Override

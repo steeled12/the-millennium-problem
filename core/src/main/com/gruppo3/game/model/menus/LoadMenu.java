@@ -1,12 +1,14 @@
 package com.gruppo3.game.model.menus;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
+import com.badlogic.gdx.scenes.scene2d.utils.Drawable;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import com.gruppo3.game.MyGame;
@@ -27,14 +29,18 @@ public class LoadMenu extends MenuState {
         stage = new Stage(viewport);
 
         // Create Table
-        Table mainTable = new Table();
+        Table mainTable = new Table(skin);
         // Set table to fill stage
         mainTable.setFillParent(true);
+        mainTable.setBackground(skin.newDrawable("textfield", r, g, b, 1));
 
         // Create buttons
         TextButton load1Button = new TextButton("Vuoto", skin);
         TextButton load2Button = new TextButton("Vuoto", skin);
         TextButton load3Button = new TextButton("Vuoto", skin);
+        TextButton delete1Button = new TextButton("Elimina", skin);
+        TextButton delete2Button = new TextButton("Elimina", skin);
+        TextButton delete3Button = new TextButton("Elimina", skin);
         TextButton backButton = new TextButton("Back", skin);
 
         // Add listeners to buttons
@@ -47,7 +53,16 @@ public class LoadMenu extends MenuState {
                     game.setScreen(new GameScreen(game));
                 }
             });
+
+            delete1Button.addListener(new ClickListener() {
+                @Override
+                public void clicked(InputEvent event, float x, float y) {
+                    SaveController.deleteSave(0);
+                    loader.changeState(new LoadMenu(loader));
+                }
+            });
         }
+
         if (SaveController.saveExists(1)) {
             load2Button.setText("Avvia");
             load2Button.addListener(new ClickListener() {
@@ -57,7 +72,16 @@ public class LoadMenu extends MenuState {
                     game.setScreen(new GameScreen(game));
                 }
             });
+
+            delete2Button.addListener(new ClickListener() {
+                @Override
+                public void clicked(InputEvent event, float x, float y) {
+                    SaveController.deleteSave(1);
+                    loader.changeState(new LoadMenu(loader));
+                }
+            });
         }
+
         if (SaveController.saveExists(2)) {
             load3Button.setText("Avvia");
             load3Button.addListener(new ClickListener() {
@@ -67,7 +91,15 @@ public class LoadMenu extends MenuState {
                     game.setScreen(new GameScreen(game));
                 }
             });
+            delete3Button.addListener(new ClickListener() {
+                @Override
+                public void clicked(InputEvent event, float x, float y) {
+                    SaveController.deleteSave(2);
+                    loader.changeState(new LoadMenu(loader));
+                }
+            });
         }
+
         backButton.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
@@ -77,21 +109,26 @@ public class LoadMenu extends MenuState {
 
         // Add buttons to table
         mainTable.row().spaceBottom(10);
+        mainTable.add(new Label("Carica", skin, "title")).colspan(4).center();
+        mainTable.row().spaceBottom(10);
         mainTable.add(new Label("Save1: ", skin));
         mainTable.add(load1Button);
         if (SaveController.saveExists(0)) {
+            mainTable.add(delete1Button);
             mainTable.add(new Label(" " + SaveController.getSave(0).getString("time"), skin));
         }
         mainTable.row().spaceBottom(10);
         mainTable.add(new Label("Save2: ", skin));
         mainTable.add(load2Button);
         if (SaveController.saveExists(1)) {
+            mainTable.add(delete2Button);
             mainTable.add(new Label(" " + SaveController.getSave(1).getString("time"), skin));
         }
         mainTable.row().spaceBottom(10);
         mainTable.add(new Label("Save3: ", skin));
         mainTable.add(load3Button);
         if (SaveController.saveExists(2)) {
+            mainTable.add(delete3Button);
             mainTable.add(new Label(" " + SaveController.getSave(2).getString("time"), skin));
         }
         mainTable.row().spaceBottom(15);

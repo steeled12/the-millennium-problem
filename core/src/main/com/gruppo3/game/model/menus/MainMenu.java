@@ -5,7 +5,6 @@ import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
-import com.badlogic.gdx.scenes.scene2d.ui.TextTooltip;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
@@ -13,8 +12,7 @@ import com.gruppo3.game.MyGame;
 import com.gruppo3.game.controller.MenuController;
 import com.gruppo3.game.screens.GameScreen;
 import com.gruppo3.game.controller.SaveController;
-import com.badlogic.gdx.scenes.scene2d.ui.Image;
-import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.scenes.scene2d.ui.Label;
 
 public class MainMenu extends MenuState {
 
@@ -30,11 +28,12 @@ public class MainMenu extends MenuState {
 
         // Create Table
         Table mainTable = new Table();
-        mainTable.setSkin(skin);
         // Set table to fill stage
-        mainTable.setFillParent(true);  
-        Image logoImage = new Image(new Texture(Gdx.files.internal("logo.gif")));
-                
+        mainTable.setFillParent(true);
+        mainTable.setBackground(skin.newDrawable("textfield", r, g, b, 1));
+
+        Label title = new Label("The Millennium Problem", skin, "title");
+        title.setFontScale(1.2f);
 
         // Create buttons
         TextButton playButton = new TextButton("Nuova Partita", skin);
@@ -71,8 +70,8 @@ public class MainMenu extends MenuState {
         });
 
         // Add buttons to table
-        mainTable.row();
-        mainTable.add(logoImage).center().padBottom(50);
+        mainTable.row().spaceBottom(10);
+        mainTable.add(title);
         mainTable.row().spaceBottom(10);
         mainTable.add(playButton);
         mainTable.row().spaceBottom(10);
