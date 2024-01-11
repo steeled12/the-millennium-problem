@@ -10,6 +10,12 @@
   <image source="../Room_Builder_16x16.png" width="1216" height="1744"/>
  </tileset>
  <tileset firstgid="33593" source="../arrow_up.tsx"/>
+ <tileset firstgid="51134" source="../tilesets/18_Jail_16x16.tsx"/>
+ <tileset firstgid="51854" source="../tilesets/5_Classroom_and_library_16x16.tsx"/>
+ <tileset firstgid="52398" source="../tilesets/11_Halloween_16x16.tsx"/>
+ <tileset firstgid="53374" source="../tilesets/2_LivingRoom_16x16.tsx"/>
+ <tileset firstgid="54094" source="../tilesets/13_Conference_Hall_16x16.tsx"/>
+ <tileset firstgid="54286" source="../tilesets/19_Hospital_16x16.tsx"/>
  <group id="8" name="Terra">
   <layer id="2" name="pavimento" width="30" height="20">
    <data encoding="base64" compression="zlib">
@@ -29,7 +35,7 @@
  </group>
  <layer id="5" name="oggetti" width="30" height="20">
   <data encoding="base64" compression="zlib">
-   eJxjYEAF1xwgGBsQdGRgeASUewzEQkC2MBJfxBG7HnzmIYNnDhCMDSgCzf4ElPsMxEpAtjISXwVqb60pA0OdKXHmEQsMgWYzATEzEBsBsTES3wRqby/Qzj5T/OaQAmSB5soRwPI4wpoSoAs0U48A1qeBvdiAZTN97BkqgE8Hv3yiBQNDEhAnA7GjMQODExA7G1NurxwWe3mRxAqB9hUBcTEQBwLtCwLiYCrYCwJ5dgwM+XYI/nwktj8wv+lC81wi0L4kIE6mgr1bgH6rA9pTj2TXeiR2PBXzOSnAn072zgfaswDJroHy7ygYBcMFAACVCjac
+   eJxjYEAFy09AMDbwCCi+GYi3APFjIH6CxH+KQw8+85DB9hMQjA18AoofBuIjQPwZiL8g8b9C9bw+xcDw5hRx5hELmE4yMFwGmnEFiJmBbBYkPutJiJrfQDv/nMJvDingHdDs9wTwBwr9hQ38A5r5nwBmOEl9e7EBy2b62ENLEHeegSEeiBPOU27W+TPEq80D2pcPxAVUsPc+FntxuaUOaF89EDdQwV4QaLvIwNB+EcF3RWIfAua3edA81we0rx+IJ1DB3tKzDAzTgPZMR7IrFIl9iYr5nBRwiE72/gDa8xPJroHy7ygYBcMFAAAuuoES
   </data>
  </layer>
  <layer id="3" name="arco" width="30" height="20">
@@ -39,7 +45,7 @@
  </layer>
  <layer id="6" name="sopra_tavolo" width="30" height="20">
   <data encoding="base64" compression="zlib">
-   eJxjYBhYYOqIHbsaMzC4GVPPPHTg6ogdhwLtDCPDXlzmoYNQR+w4FWhnGg57fzvgtheXeeQAC6A+ASS93I4IcV8yzSQGeOAwG5f4KBhcgM2Hdma3e+CWE0OyN9+VuvZOx2MvMqinsr0g0G/KwDDBlPrmjgLqAC4lYNmoRLw4tYAU0GxpLObjEh8FAw8A42EhfQ==
+   eJxjYBhYwHaSgYH9JCZtdJ6Bwfg8eeahY5B56EAMKCZ+EpN2AtrpTIa9YicxsTgWe9WAYuonMekgoJ3BOOw9cwK3vWonMbE6FnuJAZxAfQ+R7LpzAiEuR6aZxABJHGbjEh8Fgwu036Kd2dyXcctNR7L3NB515ABpIs27TWV7QeDFKQaGl6eob+4ooA7ovsDA0HOBeHFqgdlAs+dgMR+X+CgYeAAA5AtFbQ==
   </data>
  </layer>
  <objectgroup id="10" name="Collisioni">

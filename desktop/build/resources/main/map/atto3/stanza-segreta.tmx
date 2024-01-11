@@ -4,13 +4,17 @@
   <image source="../Room_Builder_16x16.png" width="1216" height="1744"/>
  </tileset>
  <tileset firstgid="8285" name="Interiors_16x16" tilewidth="16" tileheight="16" tilecount="17024" columns="16">
-  <image source="..//Interiors_16x16.png" width="256" height="17024"/>
+  <image source="../Interiors_16x16.png" width="256" height="17024"/>
  </tileset>
  <tileset firstgid="25309" name="Room_Builder_16x16" tilewidth="16" tileheight="16" tilecount="8284" columns="76">
   <image source="../Room_Builder_16x16.png" width="1216" height="1744"/>
  </tileset>
  <tileset firstgid="33593" source="../arrow_up.tsx"/>
- <group id="8" name="Terra">
+ <tileset firstgid="51134" source="../tilesets/18_Jail_16x16.tsx"/>
+ <tileset firstgid="51854" source="../tilesets/5_Classroom_and_library_16x16.tsx"/>
+ <tileset firstgid="52398" source="../tilesets/11_Halloween_16x16.tsx"/>
+ <tileset firstgid="53374" source="../tilesets/2_LivingRoom_16x16.tsx"/>
+ <group id="8" name="Terra" visible="0">
   <layer id="2" name="pavimento" width="30" height="20">
    <data encoding="base64" compression="zlib">
    eJzFVEEOwCAI8wHzPfr/7+gjFg8khACCQ9akmTOLXSlSyn8YD88p7J9woiegVZ5d2D/hOovqRnuz+oX3KG+YcLami7+5wZ1ur2fUarzLl+bszf2LX5oNrLnsLP8B9ZgGXVw3qkP7xcN1rnSPrF48tdfyxb4i71Ina2lO0hmjzQBv71nmpDYHaC94vHsxBD2oyy1w/Zalq/VNBsBvNlqix0jdF305E8Y=
@@ -27,26 +31,26 @@
   </data>
   </layer>
  </group>
- <layer id="5" name="oggetti" width="30" height="20">
+ <layer id="5" name="oggetti" width="30" height="20" visible="0">
   <data encoding="base64" compression="zlib">
-   eJxjYEAF1xwgGBsQdGRgeASUewzEQkC2MBJfxBG7HnzmIYNnDhCMDSgCzf4ElPsMxEpAtjISXwVqb60pA0OdKXHmEQsMgWYzATEzEBsBsTES3wRqby/Qzj5T/OaQAmSB5soRwPI4wpoSoAs0U48A1qeBvdiAZTN97BkqgE8Hv3yiBQNDEhAnA7GjMQODExA7G1NurxwWe3mRxAqB9hUBcTEQBwLtCwLiYCrYCwJ5dgwM+XYI/nwktj8wv+lC81wi0L4kIE6mgr1bgH6rA9pTj2TXeiR2PBXzOSnAn072zgfaswDJroHy7ygYBcMFAACVCjac
+   eJxjYEAFy09AMDbwCCi+GYi3APFjIH6CxH+KQw8+85DB9hMQjA18AoofBuIjQPwZiL8g8b9C9bw+xcDw5hRx5hELmE4yMFwGmnEFiJmBbBYkPutJiJrfQDv/nMJvDingHdDs9wTwBwr9hQ38A5r5nwBmOEl9e7EBy2b62DNUwPkzxKt1NGZgcAJiZ2PK7b2PxV5cbgkE2hcExMFUsBcE2i4yMLRfRPBdkdiHgPltHjTPJQLtSwLiZCrYW3qWgWEa0J7pSHaFIrEvUTGfkwIO0cneH0B7fiLZNVD+HQWjYLgAAAbYdnc=
   </data>
  </layer>
- <layer id="3" name="arco" width="30" height="20">
+ <layer id="3" name="arco" width="30" height="20" visible="0">
   <data encoding="base64" compression="zlib">
    eJxjYBgFo2AUjIJRMApGwSjAD+yZGRgcmOlvbzfQzp4BsPc60M4bFNgLANqxA1g=
   </data>
  </layer>
  <layer id="6" name="sopra_tavolo" width="30" height="20">
   <data encoding="base64" compression="zlib">
-   eJxjYBhYYOqIHbsaMzC4GVPPPHTg6ogdhwLtDCPDXlzmoYNQR+w4FWhnGg57fzvgtheXeeQAC6A+ASS93I4IcV8yzSQGeOAwG5f4KBhcgM2Hdma3e+CWE0OyN9+VuvZOx2MvMqinsr0g0G/KwDDBlPrmjgLqAC4lYNmoRLw4tYAU0GxpLObjEh8FAw8A42EhfQ==
+   eJxjYBhYwHaSgYH9JCbtaszA4GZMnnnoGGQeOhADiomfxKRDgXaGkWGv2ElMLI7FXjWgmPpJTDoVaGcaDnvPnMBtr9pJTKyOxV5iACdQ30Mku+6cQIjLkWkmMUASh9m4xEfB4AJsPrQzm/sybjkxJHvzXalrrzQee5FBPZXtBYEXpxgYXp6ivrmjgDqg+wIDQ88F4sWpBWYDzZ6DxXxc4qNg4AEA8mQ+RQ==
   </data>
  </layer>
- <objectgroup id="10" name="Collisioni">
+ <objectgroup id="10" name="Collisioni" visible="0">
   <object id="1" x="176.75" y="79.875" width="14.125" height="11.625"/>
   <object id="3" x="273.063" y="80.3125" width="14.125" height="11.625"/>
   <object id="4" x="160.574" y="60.0057" width="159.216" height="19.0795"/>
-  <object id="5" x="240.756" y="62.9148" width="14.125" height="18.2159"/>
+  <object id="5" x="240.756" y="62.9148" width="14.125" height="19.2159"/>
   <object id="6" x="132.392" y="46.0057" width="24.3068" height="11.625"/>
   <object id="7" x="32.392" y="48.3693" width="95.2159" height="11.625"/>
   <object id="8" x="352.574" y="47.8239" width="95.2159" height="11.625"/>

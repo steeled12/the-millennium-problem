@@ -21,7 +21,7 @@ public class StanzaRettangoloAtto2Level extends LevelStrategy {
         super();
 
         // map
-        this.map = new TmxMapLoader().load("map/atto2/Stanza_rettangolo.tmx");
+        this.map = new TmxMapLoader().load("map/atto1/Stanza_rettangolo.tmx");
 
         // scaling a game units
         MapLayer collisionObjectLayer = this.map.getLayers().get("Collisioni");
