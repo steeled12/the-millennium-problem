@@ -13,7 +13,6 @@ import com.gruppo3.game.MyGame;
 import com.gruppo3.game.controller.SettingController;
 import com.gruppo3.game.model.dialog.Dialog;
 import com.gruppo3.game.model.dialog.LinearDialogNode;
-import com.gruppo3.game.model.dialog.ChoiceDialogNode;
 import com.gruppo3.game.model.interactables.*;
 import com.gruppo3.game.model.Player;
 import com.gruppo3.game.screens.TransitionScreen;
@@ -84,32 +83,16 @@ public class CorridoioAtto1Level extends LevelStrategy {
         ScriptableObject macchinetta = new ScriptableObject(new Rectangle(27, 1, 2, 1), true) {
             @Override
             public void action() {
-                if (GameScreen.savedInformation.containsKey("bibitaComprata")) {
-                    Dialog dialog = new Dialog();
-                    LinearDialogNode node = new LinearDialogNode("Ho già comprato una bibita", 0);
-                    dialog.addNode(node);
-                    GameScreen.dialogController.startDialog(dialog);
-                } else {
-                    GameScreen.savedInformation.put("bibitaComprata", "true");
-                    Dialog dialog = new Dialog();
-                    ChoiceDialogNode node;
-                    if (GameScreen.savedInformation.containsKey("parlatoAPortiere")) {
-                        node = new ChoiceDialogNode("(Potrei comprare una bibita per corrompere\nil portiere...)", 0);
-                    } else {
-                        node = new ChoiceDialogNode("[Vuoi comprare una bibita?]", 0);
+                Dialog dialog = new Dialog();
+                dialog.addNode(new LinearDialogNode("Vediamo un po'...", 0).setPointer(1));
+                dialog.addNode(new LinearDialogNode("HANNO AUMENTATO DI NUOVO I PREZZI!", 1, new Action() {
+                    @Override
+                    public void action() {
+                        Gdx.audio.newSound(Gdx.files.internal("sound/sfx-badum.mp3"))
+                                .play(SettingController.gameVolume);
                     }
-                    node.addChoice("Sì", -1, new Action() {
-                        @Override
-                        public void action() {
-                            PickableItem bibita = new PickableItem("bibita", "bibita.png");
-                            itemController.addItemToInventory(bibita);
-                        }
-                    });
-                    node.addChoice("No");
-                    dialog.addNode(node);
-                    GameScreen.dialogController.startDialog(dialog);
-
-                }
+                }));
+                GameScreen.dialogController.startDialog(dialog);
             }
         };
         scriptableObjectsController.scriptableObjectsList.add(macchinetta);
@@ -123,9 +106,13 @@ public class CorridoioAtto1Level extends LevelStrategy {
         };
         scriptableObjectsController.scriptableObjectsList.add(porta);
 
-        NPC portiere = new Portiere(new Texture(Gdx.files.internal("characters/portiere.png")));
+        NPC portiere = new NPC(new Texture(Gdx.files.internal("characters/portiere.png")));
         portiere.getNpcBox().x = 51;
         portiere.getNpcBox().y = 18;
+        Dialog portiereDialog = new Dialog();
+        portiereDialog.addNode(new LinearDialogNode("Portiere:\n...", 0).setPointer(1));
+        portiereDialog.addNode(new LinearDialogNode("(Non sembra voglia o possa comunicare)", 0));
+        portiere.setDialog(portiereDialog);
         npcController.npcList.add(portiere);
 
         NPC studente1 = new NPC(new Texture(Gdx.files.internal("characters/studente2.png")));

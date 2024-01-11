@@ -1,6 +1,7 @@
 package com.gruppo3.game.model.menus;
 
 import com.badlogic.gdx.Input;
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.scenes.scene2d.Event;
 import com.badlogic.gdx.scenes.scene2d.EventListener;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
@@ -41,6 +42,7 @@ public class OptionMenu extends MenuState {
         Table mainTable = new Table();
         // Set table to fill stage
         mainTable.setFillParent(true);
+        mainTable.setBackground(skin.newDrawable("textfield", r, g, b, 1));
 
         // Create buttons
         final Slider musicVolumeSlider = new Slider(0f, 1f, 0.1f, false, skin);
@@ -116,6 +118,8 @@ public class OptionMenu extends MenuState {
         });
 
         // Add buttons to table
+        mainTable.row().spaceBottom(10);
+        mainTable.add(new Label("Impostazioni", skin, "title")).colspan(4).center();
         mainTable.row().spaceBottom(5);
         mainTable.add(new Label("Music volume: ", skin));
         mainTable.add(musicVolumeSlider);

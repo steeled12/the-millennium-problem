@@ -1,6 +1,7 @@
 package com.gruppo3.game.model.menus;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
@@ -32,6 +33,7 @@ public class SaveMenu extends MenuState {
         Table mainTable = new Table();
         // Set table to fill stage
         mainTable.setFillParent(true);
+        mainTable.setBackground(skin.newDrawable("textfield", r, g, b, 1));
 
         // Create buttons
         TextButton save1Button = new TextButton("Salva", skin);
@@ -47,7 +49,7 @@ public class SaveMenu extends MenuState {
             @Override
             public void clicked(InputEvent event, float x, float y) {
                 SaveController.save(0);
-                
+                loader.changeState(backState);
             }
         });
         if (SaveController.saveExists(1)) {
@@ -57,7 +59,7 @@ public class SaveMenu extends MenuState {
             @Override
             public void clicked(InputEvent event, float x, float y) {
                 SaveController.save(1);
-                
+                loader.changeState(backState);
             }
         });
         if (SaveController.saveExists(2)) {
@@ -67,6 +69,7 @@ public class SaveMenu extends MenuState {
             @Override
             public void clicked(InputEvent event, float x, float y) {
                 SaveController.save(2);
+                loader.changeState(backState);
             }
         });
 
@@ -78,6 +81,8 @@ public class SaveMenu extends MenuState {
         });
 
         // Add buttons to table
+        mainTable.row().spaceBottom(10);
+        mainTable.add(new Label("Salvataggi", skin, "title")).colspan(4).center();
         mainTable.row().spaceBottom(10);
         mainTable.add(new Label("Save1: ", skin));
         mainTable.add(save1Button);

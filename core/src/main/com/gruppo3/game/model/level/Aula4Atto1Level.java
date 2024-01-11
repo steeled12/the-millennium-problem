@@ -66,24 +66,26 @@ public class Aula4Atto1Level extends LevelStrategy {
         npcController.add(peppe);
 
         Dialog peppeDialog = new Dialog();
-        LinearDialogNode peppeNode0 = new LinearDialogNode("Peppe:\nDi nuovo qui? Vuoi sapere qualcosa?", 0);
-        LinearDialogNode peppeNode1 = new LinearDialogNode("Di cosa parla il vostro gioco?", 1);
-        LinearDialogNode peppeNode2 = new LinearDialogNode(
-                "Cristina:\nAncora non lo sappiamo in realtà...\nHai qualche idea?", 2);
-        LinearDialogNode peppeNode3 = new LinearDialogNode("Ehm no, per ora ho la testa ad altro", 3);
-        LinearDialogNode peppeNode4 = new LinearDialogNode(
-                "Andrea:\nPerché non torni a raccontarci qualcosa\n quando avrai finito di correre in giro?", 4);
 
-        peppeNode0.setPointer(1);
-        peppeNode1.setPointer(2);
-        peppeNode2.setPointer(3);
-        peppeNode3.setPointer(4);
+        peppeDialog.addNode(new LinearDialogNode("(Cosa stanno facendo questi tre?)", 0).setPointer(1));
+        peppeDialog.addNode(new LinearDialogNode("Ragazzi cosa state facendo?", 1).setPointer(2));
+        peppeDialog.addNode(new LinearDialogNode("Peppe:\nCiao! Ma chi sei?", 2).setPointer(3));
+        peppeDialog.addNode(new LinearDialogNode("Io sono..", 3).setPointer(4));
+        peppeDialog.addNode(
+                new LinearDialogNode("Cristina:\nStiamo facendo il progetto di Ingegneria e Sicurezza del Software", 4)
+                        .setPointer(5));
+        peppeDialog.addNode(
+                new LinearDialogNode("E di cosa si tratta?", 5)
+                        .setPointer(6));
+        peppeDialog.addNode(
+                new LinearDialogNode("Andrea:\nBoh", 6)
+                        .setPointer(7));
+        peppeDialog.addNode(
+                new LinearDialogNode("(Non mi sembrano messi bene)", 7)
+                        .setPointer(8));
+        peppeDialog.addNode(
+                new LinearDialogNode("(In caso più tardi ripasso)", 8));
 
-        peppeDialog.addNode(peppeNode0);
-        peppeDialog.addNode(peppeNode1);
-        peppeDialog.addNode(peppeNode2);
-        peppeDialog.addNode(peppeNode3);
-        peppeDialog.addNode(peppeNode4);
         peppe.setDialog(peppeDialog);
 
         NPC cristina = new NPC(new Texture(Gdx.files.internal("characters/cristina.png")));
@@ -93,33 +95,13 @@ public class Aula4Atto1Level extends LevelStrategy {
         cristina.setDialog(peppeDialog);
 
         NPC andrea = new NPC(new Texture(Gdx.files.internal("characters/andrea.png")));
-        andrea.getNpcBox().x = 2;
-        andrea.getNpcBox().y = 2;
+        andrea.getNpcBox().x = 1;
+        andrea.getNpcBox().y = 3;
         npcController.add(andrea);
         andrea.setDialog(peppeDialog);
 
         Player.getPlayer().getPlayerBox().x = 25;
         Player.getPlayer().getPlayerBox().y = 1;
-    }
-
-    public void changeMap(String mapName, float x, float y) {
-        this.map = new TmxMapLoader().load(mapName);
-
-        MapLayer collisionObjectLayer = this.map.getLayers().get("Collisioni");
-        for (MapObject object : collisionObjectLayer.getObjects()) {
-            if (object instanceof RectangleMapObject) {
-                Rectangle rect = ((RectangleMapObject) object).getRectangle();
-                rect.x *= unitScale;
-                rect.y *= unitScale;
-                rect.width *= unitScale;
-                rect.height *= unitScale;
-            }
-        }
-        this.renderer = new OrthogonalTiledMapRenderer(map, unitScale);
-
-        Player.getPlayer().getPlayerBox().x = x;
-        Player.getPlayer().getPlayerBox().y = y;
-
     }
 
     @Override

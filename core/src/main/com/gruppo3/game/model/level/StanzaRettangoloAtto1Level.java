@@ -17,6 +17,7 @@ import com.gruppo3.game.model.interactables.NPC;
 import com.gruppo3.game.model.interactables.ScriptableObject;
 import com.gruppo3.game.screens.GameScreen;
 import com.gruppo3.game.screens.TransitionScreen;
+import com.gruppo3.game.util.Action;
 
 public class StanzaRettangoloAtto1Level extends LevelStrategy {
     public StanzaRettangoloAtto1Level() {
@@ -54,14 +55,42 @@ public class StanzaRettangoloAtto1Level extends LevelStrategy {
 
         Dialog dialog = new Dialog();
 
+        dialog.addNode(new LinearDialogNode("Professore Rettangolo:\nSei arrivato! Ti aspettavo!", 0).setPointer(1));
+
         ChoiceDialogNode node1 = new ChoiceDialogNode(
-                "Professore Rettangolo:\n Sei arrivato! Hai ricevuto il messaggio?", 0);
-
-        node1.addChoice("Si");
-        node1.addChoice("No");
-
+                "Sei riuscito a decifrare il messaggio?", 1);
+        node1.addChoice("Si", 8);
+        node1.addChoice("No", 2);
         dialog.addNode(node1);
 
+        dialog.addNode(
+                new LinearDialogNode("Professore Rettangolo:\nAh pensavo che ce l'avresti fatta...", 2).setPointer(3));
+        dialog.addNode(
+                new LinearDialogNode("Professore Rettangolo:\n...forse mi sbagliavo ...", 3).setPointer(4));
+        dialog.addNode(
+                new LinearDialogNode("Professore Rettangolo:\n...ma allora perchè...", 4).setPointer(5));
+        dialog.addNode(
+                new LinearDialogNode("Professore Rettangolo:\n!!!", 5).setPointer(20));
+
+        dialog.addNode(new LinearDialogNode(
+                "[Mostri il messaggio decifrato al professore]", 8).setPointer(9));
+        dialog.addNode(new LinearDialogNode(
+                "Non sono riuscito a decifrarlo tutto", 9).setPointer(10));
+        dialog.addNode(new LinearDialogNode(
+                "Professore Rettangolo:\n...possibile che punti a quella cosa?...", 10).setPointer(11));
+        dialog.addNode(new LinearDialogNode(
+                "Professore Rettangolo:\n FORSE è stata TROVATA?!.", 11)
+                .setPointer(20));
+
+        dialog.addNode(new LinearDialogNode(
+                "Professore Rettangolo:\n Va bene grazie dell'aiuto ma ora, DEVI ANDARE..", 20)
+                .setPointer(21));
+        dialog.addNode(new LinearDialogNode("(Che cosa è appena successo?)", 21, new Action() {
+            @Override
+            public void action() {
+                GameScreen.savedInformation.put("atto", "atto2");
+            }
+        }));
         professore.setDialog(dialog);
 
         npcController.add(professore);

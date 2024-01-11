@@ -48,9 +48,14 @@ public class PrimoPianoAtto1Level extends LevelStrategy {
         ScriptableObject scale = new ScriptableObject(new Rectangle(37, 20, 3, 2), true) {
             @Override
             public void action() {
-                TransitionScreen fadeScreen = new TransitionScreen(GameScreen.levelController.getCurrentLevel(), new CorridoioAtto1Level(), (MyGame) Gdx.app.getApplicationListener(),31,19);
-                ((MyGame) Gdx.app.getApplicationListener()).setScreen(fadeScreen);
-                Player.getPlayer().getPlayerBox().setPosition(31, 19);
+                if (GameScreen.savedInformation.get("atto").equals("atto2")) {
+                    TransitionScreen fadeScreen = new TransitionScreen(GameScreen.levelController.getCurrentLevel(), new CorridoioAtto1Level(), (MyGame) Gdx.app.getApplicationListener(),32,17);
+                    ((MyGame) Gdx.app.getApplicationListener()).setScreen(fadeScreen);
+                } else {
+                    TransitionScreen fadeScreen = new TransitionScreen(GameScreen.levelController.getCurrentLevel(), new CorridoioAtto1Level(), (MyGame) Gdx.app.getApplicationListener(),31,19);
+                    ((MyGame) Gdx.app.getApplicationListener()).setScreen(fadeScreen);
+                }
+
             }
         };
         scriptableObjectsController.scriptableObjectsList.add(portaStanzaRettangolo);
