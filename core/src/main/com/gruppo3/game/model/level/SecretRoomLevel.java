@@ -10,6 +10,7 @@ import com.badlogic.gdx.maps.objects.RectangleMapObject;
 import com.badlogic.gdx.maps.tiled.TmxMapLoader;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
 import com.badlogic.gdx.math.Rectangle;
+import com.gruppo3.game.MyGame;
 import com.gruppo3.game.model.dialog.ChoiceDialogNode;
 import com.gruppo3.game.model.dialog.Dialog;
 import com.gruppo3.game.model.dialog.LinearDialogNode;
@@ -21,6 +22,7 @@ import com.gruppo3.game.model.interactables.PickableItem;
 import com.gruppo3.game.model.interactables.ScriptableObject;
 import com.gruppo3.game.screens.GameScreen;
 import com.gruppo3.game.model.Player;
+import com.gruppo3.game.screens.TransitionScreen;
 import com.gruppo3.game.util.Action;
 import com.gruppo3.game.controller.SettingController;
 
@@ -181,57 +183,28 @@ public class SecretRoomLevel extends LevelStrategy {
                                 "[Tra i file del computer trovi un complesso e lungo\narticolo che spiega la soluzione al problema P=NP]",
                                 5);
                         LinearDialogNode computerNode6 = new LinearDialogNode(
-                                "[Ma a destare interesse è un file recente scritto da qualcuno.\nDecidi di leggere il file...]",
+                                "[Dopo un'attenta lettura, riesci bene o male a comprendere qualcosa]",
                                 6);
                         LinearDialogNode computerNode7 = new LinearDialogNode(
-                                "\"Pensava di potermi tenere nascosto tutto questo...\"", 7);
+                                "[Per quanto riduttivo,\nla soluzione al problema P=NP permette di risolvere\nproblemi complessi alla stessa velocità di quelli semplici]", 7);
                         LinearDialogNode computerNode8 = new LinearDialogNode(
-                                "\"Ma adesso posso finalmente usare questa conoscenza\n per ciò che voglio\"", 8);
+                                "[È uno dei problemi del millennio,\ne si pensava che nessuno lo avrebbe mai risolto]", 8);
                         LinearDialogNode computerNode9 = new LinearDialogNode(
-                                "\"Questa scoperta mi permette di eludere tutti i sistemi di sicurezza\ninformatici attualmente in uso!\"",
-                                9);
+                                "(Il professore è riuscito a risolverlo...)", 9);
                         LinearDialogNode computerNode10 = new LinearDialogNode(
-                                "\"Nessuno può scoprirmi... e in caso la colpa ricadrà sul professore!\"", 10);
-                        LinearDialogNode computerNode11 = new LinearDialogNode("[Il file si conclude]", 11);
-                        LinearDialogNode computerNode12 = new LinearDialogNode(
-                                "Il rettore è il colpevole di tutto questo!", 12, new Action() {
-                                    @Override
-                                    public void action() {
-                                        Sound sound = Gdx.audio.newSound(Gdx.files.internal("sound/sfx-badum.mp3"));
-                                        sound.play(SettingController.gameVolume);
-                                    }
-                                });
-                        LinearDialogNode computerNode13 = new LinearDialogNode(
-                                "Non è stato molto intelligente a scrivere tutto questo...\nma almeno questo mi permette di agire ora!",
-                                13);
-                        LinearDialogNode computerNode14 = new LinearDialogNode("Devo trovare il rettore e fermarlo!",
-                                14, new Action() {
+                                "(Ho un brutto presentimento,\ndevo tornare di sopra)", 10, new Action() {
                                     @Override
                                     public void action() {
                                         ScriptableObject porta = new ScriptableObject(new Rectangle(14, 0, 2, 1),
                                                 true) {
                                             @Override
                                             public void action() {
-                                                Dialog portaDialog = new Dialog();
-                                                LinearDialogNode portaNode0 = new LinearDialogNode(
-                                                        "È il momento di andare al primo piano\ne affrontare il colpevole.",
-                                                        0);
-                                                ChoiceDialogNode portaNode1 = new ChoiceDialogNode("Sono pronto?", 1);
-                                                portaNode0.setPointer(1);
-                                                portaNode1.addChoice("Sì", -1, new Action() {
-                                                    @Override
-                                                    public void action() {
-                                                        GameScreen.levelToLoad = "CorridoioPiano1Atto4Level";
-                                                        GameScreen.levelController
-                                                                .setLevel(new CorridoioPiano1Atto4Level());
-                                                        Player.getPlayer().getPlayerBox().x = 4;
-                                                        Player.getPlayer().getPlayerBox().y = 14;
-                                                    }
-                                                });
-                                                portaNode1.addChoice("Non ancora");
-                                                portaDialog.addNode(portaNode0);
-                                                portaDialog.addNode(portaNode1);
-                                                GameScreen.dialogController.startDialog(portaDialog);
+                                                TransitionScreen fadeScreen = new TransitionScreen(
+                                                        GameScreen.levelController.getCurrentLevel(),
+                                                        new SotterraneiAtto3Level(),
+                                                        (MyGame) Gdx.app.getApplicationListener(), 1, 7);
+                                                ((MyGame) Gdx.app.getApplicationListener()).setScreen(fadeScreen);
+                                                Player.getPlayer().setPlayerDirection(Player.PlayerDirection.SOUTH);
                                             }
                                         };
                                         GameScreen.levelController
@@ -245,10 +218,6 @@ public class SecretRoomLevel extends LevelStrategy {
                         computerNode7.setPointer(8);
                         computerNode8.setPointer(9);
                         computerNode9.setPointer(10);
-                        computerNode10.setPointer(11);
-                        computerNode11.setPointer(12);
-                        computerNode12.setPointer(13);
-                        computerNode13.setPointer(14);
                         computerDialog.addNode(computerNode0);
                         computerDialog.addNode(computerNode1);
                         computerDialog.addNode(computerNode2);
@@ -260,10 +229,6 @@ public class SecretRoomLevel extends LevelStrategy {
                         computerDialog.addNode(computerNode8);
                         computerDialog.addNode(computerNode9);
                         computerDialog.addNode(computerNode10);
-                        computerDialog.addNode(computerNode11);
-                        computerDialog.addNode(computerNode12);
-                        computerDialog.addNode(computerNode13);
-                        computerDialog.addNode(computerNode14);
                         computer.setDialog(computerDialog);
                     }
                 });

@@ -5,29 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b1f22ba1-b82b-46ff-9765-9c31bfe1d21a" name="Changes" comment="collisioni npc">
-      <change beforePath="$PROJECT_DIR$/.gradle/7.5.1/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5.1/checksums/checksums.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.5.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5.1/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.5.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5.1/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.5.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5.1/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.5.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5.1/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.5.1/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5.1/fileHashes/resourceHashesCache.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/build/libs/core-1.0.jar" beforeDir="false" afterPath="$PROJECT_DIR$/core/build/libs/core-1.0.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/core/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/com/gruppo3/game/controller/SaveController.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/com/gruppo3/game/controller/SaveController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/com/gruppo3/game/model/level/Aula4Atto1Level.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/com/gruppo3/game/model/level/Aula4Atto1Level.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/com/gruppo3/game/model/level/Aula4Level.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/com/gruppo3/game/model/level/Aula4Level.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/com/gruppo3/game/model/level/Aula6Atto1Level.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/com/gruppo3/game/model/level/Aula6Atto1Level.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/com/gruppo3/game/model/level/Aula6Level.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/com/gruppo3/game/model/level/Aula6Level.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/com/gruppo3/game/model/level/CorridoioAtto1Level.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/com/gruppo3/game/model/level/CorridoioAtto1Level.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/core/src/main/com/gruppo3/game/model/level/CorridoioAtto2Level.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/com/gruppo3/game/model/level/CorridoioAtto2Level.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/src/main/com/gruppo3/game/model/level/SecretRoomLevel.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/com/gruppo3/game/model/level/SecretRoomLevel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/com/gruppo3/game/model/level/SotterraneiAtto2Level.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/com/gruppo3/game/model/level/SotterraneiAtto2Level.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/src/main/com/gruppo3/game/model/level/TutorialLevel.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/com/gruppo3/game/model/level/TutorialLevel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/desktop/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/desktop/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -211,7 +200,7 @@
       <workItem from="1704480973062" duration="4830000" />
       <workItem from="1704821941992" duration="690000" />
       <workItem from="1704938879993" duration="1816000" />
-      <workItem from="1704965753105" duration="1005000" />
+      <workItem from="1704965753105" duration="2302000" />
     </task>
     <task id="LOCAL-00001" summary="collisioni npc">
       <option name="closed" value="true" />

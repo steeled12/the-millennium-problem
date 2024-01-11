@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="4" height="10" tilewidth="16" tileheight="16" infinite="0" nextlayerid="7" nextobjectid="6">
+<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="4" height="10" tilewidth="16" tileheight="16" infinite="0" nextlayerid="8" nextobjectid="6">
  <tileset firstgid="1" source="../Room_Builder_16x16.tsx"/>
  <tileset firstgid="8285" source="../Interiors_16x16.tsx"/>
  <group id="6" name="pavimento">
@@ -8,10 +8,15 @@
    eJxL4mVgSBpEGB0AAHvvD50=
   </data>
   </layer>
+  <layer id="7" name="tappeto" width="4" height="10">
+   <data encoding="base64" compression="zlib">
+   eJxjYBh4sJqFgWENC3Y5ACQ8AWA=
+  </data>
+  </layer>
  </group>
  <layer id="3" name="muroi" width="4" height="10">
   <data encoding="base64" compression="zlib">
-   eJx7I8TA8MEDgt8C2RbCDAwMnhBsCWLTAaxmYWBYwwJh5zIhMAgAAHwzCEM=
+   eJx7I8TA8MEDgt8C2RbCDAwMnhBsCWLTGeQyITAIAABYlwbk
   </data>
  </layer>
  <layer id="2" name="bordo" width="4" height="10">

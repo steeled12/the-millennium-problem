@@ -80,7 +80,7 @@ public class SaveController {
     public static void newGame() {
         currentSave = null;
         Player.getPlayer().getInventory().clear();
-        Player.getPlayer().getPlayerBox().setPosition(15, 8);
+        Player.getPlayer().getPlayerBox().setPosition(6, 13);
         GameScreen.levelToLoad = "TutorialLevel";
     }
 
