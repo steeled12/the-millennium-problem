@@ -183,7 +183,8 @@ public class GameScreen implements Screen {
     @Override
     public void render(float delta) {
         stateTime += delta;
-
+        camera.position.set(Player.getPlayer().getPlayerBox().x, Player.getPlayer().getPlayerBox().y,
+                GameScreen.camera.position.z); 
         ScreenUtils.clear(0, 0, 0, 1);
         if (game.gameState.equals(GameState.RUNNING)) {
             multiplexer.removeProcessor(menuController.getStage());

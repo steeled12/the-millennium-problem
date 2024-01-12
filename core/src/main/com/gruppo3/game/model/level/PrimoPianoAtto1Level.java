@@ -57,19 +57,21 @@ public class PrimoPianoAtto1Level extends LevelStrategy {
             }
         };
 
-           ScriptableObject portaRettore = new ScriptableObject(new Rectangle(34, 2, 2, 2), true) {
+           ScriptableObject portaRettore = new ScriptableObject(new Rectangle(34, 11, 2, 2), true) {
                 @Override
                 public void action() {
                     if(GameScreen.savedInformation.containsKey("atto")){
                         Dialog dialog = new Dialog();
                         LinearDialogNode node1 = new LinearDialogNode("(È la stanza del rettore.\nDa qui non si torna indietro)", 0);
                         ChoiceDialogNode node2 = new ChoiceDialogNode("[Vuoi entrare?]", 1);
-                        node2.addChoice("Sì", 2, new Action() {
+                        node2.addChoice("Sì", -1, new Action() {
                             @Override
                             public void action() {
                                 TransitionScreen fadeScreen = new TransitionScreen(GameScreen.levelController.getCurrentLevel(),
-                                new StanzaRettoreLevel(), (MyGame) Gdx.app.getApplicationListener(), 0, 0);
+                                new StanzaRettoreLevel(), (MyGame) Gdx.app.getApplicationListener(), 14.5f, 2);
                                 ((MyGame) Gdx.app.getApplicationListener()).setScreen(fadeScreen);
+
+
                             }
                         });
                         node2.addChoice("No");

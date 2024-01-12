@@ -51,7 +51,7 @@ public class StanzaRettoreLevel extends LevelStrategy {
     public void init() {
         Player.getPlayer().getPlayerBox().x=14.5f;
         Player.getPlayer().getPlayerBox().y=2;
-        
+        music.setVolume(SettingController.musicVolume);
         //dialogo iniziale
         music.play();
         GameScreen.savedInformation.put("parlatoARettore", "true");
@@ -183,7 +183,19 @@ public class StanzaRettoreLevel extends LevelStrategy {
         uomoDialog.addNode(new LinearDialogNode("Uomo misterioso:\n...", 0));
         uomoMisterioso.setDialog(uomoDialog);
 
-/*         Dialog dialog = new Dialog();
+        startingDialog();
+    }
+
+    public void setMusic(Music music){
+        this.music.stop();
+        this.music = music;
+        this.music.setLooping(true);
+        music.setVolume(SettingController.musicVolume);
+        this.music.play();
+    }
+
+    private void startingDialog(){
+        Dialog dialog = new Dialog();
         dialog.addNode(new LinearDialogNode("Rettore:\nAh, sei tu! Finalmente sei arrivato!", 0).setPointer(1));
         dialog.addNode(new LinearDialogNode("Rettore:\nVieni qui! Ho invitato questo gentiluomo\nper arrestare il professor Rettangolo", 1).setPointer(2));
         dialog.addNode(new LinearDialogNode("Rettore:\nIl suo tentativo di usare la sua ricerca\nper i suoi scopi sarà bloccata!", 2).setPointer(3));
@@ -191,16 +203,8 @@ public class StanzaRettoreLevel extends LevelStrategy {
         dialog.addNode(new LinearDialogNode("Professore Rettangolo:\nRagazzo! Sii saggio, il colpevole è il rettore!", 4).setPointer(5));
         dialog.addNode(new LinearDialogNode("(È il momento...)", 5).setPointer(6));
         dialog.addNode(new LinearDialogNode("(Chi credo sia colpevole?)", 6));
-        GameScreen.dialogController.startDialog(dialog); */
+        GameScreen.dialogController.startDialog(dialog);
     }
-
-    public void setMusic(Music music){
-        this.music.stop();
-        this.music = music;
-        this.music.setLooping(true);
-        this.music.play();
-    }
-
     private void fadeMusic(){
         Timer.schedule(new Timer.Task() {
             @Override
