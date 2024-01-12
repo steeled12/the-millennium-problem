@@ -3,7 +3,6 @@ package com.gruppo3.game.model.level;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.audio.Sound;
-import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.maps.MapLayer;
 import com.badlogic.gdx.maps.MapObject;
 import com.badlogic.gdx.maps.objects.RectangleMapObject;
@@ -14,8 +13,6 @@ import com.gruppo3.game.MyGame;
 import com.gruppo3.game.model.dialog.ChoiceDialogNode;
 import com.gruppo3.game.model.dialog.Dialog;
 import com.gruppo3.game.model.dialog.LinearDialogNode;
-import com.gruppo3.game.model.interactables.Cat;
-import com.gruppo3.game.model.interactables.Computer;
 import com.gruppo3.game.model.interactables.Item;
 import com.gruppo3.game.model.interactables.GenericItem;
 import com.gruppo3.game.model.interactables.PickableItem;
@@ -196,9 +193,11 @@ public class SecretRoomLevel extends LevelStrategy {
                                 "[Dopo un'attenta lettura, riesci bene o male a comprendere qualcosa]",
                                 6);
                         LinearDialogNode computerNode7 = new LinearDialogNode(
-                                "[Per quanto riduttivo,\nla soluzione al problema P=NP permette di risolvere\nproblemi complessi alla stessa velocità di quelli semplici]", 7);
+                                "[Per quanto riduttivo,\nla soluzione al problema P=NP permette di risolvere\nproblemi complessi alla stessa velocità di quelli semplici]",
+                                7);
                         LinearDialogNode computerNode8 = new LinearDialogNode(
-                                "[È uno dei problemi del millennio,\ne si pensava che nessuno lo avrebbe mai risolto]", 8);
+                                "[È uno dei problemi del millennio,\ne si pensava che nessuno lo avrebbe mai risolto]",
+                                8);
                         LinearDialogNode computerNode9 = new LinearDialogNode(
                                 "(Il professore è riuscito a risolverlo...)", 9);
                         LinearDialogNode computerNode10 = new LinearDialogNode(
@@ -281,7 +280,6 @@ public class SecretRoomLevel extends LevelStrategy {
         libDialog.addNode(libNode16);
 
         libreria.setDialog(libDialog);
-
 
         Player.getPlayer().setPlayerDirection(Player.PlayerDirection.NORTH);
     }

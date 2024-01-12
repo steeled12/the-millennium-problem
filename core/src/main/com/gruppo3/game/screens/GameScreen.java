@@ -31,7 +31,9 @@ import com.gruppo3.game.model.Player;
 import com.gruppo3.game.model.interactables.Item;
 import com.gruppo3.game.model.level.TutorialLevel;
 import com.gruppo3.game.model.level.CorridoioAtto2Level;
+import com.gruppo3.game.model.level.CreditiLevel;
 import com.gruppo3.game.model.level.PrimoPianoAtto1Level;
+import com.gruppo3.game.model.level.AttoFinaleLevel;
 import com.gruppo3.game.model.level.Aula4Atto1Level;
 import com.gruppo3.game.model.level.Aula4Level;
 import com.gruppo3.game.model.level.Aula6Atto1Level;
@@ -79,8 +81,11 @@ public class GameScreen implements Screen {
         initUI();
 
         this.playerController = new PlayerController();
-/*         Gdx.app.log("GameScreen", "cotnroelr: " + Player.getPlayer().toString());
-        Gdx.app.log("fasf", "ASD" + this.playerController.getAnimationToRender().toString()); */
+        /*
+         * Gdx.app.log("GameScreen", "cotnroelr: " + Player.getPlayer().toString());
+         * Gdx.app.log("fasf", "ASD" +
+         * this.playerController.getAnimationToRender().toString());
+         */
         dialogController = new DialogController(dialogBox, optionBox);
         this.pauseController = new PauseController(game);
         this.menuController = new MenuController();
@@ -128,6 +133,12 @@ public class GameScreen implements Screen {
                 break;
             case "StanzaRettoreLevel":
                 levelController = new LevelController(new StanzaRettoreLevel());
+                break;
+            case "AttoFinaleLevel":
+                levelController = new LevelController(new AttoFinaleLevel());
+                break;
+            case "CreditLevel":
+                levelController = new LevelController(new CreditiLevel());
                 break;
             default:
                 levelController = new LevelController(new TutorialLevel());
@@ -192,7 +203,7 @@ public class GameScreen implements Screen {
     public void render(float delta) {
         stateTime += delta;
         camera.position.set(Player.getPlayer().getPlayerBox().x, Player.getPlayer().getPlayerBox().y,
-                GameScreen.camera.position.z); 
+                GameScreen.camera.position.z);
         ScreenUtils.clear(0, 0, 0, 1);
         if (game.gameState.equals(GameState.RUNNING)) {
             multiplexer.removeProcessor(menuController.getStage());
@@ -213,7 +224,7 @@ public class GameScreen implements Screen {
             menuController.getStage().draw();
         }
 
-        //levelController.setMusicVolume(SettingController.musicVolume);
+        // levelController.setMusicVolume(SettingController.musicVolume);
     }
 
     private void renderGame() {
@@ -243,12 +254,11 @@ public class GameScreen implements Screen {
         }
 
         // render PLAYER
-        game.batch.draw(playerController.getAnimationToRender().getKeyFrame(stateTime, true),
+        game.batch.draw(playerController.getAnimationToRender().getKeyFrame(stateTime,
+                true),
                 playerBoxX,
                 playerBoxY,
                 1, 2);
-
-        // System.out.println("Player position: " + playerBoxX + " " + playerBoxY);
 
         // render MIGLIORATO
         for (MapLayer mapLayer : levelController.getMap().getLayers()) {

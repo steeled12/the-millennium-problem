@@ -21,6 +21,7 @@ public class PlayerController extends InputAdapter {
     public PlayerController() {
         this.player = Player.getPlayer();
         this.playerSpeed = 8f;
+        this.animation = player.getIdleAnimation(player.getPlayerDirection());
     }
 
     public Animation<TextureRegion> getAnimationToRender() {
@@ -28,8 +29,11 @@ public class PlayerController extends InputAdapter {
     }
 
     public void updateInput() {
-       /*  GameScreen.camera.position.set(player.getPlayerBox().x, player.getPlayerBox().y,
-                GameScreen.camera.position.z); */
+        /*
+         * GameScreen.camera.position.set(player.getPlayerBox().x,
+         * player.getPlayerBox().y,
+         * GameScreen.camera.position.z);
+         */
 
         if (moveUp() + moveDown() + moveLeft() + moveRight() > 0) {
             this.animation = player.getWalkAnimation(player.getPlayerDirection());
@@ -146,18 +150,20 @@ public class PlayerController extends InputAdapter {
             moveDown();
         }
         Gdx.app.log("PlayerController", "Player position: " + player.getPlayerBox().x + " " + player.getPlayerBox().y);
-        /* if (keycode == Input.Keys.NUM_1)
-            SaveController.loadSave(0);
-        if (keycode == Input.Keys.NUM_2)
-            SaveController.loadSave(1);
-        if (keycode == Input.Keys.NUM_3)
-            SaveController.loadSave(2);
-        if (keycode == Input.Keys.NUM_4)
-            SaveController.deleteSave(); 
-
-        if (keycode == Input.Keys.NUM_5) {
-            SaveController.save();
-        } */
+        /*
+         * if (keycode == Input.Keys.NUM_1)
+         * SaveController.loadSave(0);
+         * if (keycode == Input.Keys.NUM_2)
+         * SaveController.loadSave(1);
+         * if (keycode == Input.Keys.NUM_3)
+         * SaveController.loadSave(2);
+         * if (keycode == Input.Keys.NUM_4)
+         * SaveController.deleteSave();
+         * 
+         * if (keycode == Input.Keys.NUM_5) {
+         * SaveController.save();
+         * }
+         */
         return true;
     }
 

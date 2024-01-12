@@ -46,7 +46,8 @@ public class Aula4Atto4Level extends LevelStrategy {
         ScriptableObject portaSx = new ScriptableObject(new Rectangle(4, 0, 2, 2), true) {
             @Override
             public void action() {
-                TransitionScreen fadeScreen = new TransitionScreen(GameScreen.levelController.getCurrentLevel(), new CorridoioAtto2Level(), (MyGame) Gdx.app.getApplicationListener(), 58, 14);
+                TransitionScreen fadeScreen = new TransitionScreen(GameScreen.levelController.getCurrentLevel(),
+                        new CorridoioAtto2Level(), (MyGame) Gdx.app.getApplicationListener(), 58, 14);
                 ((MyGame) Gdx.app.getApplicationListener()).setScreen(fadeScreen);
             }
         };
@@ -55,7 +56,8 @@ public class Aula4Atto4Level extends LevelStrategy {
         ScriptableObject portaDx = new ScriptableObject(new Rectangle(24, 0, 2, 2), true) {
             @Override
             public void action() {
-                TransitionScreen fadeScreen = new TransitionScreen(GameScreen.levelController.getCurrentLevel(), new CorridoioAtto2Level(), (MyGame) Gdx.app.getApplicationListener(), 64, 14);
+                TransitionScreen fadeScreen = new TransitionScreen(GameScreen.levelController.getCurrentLevel(),
+                        new CorridoioAtto2Level(), (MyGame) Gdx.app.getApplicationListener(), 64, 14);
                 ((MyGame) Gdx.app.getApplicationListener()).setScreen(fadeScreen);
 
             }
@@ -69,7 +71,7 @@ public class Aula4Atto4Level extends LevelStrategy {
 
         Dialog peppeDialog = new Dialog();
 
-        peppeDialog.addNode(new LinearDialogNode("(Sembra che )", 0).setPointer(1));
+        peppeDialog.addNode(new LinearDialogNode("(Sembra che siamo morti dalla stanchezza)", 0).setPointer(1));
         peppeDialog.addNode(new LinearDialogNode("Peppe:\nRequisiti...", 1).setPointer(2));
         peppeDialog.addNode(new LinearDialogNode("Cristina:\nAgile...", 2).setPointer(3));
         peppeDialog.addNode(new LinearDialogNode("Andrea:\nRevisione...", 3));
@@ -88,7 +90,6 @@ public class Aula4Atto4Level extends LevelStrategy {
         npcController.add(andrea);
         andrea.setDialog(peppeDialog);
 
-        
     }
 
     @Override
