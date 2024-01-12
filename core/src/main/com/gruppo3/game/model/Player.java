@@ -19,7 +19,7 @@ public class Player {
                 EAST,
                 NORTH,
                 WEST,
-                SOUTH;
+                SOUTH
         }
 
         Rectangle playerBox;

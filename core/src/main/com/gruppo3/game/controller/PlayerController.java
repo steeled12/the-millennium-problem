@@ -28,8 +28,8 @@ public class PlayerController extends InputAdapter {
     }
 
     public void updateInput() {
-        GameScreen.camera.position.set(player.getPlayerBox().x, player.getPlayerBox().y,
-                GameScreen.camera.position.z);
+       /*  GameScreen.camera.position.set(player.getPlayerBox().x, player.getPlayerBox().y,
+                GameScreen.camera.position.z); */
 
         if (moveUp() + moveDown() + moveLeft() + moveRight() > 0) {
             this.animation = player.getWalkAnimation(player.getPlayerDirection());

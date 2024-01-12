@@ -82,7 +82,10 @@ public class SaveController {
         currentSave = null;
         Player.getPlayer().getInventory().clear();
         Player.getPlayer().getPlayerBox().setPosition(6, 13);
-        GameScreen.levelToLoad = "TutorialLevel";
+        GameScreen.savedInformation.clear();
+        GameScreen.savedInformation.put("atto", "false");
+        GameScreen.levelToLoad = "PrimoPianoAtto1Level";
+
     }
 
     public static boolean saveExists(int numSave) {
