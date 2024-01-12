@@ -212,7 +212,7 @@ public class SecretRoomLevel extends LevelStrategy {
                                                 TransitionScreen fadeScreen = new TransitionScreen(
                                                         GameScreen.levelController.getCurrentLevel(),
                                                         new SotterraneiAtto3Level(),
-                                                        (MyGame) Gdx.app.getApplicationListener(), 1, 7);
+                                                        (MyGame) Gdx.app.getApplicationListener(), 1.5f, 7);
                                                 ((MyGame) Gdx.app.getApplicationListener()).setScreen(fadeScreen);
                                                 Player.getPlayer().setPlayerDirection(Player.PlayerDirection.SOUTH);
                                             }

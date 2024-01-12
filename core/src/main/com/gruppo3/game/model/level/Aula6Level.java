@@ -66,7 +66,7 @@ public class Aula6Level extends LevelStrategy {
         scriptableObjectsController.scriptableObjectsList.add(portaDx);
 
         NPC prof = new NPC(new Texture(Gdx.files.internal("characters/studente1.png")));
-        prof.getNpcBox().x = 1;
+        prof.getNpcBox().x = 17;
         prof.getNpcBox().y = 1;
         prof.setNPCDirection(NPC.Direction.NORTH); 
         npcController.add(prof);

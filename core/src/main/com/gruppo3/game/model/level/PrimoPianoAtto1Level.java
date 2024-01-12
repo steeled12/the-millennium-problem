@@ -60,7 +60,7 @@ public class PrimoPianoAtto1Level extends LevelStrategy {
            ScriptableObject portaRettore = new ScriptableObject(new Rectangle(34, 11, 2, 2), true) {
                 @Override
                 public void action() {
-                    if(GameScreen.savedInformation.containsKey("atto")){
+                    if(GameScreen.savedInformation.containsKey("atto4")){
                         Dialog dialog = new Dialog();
                         LinearDialogNode node1 = new LinearDialogNode("(È la stanza del rettore.\nDa qui non si torna indietro)", 0);
                         ChoiceDialogNode node2 = new ChoiceDialogNode("[Vuoi entrare?]", 1);

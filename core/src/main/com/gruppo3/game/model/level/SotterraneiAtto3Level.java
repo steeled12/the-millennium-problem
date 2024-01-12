@@ -46,6 +46,7 @@ public class SotterraneiAtto3Level extends LevelStrategy {
 
     @Override
     public void init() {
+        GameScreen.savedInformation.put("atto4", "true");
         // items
         ScriptableObject portaSx = new ScriptableObject(new Rectangle(1, 0, 2, 1), true) {
             @Override
