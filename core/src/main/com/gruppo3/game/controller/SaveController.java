@@ -81,7 +81,7 @@ public class SaveController {
         currentSave = null;
         Player.getPlayer().getInventory().clear();
         Player.getPlayer().getPlayerBox().setPosition(6, 13);
-        GameScreen.levelToLoad = "StanzaRettoreLevel";
+        GameScreen.levelToLoad = "TutorialLevel";
     }
 
     public static boolean saveExists(int numSave) {

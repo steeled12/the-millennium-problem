@@ -143,8 +143,18 @@ public class SecretRoomLevel extends LevelStrategy {
                 "Questa scoperta di cui parla, sembra essere il fulcro di\n tutto ciò che sta succedendo", 13);
         LinearDialogNode libNode14 = new LinearDialogNode(
                 "Ma gli unici ad avere accesso a questa stanza sono\nil professore... e il rettore!", 14);
-        LinearDialogNode libNode15 = new LinearDialogNode(
-                "Devo scoprire l'uso della ricerca\ne chi ha avuto accesso al computer di questa stanza", 15,
+        LinearDialogNode libNode15 = new LinearDialogNode("Mi conviene tenere con me questi appunti", 15);
+        LinearDialogNode libNode16 = new LinearDialogNode("[Hai raccolto Appunti sulla Ricerca]", 16, new Action() {
+            @Override
+            public void action() {
+                Sound sound = Gdx.audio.newSound(Gdx.files.internal("sound/sfx-selectjingle.mp3"));
+                sound.play(SettingController.gameVolume);
+                Player.getPlayer().getInventory().add(new PickableItem("Appunti sulla Ricerca",
+                        "atto3/appunti.png"));
+            }
+        });
+        LinearDialogNode libNode17 = new LinearDialogNode(
+                "Devo scoprire l'uso della ricerca\ne chi ha avuto accesso al computer di questa stanza", 17,
                 new Action() {
                     @Override
                     public void action() {
@@ -250,6 +260,7 @@ public class SecretRoomLevel extends LevelStrategy {
         libNode12.setPointer(13);
         libNode13.setPointer(14);
         libNode14.setPointer(15);
+        libNode15.setPointer(16);
 
         libDialog.addNode(libNode0);
         libDialog.addNode(libNode1);
@@ -267,6 +278,7 @@ public class SecretRoomLevel extends LevelStrategy {
         libDialog.addNode(libNode13);
         libDialog.addNode(libNode14);
         libDialog.addNode(libNode15);
+        libDialog.addNode(libNode16);
 
         libreria.setDialog(libDialog);
 

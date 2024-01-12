@@ -183,6 +183,7 @@ public class CorridoioAtto1Level extends LevelStrategy {
                 new Action() {
                     @Override
                     public void action() {
+                        GameScreen.savedInformation.put("parlatoARettore", "true");
                         Sound sound = Gdx.audio.newSound(Gdx.files.internal("sound/sfx-realization.mp3"));
                         sound.play(SettingController.gameVolume);
                     }

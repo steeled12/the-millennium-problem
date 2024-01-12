@@ -8,9 +8,13 @@ import com.badlogic.gdx.maps.tiled.TmxMapLoader;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
 import com.badlogic.gdx.math.Rectangle;
 import com.gruppo3.game.MyGame;
+import com.gruppo3.game.model.dialog.ChoiceDialogNode;
+import com.gruppo3.game.model.dialog.Dialog;
+import com.gruppo3.game.model.dialog.LinearDialogNode;
 import com.gruppo3.game.model.interactables.ScriptableObject;
 import com.gruppo3.game.screens.GameScreen;
 import com.gruppo3.game.screens.TransitionScreen;
+import com.gruppo3.game.util.Action;
 
 public class PrimoPianoAtto1Level extends LevelStrategy {
     public PrimoPianoAtto1Level() {
@@ -52,6 +56,30 @@ public class PrimoPianoAtto1Level extends LevelStrategy {
 
             }
         };
+        if(GameScreen.savedInformation.containsKey("atto")){
+           ScriptableObject portaRettore = new ScriptableObject(new Rectangle(34, 0, 2, 2), true) {
+                @Override
+                public void action() {
+                    Dialog dialog = new Dialog();
+                    LinearDialogNode node1 = new LinearDialogNode("(È la stanza del rettore.\nDa qui non si torna indietro)", 0);
+                    ChoiceDialogNode node2 = new ChoiceDialogNode("[Vuoi entrare?]", 1);
+                    node2.addChoice("Sì", 2, new Action() {
+                        @Override
+                        public void action() {
+                            TransitionScreen fadeScreen = new TransitionScreen(GameScreen.levelController.getCurrentLevel(),
+                            new StanzaRettoreLevel(), (MyGame) Gdx.app.getApplicationListener(), 0, 0);
+                            ((MyGame) Gdx.app.getApplicationListener()).setScreen(fadeScreen);
+                        }
+                    });
+                    node2.addChoice("No");
+                    node1.setPointer(1);
+                    dialog.addNode(node1);
+                    dialog.addNode(node2);
+                    GameScreen.dialogController.startDialog(dialog);
+                }
+            };
+            scriptableObjectsController.scriptableObjectsList.add(portaRettore);
+        }
         ScriptableObject scale = new ScriptableObject(new Rectangle(37, 20, 3, 2), true) {
             @Override
             public void action() {
