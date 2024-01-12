@@ -59,7 +59,12 @@ public class StanzaRettangoloAtto1Level extends LevelStrategy {
 
         ChoiceDialogNode node1 = new ChoiceDialogNode(
                 "Sei riuscito a decifrare il messaggio?", 1);
-        node1.addChoice("Si", 8);
+        node1.addChoice("Si", 8, new Action() {
+            @Override
+            public void action() {
+                GameScreen.savedInformation.put("messaggioDecifrato", "true");
+            }
+        });
         node1.addChoice("No", 2);
         dialog.addNode(node1);
 

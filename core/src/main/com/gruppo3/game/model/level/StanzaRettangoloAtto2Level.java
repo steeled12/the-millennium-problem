@@ -44,6 +44,7 @@ public class StanzaRettangoloAtto2Level extends LevelStrategy {
         // Player
         Player.getPlayer().getPlayerBox().setPosition(7.5f, 1);
 
+        if (GameScreen.savedInformation.containsKey("messaggioDecifrato")){
         // scriptable
         ScriptableObject nota = new ScriptableObject(new Rectangle(9.5f, 8, 1, 1.5f), true) {
             @Override
@@ -64,6 +65,8 @@ public class StanzaRettangoloAtto2Level extends LevelStrategy {
                 GameScreen.dialogController.startDialog(dialog);
             }
         };
+        scriptableObjectsController.scriptableObjectsList.add(nota);
+    }
 
         Dialog dialogTrofeo = new Dialog();
         dialogTrofeo.addNode(new LinearDialogNode(
@@ -92,7 +95,7 @@ public class StanzaRettangoloAtto2Level extends LevelStrategy {
             }
         };
 
-        scriptableObjectsController.scriptableObjectsList.add(nota);
+
         scriptableObjectsController.scriptableObjectsList.add(trofei1);
         scriptableObjectsController.scriptableObjectsList.add(trofei2);
         scriptableObjectsController.scriptableObjectsList.add(portaPrimoPiano);

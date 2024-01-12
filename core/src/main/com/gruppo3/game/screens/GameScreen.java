@@ -37,6 +37,7 @@ import com.gruppo3.game.model.level.Aula6Atto1Level;
 import com.gruppo3.game.model.level.Aula6Level;
 import com.gruppo3.game.model.level.CorridoioAtto1Level;
 import com.gruppo3.game.model.level.SotterraneiAtto2Level;
+import com.gruppo3.game.model.level.StanzaRettoreLevel;
 
 public class GameScreen implements Screen {
     private final MyGame game;
@@ -114,6 +115,9 @@ public class GameScreen implements Screen {
                 break;
             case "SecretRoomLevel":
                 levelController = new LevelController(new SecretRoomLevel());
+                break;
+            case "StanzaRettoreLevel":
+                levelController = new LevelController(new StanzaRettoreLevel());
                 break;
             default:
                 levelController = new LevelController(new TutorialLevel());

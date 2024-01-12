@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="30" height="20" tilewidth="16" tileheight="16" infinite="0" nextlayerid="10" nextobjectid="18">
+ <tileset firstgid="1" source="../Interiors_16x16.tsx"/>
+ <tileset firstgid="17025" source="../Room_Builder_16x16.tsx"/>
+ <tileset firstgid="25309" source="../tilesets/1_Generic_16x16.tsx"/>
+ <tileset firstgid="26557" source="../tilesets/5_Classroom_and_library_16x16.tsx"/>
+ <tileset firstgid="27101" source="../tilesets/14_Basement_16x16.tsx"/>
+ <tileset firstgid="27901" source="../tilesets/12_Kitchen_16x16.tsx"/>
+ <tileset firstgid="28685" source="../tilesets/15_Christmas_16x16.tsx"/>
+ <tileset firstgid="28957" source="../tilesets/22_Museum.tsx"/>
+ <tileset firstgid="30909" source="../tilesets/2_LivingRoom_16x16.tsx"/>
+ <group id="8" name="pavimento">
+  <layer id="1" name="Livello tile 1" width="30" height="20">
+   <data encoding="base64" compression="zlib">
+   eJzNllEOgyAQRD1dz1BPhP42mh4M+NdzNGkKsZtMNgNdWmL6MQHWcR8uoD6uw7CM5+qZmLfUbifrPh5cfznkkqakGcYSK3kw5shYvBNcE25I/fghZ+4HMpdAxnrOrVyW0+KJf8j1DVyMo/Q6oq/EDY3PK6wIwvza9wtX3yu8AH3GrdW5xnWKq3PiOrLzFSGH+CxczMWeG6+x9WDc2cjV+7S0BozL9nfsyNX1ru3Pb7iOyHfmstr5gnDPlM6elcvmXYsxBnuv9+DqmugY87VyWQzrzM4U82lu/v6vBi3gXWCuq8ph+d9Y39//3aANvLmVM7mrHJb/jex7AbFCSk4=
+  </data>
+  </layer>
+  <layer id="9" name="tappeto" width="30" height="20">
+   <data encoding="base64" compression="zlib">
+   eJxjYBgFo2AUjIJRMApGwSjAD+64MTDcdaO/vUmpEExvUJQKweQCADf4BYI=
+  </data>
+  </layer>
+  <layer id="6" name="Livello tile 5" width="30" height="20">
+   <data encoding="base64" compression="zlib">
+   eJxjYBgFo2AUDHcwOYWBYSoBPCWF+vYuBJq5gABeNGovxWAx0MylBPASGtg7CkbBKMANAPaIMpA=
+  </data>
+  </layer>
+ </group>
+ <layer id="3" name="Livello tile 2" width="30" height="20">
+  <data encoding="base64" compression="zlib">
+   eJxjYIAA2UwGBjkglgfiR6kMDI+B+EkqAxzwmjMw8Jkj+OhqkPVjk8cFdIHq9YBYH4g/AdV+BuIvSHpkgXbKIdmLrgZZPzZ5XMAWqN4OiO0z8asjVb9hEX59vkD1fkDsT6a9uPSbEbCXVsANj706ZPqRHKCJZJcNHe21RLLLh472eiLZFUNHeyPpaNcogIDRfEQ7MJqPRgEtAQBxEzR2
+  </data>
+ </layer>
+ <layer id="4" name="Livello tile 3" width="30" height="20">
+  <data encoding="base64" compression="zlib">
+   eJztzbsOwXAYhvH3EhiYGZhbV4CrsDstTdMUf9HVKaxON0visXZpVXxd+ibP9uX7PUfKtU0sJXG+26y9cpqfnTDPBdyxkyY0pRnN3fc/imyBs6QVOVobuVucHe3pQEcj94JzpRvd6WHkVvttjUBqBvZuB7Nr6Hqh5Kfqhf93+xiDVEMDt1r2apFUj+zdFma7BNfD9Etwq0lvShQm0Q==
+  </data>
+ </layer>
+ <layer id="5" name="Livello tile 4" width="30" height="20">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo4AyYF7EwGABxJZF9LXXHWifBxB70tneUUAaiKpE5d/MZmC4lU17e7Og9v7KgNAvgXa+ooO9VZWE1YyCgQO5BQwMeQX0t7cWaGfdANjbC7SzbwDsHQUMDAC99BL7
+  </data>
+ </layer>
+ <objectgroup id="7" name="Collisioni">
+  <object id="1" x="31" y="9" width="47" height="48"/>
+  <object id="2" x="18" y="84.5" width="9.5" height="56.5"/>
+  <object id="3" x="18.25" y="196.75" width="9.5" height="56.5"/>
+  <object id="4" x="452.25" y="84.75" width="9.5" height="56.5"/>
+  <object id="5" x="451.25" y="196.75" width="9.5" height="56.5"/>
+  <object id="6" x="401.25" y="252.817" width="31.5" height="17.9334"/>
+  <object id="7" x="201.25" y="160.5" width="77.5" height="26"/>
+  <object id="8" x="229.75" y="132" width="20.5" height="22"/>
+  <object id="9" x="176.25" y="172.729" width="14.5" height="14.9461"/>
+  <object id="10" x="288.25" y="8.5" width="46" height="50.3439"/>
+  <object id="11" x="389" y="31.5" width="60.5" height="58.5"/>
+  <object id="12" x="0.416667" y="288.75" width="207.5" height="30.1667"/>
+  <object id="13" x="0.916667" y="0.583317" width="14.5" height="287.833"/>
+  <object id="14" x="15.4167" y="0.750167" width="463.167" height="31.1663"/>
+  <object id="15" x="464.75" y="33.0835" width="14.167" height="254.5"/>
+  <object id="16" x="270.917" y="289.25" width="207.5" height="30.1667"/>
+  <object id="17" x="208.083" y="289.707" width="63.1667" height="29.543"/>
+ </objectgroup>
+</map>

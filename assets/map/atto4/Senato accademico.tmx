@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="30" height="20" tilewidth="16" tileheight="16" infinite="0" nextlayerid="6" nextobjectid="1">
+ <tileset firstgid="1" source="file_tiled_mappa/Interiors_16x16.tsx"/>
+ <tileset firstgid="17025" source="file_tiled_mappa/Room_Builder_16x16.tsx"/>
+ <layer id="1" name="Livello tile 1" width="30" height="20">
+  <data encoding="base64" compression="zlib">
+   eJzt1lEKwyAMBmBP1zOsJ7K+jo0dTPO+3mOFZhQh/MQZ7KYvewhq2vqh0javi3O3uV/cOTY2r9w+O8bK8ZgPd5mcCxyRw0/HOMI4X09wzYs83uuVOd79mpsKOQ+unLPWX4wufXC1tfRwcW9zO8qlvzvEledec4My91mXOrhhkEuFfPihm4Sh5b/h4jPoktEtfY/PuJjX3JKDe6u9Z5qb+/KMrW5sdEk56+y21Az4/5O1hDVaaoYI65W1hDV2r8E3sA==
+  </data>
+ </layer>
+ <layer id="5" name="Livello tile 5" width="30" height="20">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo2BkgSnMDAzTiMRTmaln7yKgWQuJxItH7R21d5DbuwRo1jIi8VIq2jsKRsFQAQCGmj1F
+  </data>
+ </layer>
+ <layer id="2" name="Livello tile 2" width="30" height="20">
+  <data encoding="base64" compression="zlib">
+   eJxjYICAGcIMDDOBeBYQzxZmgANFPgYGJSBWBuIAc4Q4N5DNg8Q3MEdVy0DAXBhYARRbCcSrgHg1krwh0AwjIDYG4gQke6SBbBkkvoM5qlpC5sLADqDYTiDeBcS7gbhTnIGhSxwhTy4f3Vx0cAIodhKITwHxaVDYAPXMQjKHXD66uaOAPiBNhDT1F4FxcwmILwPxFRzsq0TEXxmJ9j4EmvkIiB8D8RMc7Kc0SDej9tLH3o9AMz8B8Wcg/oKD/XW0XMALlqgyMCxVpb89W4DsrXSwF92eI0D2UTrYSy97BiMAAEKWcFk=
+  </data>
+ </layer>
+ <layer id="3" name="Livello tile 3" width="30" height="20">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo2Dog3sipOvpFGdg6BLHzyYE3pFh70yg2bPE8bNpBRqEMMXqsYhRAywF+mUZEG9UYmDYjANvAuJkoJoUKvp7K9CsbUTYWwxUU0Lj8KYnOAn0yylx/GxagJtAs2+J42ePglEwEgEA3ywoSg==
+  </data>
+ </layer>
+ <layer id="4" name="Livello tile 4" width="30" height="20">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo2AUjAL6ABU1BgYjNfrbC7JThU72zlVAsGcroMrNRONTE6xFMns1mj0raWjvKBgFowA7AAAfiQXX
+  </data>
+ </layer>
+</map>
