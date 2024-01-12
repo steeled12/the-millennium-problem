@@ -11,7 +11,6 @@ import com.gruppo3.game.model.Player;
 import com.gruppo3.game.screens.GameScreen;
 import com.gruppo3.game.model.interactables.Item;
 import com.gruppo3.game.model.interactables.NPC.Direction;
-import com.gruppo3.game.model.interactables.PickableItem;
 import com.gruppo3.game.model.interactables.ScriptableObject;
 
 public class InteractionController extends InputAdapter {
@@ -75,10 +74,6 @@ public class InteractionController extends InputAdapter {
                     expandedItemBox.height += expansionAmount;
 
                     if (expandedItemBox.overlaps(Player.getPlayer().getPlayerBox())) {
-                        if (item instanceof PickableItem) {
-                            Gdx.app.log("InteractionController", "Aggiunto oggetto all'inventario");
-                            itemController.addItemToInventory((PickableItem) item);
-                        }
                         item.action(GameScreen.dialogController);
                         return true;
                     }

@@ -62,7 +62,7 @@ public class StanzaRettangoloAtto1Level extends LevelStrategy {
         node1.addChoice("Si", 8, new Action() {
             @Override
             public void action() {
-                GameScreen.savedInformation.put("messaggioDecifrato", "true");
+                GameScreen.savedInformation.put("mentito", "true");
             }
         });
         node1.addChoice("No", 2);
@@ -122,7 +122,8 @@ public class StanzaRettangoloAtto1Level extends LevelStrategy {
         ScriptableObject portaPrimoPiano = new ScriptableObject(new Rectangle(7, 1, 2, 1), true) {
             @Override
             public void action() {
-                TransitionScreen fadeScreen = new TransitionScreen(GameScreen.levelController.getCurrentLevel(), new PrimoPianoAtto1Level(), (MyGame) Gdx.app.getApplicationListener(),51,14);
+                TransitionScreen fadeScreen = new TransitionScreen(GameScreen.levelController.getCurrentLevel(),
+                        new PrimoPianoAtto1Level(), (MyGame) Gdx.app.getApplicationListener(), 51, 14);
                 ((MyGame) Gdx.app.getApplicationListener()).setScreen(fadeScreen);
             }
         };

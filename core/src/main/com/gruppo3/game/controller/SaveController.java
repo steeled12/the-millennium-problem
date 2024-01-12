@@ -16,7 +16,6 @@ import com.gruppo3.game.model.interactables.PickableItem;
 
 public class SaveController {
 
-    private static final int MAX_SAVES = 3;
     private static final String SAVE_NAME = "save_";
     public static Preferences currentSave;
 
@@ -25,11 +24,11 @@ public class SaveController {
     public static void save() {
 
         /* Effetturare il save di tutti i valori necessari */
+        saveSavedInformation();
         savePlayerPosition(Player.getPlayer().getPlayerBox().x, Player.getPlayer().getPlayerBox().y);
         saveTime();
         saveInventory();
         saveLevel();
-        saveSavedInformation();
         /* --- */
 
         currentSave.flush();
@@ -55,7 +54,8 @@ public class SaveController {
         /* Effetturare il load di tutti i valori necessari */
         Player.getPlayer().getPlayerBox().setPosition(currentSave.getFloat("playerX", 15),
                 currentSave.getFloat("playerY", 8));
-        Gdx.app.log("SaveController", "Posizione inizio load" + Player.getPlayer().getPlayerBox().x + " " + Player.getPlayer().getPlayerBox().y);
+        Gdx.app.log("SaveController", "Posizione inizio load" + Player.getPlayer().getPlayerBox().x + " "
+                + Player.getPlayer().getPlayerBox().y);
         Player.getPlayer().getInventory().clear();
         Json json = new Json();
         String inventoryString = currentSave.getString("inventory");
@@ -73,7 +73,8 @@ public class SaveController {
         }
         GameScreen.levelToLoad = currentSave.getString("level");
         GameScreen.savedInformation = (Map<String, String>) currentSave.get();
-        Gdx.app.log("SaveController", "Posizione fine load" + Player.getPlayer().getPlayerBox().x + " " + Player.getPlayer().getPlayerBox().y);
+        Gdx.app.log("SaveController", "Posizione fine load" + Player.getPlayer().getPlayerBox().x + " "
+                + Player.getPlayer().getPlayerBox().y);
         Gdx.app.log("SaveController", "Load effettuato!");
     }
 
@@ -96,7 +97,8 @@ public class SaveController {
 
     private static void saveTime() {
         currentSave.putString("time", LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss")));
-        Gdx.app.log("SaveController", "Salvato tempo: " + LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss")));
+        Gdx.app.log("SaveController",
+                "Salvato tempo: " + LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss")));
     }
 
     public static boolean isEmpty() {
@@ -120,7 +122,7 @@ public class SaveController {
 
     public static Preferences getSave(int numSave) {
         return Gdx.app.getPreferences(SAVE_NAME + String.valueOf(numSave));
-        
+
     }
 
     private static void saveSavedInformation() {

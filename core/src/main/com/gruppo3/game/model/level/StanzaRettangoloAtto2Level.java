@@ -46,39 +46,39 @@ public class StanzaRettangoloAtto2Level extends LevelStrategy {
         // Player
         Player.getPlayer().getPlayerBox().setPosition(7.5f, 1);
 
-        if (GameScreen.savedInformation.containsKey("messaggioDecifrato")){
-            // scriptable
-            ScriptableObject nota = new ScriptableObject(new Rectangle(9.5f, 8, 1, 1.5f), true) {
-                @Override
-                public void action() {
-                    Dialog dialog = new Dialog();
+        // items
+        if (GameScreen.savedInformation.containsKey("mentito")
+                && !GameScreen.savedInformation.containsKey("presoNota")) {
+            PickableItem nota = new PickableItem("Nota", "nota.png");
+            nota.getBox().setPosition(9, 8);
 
-                    ChoiceDialogNode node1 = new ChoiceDialogNode(
-                            "[Trovi una nota\nVuoi leggerla?]", 0);
-                    node1.addChoice("Sì", 1);
-                    node1.addChoice("No");
-                    dialog.addNode(node1);
+            Dialog dialog = new Dialog();
+            dialog.addNode(new LinearDialogNode("[Trovi una nota per terra]", 0).setPointer(1));
+            ChoiceDialogNode node1 = new ChoiceDialogNode(
+                    "[Vuoi prenderla?]", 1);
+            node1.addChoice("Sì", 2);
+            node1.addChoice("No");
+            dialog.addNode(node1);
 
-                    dialog.addNode(
-                            new LinearDialogNode(
-                                    "\"Con questa scoperta posso diventare ricchissimo\ne mandare nel caos tutta l'economia!\"",
-                                    1).setPointer(2));
-                    dialog.addNode(new LinearDialogNode(
-                            "[Hai raccolto la nota]",
-                            2, new Action() {
-                                @Override
-                                public void action() {
-                                    Player.getPlayer().getInventory().add(new PickableItem("Nota", "atto2/nota.png"));
-                                }
-                            }));
-                    GameScreen.dialogController.startDialog(dialog);
-                    GameScreen.savedInformation.put("nota", "true");
-                }
-            };
-            scriptableObjectsController.scriptableObjectsList.add(nota);
+            dialog.addNode(new LinearDialogNode(
+                    "Nota:\n\"Con questa scoperta posso diventare ricchissimo\ne mandare nel caos tutta l'economia!\"",
+                    2)
+                    .setPointer(3));
+            dialog.addNode(new LinearDialogNode(
+                    "[Hai raccolto la nota]",
+                    3, new Action() {
+                        @Override
+                        public void action() {
+                            itemController.addItemToInventory(nota);
+                            GameScreen.savedInformation.put("presoNota", "true");
+                        }
+                    }));
 
-    }
+            nota.setDialog(dialog);
+            itemController.itemList.add(nota);
+        }
 
+        // scriptable
         Dialog dialogTrofeo = new Dialog();
         dialogTrofeo.addNode(new LinearDialogNode(
                 "(Quanti trofei...)", 0).setPointer(1));
@@ -105,7 +105,6 @@ public class StanzaRettangoloAtto2Level extends LevelStrategy {
                 ((MyGame) Gdx.app.getApplicationListener()).setScreen(fadeScreen);
             }
         };
-
 
         scriptableObjectsController.scriptableObjectsList.add(trofei1);
         scriptableObjectsController.scriptableObjectsList.add(trofei2);

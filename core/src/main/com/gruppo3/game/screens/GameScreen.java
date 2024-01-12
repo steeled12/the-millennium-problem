@@ -15,6 +15,7 @@ import com.gruppo3.game.controller.*;
 import com.gruppo3.game.model.interactables.NPC;
 import com.gruppo3.game.model.level.SecretRoomLevel;
 import com.gruppo3.game.model.level.StanzaRettangoloAtto1Level;
+import com.gruppo3.game.model.level.StanzaRettangoloAtto2Level;
 import com.gruppo3.game.model.menus.PauseMenu;
 import java.util.HashMap;
 import java.util.Map;
@@ -37,6 +38,7 @@ import com.gruppo3.game.model.level.Aula6Atto1Level;
 import com.gruppo3.game.model.level.Aula6Level;
 import com.gruppo3.game.model.level.CorridoioAtto1Level;
 import com.gruppo3.game.model.level.SotterraneiAtto2Level;
+import com.gruppo3.game.model.level.SotterraneiAtto3Level;
 import com.gruppo3.game.model.level.StanzaRettoreLevel;
 
 public class GameScreen implements Screen {
@@ -107,6 +109,9 @@ public class GameScreen implements Screen {
             case "SotterraneiAtto2Level":
                 levelController = new LevelController(new SotterraneiAtto2Level());
                 break;
+            case "SotterraneiAtto3Level":
+                levelController = new LevelController(new SotterraneiAtto3Level());
+                break;
             case "Aula4Level":
                 levelController = new LevelController(new Aula4Level());
                 break;
@@ -115,6 +120,9 @@ public class GameScreen implements Screen {
                 break;
             case "SecretRoomLevel":
                 levelController = new LevelController(new SecretRoomLevel());
+                break;
+            case "StanzaRettangoloAtto2Level":
+                levelController = new LevelController(new StanzaRettangoloAtto2Level());
                 break;
             case "StanzaRettoreLevel":
                 levelController = new LevelController(new StanzaRettoreLevel());
