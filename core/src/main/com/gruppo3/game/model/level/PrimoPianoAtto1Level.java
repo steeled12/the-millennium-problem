@@ -56,30 +56,37 @@ public class PrimoPianoAtto1Level extends LevelStrategy {
 
             }
         };
-        if(GameScreen.savedInformation.containsKey("atto")){
-           ScriptableObject portaRettore = new ScriptableObject(new Rectangle(34, 0, 2, 2), true) {
+
+           ScriptableObject portaRettore = new ScriptableObject(new Rectangle(34, 2, 2, 2), true) {
                 @Override
                 public void action() {
-                    Dialog dialog = new Dialog();
-                    LinearDialogNode node1 = new LinearDialogNode("(È la stanza del rettore.\nDa qui non si torna indietro)", 0);
-                    ChoiceDialogNode node2 = new ChoiceDialogNode("[Vuoi entrare?]", 1);
-                    node2.addChoice("Sì", 2, new Action() {
-                        @Override
-                        public void action() {
-                            TransitionScreen fadeScreen = new TransitionScreen(GameScreen.levelController.getCurrentLevel(),
-                            new StanzaRettoreLevel(), (MyGame) Gdx.app.getApplicationListener(), 0, 0);
-                            ((MyGame) Gdx.app.getApplicationListener()).setScreen(fadeScreen);
-                        }
-                    });
-                    node2.addChoice("No");
-                    node1.setPointer(1);
-                    dialog.addNode(node1);
-                    dialog.addNode(node2);
-                    GameScreen.dialogController.startDialog(dialog);
+                    if(GameScreen.savedInformation.containsKey("atto")){
+                        Dialog dialog = new Dialog();
+                        LinearDialogNode node1 = new LinearDialogNode("(È la stanza del rettore.\nDa qui non si torna indietro)", 0);
+                        ChoiceDialogNode node2 = new ChoiceDialogNode("[Vuoi entrare?]", 1);
+                        node2.addChoice("Sì", 2, new Action() {
+                            @Override
+                            public void action() {
+                                TransitionScreen fadeScreen = new TransitionScreen(GameScreen.levelController.getCurrentLevel(),
+                                new StanzaRettoreLevel(), (MyGame) Gdx.app.getApplicationListener(), 0, 0);
+                                ((MyGame) Gdx.app.getApplicationListener()).setScreen(fadeScreen);
+                            }
+                        });
+                        node2.addChoice("No");
+                        node1.setPointer(1);
+                        dialog.addNode(node1);
+                        dialog.addNode(node2);
+                        GameScreen.dialogController.startDialog(dialog);
+                    }else{
+                        Dialog dialog = new Dialog();
+                        LinearDialogNode node1 = new LinearDialogNode("(È la stanza del rettore.\nMeglio non disturbare)", 0);
+                        dialog.addNode(node1);
+                        GameScreen.dialogController.startDialog(dialog);
+                    }
                 }
             };
-            scriptableObjectsController.scriptableObjectsList.add(portaRettore);
-        }
+        scriptableObjectsController.scriptableObjectsList.add(portaRettore);
+
         ScriptableObject scale = new ScriptableObject(new Rectangle(37, 20, 3, 2), true) {
             @Override
             public void action() {

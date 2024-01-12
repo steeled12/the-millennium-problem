@@ -77,6 +77,8 @@ public class GameScreen implements Screen {
         initUI();
 
         this.playerController = new PlayerController();
+/*         Gdx.app.log("GameScreen", "cotnroelr: " + Player.getPlayer().toString());
+        Gdx.app.log("fasf", "ASD" + this.playerController.getAnimationToRender().toString()); */
         dialogController = new DialogController(dialogBox, optionBox);
         this.pauseController = new PauseController(game);
         this.menuController = new MenuController();
@@ -138,6 +140,7 @@ public class GameScreen implements Screen {
         Gdx.input.setInputProcessor(multiplexer);
 
         game.gameState = GameState.RUNNING;
+        levelController.setMusicVolume(SettingController.musicVolume);
     }
 
     private void initUI() {
@@ -201,7 +204,7 @@ public class GameScreen implements Screen {
             menuController.getStage().draw();
         }
 
-        levelController.setMusicVolume(SettingController.musicVolume);
+        //levelController.setMusicVolume(SettingController.musicVolume);
     }
 
     private void renderGame() {
