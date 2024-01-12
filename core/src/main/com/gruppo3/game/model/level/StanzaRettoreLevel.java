@@ -60,7 +60,7 @@ public class StanzaRettoreLevel extends LevelStrategy {
 
         NPC professore = new NPC(
                 new Texture("characters/professoreRettangolo.png"));
-        professore.getNpcBox().x = 21;
+        professore.getNpcBox().x = 22;
         professore.getNpcBox().y = 11;
         professore.setNPCDirection(NPC.Direction.WEST);
         Dialog profDialog = new Dialog();
