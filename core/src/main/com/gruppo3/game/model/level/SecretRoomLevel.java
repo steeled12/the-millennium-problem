@@ -145,7 +145,7 @@ public class SecretRoomLevel extends LevelStrategy {
         // tutti i dialoghi
 
         GenericItem cassetto = new GenericItem("cassetto");
-        itemController.addwithId(cassetto, 30);
+        itemController.addwithId(cassetto, 29);
         Dialog cassDialog = new Dialog();
         LinearDialogNode cassNode0 = new LinearDialogNode("Nel cassetto c'è un foglietto", 0);
         LinearDialogNode cassNode1 = new LinearDialogNode(
@@ -163,7 +163,7 @@ public class SecretRoomLevel extends LevelStrategy {
         cassetto.setDialog(cassDialog);
 
         GenericItem pianta = new GenericItem("pianta");
-        itemController.addwithId(pianta, 34);
+        itemController.addwithId(pianta, 33);
         Dialog piantaDialog = new Dialog();
         LinearDialogNode piantaNode0 = new LinearDialogNode("Questa pianta ha qualcosa di strano", 0);
         ChoiceDialogNode piantaNode1 = new ChoiceDialogNode("Ispezioni la pianta?", 1);
