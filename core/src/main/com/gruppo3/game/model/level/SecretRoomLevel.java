@@ -192,7 +192,7 @@ public class SecretRoomLevel extends LevelStrategy {
         pianta.setDialog(piantaDialog);
 
         GenericItem libreria = new GenericItem("libreria");
-        itemController.addwithId(libreria, 4);
+        itemController.addwithId(libreria, 3);
         Dialog libDialog = new Dialog();
         LinearDialogNode libNode0 = new LinearDialogNode("Un libro sporge leggermente \n dalla libreria", 0);
         LinearDialogNode libNode1 = new LinearDialogNode("Il titolo è \"Appunti sulla ricerca\"", 1);
