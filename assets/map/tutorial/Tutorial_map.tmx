@@ -108,19 +108,19 @@
    eJxjYKAOmNtCJYNIBGsHyN69FNg7vZ6BYUY99dxCLFgOtHPFANg7CgYeSFQyMBg00N9eDaC9DgNg7ygYBaNgFAw0AADheAqw
   </data>
  </layer>
- <layer id="23" name="Cucina" width="30" height="20" locked="1">
+ <layer id="23" name="Cucina" width="30" height="20">
   <data encoding="base64" compression="zlib">
-   eJxjYBgFo2AUjILhBZ61Ud/Mi60MDJeg+DIQqxoixEB8EPhGA3s/AM3+CMSfgPgzEJsaQmgYBgG2durbO1iAMjRMnWgQtviAMdC+hUAcRGd7QWAj0M5NA2DvKKAuAABW5x5t
+   eJxjYBgFo2AUjILhBZ61Ud/Mi60MDJeg+DIQq7YhxEB8EPhGA3s/AM3+CMSfgPgzEJu2QWgYBgG2durbO1iAMjRMnWgQtviAMdC+hUAcRGd7QWAj0M5NA2DvKKAuAADuax8X
   </data>
  </layer>
- <layer id="25" name="sopra piano" width="30" height="20" locked="1">
+ <layer id="25" name="sopra piano" width="30" height="20">
   <data encoding="base64" compression="zlib">
-   eJxjYBgFo2AUjIKhA463Yhd/Y0hbe68D7f0KxN+A+CWSG/4A7S03oq3do2AUjIKhBwC9JQn/
+   eJxjYBgFo2AUjIKhA463Yhd/00Zbe68D7f0KxN+A+CWSG/4A7W1vp63do2AUjIKhBwA8WQsO
   </data>
  </layer>
- <layer id="24" name="sopra" width="30" height="20" locked="1">
+ <layer id="24" name="sopra" width="30" height="20">
   <data encoding="base64" compression="zlib">
-   eJxjYBgFo2AUjIKhBfINIfRzAwaGFwb0s7ceau93oJ0/6GjvYAAT2hgYJgLxpDb62zuznf72LgDatxCIF9HZ3g1A+zYC8SY62zsKqA8AJSoTfA==
+   eJxjYBgFo2AUjIKhBfLbIPTzVgaGF630s7ceau93oJ0/6GjvYAATgH6fCMST2uhv78x2+tu7AGjfQiBeRGd7NwDt2wjEm+hs7yigPgAA5YQVeg==
   </data>
  </layer>
  <layer id="26" name="sopra tavolo" width="30" height="20" locked="1">
@@ -128,9 +128,9 @@
    eJxjYBgFo2AUjIJRMArwg89tDAxfgPhr28iwl7mdgYEFiFnb6WuvMNA+ESAWpbO9o4D6AAAVGQxP
   </data>
  </layer>
- <layer id="27" name="sopra sopra tavolo" width="30" height="20" locked="1">
+ <layer id="27" name="sopra sopra tavolo" width="30" height="20">
   <data encoding="base64" compression="zlib">
-   eJxjYBgFo2AUjILhAwI66WfXinYEO4GO9iKDAjrae9uIfnYhgwvthNWMglEw2AAA+0MGTw==
+   eJxjYBgFo2AUjILhAwI66WfXinYEO4GO9iKDAjra+6+NfnYhgwvthNWMglEw2AAAdl0Gxg==
   </data>
  </layer>
  <objectgroup id="36" name="Collisioni" locked="1">
