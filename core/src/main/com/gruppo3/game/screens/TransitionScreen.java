@@ -6,29 +6,27 @@ import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 
 import com.gruppo3.game.MyGame;
-import com.gruppo3.game.controller.LevelController;
 import com.gruppo3.game.controller.SettingController;
 import com.gruppo3.game.model.level.LevelStrategy;
-import com.gruppo3.game.screens.GameScreen;
 import com.gruppo3.game.model.Player;
 
 public class TransitionScreen implements Screen {
 	private LevelStrategy currentScreen;
 	private LevelStrategy nextScreen;
-    private GameScreen gameScreen;
+	private GameScreen gameScreen;
 	private MyGame game;
-    float playerX, playerY;
+	float playerX, playerY;
 
 	private float alpha = 0;
 	private boolean fadeDirection = true;
 
 	public TransitionScreen(LevelStrategy current, LevelStrategy next, MyGame game, float playerX, float playerY) {
-        this.game = game;
+		this.game = game;
 		this.currentScreen = current;
 		this.nextScreen = next;
-        this.gameScreen = game.currentScreen;
-        this.playerX = playerX;
-        this.playerY = playerY;
+		this.gameScreen = game.currentScreen;
+		this.playerX = playerX;
+		this.playerY = playerY;
 	}
 
 	@Override
@@ -40,13 +38,13 @@ public class TransitionScreen implements Screen {
 	@Override
 	public void render(float delta) {
 		Gdx.gl.glClearColor(0, 0, 0, 0);
-		Gdx.gl.glClear(Gdx.gl.GL_COLOR_BUFFER_BIT); 
+		Gdx.gl.glClear(Gdx.gl.GL_COLOR_BUFFER_BIT);
 
 		GameScreen.levelController.setLevel(nextScreen);
-        if(playerX != 0 || playerY != 0){
-            Player.getPlayer().getPlayerBox().x = this.playerX;
-            Player.getPlayer().getPlayerBox().y = this.playerY;
-        }
+		if (playerX != 0 || playerY != 0) {
+			Player.getPlayer().getPlayerBox().x = this.playerX;
+			Player.getPlayer().getPlayerBox().y = this.playerY;
+		}
 
 		Gdx.gl.glEnable(Gdx.gl.GL_BLEND);
 		Gdx.gl.glBlendFunc(Gdx.gl.GL_SRC_ALPHA, Gdx.gl.GL_ONE_MINUS_SRC_ALPHA);
@@ -58,8 +56,7 @@ public class TransitionScreen implements Screen {
 
 		if (alpha >= 1) {
 			fadeDirection = false;
-		}
-		else if (alpha <= 0 && !fadeDirection) {
+		} else if (alpha <= 0 && !fadeDirection) {
 			game.setScreen(gameScreen);
 		}
 		alpha += fadeDirection == true ? 0.02 : -0.02;

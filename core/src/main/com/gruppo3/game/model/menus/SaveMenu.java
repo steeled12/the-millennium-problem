@@ -1,7 +1,6 @@
 package com.gruppo3.game.model.menus;
 
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
@@ -13,7 +12,6 @@ import com.badlogic.gdx.utils.viewport.Viewport;
 import com.gruppo3.game.MyGame;
 import com.gruppo3.game.controller.MenuController;
 import com.gruppo3.game.controller.SaveController;
-import com.gruppo3.game.screens.GameScreen;
 
 public class SaveMenu extends MenuState {
 
