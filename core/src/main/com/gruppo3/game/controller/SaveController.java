@@ -83,7 +83,6 @@ public class SaveController {
         Player.getPlayer().getInventory().clear();
         Player.getPlayer().getPlayerBox().setPosition(6, 13);
         GameScreen.savedInformation.clear();
-        GameScreen.savedInformation.put("atto", "false");
         GameScreen.levelToLoad = "StanzaRettoreLevel";
 
     }

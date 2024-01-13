@@ -56,7 +56,7 @@ public class ItemController extends InputAdapter {
         Player.getPlayer().getInventory().add(item);
         GameScreen.savedInformation.put("isPicked" + item.getName(), "true");
         GameScreen.updateInventoryUI();
-        Sound sound = new Gdx().audio.newSound(Gdx.files.internal("sound/sfx-selectjingle.mp3"));
+        Sound sound = Gdx.audio.newSound(Gdx.files.internal("sound/sfx-selectjingle.mp3"));
         sound.play(SettingController.gameVolume);
 
     }

@@ -10,7 +10,6 @@ import com.badlogic.gdx.maps.tiled.TmxMapLoader;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
 import com.badlogic.gdx.math.Rectangle;
 import com.gruppo3.game.controller.SettingController;
-import com.gruppo3.game.model.Player;
 import com.gruppo3.game.model.dialog.ChoiceDialogNode;
 import com.gruppo3.game.model.dialog.Dialog;
 import com.gruppo3.game.model.dialog.LinearDialogNode;
@@ -55,7 +54,7 @@ public class TutorialLevel extends LevelStrategy {
         this.messageSound = Gdx.audio.newSound(Gdx.files.internal("sound/message_sound.mp3"));
         this.music = Gdx.audio.newMusic(Gdx.files.internal("music/tutorialMusic.mp3"));
         this.music.setLooping(true);
-        //Player.getPlayer().getPlayerBox().setPosition(6, 13);
+        // Player.getPlayer().getPlayerBox().setPosition(6, 13);
     }
 
     @Override
@@ -64,7 +63,6 @@ public class TutorialLevel extends LevelStrategy {
         this.music.play();
 
         // Player
-
 
         // NPC
         Cat cat = new Cat(
@@ -147,8 +145,9 @@ public class TutorialLevel extends LevelStrategy {
                 dialog.addNode(scelta);
                 dialog.addNode(new LinearDialogNode("[Bip bup, bup bip...]", 4).setPointer(5));
                 dialog.addNode(new LinearDialogNode("[BOP ??]", 5).setPointer(6));
-                dialog.addNode(new LinearDialogNode("\"Non...istic Po...mial / Rettangolo / Scoperta / Soldi / Caos\"", 6)
-                        .setPointer(7));
+                dialog.addNode(
+                        new LinearDialogNode("\"Non...istic Po...mial / Rettangolo / Scoperta / Soldi / Caos\"", 6)
+                                .setPointer(7));
                 dialog.addNode(new LinearDialogNode("Non ha molto senso ma è quello che riesco a decifrare...", 7));
                 GameScreen.dialogController.startDialog(dialog);
             }
@@ -164,7 +163,8 @@ public class TutorialLevel extends LevelStrategy {
 
                 switch (GameScreen.savedInformation.get("turialDoor")) {
                     case "done":
-                        TransitionScreen fadeScreen = new TransitionScreen(GameScreen.levelController.getCurrentLevel(), new CorridoioAtto1Level(), (MyGame) Gdx.app.getApplicationListener(),34,2);
+                        TransitionScreen fadeScreen = new TransitionScreen(GameScreen.levelController.getCurrentLevel(),
+                                new CorridoioAtto1Level(), (MyGame) Gdx.app.getApplicationListener(), 34, 2);
                         ((MyGame) Gdx.app.getApplicationListener()).setScreen(fadeScreen);
                         Dialog arrivoDialog = new Dialog();
                         arrivoDialog.addNode(new LinearDialogNode("Finalmente sono arrivato...", 0).setPointer(1));
