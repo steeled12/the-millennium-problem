@@ -67,7 +67,6 @@ public class Aula4Level extends LevelStrategy {
         NPC peppe = new NPC(new Texture(Gdx.files.internal("characters/peppe.png")));
         peppe.getNpcBox().x = 1;
         peppe.getNpcBox().y = 1;
-        npcController.add(peppe);
 
         Dialog peppeDialog = new Dialog();
         LinearDialogNode peppeNode0 = new LinearDialogNode("Peppe:\nDi nuovo qui? Vuoi sapere qualcosa?", 0);
@@ -93,14 +92,16 @@ public class Aula4Level extends LevelStrategy {
         NPC cristina = new NPC(new Texture(Gdx.files.internal("characters/cristina.png")));
         cristina.getNpcBox().x = 1;
         cristina.getNpcBox().y = 2;
-        npcController.add(cristina);
         cristina.setDialog(peppeDialog);
 
         NPC andrea = new NPC(new Texture(Gdx.files.internal("characters/andrea.png")));
         andrea.getNpcBox().x = 2;
         andrea.getNpcBox().y = 2;
-        npcController.add(andrea);
         andrea.setDialog(peppeDialog);
+
+        npcController.add(andrea);
+        npcController.add(cristina);
+        npcController.add(peppe);
 
     }
 

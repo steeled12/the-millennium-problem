@@ -216,7 +216,6 @@ public class GameScreen implements Screen {
         renderUI();
 
         if (game.gameState.equals(GameState.PAUSED)) {
-            // TODO?: stop musica con pausa
             if (!multiplexer.getProcessors().contains(menuController.getStage(), true)) {
                 multiplexer.addProcessor(4, menuController.getStage());
             }

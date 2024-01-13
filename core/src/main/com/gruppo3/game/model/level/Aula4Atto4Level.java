@@ -67,7 +67,6 @@ public class Aula4Atto4Level extends LevelStrategy {
         NPC peppe = new NPC(new Texture(Gdx.files.internal("characters/Ghost_1.png")));
         peppe.getNpcBox().x = 1;
         peppe.getNpcBox().y = 1;
-        npcController.add(peppe);
 
         Dialog peppeDialog = new Dialog();
 
@@ -81,14 +80,16 @@ public class Aula4Atto4Level extends LevelStrategy {
         NPC cristina = new NPC(new Texture(Gdx.files.internal("characters/Ghost_2.png")));
         cristina.getNpcBox().x = 1;
         cristina.getNpcBox().y = 2;
-        npcController.add(cristina);
         cristina.setDialog(peppeDialog);
 
         NPC andrea = new NPC(new Texture(Gdx.files.internal("characters/Ghost_1.png")));
         andrea.getNpcBox().x = 1;
         andrea.getNpcBox().y = 3;
-        npcController.add(andrea);
         andrea.setDialog(peppeDialog);
+
+        npcController.add(andrea);
+        npcController.add(cristina);
+        npcController.add(peppe);
 
     }
 
