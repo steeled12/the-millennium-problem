@@ -26,7 +26,7 @@ public class DialogController extends InputAdapter {
 	}
 
 	@Override
-	public boolean keyDown(int keycode) {
+	public boolean keyUp(int keycode) {
 		if (dialogBox.isVisible()) {
 			return true;
 		}
@@ -34,7 +34,7 @@ public class DialogController extends InputAdapter {
 	}
 
 	@Override
-	public boolean keyUp(int keycode) {
+	public boolean keyDown(int keycode) {
 		if (optionBox.isVisible()) {
 			if (keycode == Keys.UP) {
 				optionBox.moveUp();
@@ -44,8 +44,9 @@ public class DialogController extends InputAdapter {
 				return true;
 			}
 		}
-		if (dialogBox.isVisible() && !dialogBox.isFinished()) {
-			return false;
+		if (dialogBox.isVisible() && !dialogBox.isFinished() && keycode == Keys.X) {
+			dialogBox.skipAnimation();
+			return true;
 		}
 		if (traverser != null && keycode == Keys.X) { // continue through tree
 			DialogNode thisNode = traverser.getNode();

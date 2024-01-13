@@ -48,6 +48,13 @@ public class DialogBox extends Table {
         textLabel.setText(text);
     }
 
+    public void skipAnimation() {
+        if (state == STATE.ANIMATING) {
+            setText(targetText);
+            state = STATE.IDLE;
+        }
+    }
+
     @Override
     public void act(float delta) {
         super.act(delta);
