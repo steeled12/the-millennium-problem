@@ -13,14 +13,12 @@ import com.gruppo3.game.MyGame;
 import com.gruppo3.game.controller.SettingController;
 import com.gruppo3.game.model.dialog.Dialog;
 import com.gruppo3.game.model.dialog.LinearDialogNode;
-import com.gruppo3.game.model.dialog.ChoiceDialogNode;
 import com.gruppo3.game.model.interactables.*;
 import com.gruppo3.game.model.Player;
 import com.gruppo3.game.screens.TransitionScreen;
 import com.gruppo3.game.util.Action;
 import com.gruppo3.game.screens.GameScreen;
 import com.gruppo3.game.model.Player.PlayerDirection;
-
 
 public class SotterraneiAtto3Level extends LevelStrategy {
 
@@ -51,7 +49,8 @@ public class SotterraneiAtto3Level extends LevelStrategy {
         ScriptableObject portaSx = new ScriptableObject(new Rectangle(1, 0, 2, 1), true) {
             @Override
             public void action() {
-                TransitionScreen fadeScreen = new TransitionScreen(GameScreen.levelController.getCurrentLevel(), new PrimoPianoAtto1Level(), (MyGame) Gdx.app.getApplicationListener(),34,17);
+                TransitionScreen fadeScreen = new TransitionScreen(GameScreen.levelController.getCurrentLevel(),
+                        new PrimoPianoAtto1Level(), (MyGame) Gdx.app.getApplicationListener(), 34, 17);
                 ((MyGame) Gdx.app.getApplicationListener()).setScreen(fadeScreen);
                 Player.getPlayer().setPlayerDirection(PlayerDirection.SOUTH);
             }
@@ -98,7 +97,7 @@ public class SotterraneiAtto3Level extends LevelStrategy {
         rettoreDialog.addNode(rettoreNode5);
 
         rettore.setDialog(rettoreDialog);
-        
+
     }
 
     @Override
