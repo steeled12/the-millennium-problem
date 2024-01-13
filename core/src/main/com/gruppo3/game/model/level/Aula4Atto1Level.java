@@ -46,7 +46,8 @@ public class Aula4Atto1Level extends LevelStrategy {
         ScriptableObject portaSx = new ScriptableObject(new Rectangle(4, 0, 2, 2), true) {
             @Override
             public void action() {
-                TransitionScreen fadeScreen = new TransitionScreen(GameScreen.levelController.getCurrentLevel(), new CorridoioAtto1Level(), (MyGame) Gdx.app.getApplicationListener(), 58, 14);
+                TransitionScreen fadeScreen = new TransitionScreen(GameScreen.levelController.getCurrentLevel(),
+                        new CorridoioAtto1Level(), (MyGame) Gdx.app.getApplicationListener(), 58, 14);
                 ((MyGame) Gdx.app.getApplicationListener()).setScreen(fadeScreen);
             }
         };
@@ -55,7 +56,8 @@ public class Aula4Atto1Level extends LevelStrategy {
         ScriptableObject portaDx = new ScriptableObject(new Rectangle(24, 0, 2, 2), true) {
             @Override
             public void action() {
-                TransitionScreen fadeScreen = new TransitionScreen(GameScreen.levelController.getCurrentLevel(), new CorridoioAtto1Level(), (MyGame) Gdx.app.getApplicationListener(), 64, 14);
+                TransitionScreen fadeScreen = new TransitionScreen(GameScreen.levelController.getCurrentLevel(),
+                        new CorridoioAtto1Level(), (MyGame) Gdx.app.getApplicationListener(), 64, 14);
                 ((MyGame) Gdx.app.getApplicationListener()).setScreen(fadeScreen);
 
             }
@@ -65,7 +67,6 @@ public class Aula4Atto1Level extends LevelStrategy {
         NPC peppe = new NPC(new Texture(Gdx.files.internal("characters/peppe.png")));
         peppe.getNpcBox().x = 1;
         peppe.getNpcBox().y = 1;
-        npcController.add(peppe);
 
         Dialog peppeDialog = new Dialog();
 
@@ -93,16 +94,17 @@ public class Aula4Atto1Level extends LevelStrategy {
         NPC cristina = new NPC(new Texture(Gdx.files.internal("characters/cristina.png")));
         cristina.getNpcBox().x = 1;
         cristina.getNpcBox().y = 2;
-        npcController.add(cristina);
+
         cristina.setDialog(peppeDialog);
 
         NPC andrea = new NPC(new Texture(Gdx.files.internal("characters/andrea.png")));
         andrea.getNpcBox().x = 1;
         andrea.getNpcBox().y = 3;
-        npcController.add(andrea);
         andrea.setDialog(peppeDialog);
 
-        
+        npcController.add(andrea);
+        npcController.add(cristina);
+        npcController.add(peppe);
     }
 
     @Override

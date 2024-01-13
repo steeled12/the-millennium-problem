@@ -53,8 +53,10 @@ public class StanzaRettangoloAtto1Level extends LevelStrategy {
         professore.getNpcBox().x = 8;
         professore.getNpcBox().y = 12;
 
-        Dialog dialog = new Dialog();
+        Dialog dialogRidotto = new Dialog();
+        dialogRidotto.addNode(new LinearDialogNode("Ora devi andare...", 0));
 
+        Dialog dialog = new Dialog();
         dialog.addNode(new LinearDialogNode("Professore Rettangolo:\nSei arrivato! Ti aspettavo!", 0).setPointer(1));
 
         ChoiceDialogNode node1 = new ChoiceDialogNode(
@@ -93,10 +95,16 @@ public class StanzaRettangoloAtto1Level extends LevelStrategy {
         dialog.addNode(new LinearDialogNode("(Che cosa è appena successo?)", 21, new Action() {
             @Override
             public void action() {
-                GameScreen.savedInformation.put("atto", "atto2");
+                GameScreen.savedInformation.put("parlatoProfessore", "true");
+                professore.setDialog(dialogRidotto);
             }
         }));
-        professore.setDialog(dialog);
+
+        if (GameScreen.savedInformation.containsKey("parlatoProfessore")) {
+            professore.setDialog(dialogRidotto);
+        } else {
+            professore.setDialog(dialog);
+        }
 
         npcController.add(professore);
 
