@@ -118,23 +118,20 @@ public class AttoFinaleLevel extends LevelStrategy {
 
         if (colpevoleNome.equals("Rettore")) {
             dialogoFinale.addNode(new LinearDialogNode(
-                    "...Dopo qualche mese, nell'università di Palermo,\nvenne eletto un nuovo Rettore", 4, () -> {
-                        fadeMusic();
-                    }).setPointer(10));
-        } else {
+                    "...Dopo qualche mese, nell'università di Palermo,\nvenne eletto un nuovo Rettore", 4)
+                    .setPointer(10));
+        } else
+
+        {
             dialogoFinale.addNode(new LinearDialogNode(
                     "...Dopo qualche mese, tutte le banche del mondo,\nsubirono un attacco hacker", 4).setPointer(5));
             dialogoFinale.addNode(new LinearDialogNode(
-                    "Smettendo completamente di funzionare e facendo crollare\nl'intero pianeta nel caos", 5, () -> {
-                        fadeMusic();
-                    })
+                    "Smettendo completamente di funzionare e facendo crollare\nl'intero pianeta nel caos", 5)
                     .setPointer(10));
         }
-        dialogoFinale.addNode(new LinearDialogNode(
-                "...",
-                10, () -> {
-                    fadeMusic();
-                }));
+        dialogoFinale.addNode(new LinearDialogNode("...", 10, () -> {
+            fadeMusic();
+        }));
 
         GameScreen.dialogController.startDialog(dialogoFinale);
     }
