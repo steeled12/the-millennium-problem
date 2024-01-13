@@ -70,7 +70,7 @@ public class SecretRoomLevel extends LevelStrategy {
                 "\"Non dimenticare: la password è custodita dalla natura\"", 1, new Action() {
                     @Override
                     public void action() {
-                        Sound sound = Gdx.audio.newSound(Gdx.files.internal("sound/sfx-realization.mp3"));
+                        Sound sound = Gdx.audio.newSound(Gdx.files.internal("sound/sfx-realization.wav"));
                         sound.play(SettingController.gameVolume);
                     }
                 });
@@ -89,7 +89,7 @@ public class SecretRoomLevel extends LevelStrategy {
         LinearDialogNode piantaNode3 = new LinearDialogNode("\"Password: Mappa1984\"", 3, new Action() {
             @Override
             public void action() {
-                Sound sound = Gdx.audio.newSound(Gdx.files.internal("sound/sfx-realization.mp3"));
+                Sound sound = Gdx.audio.newSound(Gdx.files.internal("sound/sfx-realization.wav"));
                 sound.play(SettingController.gameVolume);
             }
         });
@@ -260,6 +260,7 @@ public class SecretRoomLevel extends LevelStrategy {
         libNode13.setPointer(14);
         libNode14.setPointer(15);
         libNode15.setPointer(16);
+        libNode16.setPointer(17);
 
         libDialog.addNode(libNode0);
         libDialog.addNode(libNode1);
@@ -278,6 +279,7 @@ public class SecretRoomLevel extends LevelStrategy {
         libDialog.addNode(libNode14);
         libDialog.addNode(libNode15);
         libDialog.addNode(libNode16);
+        libDialog.addNode(libNode17);
 
         libreria.setDialog(libDialog);
 

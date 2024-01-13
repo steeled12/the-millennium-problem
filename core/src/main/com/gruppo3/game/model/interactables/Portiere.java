@@ -66,13 +66,12 @@ public class Portiere extends NPC {
             dialogController.startDialog(this.dialog);
             return;
         }
-        if (!GameScreen.savedInformation.containsKey("isPickedbibita")) {
+        if(!GameScreen.savedInformation.containsKey("bibitaComprata")) {
             dialogController.startDialog(this.dialog);
             return;
         }
-
-        if (GameScreen.savedInformation.containsKey("isPickedbibita")
-                && GameScreen.savedInformation.containsKey("parlatoAPortiere")) {
+        
+        if(GameScreen.savedInformation.containsKey("bibitaComprata") && GameScreen.savedInformation.containsKey("parlatoAPortiere")) {
             Dialog portiereDialog = new Dialog();
             this.dialog = portiereDialog;
             index = 0;

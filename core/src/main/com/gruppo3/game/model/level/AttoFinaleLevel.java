@@ -55,6 +55,7 @@ public class AttoFinaleLevel extends LevelStrategy {
 
         Player.getPlayer().getPlayerBox().x = 14.5f;
         Player.getPlayer().getPlayerBox().y = 6;
+        Player.getPlayer().setPlayerDirection(Player.PlayerDirection.SOUTH);
 
         NPC uomoMisterioso = new NPC(
                 new Texture("characters/uomo_misterioso.png"));
@@ -129,6 +130,11 @@ public class AttoFinaleLevel extends LevelStrategy {
                     })
                     .setPointer(10));
         }
+        dialogoFinale.addNode(new LinearDialogNode(
+                "...",
+                10, () -> {
+                    fadeMusic();
+                }));
 
         GameScreen.dialogController.startDialog(dialogoFinale);
     }
