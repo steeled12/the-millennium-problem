@@ -50,8 +50,13 @@ public class AttoFinaleLevel extends LevelStrategy {
     @Override
     public void init() {
         // Player
-        music.setVolume(SettingController.musicVolume);
-        music.play();
+        Timer.schedule(new Timer.Task() {
+            @Override
+            public void run() {
+                music.setVolume(SettingController.musicVolume);
+                music.play();
+            }
+        }, 1.5f);
 
         Player.getPlayer().getPlayerBox().x = 14.5f;
         Player.getPlayer().getPlayerBox().y = 6;
@@ -118,7 +123,9 @@ public class AttoFinaleLevel extends LevelStrategy {
 
         if (colpevoleNome.equals("Rettore")) {
             dialogoFinale.addNode(new LinearDialogNode(
-                    "...Dopo qualche mese, nell'università di Palermo,\nvenne eletto un nuovo Rettore", 4)
+                    "...Dopo qualche mese, nell'università di Palermo,\nvenne eletto un nuovo Rettore", 4, () -> {
+                        fadeMusic();
+                    })
                     .setPointer(10));
         } else
 
@@ -126,12 +133,11 @@ public class AttoFinaleLevel extends LevelStrategy {
             dialogoFinale.addNode(new LinearDialogNode(
                     "...Dopo qualche mese, tutte le banche del mondo,\nsubirono un attacco hacker", 4).setPointer(5));
             dialogoFinale.addNode(new LinearDialogNode(
-                    "Smettendo completamente di funzionare e facendo crollare\nl'intero pianeta nel caos", 5)
+                    "Smettendo completamente di funzionare e facendo crollare\nl'intero pianeta nel caos", 5, () -> {
+                        fadeMusic();
+                    })
                     .setPointer(10));
         }
-        dialogoFinale.addNode(new LinearDialogNode("...", 10, () -> {
-            fadeMusic();
-        }));
 
         GameScreen.dialogController.startDialog(dialogoFinale);
     }
@@ -140,7 +146,7 @@ public class AttoFinaleLevel extends LevelStrategy {
         Timer.schedule(new Timer.Task() {
             @Override
             public void run() {
-                if (music.getVolume() >= 0.1f)
+                if (music.getVolume() >= 0.01f)
                     music.setVolume(music.getVolume() - 0.01f);
                 else {
                     music.setPosition(9999);

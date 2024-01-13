@@ -83,8 +83,7 @@ public class SaveController {
         Player.getPlayer().getInventory().clear();
         Player.getPlayer().getPlayerBox().setPosition(6, 13);
         GameScreen.savedInformation.clear();
-        GameScreen.updateInventoryUI();
-        GameScreen.levelToLoad = "TutorialLevel";
+        GameScreen.levelToLoad = "AttoFinaleLevel";
 
     }
 

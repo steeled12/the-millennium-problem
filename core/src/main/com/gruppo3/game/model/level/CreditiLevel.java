@@ -88,9 +88,10 @@ public class CreditiLevel extends LevelStrategy {
                                                 1).setPointer(2));
                 dialogoGatto
                                 .addNode(new LinearDialogNode(
-                                                "",
+                                                "(Che sogno strano...)",
                                                 2, () -> {
                                                         SaveController.newGame();
+                                                        GameScreen.updateInventoryUI();
                                                         TransitionScreen fadeScreen = new TransitionScreen(
                                                                         GameScreen.levelController.getCurrentLevel(),
                                                                         new TutorialLevel(),
@@ -106,7 +107,7 @@ public class CreditiLevel extends LevelStrategy {
                                                 3).setPointer(4));
                 dialogoGatto
                                 .addNode(new LinearDialogNode(
-                                                "",
+                                                "(Sono tornato indietro)",
                                                 4, () -> {
                                                         TransitionScreen fadeScreen = new TransitionScreen(
                                                                         GameScreen.levelController.getCurrentLevel(),
@@ -130,18 +131,26 @@ public class CreditiLevel extends LevelStrategy {
                                 new LinearDialogNode("Cristina\nSperiamo ti sia piaciuto!", 1).setPointer(2));
                 dialogoCredits
                                 .addNode(new LinearDialogNode(
-                                                "Andrea:\nLo sai che hai ottenuto il finale {Inserire finale}?",
+                                                "Andrea:\nIn base agli indizi trovati e scelte fatte\npuoi ottenere un altro finale!",
                                                 2).setPointer(3));
-                dialogoCredits
-                                .addNode(new LinearDialogNode(
-                                                "Andrea:\nIn base agli indizi trovati e scelte fatte\npuoi ottenere altri finali!\nRigioca per ottenerne altri!",
-                                                3).setPointer(4));
-                dialogoCredits
-                                .addNode(new LinearDialogNode(
-                                                "Peppe:\nIn totale sono 3!",
-                                                4, () -> {
-                                                        npcController.add(gatto);
-                                                }));
+
+                String colpevoleNome = GameScreen.savedInformation.getOrDefault("colpevoleScelto",
+                                "Professore Rettangolo");
+                if (colpevoleNome.equals("Rettore")) {
+                        dialogoCredits
+                                        .addNode(new LinearDialogNode(
+                                                        "Peppe:\nComplimenti per aver trovato tutti gli indizi\n e aver fatto arrestare il vero colpevole",
+                                                        3, () -> {
+                                                                npcController.add(gatto);
+                                                        }));
+                } else {
+                        dialogoCredits
+                                        .addNode(new LinearDialogNode(
+                                                        "Peppe:\nC'eri quasi!\nTrovando tutti e 3 gli indizi puoi far arrestare il vero colpevole",
+                                                        3, () -> {
+                                                                npcController.add(gatto);
+                                                        }));
+                }
 
                 peppe.setDialog(dialogoCredits);
                 cristina.setDialog(dialogoCredits);
