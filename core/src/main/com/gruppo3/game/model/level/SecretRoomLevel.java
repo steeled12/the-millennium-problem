@@ -141,6 +141,7 @@ public class SecretRoomLevel extends LevelStrategy {
                 GameScreen.dialogController.startDialog(computerDialog);
             }
         };
+        scriptableObjectsController.scriptableObjectsList.add(computer);
 
         // tutti i dialoghi
 
