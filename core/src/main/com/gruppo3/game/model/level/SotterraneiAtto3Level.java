@@ -81,7 +81,7 @@ public class SotterraneiAtto3Level extends LevelStrategy {
                     }
                 });
         LinearDialogNode rettoreNode5 = new LinearDialogNode(
-                "Rettore:\nAdesso però lascia tutto a me,\nfai come se non avessi visto niente.", 5);
+                "Rettore:\nRaggiungimi nella mia stanza...\nCosì potrai aiutarmi ad accusarlo.", 5);
 
         rettoreNode0.setPointer(1);
         rettoreNode1.setPointer(2);

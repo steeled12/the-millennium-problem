@@ -145,10 +145,7 @@ public class StanzaRettoreLevel extends LevelStrategy {
                 rettoreDialog.addNode(new LinearDialogNode(
                                 "Il rettore è venuto a conoscenza della ricerca\ne di come poteva essere usata per scopi personali!",
                                 13).setPointer(14));
-                rettoreDialog.addNode(new LinearDialogNode("[Mostri gli appunti]", 14, () -> {
-                        Player.getPlayer().getInventory().removeIf(item -> item.getName().equalsIgnoreCase("appunti sulla ricerca"));
-                        GameScreen.updateInventoryUI();
-                }).setPointer(15));
+                rettoreDialog.addNode(new LinearDialogNode("[Mostri gli appunti]", 14).setPointer(15));
                 rettoreDialog.addNode(new LinearDialogNode("Uomo misterioso:\n...interessante...", 15).setPointer(16));
                 rettoreDialog.addNode(new LinearDialogNode("Rettore:\nMa...ma...", 16).setPointer(17));
                 rettoreDialog.addNode(new LinearDialogNode(
@@ -197,10 +194,7 @@ public class StanzaRettoreLevel extends LevelStrategy {
                                 new LinearDialogNode("Io e il professore abbiamo decifrato un messaggio...", 26)
                                                 .setPointer(27));
                 rettoreDialog.addNode(
-                                new LinearDialogNode("[Mostri la nota trovata\nnella stanza del professore]", 27, () -> {
-                                        Player.getPlayer().getInventory().removeIf(item -> item.getName().equalsIgnoreCase("nota"));
-                                        GameScreen.updateInventoryUI();
-                                }).setPointer(28));
+                                new LinearDialogNode("[Mostri la nota trovata\nnella stanza del professore]", 27).setPointer(28));
                 rettoreDialog.addNode(new LinearDialogNode("Uomo misterioso:\nMa questo...\n!!!", 28).setPointer(29));
                 rettoreDialog.addNode(
                                 new LinearDialogNode("Professore Rettangolo:\nL'hai trovato!", 29).setPointer(30));
