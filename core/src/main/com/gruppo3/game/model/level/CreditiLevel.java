@@ -9,12 +9,17 @@ import com.badlogic.gdx.maps.tiled.TmxMapLoader;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.utils.Timer;
+import com.gruppo3.game.MyGame;
+import com.gruppo3.game.controller.SaveController;
 import com.gruppo3.game.controller.SettingController;
 import com.gruppo3.game.model.Player;
+import com.gruppo3.game.model.dialog.ChoiceDialogNode;
 import com.gruppo3.game.model.dialog.Dialog;
 import com.gruppo3.game.model.dialog.LinearDialogNode;
+import com.gruppo3.game.model.interactables.Cat;
 import com.gruppo3.game.model.interactables.NPC;
 import com.gruppo3.game.screens.GameScreen;
+import com.gruppo3.game.screens.TransitionScreen;
 
 public class CreditiLevel extends LevelStrategy {
     public CreditiLevel() {
@@ -63,6 +68,55 @@ public class CreditiLevel extends LevelStrategy {
         cristina.getNpcBox().setPosition(9.5f, 8);
         cristina.setNPCDirection(NPC.Direction.SOUTH);
 
+        NPC gatto = new Cat(
+                new Texture("cat.png"));
+        gatto.getNpcBox().setPosition(8f, 4);
+
+        Dialog dialogoGatto = new Dialog();
+
+        ChoiceDialogNode sceltaGatto = new ChoiceDialogNode(
+                "Gatto:\nSei soddisfatto del finale ottenuto?\nO vuoi provare un'altra scelta?", 0);
+        sceltaGatto.addChoice("Voglio ricominciare da capo!", 1);
+        sceltaGatto.addChoice("Voglio cambiare scelta!", 3);
+        sceltaGatto.addChoice("Sono soddisfatto di quello che ho scelto!", 5);
+
+        dialogoGatto.addNode(sceltaGatto);
+
+        dialogoGatto
+                .addNode(new LinearDialogNode(
+                        "Gatto:\nQuesto è lo spirito giusto!\nBuona fortuna!",
+                        1).setPointer(2));
+        dialogoGatto
+                .addNode(new LinearDialogNode(
+                        "",
+                        2, () -> {
+                            SaveController.newGame();
+                            TransitionScreen fadeScreen = new TransitionScreen(
+                                    GameScreen.levelController.getCurrentLevel(),
+                                    new TutorialLevel(), (MyGame) Gdx.app.getApplicationListener(), 0, 0);
+                            ((MyGame) Gdx.app.getApplicationListener()).setScreen(fadeScreen);
+                        }));
+
+        dialogoGatto
+                .addNode(new LinearDialogNode(
+                        "Gatto:\nNon sempre nella vita si può cambiare il passato!\nMa ti offrirò questa possibilità...Provaci!",
+                        3).setPointer(4));
+        dialogoGatto
+                .addNode(new LinearDialogNode(
+                        "",
+                        4, () -> {
+                            SaveController.newGame();
+                            TransitionScreen fadeScreen = new TransitionScreen(
+                                    GameScreen.levelController.getCurrentLevel(),
+                                    new PrimoPianoAtto1Level(), (MyGame) Gdx.app.getApplicationListener(), 34.5f,
+                                    12.5f);
+                            ((MyGame) Gdx.app.getApplicationListener()).setScreen(fadeScreen);
+                        }));
+        dialogoGatto
+                .addNode(new LinearDialogNode(
+                        "Gatto:\nMagnifico, bisogna sempre essere soddisfatti\ndi quello che si è scelto!",
+                        5));
+
         Dialog dialogoCredits = new Dialog();
         dialogoCredits.addNode(
                 new LinearDialogNode("Peppe:\nGrazie per aver giocato al nostro gioco!", 0).setPointer(1));
@@ -79,11 +133,14 @@ public class CreditiLevel extends LevelStrategy {
         dialogoCredits
                 .addNode(new LinearDialogNode(
                         "Peppe:\nIn totale sono 3!",
-                        4));
+                        4, () -> {
+                            npcController.add(gatto);
+                        }));
 
         peppe.setDialog(dialogoCredits);
         cristina.setDialog(dialogoCredits);
         andrea.setDialog(dialogoCredits);
+        gatto.setDialog(dialogoGatto);
 
         npcController.add(peppe);
         npcController.add(andrea);
