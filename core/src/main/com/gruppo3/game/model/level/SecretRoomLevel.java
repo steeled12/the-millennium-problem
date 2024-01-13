@@ -58,7 +58,7 @@ public class SecretRoomLevel extends LevelStrategy {
                 Dialog computerDialog = new Dialog();
                 
 
-                for(Item item : itemController.itemList) {
+                for(Item item : Player.getPlayer().getInventory()) {
                     if(item.getName().equalsIgnoreCase("appunti sulla ricerca")) {
                         LinearDialogNode computerNode0 = new LinearDialogNode("Il computer è protetto da password", 0);
                         ChoiceDialogNode computerNode1 = new ChoiceDialogNode("Inserisci la password", 1);
