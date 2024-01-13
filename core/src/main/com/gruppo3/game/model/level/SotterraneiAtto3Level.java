@@ -50,7 +50,7 @@ public class SotterraneiAtto3Level extends LevelStrategy {
             @Override
             public void action() {
                 TransitionScreen fadeScreen = new TransitionScreen(GameScreen.levelController.getCurrentLevel(),
-                        new PrimoPianoAtto1Level(), (MyGame) Gdx.app.getApplicationListener(), 34, 17);
+                        new CorridoioAtto2Level(), (MyGame) Gdx.app.getApplicationListener(), 34, 17);
                 ((MyGame) Gdx.app.getApplicationListener()).setScreen(fadeScreen);
                 Player.getPlayer().setPlayerDirection(PlayerDirection.SOUTH);
             }
