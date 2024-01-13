@@ -18,6 +18,8 @@ import com.gruppo3.game.model.dialog.Dialog;
 import com.gruppo3.game.model.dialog.LinearDialogNode;
 import com.gruppo3.game.model.interactables.NPC;
 import com.gruppo3.game.screens.GameScreen;
+import com.gruppo3.game.screens.TransitionScreen;
+import com.gruppo3.game.MyGame;
 
 public class StanzaRettoreLevel extends LevelStrategy {
         public StanzaRettoreLevel() {
@@ -78,12 +80,10 @@ public class StanzaRettoreLevel extends LevelStrategy {
                 profDialog.addNode(new LinearDialogNode("Professore Rettangolo:\n!!!", 3, () -> {
                         Sound sound = Gdx.audio.newSound(Gdx.files.internal("sound/sfx-objection.mp3"));
                         sound.play(SettingController.gameVolume);
-                        /*
-                         * TransitionScreen fadeScreen = new
-                         * TransitionScreen(GameScreen.levelController.getCurrentLevel(),
-                         * new FinaleProfLevel(), (MyGame) Gdx.app.getApplicationListener(), 0, 0);
-                         * ((MyGame) Gdx.app.getApplicationListener()).setScreen(fadeScreen);
-                         */
+                        GameScreen.savedInformation.put("colpevoleScelto", "true");
+                        TransitionScreen fadeScreen = new TransitionScreen(GameScreen.levelController.getCurrentLevel(),
+                                                        new AttoFinaleLevel(), (MyGame) Gdx.app.getApplicationListener(), 0, 0);
+                        ((MyGame) Gdx.app.getApplicationListener()).setScreen(fadeScreen);
                 }));
                 professore.setDialog(profDialog);
                 npcController.add(professore);
@@ -207,12 +207,10 @@ public class StanzaRettoreLevel extends LevelStrategy {
                                                 .setPointer(34));
                 rettoreDialog.addNode(new LinearDialogNode("Rettore:\n!!!", 34, () -> {
                         fadeMusic();
-                        /*
-                         * TransitionScreen fadeScreen = new
-                         * TransitionScreen(GameScreen.levelController.getCurrentLevel(),
-                         * new FinaleRettoreLevel(), (MyGame) Gdx.app.getApplicationListener(), 0, 0);
-                         * ((MyGame) Gdx.app.getApplicationListener()).setScreen(fadeScreen);
-                         */
+                        GameScreen.savedInformation.put("colpevoleScelto", "Rettore");
+                        TransitionScreen fadeScreen = new TransitionScreen(GameScreen.levelController.getCurrentLevel(),
+                                                        new AttoFinaleLevel(), (MyGame) Gdx.app.getApplicationListener(), 0, 0);
+                        ((MyGame) Gdx.app.getApplicationListener()).setScreen(fadeScreen);
                 }));
                 rettoreDialog.addNode(new LinearDialogNode("Uomo misterioso:\n...", 35).setPointer(36));
                 rettoreDialog.addNode(new LinearDialogNode(
@@ -222,13 +220,10 @@ public class StanzaRettoreLevel extends LevelStrategy {
                                 .addNode(new LinearDialogNode("Uomo misterioso:\nProfessore, deve venire con me.", 37)
                                                 .setPointer(38));
                 rettoreDialog.addNode(new LinearDialogNode("Professore Rettangolo:\n!!!", 38, () -> {
-                        fadeMusic();
-                        /*
-                         * TransitionScreen fadeScreen = new
-                         * TransitionScreen(GameScreen.levelController.getCurrentLevel(),
-                         * new FinaleProfLevel(), (MyGame) Gdx.app.getApplicationListener(), 0, 0);
-                         * ((MyGame) Gdx.app.getApplicationListener()).setScreen(fadeScreen);
-                         */
+                        GameScreen.savedInformation.put("colpevoleScelto", "Professore Rettangolo");
+                        TransitionScreen fadeScreen = new TransitionScreen(GameScreen.levelController.getCurrentLevel(),
+                                                        new AttoFinaleLevel(), (MyGame) Gdx.app.getApplicationListener(), 0, 0);
+                        ((MyGame) Gdx.app.getApplicationListener()).setScreen(fadeScreen);
                 }));
                 rettore.setDialog(rettoreDialog);
 

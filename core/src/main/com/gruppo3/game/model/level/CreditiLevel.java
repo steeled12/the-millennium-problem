@@ -74,7 +74,7 @@ public class CreditiLevel extends LevelStrategy {
                         2).setPointer(3));
         dialogoCredits
                 .addNode(new LinearDialogNode(
-                        "Andrea:\nLo sai che in base agli indizzi trovati e scelte fatte\npuoi ottenere altri finali?\nRigioca per ottenerne di altri!",
+                        "Andrea:\nIn base agli indizi trovati e scelte fatte\npuoi ottenere altri finali!\nRigioca per ottenerne altri!",
                         3).setPointer(4));
         dialogoCredits
                 .addNode(new LinearDialogNode(
