@@ -7,7 +7,7 @@ import com.badlogic.gdx.backends.lwjgl3.Lwjgl3ApplicationConfiguration;
 public class DesktopLauncher {
 	public static void main(String[] arg) {
 		Lwjgl3ApplicationConfiguration config = new Lwjgl3ApplicationConfiguration();
-		config.setTitle("GiocoIss");
+		config.setTitle("The Millennium Problem");
 		// config.setResizable(false);
 		config.setWindowSizeLimits(800, 600, -1, -1);
 
