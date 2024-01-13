@@ -78,8 +78,9 @@ public class Aula6Level extends LevelStrategy {
         LinearDialogNode profNode3 = new LinearDialogNode("ATARI È MEGLIO DI COMMODORE", 3, new Action() {
             @Override
             public void action() {
-                Sound sound = Gdx.audio.newSound(Gdx.files.internal("sound/sfx-badum.wav"));
+                Sound sound = Gdx.audio.newSound(Gdx.files.internal("sound/sfx-badum.mp3"));
                 sound.play(SettingController.gameVolume);
+                prof.setNPCDirection(NPC.Direction.EAST);
             }
         });
         LinearDialogNode profNode4 = new LinearDialogNode("Valenza:\nCOSA HAI DETTO?", 4);
@@ -90,7 +91,7 @@ public class Aula6Level extends LevelStrategy {
         LinearDialogNode profNode9 = new LinearDialogNode("[Adesso la porta dovrebbe essere aperta]", 9, new Action() {
             @Override
             public void action() {
-                Sound sound = Gdx.audio.newSound(Gdx.files.internal("sound/sfx-selectjingle.wav"));
+                Sound sound = Gdx.audio.newSound(Gdx.files.internal("sound/sfx-selectjingle.mp3"));
                 sound.play(SettingController.gameVolume);
                 GameScreen.savedInformation.put("portaScale", "true");
             }

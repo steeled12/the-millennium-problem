@@ -67,7 +67,7 @@ public class InteractionController extends InputAdapter {
             if (itemController.itemList != null) {
                 for (Item item : itemController.itemList) {
                     Rectangle expandedItemBox = new Rectangle(item.getBox());
-                    float expansionAmount = 0.1f;
+                    float expansionAmount = 0.5f;
                     expandedItemBox.x -= expansionAmount / 2;
                     expandedItemBox.y -= expansionAmount / 2;
                     expandedItemBox.width += expansionAmount;
@@ -82,7 +82,7 @@ public class InteractionController extends InputAdapter {
             if (npcController.npcList != null) {
                 for (NPC npc : npcController.npcList) {
                     Rectangle expandedNpcBox = new Rectangle(npc.getNpcBox());
-                    float expansionAmount = 0.1f;
+                    float expansionAmount = 0.5f;
                     expandedNpcBox.x -= expansionAmount / 2;
                     expandedNpcBox.y -= expansionAmount / 2;
                     expandedNpcBox.width += expansionAmount;

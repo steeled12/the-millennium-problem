@@ -116,10 +116,10 @@ public class CorridoioAtto1Level extends LevelStrategy {
         portiere.setDialog(portiereDialog);
         npcController.npcList.add(portiere);
 
-        NPC studente1 = new NPC(new Texture(Gdx.files.internal("characters/studente2.png")));
-        studente1.getNpcBox().x = 40;
-        studente1.getNpcBox().y = 5;
-        studente1.setNPCDirection(NPC.Direction.WEST);
+        NPC studente1 = new NPC(new Texture(Gdx.files.internal("characters/studente1.png")));
+        studente1.getNpcBox().x = 25;
+        studente1.getNpcBox().y = 7;
+        studente1.setNPCDirection(NPC.Direction.EAST);
         npcController.add(studente1);
 
         Dialog studente1Dialog = new Dialog();
@@ -138,7 +138,7 @@ public class CorridoioAtto1Level extends LevelStrategy {
         studente1Dialog.addNode(studente1Node2);
         studente1.setDialog(studente1Dialog);
 
-        NPC studente2 = new NPC(new Texture(Gdx.files.internal("characters/studente1.png")));
+        NPC studente2 = new NPC(new Texture(Gdx.files.internal("characters/studente2.png")));
         studente2.getNpcBox().x = 40;
         studente2.getNpcBox().y = 7;
         studente2.setNPCDirection(NPC.Direction.WEST);
@@ -179,7 +179,7 @@ public class CorridoioAtto1Level extends LevelStrategy {
                 "Rettore:\nDevi sapere che io, in quanto rettore,\nho il dovere di assicurarmi che sia tutto a posto!",
                 3);
         LinearDialogNode rettoreNode4 = new LinearDialogNode(
-                "Rettore:\nQuesto mazzo di chiavi mi permette di accedere a tutta l'università, vedi che bello?!", 4,
+                "Rettore:\nQuesto mazzo di chiavi mi permette di accedere\na tutta l'università, vedi che bello?!", 4,
                 new Action() {
                     @Override
                     public void action() {

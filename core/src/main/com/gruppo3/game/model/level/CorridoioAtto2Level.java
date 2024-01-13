@@ -70,11 +70,11 @@ public class CorridoioAtto2Level extends LevelStrategy {
             public void action() {
                 if (GameScreen.savedInformation.containsKey("atto4")) {
                     TransitionScreen fadeScreen = new TransitionScreen(GameScreen.levelController.getCurrentLevel(),
-                            new Aula4Level(), (MyGame) Gdx.app.getApplicationListener(), 0, 0);
+                            new Aula4Atto4Level(), (MyGame) Gdx.app.getApplicationListener(), 0, 0);
                     ((MyGame) Gdx.app.getApplicationListener()).setScreen(fadeScreen);
                 } else {
                     TransitionScreen fadeScreen = new TransitionScreen(GameScreen.levelController.getCurrentLevel(),
-                            new Aula4Atto4Level(), (MyGame) Gdx.app.getApplicationListener(), 0, 0);
+                            new Aula4Level(), (MyGame) Gdx.app.getApplicationListener(), 0, 0);
                     ((MyGame) Gdx.app.getApplicationListener()).setScreen(fadeScreen);
                 }
             }
@@ -84,11 +84,11 @@ public class CorridoioAtto2Level extends LevelStrategy {
             public void action() {
                 if (GameScreen.savedInformation.containsKey("atto4")) {
                     TransitionScreen fadeScreen = new TransitionScreen(GameScreen.levelController.getCurrentLevel(),
-                            new Aula4Level(), (MyGame) Gdx.app.getApplicationListener(), 4, 1);
+                            new Aula4Atto4Level(), (MyGame) Gdx.app.getApplicationListener(), 4, 1);
                     ((MyGame) Gdx.app.getApplicationListener()).setScreen(fadeScreen);
                 } else {
                     TransitionScreen fadeScreen = new TransitionScreen(GameScreen.levelController.getCurrentLevel(),
-                            new Aula4Atto4Level(), (MyGame) Gdx.app.getApplicationListener(), 4, 1);
+                            new Aula4Level(), (MyGame) Gdx.app.getApplicationListener(), 4, 1);
                     ((MyGame) Gdx.app.getApplicationListener()).setScreen(fadeScreen);
                 }
             }
@@ -105,7 +105,6 @@ public class CorridoioAtto2Level extends LevelStrategy {
                     dialog.addNode(node);
                     GameScreen.dialogController.startDialog(dialog);
                 } else {
-                    GameScreen.savedInformation.put("bibitaComprata", "true");
                     Dialog dialog = new Dialog();
                     ChoiceDialogNode node;
                     if (GameScreen.savedInformation.containsKey("parlatoAPortiere")) {
@@ -118,6 +117,7 @@ public class CorridoioAtto2Level extends LevelStrategy {
                         public void action() {
                             PickableItem bibita = new PickableItem("bibita", "bibita.png");
                             itemController.addItemToInventory(bibita);
+                            GameScreen.savedInformation.put("bibitaComprata", "true");
                         }
                     });
                     node.addChoice("No");
