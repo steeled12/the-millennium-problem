@@ -52,13 +52,95 @@ public class SecretRoomLevel extends LevelStrategy {
     public void init() {
 
         // item e npc
-        GenericItem computer = new GenericItem("computer");
-        Dialog computerDialog1 = new Dialog();
-        LinearDialogNode computerNode0 = new LinearDialogNode("Prima di accedere voglio esplorare per bene la stanza",
-                0);
-        computerDialog1.addNode(computerNode0);
-        computer.setDialog(computerDialog1);
-        itemController.addwithId(computer, 3);
+        ScriptableObject computer = new ScriptableObject(new Rectangle(15,16,1,1), true) {
+            @Override
+            public void action() {
+                Dialog computerDialog = new Dialog();
+                computerDialog.addNode(new LinearDialogNode("Prima di accedere voglio esplorare per bene la stanza", 0));
+
+                for(Item item : itemController.itemList) {
+                    if(item.getName().equalsIgnoreCase("appunti sulla ricerca")) {
+                        LinearDialogNode computerNode0 = new LinearDialogNode("Il computer è protetto da password", 0);
+                        ChoiceDialogNode computerNode1 = new ChoiceDialogNode("Inserisci la password", 1);
+                        LinearDialogNode computerNode2 = new LinearDialogNode("Password corretta", 2, new Action() {
+                            @Override
+                            public void action() {
+                                Sound sound = Gdx.audio.newSound(Gdx.files.internal("sound/correct-choice.mp3"));
+                                sound.play(SettingController.gameVolume);
+                            }
+                        });
+                        LinearDialogNode computerNode3 = new LinearDialogNode("Password errata", 3, new Action() {
+                            @Override
+                            public void action() {
+                                Sound sound = Gdx.audio.newSound(Gdx.files.internal("sound/invalid-selection.mp3"));
+                                sound.play(SettingController.gameVolume);
+                            }
+                        });
+                        LinearDialogNode computerNode4 = new LinearDialogNode(
+                                "Forse posso trovare qualche indizio in giro per la stanza", 4);
+                        computerNode0.setPointer(1);
+                            computerNode1.addChoice("Mappa1984", 2);
+                            computerNode1.addChoice("Password123", 3);
+                            computerNode1.addChoice("Tramezzino-Ciambella", 3);
+                            computerNode3.setPointer(4);
+                            LinearDialogNode computerNode5 = new LinearDialogNode(
+                                    "[Tra i file del computer trovi un complesso e lungo\narticolo che spiega la soluzione al problema P=NP]",
+                                    5);
+                            LinearDialogNode computerNode6 = new LinearDialogNode(
+                                    "[Dopo un'attenta lettura, riesci bene o male a comprendere qualcosa]",
+                                    6);
+                            LinearDialogNode computerNode7 = new LinearDialogNode(
+                                    "[Per quanto riduttivo,\nla soluzione al problema P=NP permette di risolvere\nproblemi complessi alla stessa velocità di quelli semplici]",
+                                    7);
+                            LinearDialogNode computerNode8 = new LinearDialogNode(
+                                    "[È uno dei problemi del millennio,\ne si pensava che nessuno lo avrebbe mai risolto]",
+                                    8);
+                            LinearDialogNode computerNode9 = new LinearDialogNode(
+                                    "(Il professore è riuscito a risolverlo...)", 9);
+                            LinearDialogNode computerNode10 = new LinearDialogNode(
+                                    "(Ho un brutto presentimento,\ndevo tornare di sopra)", 10, new Action() {
+                                @Override
+                                public void action() {
+                                    ScriptableObject porta = new ScriptableObject(new Rectangle(14, 0, 2, 1),
+                                            true) {
+                                        @Override
+                                        public void action() {
+                                            TransitionScreen fadeScreen = new TransitionScreen(
+                                                    GameScreen.levelController.getCurrentLevel(),
+                                                    new SotterraneiAtto3Level(),
+                                                    (MyGame) Gdx.app.getApplicationListener(), 1.5f, 7);
+                                            ((MyGame) Gdx.app.getApplicationListener()).setScreen(fadeScreen);
+                                            Player.getPlayer().setPlayerDirection(Player.PlayerDirection.SOUTH);
+                                        }
+                                    };
+                                    GameScreen.levelController
+                                            .getCurrentLevel().scriptableObjectsController.scriptableObjectsList
+                                            .add(porta);
+                                }
+                            });
+                            computerNode2.setPointer(5);
+                            computerNode5.setPointer(6);
+                            computerNode6.setPointer(7);
+                            computerNode7.setPointer(8);
+                            computerNode8.setPointer(9);
+                            computerNode9.setPointer(10);
+                            computerDialog.addNode(computerNode0);
+                            computerDialog.addNode(computerNode1);
+                            computerDialog.addNode(computerNode2);
+                            computerDialog.addNode(computerNode3);
+                            computerDialog.addNode(computerNode4);
+                            computerDialog.addNode(computerNode5);
+                            computerDialog.addNode(computerNode6);
+                            computerDialog.addNode(computerNode7);
+                            computerDialog.addNode(computerNode8);
+                            computerDialog.addNode(computerNode9);
+                            computerDialog.addNode(computerNode10);
+                        break;
+                    }
+                }
+                GameScreen.dialogController.startDialog(computerDialog);
+            }
+        };
 
         // tutti i dialoghi
 
@@ -153,97 +235,7 @@ public class SecretRoomLevel extends LevelStrategy {
             }
         });
         LinearDialogNode libNode17 = new LinearDialogNode(
-                "Devo scoprire l'uso della ricerca\ne chi ha avuto accesso al computer di questa stanza", 17,
-                new Action() {
-                    @Override
-                    public void action() {
-                        GenericItem computer = null;
-                        for (Item item : itemController.itemList) {
-                            if (item.getName().equals("computer")) {
-                                computer = (GenericItem) item;
-                                break;
-                            }
-                        }
-                        LinearDialogNode computerNode0 = new LinearDialogNode("Il computer è protetto da password", 0);
-                        ChoiceDialogNode computerNode1 = new ChoiceDialogNode("Inserisci la password", 1);
-                        LinearDialogNode computerNode2 = new LinearDialogNode("Password corretta", 2, new Action() {
-                            @Override
-                            public void action() {
-                                Sound sound = Gdx.audio.newSound(Gdx.files.internal("sound/correct-choice.mp3"));
-                                sound.play(SettingController.gameVolume);
-                            }
-                        });
-                        LinearDialogNode computerNode3 = new LinearDialogNode("Password errata", 3, new Action() {
-                            @Override
-                            public void action() {
-                                Sound sound = Gdx.audio.newSound(Gdx.files.internal("sound/invalid-selection.mp3"));
-                                sound.play(SettingController.gameVolume);
-                            }
-                        });
-                        Dialog computerDialog = new Dialog();
-                        LinearDialogNode computerNode4 = new LinearDialogNode(
-                                "Forse posso trovare qualche indizio in giro per la stanza", 4);
-                        computerNode0.setPointer(1);
-                        if (GameScreen.savedInformation.containsKey("passwordPianta"))
-                            computerNode1.addChoice("Mappa1984", 2);
-                            computerNode1.addChoice("Password123", 3);
-                            computerNode1.addChoice("Tramezzino-Ciambella", 3);
-                            computerNode3.setPointer(4);
-                            LinearDialogNode computerNode5 = new LinearDialogNode(
-                                    "[Tra i file del computer trovi un complesso e lungo\narticolo che spiega la soluzione al problema P=NP]",
-                                    5);
-                            LinearDialogNode computerNode6 = new LinearDialogNode(
-                                    "[Dopo un'attenta lettura, riesci bene o male a comprendere qualcosa]",
-                                    6);
-                            LinearDialogNode computerNode7 = new LinearDialogNode(
-                                    "[Per quanto riduttivo,\nla soluzione al problema P=NP permette di risolvere\nproblemi complessi alla stessa velocità di quelli semplici]",
-                                    7);
-                            LinearDialogNode computerNode8 = new LinearDialogNode(
-                                    "[È uno dei problemi del millennio,\ne si pensava che nessuno lo avrebbe mai risolto]",
-                                    8);
-                            LinearDialogNode computerNode9 = new LinearDialogNode(
-                                    "(Il professore è riuscito a risolverlo...)", 9);
-                            LinearDialogNode computerNode10 = new LinearDialogNode(
-                                    "(Ho un brutto presentimento,\ndevo tornare di sopra)", 10, new Action() {
-                                @Override
-                                public void action() {
-                                    ScriptableObject porta = new ScriptableObject(new Rectangle(14, 0, 2, 1),
-                                            true) {
-                                        @Override
-                                        public void action() {
-                                            TransitionScreen fadeScreen = new TransitionScreen(
-                                                    GameScreen.levelController.getCurrentLevel(),
-                                                    new SotterraneiAtto3Level(),
-                                                    (MyGame) Gdx.app.getApplicationListener(), 1.5f, 7);
-                                            ((MyGame) Gdx.app.getApplicationListener()).setScreen(fadeScreen);
-                                            Player.getPlayer().setPlayerDirection(Player.PlayerDirection.SOUTH);
-                                        }
-                                    };
-                                    GameScreen.levelController
-                                            .getCurrentLevel().scriptableObjectsController.scriptableObjectsList
-                                            .add(porta);
-                                }
-                            });
-                            computerNode2.setPointer(5);
-                            computerNode5.setPointer(6);
-                            computerNode6.setPointer(7);
-                            computerNode7.setPointer(8);
-                            computerNode8.setPointer(9);
-                            computerNode9.setPointer(10);
-                            computerDialog.addNode(computerNode0);
-                            computerDialog.addNode(computerNode1);
-                            computerDialog.addNode(computerNode2);
-                            computerDialog.addNode(computerNode3);
-                            computerDialog.addNode(computerNode4);
-                            computerDialog.addNode(computerNode5);
-                            computerDialog.addNode(computerNode6);
-                            computerDialog.addNode(computerNode7);
-                            computerDialog.addNode(computerNode8);
-                            computerDialog.addNode(computerNode9);
-                            computerDialog.addNode(computerNode10);
-                            computer.setDialog(computerDialog);
-                        }
-                    });
+                "Devo scoprire l'uso della ricerca\ne chi ha avuto accesso al computer di questa stanza", 17);
 
         libNode0.setPointer(1);
         libNode1.setPointer(2);
