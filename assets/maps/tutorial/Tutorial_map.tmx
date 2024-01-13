@@ -6,14 +6,14 @@
  <tileset firstgid="26205" source="4_Bedroom_16x16.tsx"/>
  <tileset firstgid="27917" source="RetroWhite.tsx"/>
  <tileset firstgid="28941" source="UI_16x16.tsx"/>
- <tileset firstgid="29229" source="../../map/tilesets/14_Basement_16x16.tsx"/>
- <tileset firstgid="30029" source="../../map/tilesets/26_Condominium.tsx"/>
- <tileset firstgid="30333" source="../../map/tilesets/15_Christmas_16x16.tsx"/>
- <tileset firstgid="30605" source="../../map/tilesets/18_Jail_16x16.tsx"/>
- <tileset firstgid="31325" source="../../map/tilesets/19_Hospital_16x16.tsx"/>
- <tileset firstgid="33085" source="../../map/tilesets/21_Clothing_Store.tsx"/>
- <tileset firstgid="34157" source="../../map/tilesets/12_Kitchen_16x16.tsx"/>
- <tileset firstgid="34941" source="../../map/tilesets/5_Classroom_and_library_16x16.tsx"/>
+ <tileset firstgid="28941" source="../../map/tilesets/14_Basement_16x16.tsx"/>
+ <tileset firstgid="29741" source="../../map/tilesets/26_Condominium.tsx"/>
+ <tileset firstgid="30045" source="../../map/tilesets/15_Christmas_16x16.tsx"/>
+ <tileset firstgid="30317" source="../../map/tilesets/18_Jail_16x16.tsx"/>
+ <tileset firstgid="31037" source="../../map/tilesets/19_Hospital_16x16.tsx"/>
+ <tileset firstgid="32797" source="../../map/tilesets/21_Clothing_Store.tsx"/>
+ <tileset firstgid="33869" source="../../map/tilesets/12_Kitchen_16x16.tsx"/>
+ <tileset firstgid="34653" source="../../map/tilesets/5_Classroom_and_library_16x16.tsx"/>
  <group id="5" name="Pavimento" locked="1">
   <layer id="1" name="Pavimento" width="30" height="20" locked="1">
    <data encoding="base64" compression="zlib">
@@ -33,17 +33,17 @@
  </group>
  <layer id="30" name="1" width="30" height="20" locked="1">
   <data encoding="base64" compression="zlib">
-   eJxjYBgFo2AUjIJRMAqGLzhYzMBwCIgPA/GRYvrZexFo1yUgvgzEV+ho70OgXY+A+DEQP6GjvcMRqJegYlIAAHLuEa8=
+   eJztzbkNACAMBEFn9AsV8TTA0wBPYVxKSOLAupE2XhEiIiK7ohdJKKPi9b4Vr4Y6GorfiddCGx3Fr0UuvP24SEEPnw==
   </data>
  </layer>
  <layer id="31" name="2" width="30" height="20" locked="1">
   <data encoding="base64" compression="zlib">
-   eJxjYBgFo2AUjIJRMAoGDiwoHhh7N9DB3vNAOy6g2XOACvYaFDEwGEKxURHl5hELHIB2OUKxEx3tBQHNEgYGrRL62gkClkA7rciwFwB8HA3d
+   eJxjYBgFo2AUjIJRMAoGDjQUDYy9E+hg73qgHRvQ7FlABXsFChkYBKFYqJBy84gFCkC7FKFYiY72ggBnMQMDVzF97QQBSaCdUmTYCwBmlAus
   </data>
  </layer>
  <layer id="32" name="3" width="30" height="20" locked="1">
   <data encoding="base64" compression="zlib">
-   eJxjYBgFo2AUjIJRMApGAS3AueKBdgECeA+QW6IHURjQEwAAXe8Czg==
+   eJxjYBgFo2AUjIJRMApGAS3AuqKBdgECaA+QW6wHURjQEwAAzP8Caw==
   </data>
  </layer>
  <layer id="2" name="Muri" width="30" height="20" locked="1">
@@ -58,23 +58,23 @@
  </layer>
  <layer id="7" name="Porte" width="30" height="20" locked="1">
   <data encoding="base64" compression="zlib">
-   eJxjYCAPBJcxMIRAcWgZmYaQAZKBdqVAcSod7R0Fo2AUjIJRMApGwSggFgAAX14GkQ==
+   eJxjYCAPGJcyMJhAsWkpmYaQAZyBdrlAsSsd7R0Fo2AUjIJRMApGwSggFgAAMa8FiQ==
   </data>
  </layer>
  <group id="41" name="fix" locked="1">
   <layer id="33" name="Albero di natale 1" width="30" height="20" locked="1">
    <data encoding="base64" compression="zlib">
-   eJxjYBicQKx5YOxVGyB7zQbI3lEwCgYabChjYNgIxJuAeHMZ/ew9ALTrIBAfAuLDdLT3AtCui0B8CYgv09HeUTAKRgF9AQD2sBCW
+   eJxjYBic4FvjwNjL1jQw9ooNkL2jYBQMNJhQysAwEYgnAfHkUvrZuwBo10IgXgTEi+lo7wagXRuBeBMQb6ajvaNgFIwC+gIAvZEPpg==
   </data>
   </layer>
   <layer id="34" name="Albero di natale 2" width="30" height="20" locked="1">
    <data encoding="base64" compression="zlib">
-   eJxjYBgFo2AUjAIIaCljYGgto7+9U4B2Th0Ae5cA7Vw6APaOglEwCoY/AAAfAgZA
+   eJxjYBgFo2AUjAIISCllYEgtpb+9JUA7SwfA3hagna0DYO8oGAWjYPgDAGFIBXo=
   </data>
   </layer>
   <layer id="35" name="Albero di natale 3" width="30" height="20" locked="1">
    <data encoding="base64" compression="zlib">
-   eJxjYBgFo2AUjAIIeFzGwPCkjP72fgba+WUA7GUuZ2BgKae/vaNgFIyC4Q8AMFYGfA==
+   eJxjYBgFo2AUjAIIOFzKwHCklP72XgbaeWUA7H0MtPPJANg7CkbBKBj+AAAmaQe0
   </data>
   </layer>
  </group>
@@ -95,42 +95,42 @@
  </layer>
  <layer id="20" name="tavolo" width="30" height="20" locked="1">
   <data encoding="base64" compression="zlib">
-   eJxjYBgFo2AU0APsrWBg2AfE+yvoa+9ZoH3ngPg8ne0dBaNgFIyCkQwAf0YHdQ==
+   eJxjYBgFo2AU0APMLWdgmAfE88vpa+9aoH3rgHg9ne0dBaNgFIyCkQwAFdgGrw==
   </data>
  </layer>
  <layer id="19" name="Lampada" width="30" height="20" locked="1">
   <data encoding="base64" compression="zlib">
-   eJxjYBgFo2AUUAPczMIvP62CgWEOEM+ooI97YGAZ0L41QLyCzvaOglEwCkbBSAYALMUH2A==
+   eJxjYBgFo2AUUAPczMIvX1bOwFADxBXl9HEPDLQB7esB4g462zsKRsEoGAUjGQAAw0gHEg==
   </data>
  </layer>
  <layer id="21" name="Sedia" width="30" height="20" locked="1">
   <data encoding="base64" compression="zlib">
-   eJxjYKAOmNtCJYNIBGsHyN69FNg7vZ6BYUY99dxCLFgOtHPFANg7CgYeSFQyMBg00N9eDaC9DgNg7ygYBaNgFAw0AADheAqw
+   eJxjYKAOqG2mkkEkgt4BsncuBfaW1zEwVNRRzy3EgnagnR0DYO8oGHjwo5yBQaCe/vZyVDAwKAyAvaNgFIyCUTDQAABWUApE
   </data>
  </layer>
- <layer id="23" name="Cucina" width="30" height="20" locked="1">
+ <layer id="23" name="Cucina" width="30" height="20">
   <data encoding="base64" compression="zlib">
-   eJxjYBgFo2AUjILhBZ61Ud/Mi60MDJeg+DIQqxoixEB8EPhGA3s/AM3+CMSfgPgzEJsaQmgYBgG2durbO1iAMjRMnWgQtviAMdC+hUAcRGd7QWAj0M5NA2DvKKAuAABW5x5t
+   eJxjYBgFo2AUjILhBY61Ut/MjS0MDJugeDMQs7YixEB8ELhGA3svAM2+CMSXgPgyEIu2QmgYBoFnNLB3sABmqN+U6OxHYaB9jUBsNABhOxFo56RhHKcjBQAA1mocvA==
   </data>
  </layer>
- <layer id="25" name="sopra piano" width="30" height="20" locked="1">
+ <layer id="25" name="sopra piano" width="30" height="20">
   <data encoding="base64" compression="zlib">
-   eJxjYBgFo2AUjIKhA463Yhd/Y0hbe68D7f0KxN+A+CWSG/4A7S03oq3do2AUjIKhBwC9JQn/
+   eJxjYBgFo2AUjIKhA5a3YBc/00pbe7cD7b0KxNeA+CSSG+4A7U1vo63do2AUjIKhBwDUagoG
   </data>
  </layer>
- <layer id="24" name="sopra" width="30" height="20" locked="1">
+ <layer id="24" name="sopra" width="30" height="20">
   <data encoding="base64" compression="zlib">
-   eJxjYBgFo2AUjIKhBfINIfRzAwaGFwb0s7ceau93oJ0/6GjvYAAT2hgYJgLxpDb62zuznf72LgDatxCIF9HZ3g1A+zYC8SY62zsKqA8AJSoTfA==
+   eJxjYBgFo2AUjIKhBfxbIfTxFgaGEy30szceau91oJ036GjvYAAFQL8XAnFRK/3trWyjv70NQPsagbiJzvZOANo3EYgn0dneUUB9AACm/RMo
   </data>
  </layer>
  <layer id="26" name="sopra tavolo" width="30" height="20" locked="1">
   <data encoding="base64" compression="zlib">
-   eJxjYBgFo2AUjIJRMArwg89tDAxfgPhr28iwl7mdgYEFiFnb6WuvMNA+ESAWpbO9o4D6AAAVGQxP
+   eJxjYBgFo2AUjIJRMArwg8utDAxXgPhq68iw9zHQvidA/JTO9n4G2vcFiL/S2d5RQH0AAEm7EL0=
   </data>
  </layer>
- <layer id="27" name="sopra sopra tavolo" width="30" height="20" locked="1">
+ <layer id="27" name="sopra sopra tavolo" width="30" height="20">
   <data encoding="base64" compression="zlib">
-   eJxjYBgFo2AUjILhAwI66WfXinYEO4GO9iKDAjrae9uIfnYhgwvthNWMglEw2AAA+0MGTw==
+   eJxjYBgFo2AUjILhAww66GdXRxuC7UBHe5FBAB3tvddKP7uQwYY2wmpGwSgYbAAAl3IGAA==
   </data>
  </layer>
  <objectgroup id="36" name="Collisioni" locked="1">
@@ -180,7 +180,7 @@
  </layer>
  <layer id="39" name="Messaggio" width="30" height="20" locked="1">
   <data encoding="base64" compression="zlib">
-   eJxjYBgFo2AU0ANMrWBgmAXEMyvoa+9SoH2rgHglne0dBaNgFIyCkQwAapsGkQ==
+   eJxjYBgFo2AU0AOUljMwVAFxZTl97W0F2tcFxJ10tncUjIJRMApGMgAAAS0Fyw==
   </data>
  </layer>
 </map>
