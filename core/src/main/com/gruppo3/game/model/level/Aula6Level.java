@@ -73,24 +73,24 @@ public class Aula6Level extends LevelStrategy {
 
         Dialog profDialog = new Dialog();
         LinearDialogNode profNode0 = new LinearDialogNode("Buonasera professore, posso disturbarla?", 0);
-        LinearDialogNode profNode1 = new LinearDialogNode("Valenti:\nPerdonami, ma sono impegnato", 1);
+        LinearDialogNode profNode1 = new LinearDialogNode("Valenza:\nPerdonami, ma sono impegnato", 1);
         ChoiceDialogNode profNode2 = new ChoiceDialogNode("...", 2);
         LinearDialogNode profNode3 = new LinearDialogNode("ATARI È MEGLIO DI COMMODORE", 3, new Action() {
             @Override
             public void action() {
-                Sound sound = Gdx.audio.newSound(Gdx.files.internal("sound/sfx-badum.mp3"));
+                Sound sound = Gdx.audio.newSound(Gdx.files.internal("sound/sfx-badum.wav"));
                 sound.play(SettingController.gameVolume);
             }
         });
-        LinearDialogNode profNode4 = new LinearDialogNode("Valenti:\nCOSA HAI DETTO?", 4);
+        LinearDialogNode profNode4 = new LinearDialogNode("Valenza:\nCOSA HAI DETTO?", 4);
         LinearDialogNode profNode5 = new LinearDialogNode("Scusi, volevo solo chiederle se può chiedere al portiere\ndi aprire la porta delle scale", 5);
-        LinearDialogNode profNode6 = new LinearDialogNode("Valenti:\n...", 6);
-        LinearDialogNode profNode7 = new LinearDialogNode("Valenti:\nVa bene... basta che non ti fai più vedere...", 7);
+        LinearDialogNode profNode6 = new LinearDialogNode("Valenza:\n...", 6);
+        LinearDialogNode profNode7 = new LinearDialogNode("Valenza:\nVa bene... basta che non ti fai più vedere...", 7);
         LinearDialogNode profNode8 = new LinearDialogNode("Grazie professore", 8);
         LinearDialogNode profNode9 = new LinearDialogNode("[Adesso la porta dovrebbe essere aperta]", 9, new Action() {
             @Override
             public void action() {
-                Sound sound = Gdx.audio.newSound(Gdx.files.internal("sound/sfx-selectjingle.mp3"));
+                Sound sound = Gdx.audio.newSound(Gdx.files.internal("sound/sfx-selectjingle.wav"));
                 sound.play(SettingController.gameVolume);
                 GameScreen.savedInformation.put("portaScale", "true");
             }

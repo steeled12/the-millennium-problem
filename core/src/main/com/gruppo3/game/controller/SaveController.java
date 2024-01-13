@@ -84,7 +84,7 @@ public class SaveController {
         Player.getPlayer().getPlayerBox().setPosition(6, 13);
         GameScreen.savedInformation.clear();
         GameScreen.savedInformation.put("atto", "false");
-        GameScreen.levelToLoad = "PrimoPianoAtto1Level";
+        GameScreen.levelToLoad = "StanzaRettoreLevel";
 
     }
 

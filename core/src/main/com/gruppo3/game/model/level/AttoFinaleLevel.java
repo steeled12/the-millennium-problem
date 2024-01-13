@@ -109,7 +109,7 @@ public class AttoFinaleLevel extends LevelStrategy {
         dialogoFinale.addNode(
                 new LinearDialogNode("Il " + colpevoleNome + " venne arrestato in quel momento.", 0).setPointer(1));
         dialogoFinale.addNode(
-                new LinearDialogNode("I servizi segreti italiani non rivelarono mai il perchè", 1).setPointer(2));
+                new LinearDialogNode("I servizi segreti italiani non rivelarono mai il perché", 1).setPointer(2));
         dialogoFinale.addNode(new LinearDialogNode("Ma forse è meglio così", 2).setPointer(3));
         dialogoFinale.addNode(new LinearDialogNode(
                 "Solo l'esistenza di quella scoperta potrebbe di nuovo\nmettere in pericolo il mondo intero...", 3)
