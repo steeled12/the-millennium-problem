@@ -325,27 +325,33 @@ public class GameScreen implements Screen {
         stageInventory.clear(); // pulisco
 
         // Setting della tabella
-        Table inventoryTable = new Table(MyGame.skin);
+        Table container = new Table();
+        container.setFillParent(true);
+        container.top().left();
+        container.padTop(8);
+        container.padLeft(8);
 
-        inventoryTable.setFillParent(true);
+        Table inventoryTable = new Table(MyGame.skin);
+        inventoryTable.setBackground("optionbox");
         inventoryTable.top().left();
-        inventoryTable.padBottom(16);
-        inventoryTable.padLeft(16);
-        inventoryTable.row().spaceBottom(5);
+        inventoryTable.pad(8);
+        inventoryTable.row().spaceBottom(32);
         inventoryTable.add(new Label("Inventario:", MyGame.skin));
 
         // aggiungo gli items
-        inventoryTable.row();
+        inventoryTable.row().spaceRight(8);
         for (Item item : Player.getPlayer().getInventory()) {
             Table itemTable = new Table();
             itemTable.padRight(5);
-            itemTable.add(new Image(item.getTexture()));
+            Image itemImage = new Image(item.getTexture());
+            itemImage.scaleBy(1);
+            itemTable.add(itemImage);
             itemTable.row();
             itemTable.add(new Label(item.getName(), MyGame.skin));
             inventoryTable.add(itemTable);
-            // System.out.println("Aggiunto item: " + item.getTexture().toString());
         }
-        stageInventory.addActor(inventoryTable);
+        container.add(inventoryTable);
+        stageInventory.addActor(container);
     }
 
     @Override

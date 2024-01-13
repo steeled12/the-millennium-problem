@@ -94,12 +94,12 @@ public class PrimoPianoAtto1Level extends LevelStrategy {
         ScriptableObject scale = new ScriptableObject(new Rectangle(37, 20, 3, 2), true) {
             @Override
             public void action() {
-                if (GameScreen.savedInformation.containsKey("atto")) {
+                if (GameScreen.savedInformation.containsKey("parlatoProfessore")) {
+                    GameScreen.savedInformation.put("atto", "atto2");
                     TransitionScreen fadeScreen = new TransitionScreen(GameScreen.levelController.getCurrentLevel(),
                             new CorridoioAtto2Level(), (MyGame) Gdx.app.getApplicationListener(), 32, 17);
                     ((MyGame) Gdx.app.getApplicationListener()).setScreen(fadeScreen);
                 } else {
-                    GameScreen.savedInformation.put("atto", "atto2");
                     TransitionScreen fadeScreen = new TransitionScreen(GameScreen.levelController.getCurrentLevel(),
                             new CorridoioAtto1Level(), (MyGame) Gdx.app.getApplicationListener(), 31, 19);
                     ((MyGame) Gdx.app.getApplicationListener()).setScreen(fadeScreen);
