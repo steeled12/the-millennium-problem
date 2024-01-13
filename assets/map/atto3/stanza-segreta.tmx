@@ -10,12 +10,12 @@
   <image source="../Room_Builder_16x16.png" width="1216" height="1744"/>
  </tileset>
  <tileset firstgid="33593" source="../arrow_up.tsx"/>
- <tileset firstgid="51134" source="../tilesets/18_Jail_16x16.tsx"/>
- <tileset firstgid="51854" source="../tilesets/5_Classroom_and_library_16x16.tsx"/>
- <tileset firstgid="52398" source="../tilesets/11_Halloween_16x16.tsx"/>
- <tileset firstgid="53374" source="../tilesets/2_LivingRoom_16x16.tsx"/>
- <tileset firstgid="54094" source="../tilesets/13_Conference_Hall_16x16.tsx"/>
- <tileset firstgid="54286" source="../tilesets/19_Hospital_16x16.tsx"/>
+ <tileset firstgid="33603" source="../tilesets/18_Jail_16x16.tsx"/>
+ <tileset firstgid="34323" source="../tilesets/5_Classroom_and_library_16x16.tsx"/>
+ <tileset firstgid="34867" source="../tilesets/11_Halloween_16x16.tsx"/>
+ <tileset firstgid="35843" source="../tilesets/2_LivingRoom_16x16.tsx"/>
+ <tileset firstgid="36563" source="../tilesets/13_Conference_Hall_16x16.tsx"/>
+ <tileset firstgid="36755" source="../tilesets/19_Hospital_16x16.tsx"/>
  <group id="8" name="Terra">
   <layer id="2" name="pavimento" width="30" height="20">
    <data encoding="base64" compression="zlib">
@@ -35,7 +35,7 @@
  </group>
  <layer id="5" name="oggetti" width="30" height="20">
   <data encoding="base64" compression="zlib">
-   eJxjYEAFy09AMDbwCCi+GYi3APFjIH6CxH+KQw8+85DB9hMQjA18AoofBuIjQPwZiL8g8b9C9bw+xcDw5hRx5hELmE4yMFwGmnEFiJmBbBYkPutJiJrfQDv/nMJvDingHdDs9wTwBwr9hQ38A5r5nwBmOEl9e7EBy2b62ENLEHeegSEeiBPOU27W+TPEq80D2pcPxAVUsPc+FntxuaUOaF89EDdQwV4QaLvIwNB+EcF3RWIfAua3edA81we0rx+IJ1DB3tKzDAzTgPZMR7IrFIl9iYr5nBRwiE72/gDa8xPJroHy7ygYBcMFAAAuuoES
+   eJxjYEAFOi0QjA2kA8UtgNgSiDOAOBOJn4VDDz7zkIFNCwRjA+VAcQ8g9gTiCiCuROJXQfUUtDEwFLYRZx6xoB2oPwKII4G4A4g7kfhdULMbgHY2tuE3hxRQDDS3hAAupdBf2EAz0MwWAriVBvZiA5bN9LGHluBxFwPDEyB+2kW5WSEdxKv9DLTvCxB/pYK9KVjsxeUW5m4GBhYgZu2m3F4Q4O5lYODpRfBP9SDY7sD8pgzNc8JA+0SAWJQK9v4C+k0aaKcMkr23kOwNp2I+JwW408neWqA9dUh2DZR/R8EoGC4AAOneT5k=
   </data>
  </layer>
  <layer id="3" name="arco" width="30" height="20">
@@ -45,14 +45,13 @@
  </layer>
  <layer id="6" name="sopra_tavolo" width="30" height="20">
   <data encoding="base64" compression="zlib">
-   eJxjYBhYwHaSgYH9JCZtdJ6Bwfg8eeahY5B56EAMKCZ+EpN2AtrpTIa9YicxsTgWe9WAYuonMekgoJ3BOOw9cwK3vWonMbE6FnuJAZxAfQ+R7LpzAiEuR6aZxABJHGbjEh8Fgwu036Kd2dyXcctNR7L3NB515ABpIs27TWV7QeDFKQaGl6eob+4ooA7ovsDA0HOBeHFqgdlAs+dgMR+X+CgYeAAA5AtFbQ==
+   eJxjYBhY0N3CwNDTgklv72Jg2NFFnnnoGGQeOpgNFJvTgkkfB9p5ggx7Z7dg4jlY7F0NFFvTgklfB9p5A4e9gVjMQTYPHa/Box4f6APqS0PSm9iCEF9MppnEgHk4zMYlPgoGF+CZRjuzJ/ThlpNBsjegn7r2LsBjLzJIoLK9IJDbxsCQ10Z9c0cBdYBADwODYA/x4tQCCkCzFbGYj0t8FAw8AAAeLUT+
   </data>
  </layer>
  <objectgroup id="10" name="Collisioni">
   <object id="1" x="176.75" y="79.875" width="14.125" height="11.625"/>
   <object id="3" x="273.063" y="80.3125" width="14.125" height="11.625"/>
   <object id="4" x="160.574" y="60.0057" width="159.216" height="19.0795"/>
-  <object id="5" x="240.756" y="62.9148" width="14.125" height="19.2159"/>
   <object id="6" x="132.392" y="46.0057" width="24.3068" height="11.625"/>
   <object id="7" x="32.392" y="48.3693" width="95.2159" height="11.625"/>
   <object id="8" x="352.574" y="47.8239" width="95.2159" height="11.625"/>
