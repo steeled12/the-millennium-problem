@@ -1,5 +1,7 @@
 package com.gruppo3.game.model.level;
 
+import static org.mockito.Mockito.mockConstruction;
+
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.audio.Music.OnCompletionListener;
@@ -160,5 +162,6 @@ public class AttoFinaleLevel extends LevelStrategy {
     public void dispose() {
         map.dispose();
         renderer.dispose();
+        music.dispose();
     }
 }
