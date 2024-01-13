@@ -96,7 +96,7 @@ public class PrimoPianoAtto1Level extends LevelStrategy {
             public void action() {
                 if (GameScreen.savedInformation.containsKey("atto")) {
                     TransitionScreen fadeScreen = new TransitionScreen(GameScreen.levelController.getCurrentLevel(),
-                            new CorridoioAtto2Level(), (MyGame) Gdx.app.getApplicationListener(), 32, 17);
+                            new CorridoioAtto2Level(), (MyGame) Gdx.app.getApplicationListener(), 34, 17);
                     ((MyGame) Gdx.app.getApplicationListener()).setScreen(fadeScreen);
                 } else {
                     GameScreen.savedInformation.put("atto", "atto2");
