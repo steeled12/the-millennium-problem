@@ -52,11 +52,11 @@ public class SecretRoomLevel extends LevelStrategy {
     public void init() {
 
         // item e npc
-        ScriptableObject computer = new ScriptableObject(new Rectangle(15,16,1,1), true) {
+        ScriptableObject computer = new ScriptableObject(new Rectangle(15,15,1,1), true) {
             @Override
             public void action() {
                 Dialog computerDialog = new Dialog();
-                computerDialog.addNode(new LinearDialogNode("Prima di accedere voglio esplorare per bene la stanza", 0));
+                
 
                 for(Item item : itemController.itemList) {
                     if(item.getName().equalsIgnoreCase("appunti sulla ricerca")) {
@@ -137,6 +137,7 @@ public class SecretRoomLevel extends LevelStrategy {
                             computerDialog.addNode(computerNode10);
                         break;
                     }
+                    computerDialog.addNode(new LinearDialogNode("Prima di accedere voglio esplorare per bene la stanza", 0));
                 }
                 GameScreen.dialogController.startDialog(computerDialog);
             }
@@ -214,6 +215,7 @@ public class SecretRoomLevel extends LevelStrategy {
                 Sound sound = Gdx.audio.newSound(Gdx.files.internal("sound/sfx-badum.mp3"));
                 sound.play(SettingController.gameVolume);
                 Music music = Gdx.audio.newMusic(Gdx.files.internal("music/suspenseMusic.mp3"));
+                music.setVolume(SettingController.musicVolume);
                 music.setLooping(true);
                 setMusic(music);
             }
