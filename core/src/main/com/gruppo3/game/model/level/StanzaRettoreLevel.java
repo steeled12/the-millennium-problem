@@ -215,9 +215,6 @@ public class StanzaRettoreLevel extends LevelStrategy {
                 rettoreDialog.addNode(new LinearDialogNode("Rettore:\n!!!", 34, () -> {
                         Sound sound = Gdx.audio.newSound(Gdx.files.internal("sound/sfx-guilty.ogg"));
                         sound.play(SettingController.gameVolume);
-                        fadeMusic();
-                        
-                        GameScreen.savedInformation.put("colpevoleScelto", "Rettore");
                         music.setOnCompletionListener(new Music.OnCompletionListener() {
                                 @Override
                                 public void onCompletion(Music music) {
@@ -226,6 +223,9 @@ public class StanzaRettoreLevel extends LevelStrategy {
                                         ((MyGame) Gdx.app.getApplicationListener()).setScreen(fadeScreen);
                                 }
                         });
+                        fadeMusic();
+                        GameScreen.savedInformation.put("colpevoleScelto", "Rettore");
+
                 }));
                 rettoreDialog.addNode(new LinearDialogNode("Uomo misterioso:\n...", 35).setPointer(36));
                 rettoreDialog.addNode(new LinearDialogNode(
