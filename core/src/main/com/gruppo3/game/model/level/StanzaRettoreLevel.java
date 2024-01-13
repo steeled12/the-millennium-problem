@@ -213,13 +213,19 @@ public class StanzaRettoreLevel extends LevelStrategy {
                                 new LinearDialogNode("Uomo misterioso:\nSignor Rettore, deve venire con me.", 33)
                                                 .setPointer(34));
                 rettoreDialog.addNode(new LinearDialogNode("Rettore:\n!!!", 34, () -> {
-                        fadeMusic();
                         Sound sound = Gdx.audio.newSound(Gdx.files.internal("sound/sfx-guilty.ogg"));
                         sound.play(SettingController.gameVolume);
+                        fadeMusic();
+                        
                         GameScreen.savedInformation.put("colpevoleScelto", "Rettore");
-                        TransitionScreen fadeScreen = new TransitionScreen(GameScreen.levelController.getCurrentLevel(),
-                                                        new AttoFinaleLevel(), (MyGame) Gdx.app.getApplicationListener(), 0, 0);
-                        ((MyGame) Gdx.app.getApplicationListener()).setScreen(fadeScreen);
+                        music.setOnCompletionListener(new Music.OnCompletionListener() {
+                                @Override
+                                public void onCompletion(Music music) {
+                                        TransitionScreen fadeScreen = new TransitionScreen(GameScreen.levelController.getCurrentLevel(),
+                                        new AttoFinaleLevel(), (MyGame) Gdx.app.getApplicationListener(), 0, 0);
+                                        ((MyGame) Gdx.app.getApplicationListener()).setScreen(fadeScreen);
+                                }
+                        });
                 }));
                 rettoreDialog.addNode(new LinearDialogNode("Uomo misterioso:\n...", 35).setPointer(36));
                 rettoreDialog.addNode(new LinearDialogNode(
