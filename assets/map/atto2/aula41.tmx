@@ -9,6 +9,7 @@
  <tileset firstgid="26781" source="../tilesets/1_Generic_16x16.tsx"/>
  <tileset firstgid="28029" source="../tilesets/6_Music_and_sport_16x16.tsx"/>
  <tileset firstgid="28797" source="../tilesets/4_Bedroom_16x16.tsx"/>
+ <tileset firstgid="30509" source="../tilesets/18_Jail_16x16.tsx"/>
  <group id="9" name="pavimento">
   <layer id="2" name="pavimento" width="30" height="20">
    <data encoding="base64" compression="zlib">
@@ -17,12 +18,12 @@
   </layer>
   <layer id="3" name="scale" width="30" height="20">
    <data encoding="base64" compression="zlib">
-   eJxjYKA/yGEaAEsHEQhJZmAITqa+uSAzQ/GYO2rvqL2j9o7aS6q9KUC5ZBrYK5bEwJCKx9wSoFwxDewFmVlKA3NHwShABwD02iMl
+   eJxjYKA/yGEaAEsHEQhJZmAITqa+uSAzQ/GYO2rvqL2j9o7aS6q9KUC5ZBrZm4rH3BKgXDEN7AWZWUoDc0fBKEAHAKggI2M=
   </data>
   </layer>
   <layer id="1" name="Livello tile 1" width="30" height="20">
    <data encoding="base64" compression="zlib">
-   eJy7IcDAcGMAsIrgwGBkMCkRgqkNaGXuKBgFo2AUjALagomJEIwOZFMYGOSAWJ4IrJhCvLmEgC7QLDsTBgb9FPzYAIgNsdhLLsgnwd4CMu3FVlfWE2kvCDekEDZvIAEAeiRIVw==
+   eJy7IcDAcGMAsIrgwGBk8CgJgqkNaGXuKBgFo2AUjALagodJEIwOZFMYGOSAWJ4IrJhCvLmEgC7QLDsTBgb9FPzYAIgNsdhLLsgnwd4CMu3FVlfWE2kvCDekEDZvIAEAc5JMIw==
   </data>
   </layer>
  </group>
@@ -43,7 +44,7 @@
  </layer>
  <layer id="7" name="oggetti davanti" width="30" height="20">
   <data encoding="base64" compression="zlib">
-   eJxjYECA2FIGhjggji9loBogxsxcoFweEOdT0V5amEltMC2Tuniwg1H/jvp31L+j/h0q/h3MQNoRwZ7vSj97tYH2/nckrI4WgN9pYOylBAAA5/qFCg==
+   eJxjYECA2FIGhjggji9loBogxsxcoFweEOdT0V5amEltMC2Tuniwg1H/jvp31L+j/h0q/h3MILoCwVZLp5+92UB77SshbDM62gsC/pX0tY8aAAAUdoYt
   </data>
  </layer>
  <objectgroup id="8" name="Collisioni">
