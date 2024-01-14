@@ -52,6 +52,7 @@ public class StanzaRettangoloAtto2Level extends LevelStrategy {
             PickableItem nota = new PickableItem("Nota", "nota.png");
             nota.getBox().setPosition(9, 8);
             nota.getBox().setSize(1, 1);
+            itemController.itemList.add(nota);
 
             Dialog dialog = new Dialog();
             dialog.addNode(new LinearDialogNode("[Trovi una nota per terra]", 0).setPointer(1));
@@ -76,7 +77,7 @@ public class StanzaRettangoloAtto2Level extends LevelStrategy {
                     }));
 
             nota.setDialog(dialog);
-            itemController.itemList.add(nota);
+            
         }
 
         // scriptable
