@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="30" height="20" tilewidth="16" tileheight="16" infinite="0" nextlayerid="42" nextobjectid="52">
+<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="30" height="20" tilewidth="16" tileheight="16" infinite="0" nextlayerid="43" nextobjectid="53">
  <tileset firstgid="1" source="../Room_Builder_16x16.tsx"/>
  <tileset firstgid="8285" source="../Interiors_16x16.tsx"/>
  <tileset firstgid="25309" source="../tilesets/3_Bathroom_16x16.tsx"/>
@@ -133,15 +133,15 @@
    eJxjYBgFo2AUjILhAwI66WfXinYEO4GO9iKDAjra+6+NfnYhgwvthNWMglEw2AAAdl0Gxg==
   </data>
  </layer>
- <objectgroup id="36" name="Collisioni" locked="1">
+ <objectgroup id="36" name="Collisioni">
   <object id="1" x="0.5" y="0" width="14.5" height="319.5"/>
   <object id="2" x="1" y="1.5" width="415.5" height="30.5"/>
   <object id="3" x="415.5" y="-1" width="16" height="96.5"/>
   <object id="4" x="418" y="64.5" width="58" height="30.5"/>
   <object id="5" x="463.5" y="94" width="16.5" height="225.5"/>
-  <object id="6" x="0.5" y="314.5" width="479" height="5.5"/>
-  <object id="10" x="240.25" y="269" width="63.875" height="19"/>
-  <object id="11" x="240" y="309.875" width="64" height="4.75"/>
+  <object id="6" x="1.16667" y="304.167" width="479" height="5.5"/>
+  <object id="10" x="240.25" y="252.333" width="63.875" height="19"/>
+  <object id="11" x="240" y="294.542" width="64" height="9.08333"/>
   <object id="12" x="88.875" y="211.875" width="29.875" height="53.375"/>
   <object id="13" x="118.5" y="230.375" width="7.25" height="15.75"/>
   <object id="14" x="82.125" y="232.125" width="8" height="13.625"/>
@@ -172,12 +172,15 @@
   <object id="42" x="433.091" y="95.0909" width="30.5455" height="12.7273"/>
   <object id="43" x="201.75" y="-0.159068" width="5.40909" height="69.5909"/>
   <object id="45" x="432.257" y="179.439" width="47.1216" height="11.6667"/>
+  <object id="52" x="51.4545" y="63.5758" width="25.0909" height="16.1818"/>
  </objectgroup>
- <layer id="37" name="Tasti" width="30" height="20" locked="1">
-  <data encoding="base64" compression="zlib">
+ <group id="42" name="tasti">
+  <layer id="37" name="Tasti" width="30" height="20" locked="1">
+   <data encoding="base64" compression="zlib">
    eJxjYBgFo2AU0AJczqW/nZ+Adn4G4i8DYPcoGAWjYBSMAgQAAG/mBWE=
   </data>
- </layer>
+  </layer>
+ </group>
  <layer id="39" name="Messaggio" width="30" height="20" locked="1">
   <data encoding="base64" compression="zlib">
    eJxjYBgFo2AU0ANMrWBgmAXEMyvoa+9SoH2rgHglne0dBaNgFIyCkQwAapsGkQ==
