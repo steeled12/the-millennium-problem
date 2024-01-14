@@ -57,8 +57,6 @@ public class StanzaRettoreLevel extends LevelStrategy {
                 music.setVolume(SettingController.musicVolume);
                 // dialogo iniziale
                 music.play();
-/*                 GameScreen.savedInformation.put("parlatoARettore", "true");
-                GameScreen.savedInformation.put("nota", "true"); */
 
                 professore = new NPC(
                                 new Texture("characters/professoreRettangolo.png"));
@@ -263,7 +261,7 @@ public class StanzaRettoreLevel extends LevelStrategy {
 
         private void startingDialog() {
                 Dialog dialog = new Dialog();
-                dialog.addNode(new LinearDialogNode("Rettore:\nAh, sei tu! Finalmente sei arrivato!", 0).setPointer(1));
+                dialog.addNode(new LinearDialogNode("Rettore:\nAh, sei tu! Finalmente sei arrivato!", 0, () -> rettore.setNPCDirection(NPC.Direction.SOUTH)).setPointer(1));
                 dialog.addNode(new LinearDialogNode(
                                 "Rettore:\nVieni qui! Ho invitato questo gentiluomo\nper arrestare il professor Rettangolo",
                                 1)
@@ -285,7 +283,6 @@ public class StanzaRettoreLevel extends LevelStrategy {
                 }).setPointer(6));
                 dialog.addNode(new LinearDialogNode("(Chi credo sia colpevole?)", 6));
                 GameScreen.dialogController.startDialog(dialog);
-                rettore.setNPCDirection(NPC.Direction.SOUTH);
         }
 
         private void fadeMusic() {

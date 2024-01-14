@@ -26,16 +26,14 @@ public class MainMenu extends MenuState {
         viewport = new ScreenViewport();
         stage = new Stage(viewport);
 
-        // Create Table
         Table mainTable = new Table();
-        // Set table to fill stage
+        
         mainTable.setFillParent(true);
         mainTable.setBackground(skin.newDrawable("textfield", r, g, b, 1));
 
         Label title = new Label("The Millennium Problem", skin, "title");
         title.setFontScale(1.2f);
 
-        // Create buttons
         TextButton playButton = new TextButton("Nuova Partita", skin);
         TextButton loadButton = new TextButton("Carica", skin);
         TextButton optionsButton = new TextButton("Impostazioni", skin);

@@ -48,17 +48,17 @@ public class DialogController extends InputAdapter {
 			dialogBox.skipAnimation();
 			return true;
 		}
-		if (traverser != null && keycode == Keys.X) { // continue through tree
+		if (traverser != null && keycode == Keys.X) {
 			DialogNode thisNode = traverser.getNode();
 
 			if (thisNode instanceof LinearDialogNode) {
 				LinearDialogNode node = (LinearDialogNode) thisNode;
 				
-				if (node.getPointers().isEmpty()) { // dead end, since no pointers
+				if (node.getPointers().isEmpty()) {
 					traverser = null; // end dialog
 					dialogBox.setVisible(false);
 				} else {
-					progress(0); // progress through first pointer
+					progress(0);
 				}
 			}
 			if (thisNode instanceof ChoiceDialogNode) {

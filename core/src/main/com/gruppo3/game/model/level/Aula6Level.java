@@ -94,6 +94,9 @@ public class Aula6Level extends LevelStrategy {
                 Sound sound = Gdx.audio.newSound(Gdx.files.internal("sound/sfx-selectjingle.mp3"));
                 sound.play(SettingController.gameVolume);
                 GameScreen.savedInformation.put("portaScale", "true");
+                Dialog profDialog1 = new Dialog();
+                profDialog1.addNode(new LinearDialogNode("Valenza:\n...", 0));
+                prof.setDialog(profDialog1);
             }
         });
 
@@ -120,8 +123,6 @@ public class Aula6Level extends LevelStrategy {
         profDialog.addNode(profNode9);
 
         prof.setDialog(profDialog);
-
-
     }
 
     public void changeMap(String mapName, float x, float y) {
