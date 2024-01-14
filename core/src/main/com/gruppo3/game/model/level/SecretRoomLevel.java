@@ -50,16 +50,21 @@ public class SecretRoomLevel extends LevelStrategy {
 
     @Override
     public void init() {
-
         // item e npc
         ScriptableObject computer = new ScriptableObject(new Rectangle(15,15,1,1), true) {
             @Override
             public void action() {
+                Gdx.app.log("SecretRoomLevel", "Computer");
                 Dialog computerDialog = new Dialog();
-                
-
+                if(Player.getPlayer().getInventory().isEmpty()){
+                    computerDialog.addNode(new LinearDialogNode("Prima di accedere voglio esplorare per bene la stanza", 0));
+                    GameScreen.dialogController.startDialog(computerDialog);
+                    return;
+                }
                 for(Item item : Player.getPlayer().getInventory()) {
+                    Gdx.app.log("SecretRoomLevel", ""+"entered for");
                     if(item.getName().equalsIgnoreCase("appunti sulla ricerca")) {
+                        Gdx.app.log("SecretRoomLevel", ""+"entered if");
                         LinearDialogNode computerNode0 = new LinearDialogNode("Il computer è protetto da password", 0);
                         ChoiceDialogNode computerNode1 = new ChoiceDialogNode("Inserisci la password", 1);
                         LinearDialogNode computerNode2 = new LinearDialogNode("Password corretta", 2, new Action() {
@@ -79,7 +84,9 @@ public class SecretRoomLevel extends LevelStrategy {
                         LinearDialogNode computerNode4 = new LinearDialogNode(
                                 "Forse posso trovare qualche indizio in giro per la stanza", 4);
                         computerNode0.setPointer(1);
+                        if(GameScreen.savedInformation.containsKey("passwordPianta")) {
                             computerNode1.addChoice("Mappa1984", 2);
+                        }
                             computerNode1.addChoice("Password123", 3);
                             computerNode1.addChoice("Tramezzino-Ciambella", 3);
                             computerNode3.setPointer(4);
@@ -137,13 +144,102 @@ public class SecretRoomLevel extends LevelStrategy {
                             computerDialog.addNode(computerNode10);
                         break;
                     }
+                    Gdx.app.log("SecretRoomLevel", ""+"nodosenza");
                     computerDialog.addNode(new LinearDialogNode("Prima di accedere voglio esplorare per bene la stanza", 0));
                 }
                 GameScreen.dialogController.startDialog(computerDialog);
             }
         };
-        scriptableObjectsController.scriptableObjectsList.add(computer);
 
+
+        ScriptableObject libreria = new ScriptableObject(new Rectangle(8,16,2,3), true) {
+            @Override
+            public void action(){
+                Dialog libDialog = new Dialog();
+
+                if(Player.getPlayer().getInventory().isEmpty()){
+                    Gdx.app.log("SecretRoomLevel", "entered if");
+                    libDialog.addNode(new LinearDialogNode("Prima di accedere voglio esplorare per bene la stanza", 0));
+                    GameScreen.dialogController.startDialog(libDialog);
+                    return;
+                }
+
+                for(Item item : Player.getPlayer().getInventory()) {
+                    if(item.getName().equalsIgnoreCase("appunti sulla ricerca")) {
+                        ChoiceDialogNode libNode0 = new ChoiceDialogNode("[Vuoi rileggere gli appunti?]", 0);
+                        libNode0.addChoice("Sì", 1);
+                        libNode0.addChoice("No");
+                        libDialog.addNode(libNode0);
+                        libDialog.addNode(new LinearDialogNode(
+                            "\"Sono passati 15 anni dall'inizio della mia ricerca\n sul problema P = NP\"", 1).setPointer(2));
+                        libDialog.addNode(new LinearDialogNode(
+                                "\"Ero stato preso per pazzo per aver dedicato la mia vita a questo", 2).setPointer(3));
+                        libDialog.addNode(new LinearDialogNode("\"Ma ora ho trovato la soluzione!\"", 3).setPointer(4));
+                        libDialog.addNode(new LinearDialogNode("\"Eppure...\"", 4).setPointer(5));
+                        libDialog.addNode(new LinearDialogNode(
+                                "\"Le implicazioni di questo risultato sono incomprensibili.\nMesso nelle mani sbagliate, non so cosa potrebbe succedere\"",
+                                5).setPointer(6));
+                        libDialog.addNode(new LinearDialogNode("\"Non posso rischiare.\nSigillerò questa stanza\"", 6));
+                        break;
+                    }
+                    libDialog.addNode(new LinearDialogNode("Un libro sporge leggermente \n dalla libreria", 0).setPointer(1));
+                    libDialog.addNode(new LinearDialogNode("Il titolo è \"Appunti sulla ricerca\"", 1).setPointer(2));
+                    ChoiceDialogNode libNode2 = new ChoiceDialogNode("Vuoi leggere?", 2);
+                    libNode2.addChoice("Sì", 3);
+                    libNode2.addChoice("No");
+                    libDialog.addNode(libNode2);
+                    libDialog.addNode(new LinearDialogNode(
+                        "\"Sono passati 15 anni dall'inizio della mia ricerca\n sul problema P = NP\"", 3).setPointer(4));
+                    libDialog.addNode(new LinearDialogNode(
+                            "\"Ero stato preso per pazzo per aver dedicato la mia vita a questo", 4).setPointer(5));
+                    libDialog.addNode(new LinearDialogNode("\"Ma ora ho trovato la soluzione!\"", 5).setPointer(6));
+                    libDialog.addNode(new LinearDialogNode("\"Eppure...\"", 6).setPointer(7));
+                    libDialog.addNode(new LinearDialogNode(
+                            "\"Le implicazioni di questo risultato sono incomprensibili.\nMesso nelle mani sbagliate, non so cosa potrebbe succedere\"",
+                            7).setPointer(8));
+                    libDialog.addNode(new LinearDialogNode("\"Non posso rischiare.\nSigillerò questa stanza\"", 8).setPointer(9));
+                    ChoiceDialogNode libNode9 = new ChoiceDialogNode("Gli appunti si concludono, vuoi rileggere", 9);
+                    libNode9.addChoice("Sì", 3);
+                    libNode9.addChoice("No", 10);
+                    libDialog.addNode(libNode9);
+                    libDialog.addNode(new LinearDialogNode("......", 10).setPointer(11));
+                    libDialog.addNode(new LinearDialogNode("!!!!!!", 11, new Action() {
+                        @Override
+                        public void action() {
+                            Sound sound = Gdx.audio.newSound(Gdx.files.internal("sound/sfx-badum.mp3"));
+                            sound.play(SettingController.gameVolume);
+                            Music music = Gdx.audio.newMusic(Gdx.files.internal("music/suspenseMusic.mp3"));
+                            music.setVolume(SettingController.musicVolume);
+                            music.setLooping(true);
+                            setMusic(music);
+                        }
+                    }).setPointer(12));
+                    libDialog.addNode(new LinearDialogNode(
+                                "Questa scrittura è del professore.\nPerché non mi aveva parlato della stanza e di tutto questo?", 12).setPointer(13));
+                    libDialog.addNode(new LinearDialogNode(
+                                "Questa scoperta di cui parla, sembra essere il fulcro di\n tutto ciò che sta succedendo", 13).setPointer(14));
+                    libDialog.addNode(new LinearDialogNode(
+                                "Devo continuare ad indagare", 14).setPointer(15));
+                    libDialog.addNode(new LinearDialogNode("Mi conviene tenere con me questi appunti", 15).setPointer(16));
+                    libDialog.addNode(new LinearDialogNode("[Hai raccolto Appunti sulla Ricerca]", 16, new Action() {
+                            @Override
+                            public void action() {
+                                Sound sound = Gdx.audio.newSound(Gdx.files.internal("sound/sfx-selectjingle.mp3"));
+                                sound.play(SettingController.gameVolume);
+                                Player.getPlayer().getInventory().add(new PickableItem("Appunti sulla Ricerca",
+                                        "map/atto3/appunti.png"));
+                                GameScreen.updateInventoryUI();
+                            }
+                    }).setPointer(17));
+                    libDialog.addNode(new LinearDialogNode(
+                            "Devo scoprire l'uso della ricerca\ne chi ha avuto accesso al computer di questa stanza", 17));
+                }
+                GameScreen.dialogController.startDialog(libDialog);
+
+            }
+        };
+        scriptableObjectsController.scriptableObjectsList.add(libreria);
+        scriptableObjectsController.scriptableObjectsList.add(computer);
         // tutti i dialoghi
 
         GenericItem cassetto = new GenericItem("cassetto");
@@ -191,95 +287,7 @@ public class SecretRoomLevel extends LevelStrategy {
         piantaDialog.addNode(piantaNode4);
         pianta.setDialog(piantaDialog);
 
-        GenericItem libreria = new GenericItem("libreria");
-        itemController.addwithId(libreria, 3);
-        Dialog libDialog = new Dialog();
-        LinearDialogNode libNode0 = new LinearDialogNode("Un libro sporge leggermente \n dalla libreria", 0);
-        LinearDialogNode libNode1 = new LinearDialogNode("Il titolo è \"Appunti sulla ricerca\"", 1);
-        ChoiceDialogNode libNode2 = new ChoiceDialogNode("Vuoi leggere?", 2);
-        LinearDialogNode libNode3 = new LinearDialogNode(
-                "\"Sono passati 15 anni dall'inizio della mia ricerca\n sul problema P = NP\"", 3);
-        LinearDialogNode libNode4 = new LinearDialogNode(
-                "\"Ero stato preso per pazzo per aver dedicato la mia vita a questo", 4);
-        LinearDialogNode libNode5 = new LinearDialogNode("\"Ma ora ho trovato la soluzione!\"", 5);
-        LinearDialogNode libNode6 = new LinearDialogNode("\"Eppure...\"", 6);
-        LinearDialogNode libNode7 = new LinearDialogNode(
-                "\"Le implicazioni di questo risultato sono incomprendibili.\nMesso nelle mani sbagliate, non so cosa potrebbe succedere\"",
-                7);
-        LinearDialogNode libNode8 = new LinearDialogNode("\"Non posso rischiare.\nSigillerò questa stanza\"", 8);
-        ChoiceDialogNode libNode9 = new ChoiceDialogNode("Gli appunti si concludono, vuoi rileggere", 9);
-        LinearDialogNode libNode10 = new LinearDialogNode("......", 10);
-        LinearDialogNode libNode11 = new LinearDialogNode("!!!!!!", 11, new Action() {
-            @Override
-            public void action() {
-                Sound sound = Gdx.audio.newSound(Gdx.files.internal("sound/sfx-badum.mp3"));
-                sound.play(SettingController.gameVolume);
-                Music music = Gdx.audio.newMusic(Gdx.files.internal("music/suspenseMusic.mp3"));
-                music.setVolume(SettingController.musicVolume);
-                music.setLooping(true);
-                setMusic(music);
-            }
-        });
-        LinearDialogNode libNode12 = new LinearDialogNode(
-                "Questa scrittura è del professore.\nPerché non mi aveva parlato della stanza e di tutto questo?", 12);
-        LinearDialogNode libNode13 = new LinearDialogNode(
-                "Questa scoperta di cui parla, sembra essere il fulcro di\n tutto ciò che sta succedendo", 13);
-        LinearDialogNode libNode14 = new LinearDialogNode(
-                "Devo continuare ad indagare", 14);
-        LinearDialogNode libNode15 = new LinearDialogNode("Mi conviene tenere con me questi appunti", 15);
-        LinearDialogNode libNode16 = new LinearDialogNode("[Hai raccolto Appunti sulla Ricerca]", 16, new Action() {
-            @Override
-            public void action() {
-                Sound sound = Gdx.audio.newSound(Gdx.files.internal("sound/sfx-selectjingle.mp3"));
-                sound.play(SettingController.gameVolume);
-                Player.getPlayer().getInventory().add(new PickableItem("Appunti sulla Ricerca",
-                        "map/atto3/appunti.png"));
-                GameScreen.updateInventoryUI();
-            }
-        });
-        LinearDialogNode libNode17 = new LinearDialogNode(
-                "Devo scoprire l'uso della ricerca\ne chi ha avuto accesso al computer di questa stanza", 17);
-
-        libNode0.setPointer(1);
-        libNode1.setPointer(2);
-        libNode2.addChoice("Sì", 3);
-        libNode2.addChoice("No");
-        libNode3.setPointer(4);
-        libNode4.setPointer(5);
-        libNode5.setPointer(6);
-        libNode6.setPointer(7);
-        libNode7.setPointer(8);
-        libNode8.setPointer(9);
-        libNode9.addChoice("Sì", 3);
-        libNode9.addChoice("No", 10);
-        libNode10.setPointer(11);
-        libNode11.setPointer(12);
-        libNode12.setPointer(13);
-        libNode13.setPointer(14);
-        libNode14.setPointer(15);
-        libNode15.setPointer(16);
-        libNode16.setPointer(17);
-
-        libDialog.addNode(libNode0);
-        libDialog.addNode(libNode1);
-        libDialog.addNode(libNode2);
-        libDialog.addNode(libNode3);
-        libDialog.addNode(libNode4);
-        libDialog.addNode(libNode5);
-        libDialog.addNode(libNode6);
-        libDialog.addNode(libNode7);
-        libDialog.addNode(libNode8);
-        libDialog.addNode(libNode9);
-        libDialog.addNode(libNode10);
-        libDialog.addNode(libNode11);
-        libDialog.addNode(libNode12);
-        libDialog.addNode(libNode13);
-        libDialog.addNode(libNode14);
-        libDialog.addNode(libNode15);
-        libDialog.addNode(libNode16);
-        libDialog.addNode(libNode17);
-
-        libreria.setDialog(libDialog);
+        
 
         Player.getPlayer().setPlayerDirection(Player.PlayerDirection.NORTH);
     }

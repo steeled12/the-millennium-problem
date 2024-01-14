@@ -83,7 +83,9 @@ public class SaveController {
         Player.getPlayer().getInventory().clear();
         Player.getPlayer().getPlayerBox().setPosition(6, 13);
         GameScreen.savedInformation.clear();
-        GameScreen.levelToLoad = "TutorialLevel";
+        GameScreen.savedInformation.put("atto4", "false");
+        GameScreen.savedInformation.put("", "false");
+        GameScreen.levelToLoad = "CorridoioAtto2Level";
     }
 
     public static boolean saveExists(int numSave) {

@@ -26,6 +26,7 @@ public class Portiere extends NPC {
         this.loopingAnimation = false;
         this.NPCDirection = Direction.SOUTH;
         dialog = new Dialog();
+
         LinearDialogNode portiereNode0 = new LinearDialogNode("Buonasera, potrebbe aprire la porta?", 0);
         LinearDialogNode portiereNode1 = new LinearDialogNode("Portiere:\n...", 1);
         LinearDialogNode portiereNode2 = new LinearDialogNode("Portiere:\n...", 2);
@@ -57,6 +58,14 @@ public class Portiere extends NPC {
     @Override
     public void action(DialogController dialogController) {
         int index = 8;
+        if(!GameScreen.savedInformation.containsKey("atto")){
+            Dialog atto1Diag = new Dialog();
+            this.dialog = atto1Diag;
+            atto1Diag.addNode(new LinearDialogNode("Portiere:\n...", 0).setPointer(1));
+            atto1Diag.addNode(new LinearDialogNode("(Non sembra voglia o possa comunicare)", 1));
+            dialogController.startDialog(this.dialog);
+            return;
+        }
 
         if (GameScreen.savedInformation.containsKey("chiaveSegreta")) {
             Dialog dfinale = new Dialog();

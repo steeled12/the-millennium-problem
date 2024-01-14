@@ -72,55 +72,59 @@ public class Aula6Level extends LevelStrategy {
         npcController.add(prof);
 
         Dialog profDialog = new Dialog();
-        LinearDialogNode profNode0 = new LinearDialogNode("Buonasera professore, posso disturbarla?", 0);
-        LinearDialogNode profNode1 = new LinearDialogNode("Valenza:\nPerdonami, ma sono impegnato", 1);
-        ChoiceDialogNode profNode2 = new ChoiceDialogNode("...", 2);
-        LinearDialogNode profNode3 = new LinearDialogNode("ATARI È MEGLIO DI COMMODORE", 3, new Action() {
-            @Override
-            public void action() {
-                Sound sound = Gdx.audio.newSound(Gdx.files.internal("sound/sfx-badum.mp3"));
-                sound.play(SettingController.gameVolume);
-                prof.setNPCDirection(NPC.Direction.EAST);
-            }
-        });
-        LinearDialogNode profNode4 = new LinearDialogNode("Valenza:\nCOSA HAI DETTO?", 4);
-        LinearDialogNode profNode5 = new LinearDialogNode("Scusi, volevo solo chiederle se può chiedere al portiere\ndi aprire la porta delle scale", 5);
-        LinearDialogNode profNode6 = new LinearDialogNode("Valenza:\n...", 6);
-        LinearDialogNode profNode7 = new LinearDialogNode("Valenza:\nVa bene... basta che non ti fai più vedere...", 7);
-        LinearDialogNode profNode8 = new LinearDialogNode("Grazie professore", 8);
-        LinearDialogNode profNode9 = new LinearDialogNode("[Adesso la porta dovrebbe essere aperta]", 9, new Action() {
-            @Override
-            public void action() {
-                Sound sound = Gdx.audio.newSound(Gdx.files.internal("sound/sfx-selectjingle.mp3"));
-                sound.play(SettingController.gameVolume);
-                GameScreen.savedInformation.put("portaScale", "true");
-                Dialog profDialog1 = new Dialog();
-                profDialog1.addNode(new LinearDialogNode("Valenza:\n...", 0));
-                prof.setDialog(profDialog1);
-            }
-        });
+        if(!GameScreen.savedInformation.containsKey("atto4")){
+            LinearDialogNode profNode0 = new LinearDialogNode("Buonasera professore, posso disturbarla?", 0);
+            LinearDialogNode profNode1 = new LinearDialogNode("Valenza:\nPerdonami, ma sono impegnato", 1);
+            ChoiceDialogNode profNode2 = new ChoiceDialogNode("...", 2);
+            LinearDialogNode profNode3 = new LinearDialogNode("ATARI È MEGLIO DI COMMODORE", 3, new Action() {
+                @Override
+                public void action() {
+                    Sound sound = Gdx.audio.newSound(Gdx.files.internal("sound/sfx-badum.mp3"));
+                    sound.play(SettingController.gameVolume);
+                    prof.setNPCDirection(NPC.Direction.EAST);
+                }
+            });
+            LinearDialogNode profNode4 = new LinearDialogNode("Valenza:\nCOSA HAI DETTO?", 4);
+            LinearDialogNode profNode5 = new LinearDialogNode("Scusi, volevo solo chiederle se può chiedere al portiere\ndi aprire la porta delle scale", 5);
+            LinearDialogNode profNode6 = new LinearDialogNode("Valenza:\n...", 6);
+            LinearDialogNode profNode7 = new LinearDialogNode("Valenza:\nVa bene... basta che non ti fai più vedere...", 7);
+            LinearDialogNode profNode8 = new LinearDialogNode("Grazie professore", 8);
+            LinearDialogNode profNode9 = new LinearDialogNode("[Adesso la porta dovrebbe essere aperta]", 9, new Action() {
+                @Override
+                public void action() {
+                    Sound sound = Gdx.audio.newSound(Gdx.files.internal("sound/sfx-selectjingle.mp3"));
+                    sound.play(SettingController.gameVolume);
+                    GameScreen.savedInformation.put("portaScale", "true");
+                    Dialog profDialog1 = new Dialog();
+                    profDialog1.addNode(new LinearDialogNode("Valenza:\n...", 0));
+                    prof.setDialog(profDialog1);
+                }
+            });
 
-        profNode0.setPointer(1);
-        profNode1.setPointer(2);
-        profNode2.addChoice("Vai via");
-        profNode2.addChoice("Fallo innervosire", 3);
-        profNode3.setPointer(4);
-        profNode4.setPointer(5);
-        profNode5.setPointer(6);
-        profNode6.setPointer(7);
-        profNode7.setPointer(8);
-        profNode8.setPointer(9); 
+            profNode0.setPointer(1);
+            profNode1.setPointer(2);
+            profNode2.addChoice("Vai via");
+            profNode2.addChoice("Fallo innervosire", 3);
+            profNode3.setPointer(4);
+            profNode4.setPointer(5);
+            profNode5.setPointer(6);
+            profNode6.setPointer(7);
+            profNode7.setPointer(8);
+            profNode8.setPointer(9); 
 
-        profDialog.addNode(profNode0);
-        profDialog.addNode(profNode1);
-        profDialog.addNode(profNode2);
-        profDialog.addNode(profNode3);
-        profDialog.addNode(profNode4);
-        profDialog.addNode(profNode5);
-        profDialog.addNode(profNode6);
-        profDialog.addNode(profNode7);
-        profDialog.addNode(profNode8);
-        profDialog.addNode(profNode9);
+            profDialog.addNode(profNode0);
+            profDialog.addNode(profNode1);
+            profDialog.addNode(profNode2);
+            profDialog.addNode(profNode3);
+            profDialog.addNode(profNode4);
+            profDialog.addNode(profNode5);
+            profDialog.addNode(profNode6);
+            profDialog.addNode(profNode7);
+            profDialog.addNode(profNode8);
+            profDialog.addNode(profNode9);
+        } else {
+            profDialog.addNode(new LinearDialogNode("Valenza:\n...", 0));
+        }
 
         prof.setDialog(profDialog);
     }

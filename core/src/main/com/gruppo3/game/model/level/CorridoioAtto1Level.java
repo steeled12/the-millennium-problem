@@ -107,13 +107,9 @@ public class CorridoioAtto1Level extends LevelStrategy {
         };
         scriptableObjectsController.scriptableObjectsList.add(porta);
 
-        NPC portiere = new NPC(new Texture(Gdx.files.internal("characters/portiere.png")));
+        NPC portiere = new Portiere(new Texture(Gdx.files.internal("characters/portiere.png")));
         portiere.getNpcBox().x = 51;
         portiere.getNpcBox().y = 18;
-        Dialog portiereDialog = new Dialog();
-        portiereDialog.addNode(new LinearDialogNode("Portiere:\n...", 0).setPointer(1));
-        portiereDialog.addNode(new LinearDialogNode("(Non sembra voglia o possa comunicare)", 0));
-        portiere.setDialog(portiereDialog);
         npcController.npcList.add(portiere);
 
         NPC studente1 = new NPC(new Texture(Gdx.files.internal("characters/studente1.png")));

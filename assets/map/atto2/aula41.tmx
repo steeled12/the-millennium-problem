@@ -18,12 +18,12 @@
   </layer>
   <layer id="3" name="scale" width="30" height="20">
    <data encoding="base64" compression="zlib">
-   eJxjYKA/yGEaAEsHEQhJZmAITqa+uSAzQ/GYO2rvqL2j9o7aS6q9KUC5ZBrZm4rH3BKgXDEN7AWZWUoDc0fBKEAHAKggI2M=
+   eJxjYKA/yGEaAEsHEQhJZmAITqa+uSAzQ/GYO2rvqL2j9o7aS6q9KUC5ZBrYCzIzFY+5JUC5YhrYCzKzlAbmjoJRgA4A1mAjcw==
   </data>
   </layer>
   <layer id="1" name="Livello tile 1" width="30" height="20">
    <data encoding="base64" compression="zlib">
-   eJy7IcDAcGMAsIrgwGBk8CgJgqkNaGXuKBgFo2AUjALagodJEIwOZFMYGOSAWJ4IrJhCvLmEgC7QLDsTBgb9FPzYAIgNsdhLLsgnwd4CMu3FVlfWE2kvCDekEDZvIAEAc5JMIw==
+   eJy7IcDAcGMAsIrgwGBk8CgJgqkNaGXuKBgFo2AUjALagodJEIwOZFMYGOSAWJ4IrJhCvLmEgC7QLD0g1ieADYDYEIu95IJ8EuwtINNebHVlPZH2gnBDCmHzBhIAAOsCTIM=
   </data>
   </layer>
  </group>
