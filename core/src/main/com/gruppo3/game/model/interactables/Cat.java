@@ -82,6 +82,8 @@ public class Cat extends NPC {
                 dialogController.startDialog(latteDialog);
                 GameScreen.savedInformation.put("ciboGatto", "true");
                 dialog.removeNode(2);
+                dialog.addNode(
+                        new LinearDialogNode("(Adesso posso andare all'università\n senza preccuparmi del gatto)", 2));
                 return;
             }
         }
