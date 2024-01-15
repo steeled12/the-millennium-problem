@@ -28,7 +28,7 @@
  </group>
  <layer id="3" name="Livello tile 2" width="30" height="20">
   <data encoding="base64" compression="zlib">
-   eJxjYIAA2UwGBjkglgfiR6kMDI+B+EkqAxzwmjMw8JlD2Njki4sYGEqKEHxsarABXaB9ekCsD8SfgGo/A/EXJD2yQDvloPZik28G2tmCZC82NdiALdA+OyC2z8SvjlRgWIRf3hdonx8Q+1PZXjMC9tIKuOGxV4fKfsQHNJHssqGjvZZIdvnQ0V5PJLti6GhvJB3tGgUQMJqPaAfQ89HxCgaGExW0sw9mPno+ug4Uu0FDe3GZ/xwo9oKG9tLa/MEOABUSQHI=
+   eJxjYIAA2UwGBjkglgfiR6kMDI+B+EkqAxxUFjEwVBVB2Njki4FyJUUIPjY12IAu0D49INYH4k9AtZ+B+AuSnk6gmV1Qc7HJNwPlWpDsxaYGG7AF2mcHxPaZ+NWRCgyL8Mv7Au3zA2J/KttrRsBeWgE3PPbqUNmP+IAmkl02dLTXEskuHzra64lkVwwd7Y2ko12jAAJG8xHtAHo+Ol7BwHCignb2wcxHz0fXgWI3aGgvLvOfA8Ve0NBeWps/2AEAgddDDg==
   </data>
  </layer>
  <layer id="4" name="Livello tile 3" width="30" height="20">
