@@ -59,7 +59,7 @@ public class SotterraneiAtto2Level extends LevelStrategy {
                             public void action() {
                                 TransitionScreen fadeScreen = new TransitionScreen(
                                         GameScreen.levelController.getCurrentLevel(), new SecretRoomLevel(),
-                                        (MyGame) Gdx.app.getApplicationListener(), 14,5f, 1);
+                                        (MyGame) Gdx.app.getApplicationListener(), 14.5f, 1);
                                 ((MyGame) Gdx.app.getApplicationListener()).setScreen(fadeScreen);
                             }
                         });
