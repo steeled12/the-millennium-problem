@@ -54,7 +54,7 @@ public class MenuScreen implements Screen {
         menuController.getStage().draw();
         Gdx.input.setInputProcessor(menuController.getStage());
         this.batch.begin();
-        this.debugFont.draw(this.batch, "VERSION: DEVELOPER-BUILD_0.4",
+        this.debugFont.draw(this.batch, "VERSION: 1.0",
                 10,
                 15);
         this.batch.end();
