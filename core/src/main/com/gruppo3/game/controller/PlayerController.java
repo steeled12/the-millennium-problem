@@ -92,7 +92,7 @@ public class PlayerController extends InputAdapter {
 
     private int moveLeft() {
         if (!isColliding(PlayerDirection.WEST)) {
-            if (Gdx.input.isKeyPressed(Input.Keys.LEFT)) {
+            if (Gdx.input.isKeyPressed(Input.Keys.LEFT) || Gdx.input.isKeyPressed(Input.Keys.A)) {
                 player.getPlayerBox().x -= playerSpeed * Gdx.graphics.getDeltaTime();
                 player.setPlayerDirection(Player.PlayerDirection.WEST);
 
@@ -104,7 +104,7 @@ public class PlayerController extends InputAdapter {
 
     private int moveRight() {
         if (!isColliding(PlayerDirection.EAST)) {
-            if (Gdx.input.isKeyPressed(Input.Keys.RIGHT)) {
+            if (Gdx.input.isKeyPressed(Input.Keys.RIGHT) || Gdx.input.isKeyPressed(Input.Keys.D)) {
                 player.getPlayerBox().x += playerSpeed * Gdx.graphics.getDeltaTime();
                 player.setPlayerDirection(Player.PlayerDirection.EAST);
 
@@ -116,7 +116,7 @@ public class PlayerController extends InputAdapter {
 
     private int moveUp() {
         if (!isColliding(PlayerDirection.NORTH)) {
-            if (Gdx.input.isKeyPressed((Input.Keys.UP))) {
+            if (Gdx.input.isKeyPressed(Input.Keys.UP) || Gdx.input.isKeyPressed(Input.Keys.W)) {
                 player.getPlayerBox().y += playerSpeed * Gdx.graphics.getDeltaTime();
                 player.setPlayerDirection(Player.PlayerDirection.NORTH);
 
@@ -128,7 +128,7 @@ public class PlayerController extends InputAdapter {
 
     private int moveDown() {
         if (!isColliding(PlayerDirection.SOUTH)) {
-            if (Gdx.input.isKeyPressed((Input.Keys.DOWN))) {
+            if (Gdx.input.isKeyPressed(Input.Keys.DOWN) || Gdx.input.isKeyPressed(Input.Keys.S)) {
                 player.getPlayerBox().y -= playerSpeed * Gdx.graphics.getDeltaTime();
                 player.setPlayerDirection(Player.PlayerDirection.SOUTH);
 
@@ -140,13 +140,16 @@ public class PlayerController extends InputAdapter {
 
     @Override
     public boolean keyDown(int keycode) {
-        if (keycode == Input.Keys.LEFT) {
+        if (keycode == Input.Keys.SHIFT_LEFT) {
+            playerSpeed = 16f;
+        }
+        if (keycode == Input.Keys.LEFT || keycode == Input.Keys.A) {
             moveLeft();
-        } else if (keycode == Input.Keys.RIGHT) {
+        } else if (keycode == Input.Keys.RIGHT || keycode == Input.Keys.D) {
             moveRight();
-        } else if (keycode == Input.Keys.UP) {
+        } else if (keycode == Input.Keys.UP || keycode == Input.Keys.W) {
             moveUp();
-        } else if (keycode == Input.Keys.DOWN) {
+        } else if (keycode == Input.Keys.DOWN || keycode == Input.Keys.S) {
             moveDown();
         }
         Gdx.app.log("PlayerController", "Player position: " + player.getPlayerBox().x + " " + player.getPlayerBox().y);
@@ -169,6 +172,9 @@ public class PlayerController extends InputAdapter {
 
     @Override
     public boolean keyUp(int keycode) {
+        if (keycode == Input.Keys.SHIFT_LEFT) {
+            playerSpeed = 8f;
+        }
         return true;
     }
 }
