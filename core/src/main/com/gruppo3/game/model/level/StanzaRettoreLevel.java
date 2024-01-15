@@ -61,7 +61,7 @@ public class StanzaRettoreLevel extends LevelStrategy {
                 professore = new NPC(
                                 new Texture("characters/professoreRettangolo.png"));
                 professore.getNpcBox().x = 22;
-                professore.getNpcBox().y = 11;
+                professore.getNpcBox().y = 8;
                 professore.setNPCDirection(NPC.Direction.WEST);
                 Dialog profDialog = new Dialog();
                 profDialog.addNode(
@@ -93,7 +93,7 @@ public class StanzaRettoreLevel extends LevelStrategy {
                 rettore = new NPC(
                                 new Texture("characters/rettore.png"));
                 rettore.getNpcBox().x = 18;
-                rettore.getNpcBox().y = 11;
+                rettore.getNpcBox().y = 8;
                 rettore.setNPCDirection(NPC.Direction.EAST);
                 npcController.add(rettore);
                 Dialog rettoreDialog = new Dialog();
@@ -241,7 +241,7 @@ public class StanzaRettoreLevel extends LevelStrategy {
                 NPC uomoMisterioso = new NPC(
                                 new Texture("characters/uomo_misterioso.png"));
                 uomoMisterioso.getNpcBox().x = 20;
-                uomoMisterioso.getNpcBox().y = 13;
+                uomoMisterioso.getNpcBox().y = 10;
                 uomoMisterioso.setNPCDirection(NPC.Direction.SOUTH);
                 npcController.add(uomoMisterioso);
                 Dialog uomoDialog = new Dialog();

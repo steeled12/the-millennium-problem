@@ -104,4 +104,15 @@ public class NPC {
     public void action(DialogController dialogController) {
         dialogController.startDialog(this.dialog);
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == this)
+            return true;
+        if (!(o instanceof NPC)) {
+            return false;
+        }
+        NPC npc1 = (NPC) o;
+        return npc1.getNpcBox().equals(this.getNpcBox());
+    }
 }

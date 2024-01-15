@@ -184,7 +184,7 @@ public class CorridoioAtto2Level extends LevelStrategy {
         NPC portiere = new Portiere(new Texture(Gdx.files.internal("characters/portiere.png")));
         portiere.getNpcBox().x = 51;
         portiere.getNpcBox().y = 18;
-        npcController.npcList.add(portiere);
+        npcController.add(portiere);
 
         NPC studente1 = new NPC(new Texture(Gdx.files.internal("characters/studente1.png")));
         studente1.getNpcBox().x = 25;

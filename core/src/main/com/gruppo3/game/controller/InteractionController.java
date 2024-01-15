@@ -90,7 +90,7 @@ public class InteractionController extends InputAdapter {
 
                     if (expandedNpcBox.overlaps(Player.getPlayer().getPlayerBox())) {
                         npc.action(GameScreen.dialogController);
-/*                         switch (Player.getPlayer().getPlayerDirection()) {
+                        switch (Player.getPlayer().getPlayerDirection()) {
                             case NORTH:
                                 npc.setNPCDirection(Direction.SOUTH);
                                 break;
@@ -103,7 +103,7 @@ public class InteractionController extends InputAdapter {
                             case EAST:
                                 npc.setNPCDirection(Direction.WEST);
                                 break;
-                        } */
+                        } 
                         return true;
                     }
                 }

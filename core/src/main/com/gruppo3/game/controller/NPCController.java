@@ -14,6 +14,10 @@ public class NPCController extends InputAdapter {
     TextureRegion animationFrame;
 
     public void add(NPC npc) {
+        for(NPC npc1 : npcList) {
+            if(npc.equals(npc1))
+                return;
+        }
         npcList.add(npc);
         MapLayer collisionObjectLayer = GameScreen.levelController.getMap().getLayers().get("Collisioni");
         RectangleMapObject npcObject = new RectangleMapObject(npc.getNpcBox().x, npc.getNpcBox().y,
