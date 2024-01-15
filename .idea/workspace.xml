@@ -13,11 +13,55 @@
       <change beforePath="$PROJECT_DIR$/.gradle/7.5.1/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5.1/fileHashes/resourceHashesCache.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/music/CoconutMall.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/music/Menu.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/assets/music/Menu.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/music/Menu.ogg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/music/accusa.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/assets/music/accusa.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/music/accusa.ogg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/music/accusa_variation.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/assets/music/accusa_variation.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/music/accusa_variation.ogg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/music/atto1Corridoio.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/music/cocoremix.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/music/credits.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/assets/music/credits.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/music/endingMusic.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/assets/music/endingMusic.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/music/finale-prof.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/assets/music/finale-prof.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/music/stanza-rettore.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/assets/music/stanza-rettore.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/music/suspenseMusic.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/assets/music/suspenseMusic.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/music/tutorialMusic.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/assets/music/tutorialMusic.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/sound/correct-choice.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/assets/sound/correct-choice.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/sound/heheheha.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/sound/invalid-selection.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/assets/sound/invalid-selection.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/sound/meow1.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/assets/sound/meow1.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/sound/meow2.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/assets/sound/meow2.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/sound/message_sound.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/assets/sound/message_sound.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/sound/piatto.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/sound/rubber_duck_sound.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/assets/sound/rubber_duck_sound.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/sound/sfx-badum.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/assets/sound/sfx-badum.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/sound/sfx-badum.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/sound/sfx-blipfemale.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/assets/sound/sfx-blipfemale.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/sound/sfx-blipfemale.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/sound/sfx-blipmale.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/assets/sound/sfx-blipmale.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/sound/sfx-blipmale.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/sound/sfx-guilty.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/sound/sfx-objection.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/assets/sound/sfx-objection.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/sound/sfx-objection.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/sound/sfx-realization.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/assets/sound/sfx-realization.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/sound/sfx-realization.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/sound/sfx-selectjingle.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/assets/sound/sfx-selectjingle.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/sound/sfx-selectjingle.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/sound/success.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/assets/sound/success.mp3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/build/libs/core-1.0.jar" beforeDir="false" afterPath="$PROJECT_DIR$/core/build/libs/core-1.0.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/core/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/desktop/build/classes/java/main/com/gruppo3/game/DesktopLauncher.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/desktop/src/com/gruppo3/game/DesktopLauncher.java" beforeDir="false" afterPath="$PROJECT_DIR$/desktop/src/com/gruppo3/game/DesktopLauncher.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/com/gruppo3/game/controller/SaveController.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/com/gruppo3/game/controller/SaveController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/com/gruppo3/game/model/interactables/Computer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/com/gruppo3/game/model/level/CorridoioAtto1Level.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/com/gruppo3/game/model/level/CorridoioAtto1Level.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/com/gruppo3/game/model/level/CorridoioAtto2Level.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/com/gruppo3/game/model/level/CorridoioAtto2Level.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/com/gruppo3/game/model/level/CreditiLevel.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/com/gruppo3/game/model/level/CreditiLevel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/com/gruppo3/game/model/level/SecretRoomLevel.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/com/gruppo3/game/model/level/SecretRoomLevel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/com/gruppo3/game/screens/MenuScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/com/gruppo3/game/screens/MenuScreen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/desktop/build/resources/main/music/CoconutMall.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/desktop/build/resources/main/music/Menu.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/desktop/build/resources/main/music/Menu.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/desktop/build/resources/main/music/Menu.ogg" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -205,6 +249,7 @@
       <workItem from="1705061772577" duration="3136000" />
       <workItem from="1705162541778" duration="185000" />
       <workItem from="1705263518440" duration="695000" />
+      <workItem from="1705334970820" duration="36000" />
     </task>
     <task id="LOCAL-00001" summary="collisioni npc">
       <option name="closed" value="true" />

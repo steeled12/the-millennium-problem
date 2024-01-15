@@ -190,5 +190,6 @@ public class CreditiLevel extends LevelStrategy {
         public void dispose() {
                 map.dispose();
                 renderer.dispose();
+                music.dispose();
         }
 }

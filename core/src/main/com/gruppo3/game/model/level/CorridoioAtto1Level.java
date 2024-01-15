@@ -41,11 +41,14 @@ public class CorridoioAtto1Level extends LevelStrategy {
         renderer = new OrthogonalTiledMapRenderer(map, unitScale);
         Player.getPlayer().getPlayerBox().x = 33;
         Player.getPlayer().getPlayerBox().y = 1;
+        this.music = Gdx.audio.newMusic(Gdx.files.internal("music/corridoio.mp3"));
+        this.music.setLooping(true);
     }
 
     @Override
     public void init() {
-
+        this.music.setVolume(SettingController.musicVolume);
+        this.music.play();
         // items
         ScriptableObject portaAula6Sx = new ScriptableObject(new Rectangle(4, 15, 2, 2), true) {
             @Override
@@ -209,6 +212,7 @@ public class CorridoioAtto1Level extends LevelStrategy {
     public void dispose() {
         map.dispose();
         renderer.dispose();
+        music.dispose();
     }
 
 }

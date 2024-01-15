@@ -18,7 +18,7 @@ public class MenuScreen implements Screen {
     MenuController menuController;
     private OrthographicCamera camera;
     MyGame game = (MyGame) Gdx.app.getApplicationListener();
-    private static Music music = Gdx.audio.newMusic(Gdx.files.internal("music/Menu.ogg"));
+    private static Music music = Gdx.audio.newMusic(Gdx.files.internal("music/Menu.mp3"));
     BitmapFont debugFont;
     SpriteBatch batch;
 

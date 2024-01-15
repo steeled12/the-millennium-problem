@@ -25,7 +25,7 @@ import com.gruppo3.game.controller.SettingController;
 
 public class SecretRoomLevel extends LevelStrategy {
 
-    private static Music music = Gdx.audio.newMusic(Gdx.files.internal("music/Menu.ogg"));
+    private static Music music = Gdx.audio.newMusic(Gdx.files.internal("music/Menu.mp3"));
 
     public SecretRoomLevel() {
         super();

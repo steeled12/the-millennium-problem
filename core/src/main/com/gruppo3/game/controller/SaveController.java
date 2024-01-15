@@ -22,7 +22,8 @@ public class SaveController {
     static MyGame game = (MyGame) Gdx.app.getApplicationListener();
 
     public static void save() {
-
+        currentSave.clear();
+        currentSave.flush();
         /* Effetturare il save di tutti i valori necessari */
         saveSavedInformation();
         savePlayerPosition(Player.getPlayer().getPlayerBox().x, Player.getPlayer().getPlayerBox().y);

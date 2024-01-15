@@ -17,6 +17,7 @@ import com.gruppo3.game.util.Action;
 import com.gruppo3.game.screens.GameScreen;
 import com.gruppo3.game.screens.TransitionScreen;
 import com.gruppo3.game.MyGame;
+import com.gruppo3.game.controller.SettingController;
 
 public class CorridoioAtto2Level extends LevelStrategy {
 
@@ -41,10 +42,14 @@ public class CorridoioAtto2Level extends LevelStrategy {
 
         Player.getPlayer().getPlayerBox().x = 33;
         Player.getPlayer().getPlayerBox().y = 1;
+        this.music = Gdx.audio.newMusic(Gdx.files.internal("music/corridoio.mp3"));
+        this.music.setLooping(true);
     }
 
     @Override
     public void init() {
+        this.music.setVolume(SettingController.musicVolume);
+        this.music.play();
         // items
         ScriptableObject portaAula6Sx = new ScriptableObject(new Rectangle(4, 15, 2, 2), true) {
             @Override
@@ -227,6 +232,7 @@ public class CorridoioAtto2Level extends LevelStrategy {
     public void dispose() {
         map.dispose();
         renderer.dispose();
+        music.dispose();
     }
 
 }
