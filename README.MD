@@ -1,5 +1,5 @@
 # Introduzione
-Questo è il gioco realizzato dal gruppo3.
+Piccolo gioco realizzato per progetto universitario
 
 
 ## Avvio in locale
